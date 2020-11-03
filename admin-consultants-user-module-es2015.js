@@ -466,17 +466,17 @@ let UserRestService = class UserRestService {
         this.users = [];
     }
     getTimeSheet() {
-        return this.http.get('http://localhost:8000/api/getAllTimesheets');
+        return this.http.get('http://portal.webmobilez.com/public/api/getAllTimesheets');
     }
     getConsultants() {
-        return this.http.get('http://localhost:8000/api/getAllConsultants/');
+        return this.http.get('http://portal.webmobilez.com/public/api/getAllConsultants/');
     }
     storeUser(form) {
-        return this.http.post('http://localhost:8000/api/store-consultant', form.value);
+        return this.http.post('http://portal.webmobilez.com/public/api/store-consultant', form.value);
     }
     statusChangeConsultant(index) {
         var body = 'index=' + index;
-        return this.http.post('http://localhost:8000/api/status-consultant', JSON.stringify({
+        return this.http.post('http://portal.webmobilez.com/public/api/status-consultant', JSON.stringify({
             cmd: "sa",
             data: "sd"
         }));

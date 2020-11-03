@@ -391,19 +391,19 @@ let UserRestService = class UserRestService {
         this.users = [];
     }
     getUsers() {
-        return this.http.get('http://localhost:8000/api/user-list');
+        return this.http.get('http://portal.webmobilez.com/public/api/user-list');
     }
     editUser(id) {
-        return this.http.get('http://localhost:8000/api/user-list/' + id);
+        return this.http.get('http://portal.webmobilez.com/public/api/user-list/' + id);
     }
     updateUser(form, id) {
-        return this.http.put('http://localhost:8000/api/user-list/' + id, form.value);
+        return this.http.put('http://portal.webmobilez.com/public/api/user-list/' + id, form.value);
     }
     storeUser(form) {
-        return this.http.post('http://localhost:8000/api/user-list', form.value);
+        return this.http.post('http://portal.webmobilez.com/public/api/user-list', form.value);
     }
     deleteUser(id) {
-        return this.http.delete('http://localhost:8000/api/user-list/' + id);
+        return this.http.delete('http://portal.webmobilez.com/public/api/user-list/' + id);
     }
 };
 UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
