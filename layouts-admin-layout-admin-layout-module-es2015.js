@@ -626,24 +626,37 @@ __webpack_require__.r(__webpack_exports__);
 const AdminLayoutRoutes = [
     { path: 'dashboard', canActivate: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]], component: _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_0__["DashboardComponent"] },
     { path: 'profile', canActivate: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]], component: _pages_user_user_component__WEBPACK_IMPORTED_MODULE_1__["UserComponent"] },
-    { path: 'consultantdocuments', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]], data: {
+    {
+        path: 'consultantdocuments', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
+        data: {
             expectedRole: 'Admin'
         },
-        loadChildren: () => Promise.all(/*! import() | admin-consultantDocuments-documents-module */[__webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-user-module~admin-hotlist-docum~c73208f1"), __webpack_require__.e("common"), __webpack_require__.e("admin-consultantDocuments-documents-module")]).then(__webpack_require__.bind(null, /*! ../../admin/consultantDocuments/documents.module */ "./src/app/admin/consultantDocuments/documents.module.ts")).then(m => m.DocumentsModule),
-    }, { path: 'hotlist', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]], data: {
-            expectedRole: 'Admin'
-        },
-        loadChildren: () => Promise.all(/*! import() | admin-hotlist-documents-module */[__webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-user-module~admin-hotlist-docum~c73208f1"), __webpack_require__.e("common"), __webpack_require__.e("admin-hotlist-documents-module")]).then(__webpack_require__.bind(null, /*! ../../admin/hotlist/documents.module */ "./src/app/admin/hotlist/documents.module.ts")).then(m => m.DocumentsModule),
+        loadChildren: () => Promise.all(/*! import() | admin-consultantDocuments-documents-module */[__webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-user-module~admin-hotlist-docum~ec427cda"), __webpack_require__.e("common"), __webpack_require__.e("admin-consultantDocuments-documents-module")]).then(__webpack_require__.bind(null, /*! ../../admin/consultantDocuments/documents.module */ "./src/app/admin/consultantDocuments/documents.module.ts")).then(m => m.DocumentsModule),
     },
-    { path: 'consultants', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]], data: {
-            expectedRole: 'Admin'
-        },
-        loadChildren: () => Promise.all(/*! import() | admin-consultants-user-module */[__webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-user-module~admin-hotlist-docum~c73208f1"), __webpack_require__.e("common"), __webpack_require__.e("admin-consultants-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/consultants/user.module */ "./src/app/admin/consultants/user.module.ts")).then(m => m.UserModule),
+    {
+        path: 'hotlist', canActivateChild: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]],
+        loadChildren: () => Promise.all(/*! import() | admin-hotlist-documents-module */[__webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-user-module~admin-hotlist-docum~ec427cda"), __webpack_require__.e("common"), __webpack_require__.e("admin-hotlist-documents-module")]).then(__webpack_require__.bind(null, /*! ../../admin/hotlist/documents.module */ "./src/app/admin/hotlist/documents.module.ts")).then(m => m.DocumentsModule),
     },
-    { path: 'users', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]], data: {
+    {
+        path: 'consultants', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
+        data: {
             expectedRole: 'Admin'
         },
-        loadChildren: () => Promise.all(/*! import() | admin-users-user-module */[__webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-user-module~admin-hotlist-docum~c73208f1"), __webpack_require__.e("admin-users-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/users/user.module */ "./src/app/admin/users/user.module.ts")).then(m => m.UserModule),
+        loadChildren: () => Promise.all(/*! import() | admin-consultants-user-module */[__webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-user-module~admin-hotlist-docum~ec427cda"), __webpack_require__.e("common"), __webpack_require__.e("admin-consultants-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/consultants/user.module */ "./src/app/admin/consultants/user.module.ts")).then(m => m.UserModule),
+    },
+    {
+        path: 'huntersconsultants', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
+        data: {
+            expectedRole: 'HeadHunters'
+        },
+        loadChildren: () => Promise.all(/*! import() | admin-huntersconsultants-hunter-module */[__webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-user-module~admin-hotlist-docum~ec427cda"), __webpack_require__.e("common"), __webpack_require__.e("admin-huntersconsultants-hunter-module")]).then(__webpack_require__.bind(null, /*! ../../admin/huntersconsultants/hunter.module */ "./src/app/admin/huntersconsultants/hunter.module.ts")).then(m => m.HunterModule),
+    },
+    {
+        path: 'users', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
+        data: {
+            expectedRole: 'Admin'
+        },
+        loadChildren: () => Promise.all(/*! import() | admin-users-user-module */[__webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-user-module~admin-hotlist-docum~ec427cda"), __webpack_require__.e("admin-users-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/users/user.module */ "./src/app/admin/users/user.module.ts")).then(m => m.UserModule),
     },
 ];
 

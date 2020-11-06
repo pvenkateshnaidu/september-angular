@@ -1,9 +1,9 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["admin-consultants-user-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["admin-huntersconsultants-hunter-module"],{
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-create/user-create.component.html":
-/*!****************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/consultants/user-create/user-create.component.html ***!
-  \****************************************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/huntersconsultants/user-create/user-create.component.html":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/huntersconsultants/user-create/user-create.component.html ***!
+  \***********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -11,10 +11,10 @@ module.exports = "<p-toast position=\"bottom-right\"></p-toast>\n<div class=\"ro
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-edit/user-create.component.html":
-/*!**************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/consultants/user-edit/user-create.component.html ***!
-  \**************************************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/huntersconsultants/user-edit/user-create.component.html":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/huntersconsultants/user-edit/user-create.component.html ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -22,10 +22,10 @@ module.exports = "<p-toast position=\"bottom-right\"></p-toast>\n<div class=\"ro
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-index/user-index.component.html":
-/*!**************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/consultants/user-index/user-index.component.html ***!
-  \**************************************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/huntersconsultants/user-index/user-index.component.html":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/huntersconsultants/user-index/user-index.component.html ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -33,32 +33,144 @@ module.exports = "\n\n<div class=\"row\">\n    <div class=\"col-md-12\">\n      
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-list/user-list.component.html":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/consultants/user-list/user-list.component.html ***!
-  \************************************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/huntersconsultants/user-list/user-list.component.html":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/huntersconsultants/user-list/user-list.component.html ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4 class=\"remove-margin\"> Consultant List  <a routerLink=\"/consultants/create\" class=\"btn btn-primary\">\r\n  Add Consultant\r\n </a></h4>\r\n\r\n\r\n<!--\r\n<p-table #dt [responsive]=\"true\" [value]=\"timeSheets\" [frozenColumns]=\"frozenCols\" [scrollable]=\"true\"\r\n  scrollHeight=\"200px\" appendTo=\"body\" filterMatchMode=\"equals\" columnResizeMode=\"expand\" dataKey=\"id\" [rows]=\"10\"\r\n  [showCurrentPageReport]=\"true\" tableStyleClass=\"fixtable\" [rowsPerPageOptions]=\"[5,10,20,30]\" [loading]=\"loading\"\r\n  styleClass=\"p-datatable-customers\" [paginator]=\"true\" [filterDelay]=\"0\"\r\n  [globalFilterFields]=\"['created_at','consultatName','consultantEmail','consultatMobileNumber','experience','rate','reportStatus']\">\r\n\r\n  <ng-template pTemplate=\"header\">\r\n    <tr>\r\n\r\n      <th>Consultant Name</th>\r\n      <th>Created At</th>\r\n      <th>Email</th>\r\n      <th>Phone number</th>\r\n\r\n      <th>Exp </th>\r\n      <th>Rate</th>\r\n      <th>Status</th>\r\n      <th>Action</th>\r\n\r\n    </tr>\r\n    <tr>\r\n\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <p-calendar (onSelect)=\"onDateSelect($event)\" (onClearClick)=\"dt.filter('', 'created_at', 'equals')\"\r\n          [showButtonBar]=\"true\" [style]=\"{'width':'300px'}\" styleClass=\"p-column-filter\" placeholder=\"Date\"\r\n          [readonlyInput]=\"true\" dateFormat=\"yy-mm-dd\"></p-calendar>\r\n      </th>\r\n      <th> <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultantEmail', 'startsWith')\"\r\n          placeholder=\"Email\" class=\"p-column-filter\"></th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatMobileNumber', 'startsWith')\"\r\n          placeholder=\"Phone\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'experience', 'startsWith')\"\r\n          placeholder=\"exp\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'rate', 'startsWith')\" placeholder=\"Rate\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'reportStatus', 'startsWith')\"\r\n          placeholder=\"Status\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-customer>\r\n    <tr>\r\n\r\n\r\n      <td>\r\n        {{customer.consultatName}}\r\n      </td>\r\n      <td>\r\n        {{customer.created_at | date}}\r\n      </td>\r\n      <td>\r\n        {{customer.consultantEmail}}\r\n      </td>\r\n      <td>\r\n        {{customer.consultatMobileNumber}}\r\n      </td>\r\n\r\n      <td>\r\n        {{customer.experience}}\r\n      </td>\r\n      <td>\r\n        {{customer.rate}}\r\n      </td>\r\n      <td>\r\n        {{customer.reportStatus}}\r\n      </td>\r\n      <td>\r\n        -\r\n      </td>\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"emptymessage\">\r\n    <tr>\r\n      <td colspan=\"6\">No Consultants found.</td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table> -->\r\n<!--\r\n<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n          <h4 class=\"remove-margin\"> Timesheet List </h4>\r\n    <div class=\"card\">\r\n\r\n      <div class=\"card-body\">\r\n        <p-table #dt [value]=\"timeSheets\" dataKey=\"id\"\r\n        [rows]=\"10\" [showCurrentPageReport]=\"true\" [rowsPerPageOptions]=\"[10,20]\" [loading]=\"loading\" styleClass=\"p-datatable-customers\"\r\n        [paginator]=\"false\"\r\n        [filterDelay]=\"0\" [globalFilterFields]=\"['fromDate','duration','assignment','serviceCode']\">\r\n\r\n        <ng-template pTemplate=\"header\">\r\n            <tr>\r\n                <th>Employee</th>\r\n                <th>Date</th>\r\n                <th>Duration</th>\r\n                <th>Assignment</th>\r\n                <th>Service Code</th>\r\n            </tr>\r\n\r\n        </ng-template>\r\n        <ng-template pTemplate=\"body\" let-customer>\r\n            <tr>\r\n              <td>\r\n                {{customer.user_details.name}}\r\n              </td>\r\n                <td>\r\n                    {{customer.fromDate | date}}\r\n                </td>\r\n                <td>\r\n                   {{customer.duration}}\r\n                </td>\r\n                <td>\r\n                  {{customer.assignment}}\r\n               </td>\r\n               <td>\r\n                {{customer.serviceCode}}\r\n             </td>\r\n            </tr>\r\n        </ng-template>\r\n        <ng-template pTemplate=\"emptymessage\">\r\n            <tr>\r\n                <td colspan=\"6\">No Users found.</td>\r\n            </tr>\r\n        </ng-template>\r\n    </p-table>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n<p-inplace>\r\n  <ng-template pTemplate=\"display\">\r\n    Click to Edit\r\n  </ng-template>\r\n  <ng-template pTemplate=\"content\">\r\n    <input type=\"text\" value=\"PrimeNG\" pInputText>\r\n  </ng-template>\r\n</p-inplace>\r\n\r\n<p-table #dt [value]=\"timeSheets\" dataKey=\"id\"\r\n        [rows]=\"10\" [showCurrentPageReport]=\"true\" [rowsPerPageOptions]=\"[10,25,50]\" [loading]=\"loading\" styleClass=\"p-datatable-customers\"\r\n        [paginator]=\"true\" currentPageReportTemplate=\"Showing {first} to {last} of {totalRecords} entries\"\r\n        [filterDelay]=\"0\" [globalFilterFields]=\"['consultatName']\">\r\n        <ng-template pTemplate=\"caption\">\r\n            <div class=\"table-header\">\r\n                List of Consultants\r\n                <span class=\"p-input-icon-left\">\r\n                    <i class=\"pi pi-search\"></i>\r\n                    <input pInputText type=\"text\" (input)=\"dt.filterGlobal($event.target.value, 'contains')\" placeholder=\"Global Search\" />\r\n                </span>\r\n            </div>\r\n        </ng-template>\r\n        <ng-template pTemplate=\"header\">\r\n            <tr>\r\n                <th>Name</th>\r\n\r\n            </tr>\r\n            <tr>\r\n                <th>\r\n                    <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatName', 'startsWith')\" placeholder=\"Search by Name\" class=\"p-column-filter\">\r\n                </th>\r\n\r\n\r\n\r\n\r\n            </tr>\r\n        </ng-template>\r\n        <ng-template pTemplate=\"body\" let-customer>\r\n            <tr>\r\n                <td>\r\n                    {{customer.consultatName}}\r\n                </td>\r\n\r\n\r\n            </tr>\r\n        </ng-template>\r\n        <ng-template pTemplate=\"emptymessage\">\r\n            <tr>\r\n                <td colspan=\"6\">No Consultants found.</td>\r\n            </tr>\r\n        </ng-template>\r\n    </p-table>\r\n {{rowData|field:col}}\r\n  -->\r\n\r\n<p-table #dt [columns]=\"scrollableCols\" [autoLayout]=\"true\"  [value]=\"timeSheets\" [scrollable]=\"true\"\r\n   [filterDelay]=\"0\" [globalFilterFields]=\"['consultatName']\" [resizableColumns]=\"true\" columnResizeMode=\"expand\" [reorderableColumns]=\"true\"\r\n  autoLayout=\"true\"  dataKey=\"reportId\" editMode=\"row\" [paginator]=\"true\" [rows]=\"10\" [showCurrentPageReport]=\"true\"\r\n  currentPageReportTemplate=\"Showing {first} to {last} of {totalRecords} entries\" [rowsPerPageOptions]=\"[10,25,50]\">\r\n  <ng-template pTemplate=\"colgroup\" let-columns>\r\n    <colgroup>\r\n\r\n      <col *ngFor=\"let col of columns\" style=\"width:200px\">\r\n\r\n      <col style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n    </colgroup>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th>Action</th>\r\n      <th>Docs</th>\r\n      <th *ngFor=\"let col of columns\" [ngStyle]=\"{'width': col.width}\">\r\n        {{col.header}}\r\n      </th>\r\n\r\n    </tr>\r\n    <tr>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'user_details.name', 'startsWith')\"\r\n          placeholder=\"Created By\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <i class=\"pi pi-download\"></i>\r\n      </th>\r\n\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n\r\n<!--  <th> <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'user_details.name', 'startsWith')\"\r\n        placeholder=\"Created By\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n\r\n   <th>\r\n        <p-calendar (onSelect)=\"onDateSelect($event)\" (onClearClick)=\"dt.filter('', 'created_at', 'equals')\"\r\n          [showButtonBar]=\"true\" [style]=\"{'width':'300px'}\" styleClass=\"p-column-filter\" placeholder=\"Date\"\r\n          [readonlyInput]=\"true\" dateFormat=\"yy-mm-dd\"></p-calendar>\r\n      </th> -->\r\n\r\n      <th> <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultantEmail', 'startsWith')\"\r\n          placeholder=\"Email\" class=\"p-column-filter\"></th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatMobileNumber', 'startsWith')\"\r\n          placeholder=\"Phone\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'experience', 'startsWith')\"\r\n          placeholder=\"exp\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'rate', 'startsWith')\" placeholder=\"Rate\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'technology', 'startsWith')\" placeholder=\"technology\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'visaType', 'startsWith')\"\r\n          placeholder=\"visaType\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'city', 'startsWith')\"\r\n          placeholder=\"city\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'state', 'startsWith')\"\r\n          placeholder=\"state\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'willingLocation', 'startsWith')\"\r\n          placeholder=\"willingLocation\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'documentsCollected', 'startsWith')\"\r\n          placeholder=\"documentsCollected\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'resource', 'startsWith')\"\r\n          placeholder=\"resource\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'ssn', 'startsWith')\"\r\n          placeholder=\"SSN\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'bestContactNumber', 'startsWith')\"\r\n          placeholder=\"bestContactNumber\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'linkedInUrl', 'startsWith')\"\r\n          placeholder=\"linkedInUrl\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'skypeId', 'startsWith')\"\r\n          placeholder=\"skypeId\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'priority', 'startsWith')\"\r\n          placeholder=\"priority\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'reportStatus', 'startsWith')\"\r\n          placeholder=\"Status\" class=\"p-column-filter\">\r\n      </th>\r\n     <!--   <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'rate', 'startsWith')\" placeholder=\"Rate\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n  <th>\r\n        <p-multiSelect [options]=\"statusOptions\" placeholder=\"All\" (onChange)=\"onRepresentativeChange($event)\" styleClass=\"p-column-filter\" >\r\n            <ng-template let-option pTemplate=\"item\">\r\n                <div class=\"p-multiselect-representative-option\">\r\n                     <span class=\"p-ml-1\">{{option.label}}</span>\r\n                </div>\r\n            </ng-template>\r\n        </p-multiSelect>\r\n    </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'visaType', 'startsWith')\"\r\n          placeholder=\"visaType\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'city', 'startsWith')\"\r\n          placeholder=\"city\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'state', 'startsWith')\"\r\n          placeholder=\"state\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'willingLocation', 'startsWith')\"\r\n          placeholder=\"willingLocation\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'documentsCollected', 'startsWith')\"\r\n          placeholder=\"documentsCollected\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'resource', 'startsWith')\"\r\n          placeholder=\"resource\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'ssn', 'startsWith')\"\r\n          placeholder=\"SSN\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'bestContactNumber', 'startsWith')\"\r\n          placeholder=\"bestContactNumber\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'linkedInUrl', 'startsWith')\"\r\n          placeholder=\"linkedInUrl\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'skypeId', 'startsWith')\"\r\n          placeholder=\"skypeId\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'priority', 'startsWith')\"\r\n          placeholder=\"priority\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'reportStatus', 'startsWith')\"\r\n          placeholder=\"Status\" class=\"p-column-filter\">\r\n      </th> -->\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\" let-editing=\"editing\" let-ri=\"rowIndex\">\r\n\r\n    <tr [pEditableRow]=\"rowData\" [ngStyle]=\"{'background-color':getColor(rowData.reportStatus,rowData.adminStatus)}\"  >\r\n      <td style=\"text-align:center\">\r\n\r\n        <button pRipple pButton type=\"button\"  icon=\"pi pi-thumbs-up\" (click)=\"dropDatabase($event,rowData.reportId);\"  class=\"p-button-rounded p-button-text \"></button>\r\n        <!--  <button  *ngIf=\"!editing\" pButton pRipple type=\"button\" pInitEditableRow icon=\"pi pi-pencil\" (click)=\"onRowEditInit(rowData)\" class=\"p-button-rounded p-button-text \"></button>\r\n            <button   *ngIf=\"editing\" pButton pRipple type=\"button\" pSaveEditableRow icon=\"pi pi-check\" (click)=\"onRowEditSave(rowData,ri)\" class=\"p-button-rounded p-button-text p-button-success p-mr-2\"></button>\r\n            <button   *ngIf=\"editing\" pButton pRipple type=\"button\" pCancelEditableRow icon=\"pi pi-times\" (click)=\"onRowEditCancel(rowData, ri)\" class=\"p-button-rounded p-button-text p-button-danger\"></button> -->\r\n            <a (click)=\"editUser(rowData.reportId)\"  class=\"btn btn-warning btn-sm\">Edit</a>\r\n            {{rowData.user_details.name}}\r\n        </td>\r\n      <td>\r\n        <button pRipple pButton type=\"button\"  icon=\"pi pi-copy\" (click)=\"download($event,rowData.resume);\"  class=\"p-button-rounded p-button-text \"></button>\r\n        <button pRipple pButton type=\"button\"  icon=\"pi pi-briefcase\" (click)=\"download($event,rowData.workAuthorization);\"  class=\"p-button-rounded p-button-text \"></button>\r\n{{rowData.created_at | date }}\r\n      </td>\r\n      <td *ngFor=\"let col of columns\" >\r\n            <div *ngIf=\"!col.editable\">\r\n              {{rowData|field:col}}\r\n            </div>\r\n            <p-cellEditor *ngIf=\"col.editable\">\r\n                    <ng-template pTemplate=\"input\" >\r\n                      <div *ngIf=\"rowData|field:col as variable\">\r\n                         <input pInputText type=\"text\"  [(ngModel)]=\"variable\" required>\r\n                                                </div>\r\n                    </ng-template>\r\n                    <ng-template pTemplate=\"output\">\r\n\r\n                        {{rowData|field:col}}\r\n                    </ng-template>\r\n            </p-cellEditor>\r\n      </td>\r\n\r\n      <!-- <td>\r\n        <a href=\"#\" class=\"btn btn-circle btn-sm btn-primary updateStatus\" (click)=\"dropDatabase($event,rowData.reportId);\"  data-toggle=\"tooltip\" title=\"Publish\">\r\n          <i\r\n          class=\"fa fa-thumbs-up\"></i>\r\n        </a>\r\n\r\n          <button  *ngIf=\"!editing\" pButton pRipple type=\"button\" pInitEditableRow icon=\"pi pi-pencil\" (click)=\"onRowEditInit(custom)\" class=\"p-button-rounded p-button-text \"></button>\r\n          <button   *ngIf=\"editing\" pButton pRipple type=\"button\" pSaveEditableRow icon=\"pi pi-check\" (click)=\"onRowEditSave(custom,ri)\" class=\"p-button-rounded p-button-text p-button-success p-mr-2\"></button>\r\n          <button   *ngIf=\"editing\" pButton pRipple type=\"button\" pCancelEditableRow icon=\"pi pi-times\" (click)=\"onRowEditCancel(custom, ri)\" class=\"p-button-rounded p-button-text p-button-danger\"></button>\r\n\r\n      </td>\r\n\r\n    </tr>\r\n   <tr [pEditableRow]=\"rowData\">\r\n\r\n      <td>\r\n        <p-cellEditor>\r\n            <ng-template pTemplate=\"input\">\r\n                <input pInputText type=\"text\" [(ngModel)]=\"rowData.consultatName\">\r\n            </ng-template>\r\n            <ng-template pTemplate=\"output\">\r\n                {{rowData.consultatName}}\r\n            </ng-template>\r\n        </p-cellEditor>\r\n     </td>\r\n     <td>\r\n      <p-cellEditor>\r\n          <ng-template pTemplate=\"input\">\r\n              <input pInputText type=\"text\" [(ngModel)]=\"rowData.consultantEmail\">\r\n          </ng-template>\r\n          <ng-template pTemplate=\"output\">\r\n              {{rowData.consultantEmail}}\r\n          </ng-template>\r\n      </p-cellEditor>\r\n   </td>\r\n\r\n   <td>\r\n    <p-cellEditor>\r\n        <ng-template pTemplate=\"input\">\r\n            <input pInputText type=\"text\" [(ngModel)]=\"rowData.consultantEmail\">\r\n        </ng-template>\r\n        <ng-template pTemplate=\"output\">\r\n            {{rowData.consultantEmail}}\r\n        </ng-template>\r\n    </p-cellEditor>\r\n </td>\r\n <td>\r\n  <p-cellEditor>\r\n      <ng-template pTemplate=\"input\">\r\n          <input pInputText type=\"text\" [(ngModel)]=\"rowData.experience\">\r\n      </ng-template>\r\n      <ng-template pTemplate=\"output\">\r\n          {{rowData.experience}}\r\n      </ng-template>\r\n  </p-cellEditor>\r\n</td> -->\r\n\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n<p-confirmDialog key=\"confirm-drop-database\" header=\"Confirmation\" acceptLabel=\"Yes\" rejectLabel=\"No\" [(visible)]=\"confirmDropDatabaseDialogVisible\"></p-confirmDialog>\r\n"
+module.exports = "<h4 class=\"remove-margin\"> Consultant List  <a routerLink=\"/huntersconsultants/create\" class=\"btn btn-primary\">\r\n  Add Consultant\r\n </a></h4>\r\n\r\n\r\n<!--\r\n<p-table #dt [responsive]=\"true\" [value]=\"timeSheets\" [frozenColumns]=\"frozenCols\" [scrollable]=\"true\"\r\n  scrollHeight=\"200px\" appendTo=\"body\" filterMatchMode=\"equals\" columnResizeMode=\"expand\" dataKey=\"id\" [rows]=\"10\"\r\n  [showCurrentPageReport]=\"true\" tableStyleClass=\"fixtable\" [rowsPerPageOptions]=\"[5,10,20,30]\" [loading]=\"loading\"\r\n  styleClass=\"p-datatable-customers\" [paginator]=\"true\" [filterDelay]=\"0\"\r\n  [globalFilterFields]=\"['created_at','consultatName','consultantEmail','consultatMobileNumber','experience','rate','reportStatus']\">\r\n\r\n  <ng-template pTemplate=\"header\">\r\n    <tr>\r\n\r\n      <th>Consultant Name</th>\r\n      <th>Created At</th>\r\n      <th>Email</th>\r\n      <th>Phone number</th>\r\n\r\n      <th>Exp </th>\r\n      <th>Rate</th>\r\n      <th>Status</th>\r\n      <th>Action</th>\r\n\r\n    </tr>\r\n    <tr>\r\n\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <p-calendar (onSelect)=\"onDateSelect($event)\" (onClearClick)=\"dt.filter('', 'created_at', 'equals')\"\r\n          [showButtonBar]=\"true\" [style]=\"{'width':'300px'}\" styleClass=\"p-column-filter\" placeholder=\"Date\"\r\n          [readonlyInput]=\"true\" dateFormat=\"yy-mm-dd\"></p-calendar>\r\n      </th>\r\n      <th> <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultantEmail', 'startsWith')\"\r\n          placeholder=\"Email\" class=\"p-column-filter\"></th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatMobileNumber', 'startsWith')\"\r\n          placeholder=\"Phone\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'experience', 'startsWith')\"\r\n          placeholder=\"exp\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'rate', 'startsWith')\" placeholder=\"Rate\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'reportStatus', 'startsWith')\"\r\n          placeholder=\"Status\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-customer>\r\n    <tr>\r\n\r\n\r\n      <td>\r\n        {{customer.consultatName}}\r\n      </td>\r\n      <td>\r\n        {{customer.created_at | date}}\r\n      </td>\r\n      <td>\r\n        {{customer.consultantEmail}}\r\n      </td>\r\n      <td>\r\n        {{customer.consultatMobileNumber}}\r\n      </td>\r\n\r\n      <td>\r\n        {{customer.experience}}\r\n      </td>\r\n      <td>\r\n        {{customer.rate}}\r\n      </td>\r\n      <td>\r\n        {{customer.reportStatus}}\r\n      </td>\r\n      <td>\r\n        -\r\n      </td>\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"emptymessage\">\r\n    <tr>\r\n      <td colspan=\"6\">No Consultants found.</td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table> -->\r\n<!--\r\n<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n          <h4 class=\"remove-margin\"> Timesheet List </h4>\r\n    <div class=\"card\">\r\n\r\n      <div class=\"card-body\">\r\n        <p-table #dt [value]=\"timeSheets\" dataKey=\"id\"\r\n        [rows]=\"10\" [showCurrentPageReport]=\"true\" [rowsPerPageOptions]=\"[10,20]\" [loading]=\"loading\" styleClass=\"p-datatable-customers\"\r\n        [paginator]=\"false\"\r\n        [filterDelay]=\"0\" [globalFilterFields]=\"['fromDate','duration','assignment','serviceCode']\">\r\n\r\n        <ng-template pTemplate=\"header\">\r\n            <tr>\r\n                <th>Employee</th>\r\n                <th>Date</th>\r\n                <th>Duration</th>\r\n                <th>Assignment</th>\r\n                <th>Service Code</th>\r\n            </tr>\r\n\r\n        </ng-template>\r\n        <ng-template pTemplate=\"body\" let-customer>\r\n            <tr>\r\n              <td>\r\n                {{customer.user_details.name}}\r\n              </td>\r\n                <td>\r\n                    {{customer.fromDate | date}}\r\n                </td>\r\n                <td>\r\n                   {{customer.duration}}\r\n                </td>\r\n                <td>\r\n                  {{customer.assignment}}\r\n               </td>\r\n               <td>\r\n                {{customer.serviceCode}}\r\n             </td>\r\n            </tr>\r\n        </ng-template>\r\n        <ng-template pTemplate=\"emptymessage\">\r\n            <tr>\r\n                <td colspan=\"6\">No Users found.</td>\r\n            </tr>\r\n        </ng-template>\r\n    </p-table>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n<p-inplace>\r\n  <ng-template pTemplate=\"display\">\r\n    Click to Edit\r\n  </ng-template>\r\n  <ng-template pTemplate=\"content\">\r\n    <input type=\"text\" value=\"PrimeNG\" pInputText>\r\n  </ng-template>\r\n</p-inplace>\r\n\r\n<p-table #dt [value]=\"timeSheets\" dataKey=\"id\"\r\n        [rows]=\"10\" [showCurrentPageReport]=\"true\" [rowsPerPageOptions]=\"[10,25,50]\" [loading]=\"loading\" styleClass=\"p-datatable-customers\"\r\n        [paginator]=\"true\" currentPageReportTemplate=\"Showing {first} to {last} of {totalRecords} entries\"\r\n        [filterDelay]=\"0\" [globalFilterFields]=\"['consultatName']\">\r\n        <ng-template pTemplate=\"caption\">\r\n            <div class=\"table-header\">\r\n                List of Consultants\r\n                <span class=\"p-input-icon-left\">\r\n                    <i class=\"pi pi-search\"></i>\r\n                    <input pInputText type=\"text\" (input)=\"dt.filterGlobal($event.target.value, 'contains')\" placeholder=\"Global Search\" />\r\n                </span>\r\n            </div>\r\n        </ng-template>\r\n        <ng-template pTemplate=\"header\">\r\n            <tr>\r\n                <th>Name</th>\r\n\r\n            </tr>\r\n            <tr>\r\n                <th>\r\n                    <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatName', 'startsWith')\" placeholder=\"Search by Name\" class=\"p-column-filter\">\r\n                </th>\r\n\r\n\r\n\r\n\r\n            </tr>\r\n        </ng-template>\r\n        <ng-template pTemplate=\"body\" let-customer>\r\n            <tr>\r\n                <td>\r\n                    {{customer.consultatName}}\r\n                </td>\r\n\r\n\r\n            </tr>\r\n        </ng-template>\r\n        <ng-template pTemplate=\"emptymessage\">\r\n            <tr>\r\n                <td colspan=\"6\">No Consultants found.</td>\r\n            </tr>\r\n        </ng-template>\r\n    </p-table>\r\n {{rowData|field:col}}\r\n  -->\r\n\r\n<p-table #dt [columns]=\"scrollableCols\" [autoLayout]=\"true\"  [value]=\"timeSheets\" [scrollable]=\"true\"\r\n   [filterDelay]=\"0\" [globalFilterFields]=\"['consultatName']\" [resizableColumns]=\"true\" columnResizeMode=\"expand\" [reorderableColumns]=\"true\"\r\n  autoLayout=\"true\"  dataKey=\"reportId\" editMode=\"row\" [paginator]=\"true\" [rows]=\"10\" [showCurrentPageReport]=\"true\"\r\n  currentPageReportTemplate=\"Showing {first} to {last} of {totalRecords} entries\" [rowsPerPageOptions]=\"[10,25,50]\">\r\n  <ng-template pTemplate=\"colgroup\" let-columns>\r\n    <colgroup>\r\n\r\n      <col *ngFor=\"let col of columns\" style=\"width:200px\">\r\n\r\n      <col style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n    </colgroup>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th>Action</th>\r\n      <th>Docs</th>\r\n      <th *ngFor=\"let col of columns\" [ngStyle]=\"{'width': col.width}\">\r\n        {{col.header}}\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <th>\r\n\r\n      </th>\r\n      <th>\r\n        <i class=\"pi pi-download\"></i>\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'user_details.name', 'startsWith')\"\r\n          placeholder=\"Created By\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n<!--  <th> <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'user_details.name', 'startsWith')\"\r\n        placeholder=\"Created By\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n\r\n   <th>\r\n        <p-calendar (onSelect)=\"onDateSelect($event)\" (onClearClick)=\"dt.filter('', 'created_at', 'equals')\"\r\n          [showButtonBar]=\"true\" [style]=\"{'width':'300px'}\" styleClass=\"p-column-filter\" placeholder=\"Date\"\r\n          [readonlyInput]=\"true\" dateFormat=\"yy-mm-dd\"></p-calendar>\r\n      </th> -->\r\n\r\n      <th> <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultantEmail', 'startsWith')\"\r\n          placeholder=\"Email\" class=\"p-column-filter\"></th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatMobileNumber', 'startsWith')\"\r\n          placeholder=\"Phone\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'experience', 'startsWith')\"\r\n          placeholder=\"exp\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n     <!--   <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'rate', 'startsWith')\" placeholder=\"Rate\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n  <th>\r\n        <p-multiSelect [options]=\"statusOptions\" placeholder=\"All\" (onChange)=\"onRepresentativeChange($event)\" styleClass=\"p-column-filter\" >\r\n            <ng-template let-option pTemplate=\"item\">\r\n                <div class=\"p-multiselect-representative-option\">\r\n                     <span class=\"p-ml-1\">{{option.label}}</span>\r\n                </div>\r\n            </ng-template>\r\n        </p-multiSelect>\r\n    </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'visaType', 'startsWith')\"\r\n          placeholder=\"visaType\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'city', 'startsWith')\"\r\n          placeholder=\"city\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'state', 'startsWith')\"\r\n          placeholder=\"state\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'willingLocation', 'startsWith')\"\r\n          placeholder=\"willingLocation\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'documentsCollected', 'startsWith')\"\r\n          placeholder=\"documentsCollected\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'resource', 'startsWith')\"\r\n          placeholder=\"resource\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'ssn', 'startsWith')\"\r\n          placeholder=\"SSN\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'bestContactNumber', 'startsWith')\"\r\n          placeholder=\"bestContactNumber\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'linkedInUrl', 'startsWith')\"\r\n          placeholder=\"linkedInUrl\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'skypeId', 'startsWith')\"\r\n          placeholder=\"skypeId\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'priority', 'startsWith')\"\r\n          placeholder=\"priority\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'reportStatus', 'startsWith')\"\r\n          placeholder=\"Status\" class=\"p-column-filter\">\r\n      </th> -->\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\" let-editing=\"editing\" let-ri=\"rowIndex\">\r\n\r\n    <tr [pEditableRow]=\"rowData\" [ngStyle]=\"{'background-color':getColor(rowData.reportStatus,rowData.adminStatus)}\"  >\r\n      <td style=\"text-align:center\" >\r\n<span *ngIf=\"rowData.userStatus != 'p'\">\r\n  <button pRipple pButton type=\"button\"  icon=\"pi pi-thumbs-up\" (click)=\"dropDatabase($event,rowData.reportId);\"  class=\"p-button-rounded p-button-text \"></button>\r\n        <!--  <button  *ngIf=\"!editing\" pButton pRipple type=\"button\" pInitEditableRow icon=\"pi pi-pencil\" (click)=\"onRowEditInit(rowData)\" class=\"p-button-rounded p-button-text \"></button>\r\n            <button   *ngIf=\"editing\" pButton pRipple type=\"button\" pSaveEditableRow icon=\"pi pi-check\" (click)=\"onRowEditSave(rowData,ri)\" class=\"p-button-rounded p-button-text p-button-success p-mr-2\"></button>\r\n            <button   *ngIf=\"editing\" pButton pRipple type=\"button\" pCancelEditableRow icon=\"pi pi-times\" (click)=\"onRowEditCancel(rowData, ri)\" class=\"p-button-rounded p-button-text p-button-danger\"></button> -->\r\n            <a (click)=\"editUser(rowData.reportId)\"  class=\"btn btn-warning btn-sm\">Edit</a>\r\n\r\n</span>\r\n<span *ngIf=\"rowData.userStatus == 'p'\">Submit to Admin</span>\r\n            </td>\r\n      <td>\r\n        <button pRipple pButton type=\"button\"  icon=\"pi pi-copy\" (click)=\"download($event,rowData.resume);\"  class=\"p-button-rounded p-button-text \"></button>\r\n        <button pRipple pButton type=\"button\"  icon=\"pi pi-briefcase\" (click)=\"download($event,rowData.workAuthorization);\"  class=\"p-button-rounded p-button-text \"></button>\r\n{{rowData.created_at | date }}</td>\r\n      <td *ngFor=\"let col of columns\" >\r\n            <div *ngIf=\"!col.editable\">\r\n              {{rowData|field:col}}\r\n            </div>\r\n            <p-cellEditor *ngIf=\"col.editable\">\r\n                    <ng-template pTemplate=\"input\" >\r\n                      <div *ngIf=\"rowData|field:col as variable\">\r\n                         <input pInputText type=\"text\"  [(ngModel)]=\"variable\" required>\r\n                                                </div>\r\n                    </ng-template>\r\n                    <ng-template pTemplate=\"output\">\r\n\r\n                        {{rowData|field:col}}\r\n                    </ng-template>\r\n            </p-cellEditor>\r\n      </td>\r\n\r\n      <!-- <td>\r\n        <a href=\"#\" class=\"btn btn-circle btn-sm btn-primary updateStatus\" (click)=\"dropDatabase($event,rowData.reportId);\"  data-toggle=\"tooltip\" title=\"Publish\">\r\n          <i\r\n          class=\"fa fa-thumbs-up\"></i>\r\n        </a>\r\n\r\n          <button  *ngIf=\"!editing\" pButton pRipple type=\"button\" pInitEditableRow icon=\"pi pi-pencil\" (click)=\"onRowEditInit(custom)\" class=\"p-button-rounded p-button-text \"></button>\r\n          <button   *ngIf=\"editing\" pButton pRipple type=\"button\" pSaveEditableRow icon=\"pi pi-check\" (click)=\"onRowEditSave(custom,ri)\" class=\"p-button-rounded p-button-text p-button-success p-mr-2\"></button>\r\n          <button   *ngIf=\"editing\" pButton pRipple type=\"button\" pCancelEditableRow icon=\"pi pi-times\" (click)=\"onRowEditCancel(custom, ri)\" class=\"p-button-rounded p-button-text p-button-danger\"></button>\r\n\r\n      </td>\r\n\r\n    </tr>\r\n   <tr [pEditableRow]=\"rowData\">\r\n\r\n      <td>\r\n        <p-cellEditor>\r\n            <ng-template pTemplate=\"input\">\r\n                <input pInputText type=\"text\" [(ngModel)]=\"rowData.consultatName\">\r\n            </ng-template>\r\n            <ng-template pTemplate=\"output\">\r\n                {{rowData.consultatName}}\r\n            </ng-template>\r\n        </p-cellEditor>\r\n     </td>\r\n     <td>\r\n      <p-cellEditor>\r\n          <ng-template pTemplate=\"input\">\r\n              <input pInputText type=\"text\" [(ngModel)]=\"rowData.consultantEmail\">\r\n          </ng-template>\r\n          <ng-template pTemplate=\"output\">\r\n              {{rowData.consultantEmail}}\r\n          </ng-template>\r\n      </p-cellEditor>\r\n   </td>\r\n\r\n   <td>\r\n    <p-cellEditor>\r\n        <ng-template pTemplate=\"input\">\r\n            <input pInputText type=\"text\" [(ngModel)]=\"rowData.consultantEmail\">\r\n        </ng-template>\r\n        <ng-template pTemplate=\"output\">\r\n            {{rowData.consultantEmail}}\r\n        </ng-template>\r\n    </p-cellEditor>\r\n </td>\r\n <td>\r\n  <p-cellEditor>\r\n      <ng-template pTemplate=\"input\">\r\n          <input pInputText type=\"text\" [(ngModel)]=\"rowData.experience\">\r\n      </ng-template>\r\n      <ng-template pTemplate=\"output\">\r\n          {{rowData.experience}}\r\n      </ng-template>\r\n  </p-cellEditor>\r\n</td> -->\r\n\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n<p-confirmDialog key=\"confirm-drop-database\" header=\"Confirmation\" acceptLabel=\"Yes\" rejectLabel=\"No\" [(visible)]=\"confirmDropDatabaseDialogVisible\"></p-confirmDialog>\r\n"
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-create/user-create.component.scss":
-/*!**************************************************************************!*\
-  !*** ./src/app/admin/consultants/user-create/user-create.component.scss ***!
-  \**************************************************************************/
+/***/ "./src/app/admin/huntersconsultants/hunter.module.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/admin/huntersconsultants/hunter.module.ts ***!
+  \***********************************************************/
+/*! exports provided: HunterModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HunterModule", function() { return HunterModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _user_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-routing.module */ "./src/app/admin/huntersconsultants/user-routing.module.ts");
+/* harmony import */ var _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-index/user-index.component */ "./src/app/admin/huntersconsultants/user-index/user-index.component.ts");
+/* harmony import */ var _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-list/user-list.component */ "./src/app/admin/huntersconsultants/user-list/user-list.component.ts");
+/* harmony import */ var _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-create/user-create.component */ "./src/app/admin/huntersconsultants/user-create/user-create.component.ts");
+/* harmony import */ var _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-edit/user-edit.component */ "./src/app/admin/huntersconsultants/user-edit/user-edit.component.ts");
+/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user-rest.service */ "./src/app/admin/huntersconsultants/user-rest.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var primeng_primeng__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/primeng */ "./node_modules/primeng/primeng.js");
+/* harmony import */ var primeng_primeng__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(primeng_primeng__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/toast */ "./node_modules/primeng/toast.js");
+/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(primeng_toast__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var primeng_slider__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeng/slider */ "./node_modules/primeng/slider.js");
+/* harmony import */ var primeng_slider__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(primeng_slider__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/contextmenu */ "./node_modules/primeng/contextmenu.js");
+/* harmony import */ var primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! primeng/dialog */ "./node_modules/primeng/dialog.js");
+/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(primeng_dialog__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! primeng/button */ "./node_modules/primeng/button.js");
+/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(primeng_button__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! primeng/progressbar */ "./node_modules/primeng/progressbar.js");
+/* harmony import */ var primeng_progressbar__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! primeng/inputtext */ "./node_modules/primeng/inputtext.js");
+/* harmony import */ var primeng_inputtext__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! primeng/tabmenu */ "./node_modules/primeng/tabmenu.js");
+/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! primeng/tooltip */ "./node_modules/primeng/tooltip.js");
+/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! primeng/fileupload */ "./node_modules/primeng/fileupload.js");
+/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(primeng_fileupload__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var ngx_dropzone__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-dropzone */ "./node_modules/ngx-dropzone/fesm5/ngx-dropzone.js");
+/* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! primeng/dropdown */ "./node_modules/primeng/dropdown.js");
+/* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! primeng/inplace */ "./node_modules/primeng/inplace.js");
+/* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(primeng_inplace__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var _field3_pipe__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../field3.pipe */ "./src/app/field3.pipe.ts");
+/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! primeng/confirmdialog */ "./node_modules/primeng/confirmdialog.js");
+/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var HunterModule = /** @class */ (function () {
+    function HunterModule() {
+    }
+    HunterModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__["UserCreateComponent"], _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__["UserEditComponent"], _field3_pipe__WEBPACK_IMPORTED_MODULE_25__["FieldPipe"]],
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _user_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserRoutingModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], primeng_table__WEBPACK_IMPORTED_MODULE_10__["TableModule"], primeng_primeng__WEBPACK_IMPORTED_MODULE_11__["MultiSelectModule"], primeng_primeng__WEBPACK_IMPORTED_MODULE_11__["CalendarModule"],
+                primeng_slider__WEBPACK_IMPORTED_MODULE_13__["SliderModule"],
+                primeng_dialog__WEBPACK_IMPORTED_MODULE_15__["DialogModule"],
+                primeng_primeng__WEBPACK_IMPORTED_MODULE_11__["MultiSelectModule"],
+                primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14__["ContextMenuModule"],
+                primeng_button__WEBPACK_IMPORTED_MODULE_16__["ButtonModule"],
+                primeng_toast__WEBPACK_IMPORTED_MODULE_12__["ToastModule"],
+                primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__["InputTextModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__["ConfirmDialogModule"],
+                primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__["ProgressBarModule"], primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__["TabMenuModule"], primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__["TooltipModule"], primeng_fileupload__WEBPACK_IMPORTED_MODULE_21__["FileUploadModule"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_22__["NgxDropzoneModule"], primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__["DropdownModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], primeng_inplace__WEBPACK_IMPORTED_MODULE_24__["InplaceModule"]
+            ],
+            providers: [
+                _user_rest_service__WEBPACK_IMPORTED_MODULE_8__["UserRestService"]
+            ]
+        })
+    ], HunterModule);
+    return HunterModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/huntersconsultants/user-create/user-create.component.scss":
+/*!*********************************************************************************!*\
+  !*** ./src/app/admin/huntersconsultants/user-create/user-create.component.scss ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbnN1bHRhbnRzL3VzZXItY3JlYXRlL3VzZXItY3JlYXRlLmNvbXBvbmVudC5zY3NzIn0= */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2h1bnRlcnNjb25zdWx0YW50cy91c2VyLWNyZWF0ZS91c2VyLWNyZWF0ZS5jb21wb25lbnQuc2NzcyJ9 */"
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-create/user-create.component.ts":
-/*!************************************************************************!*\
-  !*** ./src/app/admin/consultants/user-create/user-create.component.ts ***!
-  \************************************************************************/
+/***/ "./src/app/admin/huntersconsultants/user-create/user-create.component.ts":
+/*!*******************************************************************************!*\
+  !*** ./src/app/admin/huntersconsultants/user-create/user-create.component.ts ***!
+  \*******************************************************************************/
 /*! exports provided: Profile, UserCreateComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -69,7 +181,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/consultants/user-rest.service.ts");
+/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/huntersconsultants/user-rest.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_5__);
@@ -448,7 +560,7 @@ var UserCreateComponent = /** @class */ (function () {
         this.userRest.storeUser(this.registerForm).subscribe(function (response) {
             console.log(response),
                 _this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Consultant is added' });
-            _this.router.navigate(['consultants/list']);
+            _this.router.navigate(['huntersconsultants/list']);
         }, function (error) {
             _this.serverErrors = error.error.errors;
         });
@@ -460,9 +572,9 @@ var UserCreateComponent = /** @class */ (function () {
     UserCreateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-user-create',
-            template: __webpack_require__(/*! raw-loader!./user-create.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-create/user-create.component.html"),
+            template: __webpack_require__(/*! raw-loader!./user-create.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/huntersconsultants/user-create/user-create.component.html"),
             providers: [primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"]],
-            styles: [__webpack_require__(/*! ./user-create.component.scss */ "./src/app/admin/consultants/user-create/user-create.component.scss")]
+            styles: [__webpack_require__(/*! ./user-create.component.scss */ "./src/app/admin/huntersconsultants/user-create/user-create.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"], _user_rest_service__WEBPACK_IMPORTED_MODULE_3__["UserRestService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], UserCreateComponent);
@@ -473,21 +585,21 @@ var UserCreateComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-edit/user-create.component.scss":
-/*!************************************************************************!*\
-  !*** ./src/app/admin/consultants/user-edit/user-create.component.scss ***!
-  \************************************************************************/
+/***/ "./src/app/admin/huntersconsultants/user-edit/user-create.component.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/admin/huntersconsultants/user-edit/user-create.component.scss ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbnN1bHRhbnRzL3VzZXItZWRpdC91c2VyLWNyZWF0ZS5jb21wb25lbnQuc2NzcyJ9 */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2h1bnRlcnNjb25zdWx0YW50cy91c2VyLWVkaXQvdXNlci1jcmVhdGUuY29tcG9uZW50LnNjc3MifQ== */"
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-edit/user-edit.component.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/admin/consultants/user-edit/user-edit.component.ts ***!
-  \********************************************************************/
+/***/ "./src/app/admin/huntersconsultants/user-edit/user-edit.component.ts":
+/*!***************************************************************************!*\
+  !*** ./src/app/admin/huntersconsultants/user-edit/user-edit.component.ts ***!
+  \***************************************************************************/
 /*! exports provided: Profile, UserEditComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -498,7 +610,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/consultants/user-rest.service.ts");
+/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/huntersconsultants/user-rest.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_5__);
@@ -917,7 +1029,7 @@ var UserEditComponent = /** @class */ (function () {
         this.userRest.storeUser(this.registerForm).subscribe(function (response) {
             console.log(response),
                 _this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Consultant is added' });
-            _this.router.navigate(['consultants/list']);
+            _this.router.navigate(['huntersconsultants/list']);
         }, function (error) {
             _this.serverErrors = error.error.errors;
         });
@@ -927,7 +1039,7 @@ var UserEditComponent = /** @class */ (function () {
         var id = this.route.snapshot.params.id;
         this.userRest.updateUser(this.registerForm, id).subscribe(function (response) {
             console.log(response),
-                _this.router.navigate(['consultants/list']);
+                _this.router.navigate(['huntersconsultants/list']);
         }, function (error) {
             _this.serverErrors = error.error.errors;
         }, function () { return console.log('completed'); });
@@ -939,9 +1051,9 @@ var UserEditComponent = /** @class */ (function () {
     UserEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-user-create',
-            template: __webpack_require__(/*! raw-loader!./user-create.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-edit/user-create.component.html"),
+            template: __webpack_require__(/*! raw-loader!./user-create.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/huntersconsultants/user-edit/user-create.component.html"),
             providers: [primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"]],
-            styles: [__webpack_require__(/*! ./user-create.component.scss */ "./src/app/admin/consultants/user-edit/user-create.component.scss")]
+            styles: [__webpack_require__(/*! ./user-create.component.scss */ "./src/app/admin/huntersconsultants/user-edit/user-create.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"], _user_rest_service__WEBPACK_IMPORTED_MODULE_3__["UserRestService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], UserEditComponent);
@@ -952,21 +1064,21 @@ var UserEditComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-index/user-index.component.scss":
-/*!************************************************************************!*\
-  !*** ./src/app/admin/consultants/user-index/user-index.component.scss ***!
-  \************************************************************************/
+/***/ "./src/app/admin/huntersconsultants/user-index/user-index.component.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/admin/huntersconsultants/user-index/user-index.component.scss ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbnN1bHRhbnRzL3VzZXItaW5kZXgvdXNlci1pbmRleC5jb21wb25lbnQuc2NzcyJ9 */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2h1bnRlcnNjb25zdWx0YW50cy91c2VyLWluZGV4L3VzZXItaW5kZXguY29tcG9uZW50LnNjc3MifQ== */"
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-index/user-index.component.ts":
-/*!**********************************************************************!*\
-  !*** ./src/app/admin/consultants/user-index/user-index.component.ts ***!
-  \**********************************************************************/
+/***/ "./src/app/admin/huntersconsultants/user-index/user-index.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/admin/huntersconsultants/user-index/user-index.component.ts ***!
+  \*****************************************************************************/
 /*! exports provided: UserIndexComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -992,8 +1104,8 @@ var UserIndexComponent = /** @class */ (function () {
     UserIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-user-index',
-            template: __webpack_require__(/*! raw-loader!./user-index.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-index/user-index.component.html"),
-            styles: [__webpack_require__(/*! ./user-index.component.scss */ "./src/app/admin/consultants/user-index/user-index.component.scss")]
+            template: __webpack_require__(/*! raw-loader!./user-index.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/huntersconsultants/user-index/user-index.component.html"),
+            styles: [__webpack_require__(/*! ./user-index.component.scss */ "./src/app/admin/huntersconsultants/user-index/user-index.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], UserIndexComponent);
@@ -1004,21 +1116,21 @@ var UserIndexComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-list/user-list.component.scss":
-/*!**********************************************************************!*\
-  !*** ./src/app/admin/consultants/user-list/user-list.component.scss ***!
-  \**********************************************************************/
+/***/ "./src/app/admin/huntersconsultants/user-list/user-list.component.scss":
+/*!*****************************************************************************!*\
+  !*** ./src/app/admin/huntersconsultants/user-list/user-list.component.scss ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host ::ng-deep .p-cell-editing {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n}\n\n.disable-td {\n  pointer-events: none;\n}\n\n.ui-button {\n  margin-left: 0.25rem;\n  margin-right: 0.25rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vY29uc3VsdGFudHMvdXNlci1saXN0L0M6XFx4YW1wcFxcaHRkb2NzXFxzZXAtYmFyXFxhbmd1bGFyL3NyY1xcYXBwXFxhZG1pblxcY29uc3VsdGFudHNcXHVzZXItbGlzdFxcdXNlci1saXN0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hZG1pbi9jb25zdWx0YW50cy91c2VyLWxpc3QvdXNlci1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UseUJBQUE7RUFDQSw0QkFBQTtBQ0NGOztBRENBO0VBQ0Usb0JBQUE7QUNFRjs7QURBQTtFQUNFLG9CQUFBO0VBQ0EscUJBQUE7QUNHRiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbnN1bHRhbnRzL3VzZXItbGlzdC91c2VyLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCA6Om5nLWRlZXAgLnAtY2VsbC1lZGl0aW5nIHtcclxuICBwYWRkaW5nLXRvcDogMCAhaW1wb3J0YW50O1xyXG4gIHBhZGRpbmctYm90dG9tOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuLmRpc2FibGUtdGR7XHJcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XHJcbn1cclxuLnVpLWJ1dHRvbiB7XHJcbiAgbWFyZ2luLWxlZnQ6IDAuMjVyZW07XHJcbiAgbWFyZ2luLXJpZ2h0OiAwLjI1cmVtO1xyXG59XHJcbiIsIjpob3N0IDo6bmctZGVlcCAucC1jZWxsLWVkaXRpbmcge1xuICBwYWRkaW5nLXRvcDogMCAhaW1wb3J0YW50O1xuICBwYWRkaW5nLWJvdHRvbTogMCAhaW1wb3J0YW50O1xufVxuXG4uZGlzYWJsZS10ZCB7XG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xufVxuXG4udWktYnV0dG9uIHtcbiAgbWFyZ2luLWxlZnQ6IDAuMjVyZW07XG4gIG1hcmdpbi1yaWdodDogMC4yNXJlbTtcbn0iXX0= */"
+module.exports = ":host ::ng-deep .p-cell-editing {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n}\n\n.disable-td {\n  pointer-events: none;\n}\n\n.ui-button {\n  margin-left: 0.25rem;\n  margin-right: 0.25rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vaHVudGVyc2NvbnN1bHRhbnRzL3VzZXItbGlzdC9DOlxceGFtcHBcXGh0ZG9jc1xcc2VwLWJhclxcYW5ndWxhci9zcmNcXGFwcFxcYWRtaW5cXGh1bnRlcnNjb25zdWx0YW50c1xcdXNlci1saXN0XFx1c2VyLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FkbWluL2h1bnRlcnNjb25zdWx0YW50cy91c2VyLWxpc3QvdXNlci1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UseUJBQUE7RUFDQSw0QkFBQTtBQ0NGOztBRENBO0VBQ0Usb0JBQUE7QUNFRjs7QURBQTtFQUNFLG9CQUFBO0VBQ0EscUJBQUE7QUNHRiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2h1bnRlcnNjb25zdWx0YW50cy91c2VyLWxpc3QvdXNlci1saXN0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3QgOjpuZy1kZWVwIC5wLWNlbGwtZWRpdGluZyB7XHJcbiAgcGFkZGluZy10b3A6IDAgIWltcG9ydGFudDtcclxuICBwYWRkaW5nLWJvdHRvbTogMCAhaW1wb3J0YW50O1xyXG59XHJcbi5kaXNhYmxlLXRke1xyXG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xyXG59XHJcbi51aS1idXR0b24ge1xyXG4gIG1hcmdpbi1sZWZ0OiAwLjI1cmVtO1xyXG4gIG1hcmdpbi1yaWdodDogMC4yNXJlbTtcclxufVxyXG4iLCI6aG9zdCA6Om5nLWRlZXAgLnAtY2VsbC1lZGl0aW5nIHtcbiAgcGFkZGluZy10b3A6IDAgIWltcG9ydGFudDtcbiAgcGFkZGluZy1ib3R0b206IDAgIWltcG9ydGFudDtcbn1cblxuLmRpc2FibGUtdGQge1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuLnVpLWJ1dHRvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwLjI1cmVtO1xuICBtYXJnaW4tcmlnaHQ6IDAuMjVyZW07XG59Il19 */"
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-list/user-list.component.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/admin/consultants/user-list/user-list.component.ts ***!
-  \********************************************************************/
+/***/ "./src/app/admin/huntersconsultants/user-list/user-list.component.ts":
+/*!***************************************************************************!*\
+  !*** ./src/app/admin/huntersconsultants/user-list/user-list.component.ts ***!
+  \***************************************************************************/
 /*! exports provided: UserListComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1028,7 +1140,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/consultants/user-rest.service.ts");
+/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/huntersconsultants/user-rest.service.ts");
 /* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
 /* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
@@ -1082,7 +1194,7 @@ var UserListComponent = /** @class */ (function () {
             { field: 'consultatName', header: 'Name' },
         ];
         this.scrollableCols = [
-            //   { field: 'user_details.name', header: 'Created By', width: '20%',editable: false},
+            { field: 'user_details.name', header: 'Created By', width: '20%', editable: false },
             { field: 'consultatName', header: 'Consultant Name', width: '20%', editable: true },
             // { field: 'user_details.name', header: 'Created By', width: '20%',editable: false},
             // { field: 'created_at', header: 'Created At' , width: '20%',editable: false},
@@ -1197,7 +1309,7 @@ var UserListComponent = /** @class */ (function () {
         event.preventDefault();
         this.confirmation.confirm({
             key: 'confirm-drop-database',
-            message: 'Are you sure to Aprove for Hotlist',
+            message: 'Are you sure to Submit to Admin',
             accept: function () { _this._dropDatabase(index); },
         });
     };
@@ -1216,7 +1328,7 @@ var UserListComponent = /** @class */ (function () {
         window.open('http://portal.webmobilez.com/public/storage/' + url);
     };
     UserListComponent.prototype.editUser = function (id) {
-        this.router.navigate(['consultants/edit', id]);
+        this.router.navigate(['huntersconsultants/edit', id]);
     };
     UserListComponent.prototype.getColor = function (status, adminStatus) {
         if (adminStatus == "A") {
@@ -1239,8 +1351,8 @@ var UserListComponent = /** @class */ (function () {
             selector: 'app-user-list',
             // changeDetection: ChangeDetectionStrategy.OnPush,
             providers: [primeng_api__WEBPACK_IMPORTED_MODULE_6__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_6__["ConfirmationService"]],
-            template: __webpack_require__(/*! raw-loader!./user-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-list/user-list.component.html"),
-            styles: [__webpack_require__(/*! ./user-list.component.scss */ "./src/app/admin/consultants/user-list/user-list.component.scss")]
+            template: __webpack_require__(/*! raw-loader!./user-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/huntersconsultants/user-list/user-list.component.html"),
+            styles: [__webpack_require__(/*! ./user-list.component.scss */ "./src/app/admin/huntersconsultants/user-list/user-list.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [primeng_api__WEBPACK_IMPORTED_MODULE_6__["ConfirmationService"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"], primeng_api__WEBPACK_IMPORTED_MODULE_6__["MessageService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _user_rest_service__WEBPACK_IMPORTED_MODULE_3__["UserRestService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
@@ -1252,10 +1364,10 @@ var UserListComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-rest.service.ts":
-/*!********************************************************!*\
-  !*** ./src/app/admin/consultants/user-rest.service.ts ***!
-  \********************************************************/
+/***/ "./src/app/admin/huntersconsultants/user-rest.service.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/admin/huntersconsultants/user-rest.service.ts ***!
+  \***************************************************************/
 /*! exports provided: UserRestService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1307,10 +1419,10 @@ var UserRestService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-routing.module.ts":
-/*!**********************************************************!*\
-  !*** ./src/app/admin/consultants/user-routing.module.ts ***!
-  \**********************************************************/
+/***/ "./src/app/admin/huntersconsultants/user-routing.module.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/admin/huntersconsultants/user-routing.module.ts ***!
+  \*****************************************************************/
 /*! exports provided: UserRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1320,10 +1432,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-index/user-index.component */ "./src/app/admin/consultants/user-index/user-index.component.ts");
-/* harmony import */ var _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-list/user-list.component */ "./src/app/admin/consultants/user-list/user-list.component.ts");
-/* harmony import */ var _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-create/user-create.component */ "./src/app/admin/consultants/user-create/user-create.component.ts");
-/* harmony import */ var _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-edit/user-edit.component */ "./src/app/admin/consultants/user-edit/user-edit.component.ts");
+/* harmony import */ var _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-index/user-index.component */ "./src/app/admin/huntersconsultants/user-index/user-index.component.ts");
+/* harmony import */ var _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-list/user-list.component */ "./src/app/admin/huntersconsultants/user-list/user-list.component.ts");
+/* harmony import */ var _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-create/user-create.component */ "./src/app/admin/huntersconsultants/user-create/user-create.component.ts");
+/* harmony import */ var _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-edit/user-edit.component */ "./src/app/admin/huntersconsultants/user-edit/user-edit.component.ts");
 
 
 
@@ -1338,16 +1450,16 @@ var routes = [
         component: _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_3__["UserIndexComponent"],
         children: [
             { path: 'list', component: _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_4__["UserListComponent"], data: {
-                    expectedRole: 'Admin'
+                    expectedRole: 'HeadHunters'
                 } },
             { path: 'inactivelist', component: _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_4__["UserListComponent"], data: {
-                    expectedRole: 'Admin'
+                    expectedRole: 'HeadHunters'
                 } },
             { path: 'create', component: _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_5__["UserCreateComponent"], data: {
-                    expectedRole: 'Admin'
+                    expectedRole: 'HeadHunters'
                 } },
             { path: 'edit/:id', component: _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_6__["UserEditComponent"], data: {
-                    expectedRole: 'Admin'
+                    expectedRole: 'HeadHunters'
                 } },
         ]
     }
@@ -1368,122 +1480,10 @@ var UserRoutingModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user.module.ts":
-/*!**************************************************!*\
-  !*** ./src/app/admin/consultants/user.module.ts ***!
-  \**************************************************/
-/*! exports provided: UserModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserModule", function() { return UserModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _user_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-routing.module */ "./src/app/admin/consultants/user-routing.module.ts");
-/* harmony import */ var _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-index/user-index.component */ "./src/app/admin/consultants/user-index/user-index.component.ts");
-/* harmony import */ var _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-list/user-list.component */ "./src/app/admin/consultants/user-list/user-list.component.ts");
-/* harmony import */ var _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-create/user-create.component */ "./src/app/admin/consultants/user-create/user-create.component.ts");
-/* harmony import */ var _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-edit/user-edit.component */ "./src/app/admin/consultants/user-edit/user-edit.component.ts");
-/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user-rest.service */ "./src/app/admin/consultants/user-rest.service.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var primeng_primeng__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/primeng */ "./node_modules/primeng/primeng.js");
-/* harmony import */ var primeng_primeng__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(primeng_primeng__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/toast */ "./node_modules/primeng/toast.js");
-/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(primeng_toast__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var primeng_slider__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeng/slider */ "./node_modules/primeng/slider.js");
-/* harmony import */ var primeng_slider__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(primeng_slider__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/contextmenu */ "./node_modules/primeng/contextmenu.js");
-/* harmony import */ var primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! primeng/dialog */ "./node_modules/primeng/dialog.js");
-/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(primeng_dialog__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! primeng/button */ "./node_modules/primeng/button.js");
-/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(primeng_button__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! primeng/progressbar */ "./node_modules/primeng/progressbar.js");
-/* harmony import */ var primeng_progressbar__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! primeng/inputtext */ "./node_modules/primeng/inputtext.js");
-/* harmony import */ var primeng_inputtext__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! primeng/tabmenu */ "./node_modules/primeng/tabmenu.js");
-/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! primeng/tooltip */ "./node_modules/primeng/tooltip.js");
-/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__);
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! primeng/fileupload */ "./node_modules/primeng/fileupload.js");
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(primeng_fileupload__WEBPACK_IMPORTED_MODULE_21__);
-/* harmony import */ var ngx_dropzone__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-dropzone */ "./node_modules/ngx-dropzone/fesm5/ngx-dropzone.js");
-/* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! primeng/dropdown */ "./node_modules/primeng/dropdown.js");
-/* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! primeng/inplace */ "./node_modules/primeng/inplace.js");
-/* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(primeng_inplace__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var _field_pipe__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../field.pipe */ "./src/app/field.pipe.ts");
-/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! primeng/confirmdialog */ "./node_modules/primeng/confirmdialog.js");
-/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var UserModule = /** @class */ (function () {
-    function UserModule() {
-    }
-    UserModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__["UserCreateComponent"], _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__["UserEditComponent"], _field_pipe__WEBPACK_IMPORTED_MODULE_25__["FieldPipe"]],
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-                _user_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserRoutingModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], primeng_table__WEBPACK_IMPORTED_MODULE_10__["TableModule"], primeng_primeng__WEBPACK_IMPORTED_MODULE_11__["MultiSelectModule"], primeng_primeng__WEBPACK_IMPORTED_MODULE_11__["CalendarModule"],
-                primeng_slider__WEBPACK_IMPORTED_MODULE_13__["SliderModule"],
-                primeng_dialog__WEBPACK_IMPORTED_MODULE_15__["DialogModule"],
-                primeng_primeng__WEBPACK_IMPORTED_MODULE_11__["MultiSelectModule"],
-                primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14__["ContextMenuModule"],
-                primeng_button__WEBPACK_IMPORTED_MODULE_16__["ButtonModule"],
-                primeng_toast__WEBPACK_IMPORTED_MODULE_12__["ToastModule"],
-                primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__["InputTextModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__["ConfirmDialogModule"],
-                primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__["ProgressBarModule"], primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__["TabMenuModule"], primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__["TooltipModule"], primeng_fileupload__WEBPACK_IMPORTED_MODULE_21__["FileUploadModule"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_22__["NgxDropzoneModule"], primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__["DropdownModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], primeng_inplace__WEBPACK_IMPORTED_MODULE_24__["InplaceModule"]
-            ],
-            providers: [
-                _user_rest_service__WEBPACK_IMPORTED_MODULE_8__["UserRestService"]
-            ]
-        })
-    ], UserModule);
-    return UserModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/field.pipe.ts":
-/*!*******************************!*\
-  !*** ./src/app/field.pipe.ts ***!
-  \*******************************/
+/***/ "./src/app/field3.pipe.ts":
+/*!********************************!*\
+  !*** ./src/app/field3.pipe.ts ***!
+  \********************************/
 /*! exports provided: FieldPipe */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1525,4 +1525,4 @@ var FieldPipe = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=admin-consultants-user-module-es5.js.map
+//# sourceMappingURL=admin-huntersconsultants-hunter-module-es5.js.map

@@ -55,4 +55,10 @@ Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], func
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
     Route::post('status-consultant', 'ConsultantController@statusChange');
 });
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::post('saveDocument', 'ConsultantController@saveDocument');
+});
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::resource('getHotlistConsultants', 'HotListController');
+});
 

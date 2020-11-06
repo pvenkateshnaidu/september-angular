@@ -40,7 +40,7 @@ module.exports = "<app-navbar></app-navbar>\r\n<div class=\"container\">\r\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\r\n    <a class=\"navbar-brand\" href=\"#\">Webmobilez</a>\r\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarText\" aria-controls=\"navbarText\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n            <span class=\"navbar-toggler-icon\"></span>\r\n        </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarText\">\r\n        <ul class=\"navbar-nav ml-auto\">\r\n\r\n        <li class=\"nav-item\" routerLinkActive=\"active\">\r\n            <a class=\"nav-link\" routerLink=\"/home/login\">Login</a>\r\n        </li>\r\n\r\n        </ul>\r\n    </div>\r\n</nav>\r\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\r\n    <a class=\"navbar-brand\" routerLink=\"/dashboard\">Webmobilez</a>\r\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarText\" aria-controls=\"navbarText\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n            <span class=\"navbar-toggler-icon\"></span>\r\n        </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarText\">\r\n        <ul class=\"navbar-nav ml-auto\">\r\n\r\n        <li class=\"nav-item\" routerLinkActive=\"active\">\r\n            <a class=\"nav-link\" routerLink=\"/home/login\">Login</a>\r\n        </li>\r\n\r\n        </ul>\r\n    </div>\r\n</nav>\r\n"
 
 /***/ }),
 
@@ -84,7 +84,7 @@ module.exports = "\r\n<nav class=\"navbar navbar-expand-lg navbar-absolute fixed
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = " <!-- MENU Start -->\r\n <div class=\"navbar-custom\">\r\n  <div class=\"container-fluid\">\r\n      <!-- Logo-->\r\n      <div class=\"d-none d-lg-block\">\r\n\r\n          <a href=\"#\" class=\"logo\" style=\"color: #fff\">\r\n              <img  src=\"http://webmobilez.com/consultants/css/Group%201.png\"\r\n              height=\"50px\" class=\"svg-content\">\r\n          </a>\r\n\r\n\r\n\r\n      </div>\r\n      <!-- End Logo-->\r\n      <div id=\"navigation\">\r\n        <ul class=\"nav navigation-menu\">\r\n          <!-- <li *ngFor=\"let menuItem of menuItems\" routerLinkActive=\"active\" class=\"{{menuItem.class}}\">\r\n              <a [routerLink]=\"[menuItem.path]\">\r\n                  <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n                  <p>{{menuItem.title}}</p>\r\n              </a>\r\n          </li> -->\r\n\r\n          <li  *ngFor=\"let menuItem of menuItems; let i = index\" routerLinkActive=\"active\" class=\"has-submenu {{menuItem.class}}\">\r\n            <a *ngIf=\"menuItem.childMenu\" data-toggle=\"collapse\" href=\"#dashboardOverview{{i}}\" aria-expanded=\"false\" class=\"collapsed\">\r\n                <i class=\"nc-icon nc-bank\"></i>\r\n                <p>{{menuItem.title}}\r\n                      <b class=\"caret\"></b>\r\n                  </p>\r\n            </a>\r\n            <a *ngIf=\"!menuItem.childMenu\" [routerLink]=\"[menuItem.path]\">\r\n              <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n              <p>{{menuItem.title}}</p>\r\n            </a>\r\n\r\n          <div *ngIf=\"menuItem.childMenu\" class=\"collapse\" id=\"dashboardOverview{{i}}\" aria-expanded=\"false\" style=\"height: 0px;\">\r\n            <ul class=\"nav\">\r\n              <li *ngFor=\"let menu of menuItem.childMenu\" routerLinkActive=\"active\" class=\"{{menu.class}}\">\r\n                <a [routerLink]=\"[menu.path]\">\r\n                    <i class=\"nc-icon {{menu.icon}}\"></i>\r\n                    <p>{{menu.title}}</p>\r\n                </a>\r\n              </li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n\r\n      </ul>\r\n\r\n      </div> <!-- end #navigation -->\r\n  </div> <!-- end container -->\r\n</div> <!-- end navbar-custom -->\r\n\r\n"
+module.exports = " <!-- MENU Start -->\r\n <div class=\"navbar-custom\">\r\n  <div class=\"container-fluid\">\r\n      <!-- Logo-->\r\n      <div class=\"d-none d-lg-block\">\r\n\r\n          <a routerLink=\"/dashboard\" class=\"logo\" style=\"color: #fff\">\r\n              <img  src=\"http://webmobilez.com/consultants/css/Group%201.png\"\r\n              height=\"50px\" class=\"svg-content\">\r\n          </a>\r\n\r\n\r\n\r\n      </div>\r\n      <!-- End Logo-->\r\n      <div id=\"navigation\">\r\n        <ul class=\"nav navigation-menu\">\r\n          <!-- <li *ngFor=\"let menuItem of menuItems\" routerLinkActive=\"active\" class=\"{{menuItem.class}}\">\r\n              <a [routerLink]=\"[menuItem.path]\">\r\n                  <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n                  <p>{{menuItem.title}}</p>\r\n              </a>\r\n          </li> -->\r\n\r\n          <li  *ngFor=\"let menuItem of menuItems; let i = index\" routerLinkActive=\"active\" class=\"has-submenu {{menuItem.class}}\">\r\n            <a *ngIf=\"menuItem.childMenu\" data-toggle=\"collapse\" href=\"#dashboardOverview{{i}}\" aria-expanded=\"false\" class=\"collapsed\">\r\n                <i class=\"nc-icon nc-bank\"></i>\r\n                <p>{{menuItem.title}}\r\n                      <b class=\"caret\"></b>\r\n                  </p>\r\n            </a>\r\n            <a *ngIf=\"!menuItem.childMenu\" [routerLink]=\"[menuItem.path]\">\r\n              <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n              <p>{{menuItem.title}}</p>\r\n            </a>\r\n\r\n          <div *ngIf=\"menuItem.childMenu\" class=\"collapse\" id=\"dashboardOverview{{i}}\" aria-expanded=\"false\" style=\"height: 0px;\">\r\n            <ul class=\"nav\">\r\n              <li *ngFor=\"let menu of menuItem.childMenu\" routerLinkActive=\"active\" class=\"{{menu.class}}\">\r\n                <a [routerLink]=\"[menu.path]\">\r\n                    <i class=\"nc-icon {{menu.icon}}\"></i>\r\n                    <p>{{menu.title}}</p>\r\n                </a>\r\n              </li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"nav-item pd-top\">\r\n          <a class=\"nav-link\" (click)=\"logout()\">\r\n            logout\r\n            <!-- <p>\r\n              <span class=\"d-lg-none d-md-block\">Account</span>\r\n            </p> -->\r\n          </a>\r\n        </li>\r\n      </ul>\r\n\r\n      </div> <!-- end #navigation -->\r\n  </div> <!-- end container -->\r\n</div> <!-- end navbar-custom -->\r\n\r\n"
 
 /***/ }),
 
@@ -897,16 +897,21 @@ NavbarModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*****************************************************!*\
   !*** ./src/app/shared/sidebar/sidebar.component.ts ***!
   \*****************************************************/
-/*! exports provided: ROUTES, AdminROUTES, SidebarComponent */
+/*! exports provided: ROUTES, HeadHunterROUTES, AdminROUTES, SidebarComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTES", function() { return ROUTES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeadHunterROUTES", function() { return HeadHunterROUTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminROUTES", function() { return AdminROUTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarComponent", function() { return SidebarComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var app_auth_common_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/auth/common-auth.service */ "./src/app/auth/common-auth.service.ts");
+
+
 
 
 const ROUTES = [
@@ -914,7 +919,15 @@ const ROUTES = [
         path: '/dashboard', title: 'Dashboard', icon: 'nc-bank', class: '',
         childMenu: null
     },
-    { path: '/consultants/list', title: 'Time Sheets', icon: 'nc-calendar-60', class: '', childMenu: null },
+    { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
+];
+const HeadHunterROUTES = [
+    {
+        path: '/dashboard', title: 'Dashboard', icon: 'nc-bank', class: '',
+        childMenu: null
+    },
+    { path: '/huntersconsultants/list', title: 'Consultants', icon: 'nc-calendar-60', class: '', childMenu: null },
+    { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
     { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
 ];
 const AdminROUTES = [
@@ -940,22 +953,43 @@ const AdminROUTES = [
 //     { path: '/typography',    title: 'Typography',        icon:'nc-caps-small', class: '' }
 // ];
 let SidebarComponent = class SidebarComponent {
+    constructor(router, auth) {
+        this.router = router;
+        this.auth = auth;
+    }
     ngOnInit() {
         this.menuexpectedrole = localStorage.getItem('role');
         console.log(this.menuexpectedrole);
         if (this.menuexpectedrole == 'Admin') {
             this.menuItems = AdminROUTES.filter(menuItem => menuItem);
         }
+        else if (this.menuexpectedrole == 'HeadHunters') {
+            this.menuItems = HeadHunterROUTES.filter(menuItem => menuItem);
+        }
         else {
             this.menuItems = ROUTES.filter(menuItem => menuItem);
         }
+    }
+    logout() {
+        let token = localStorage.getItem('token');
+        this.auth.logout(token).subscribe((resp) => {
+            console.log("Logged Out Success");
+            localStorage.clear();
+            this.router.navigate(['/home/login']);
+            console.log(resp);
+        }, (error) => {
+            //this.router.navigate(['/home/login'])
+            console.log("Logged Out with error");
+        });
     }
 };
 SidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'sidebar-cmp',
         template: __webpack_require__(/*! raw-loader!./sidebar.component.html */ "./node_modules/raw-loader/index.js!./src/app/shared/sidebar/sidebar.component.html"),
-    })
+        styles: [".pd-top { padding-top: 17px; }"]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], app_auth_common_auth_service__WEBPACK_IMPORTED_MODULE_3__["CommonAuthService"]])
 ], SidebarComponent);
 
 

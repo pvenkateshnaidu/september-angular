@@ -33,6 +33,7 @@ class UserListController extends Controller
     public function create()
     {
         $user = User::select('name','email','id')->find(Auth::user()->id);
+
         return response()->json($user, 200);
     }
 
@@ -44,19 +45,32 @@ class UserListController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+
+
+        $rules     = [
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:5',
-        ]);
+        ];
+        $validator = \Validator::make($request->all(), $rules);
+        if ($validator->fails())
+        {
+            return response()->json(['message' => "Validation Error"], 400);
+        }
+        else
+        {
+            // add user
+            $user     = new \App\User();
+            $user->name      = $request->name;
+            $user->email     = $request->email;
+            $user->role = $request->role;
+            $user->password  = bcrypt($request->password);
+            $user->save();
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
-        ]);
+            return response()->json(['user' => "User Created Successfully"], 200);
+        }
 
-        return response()->json(['user' => "User Created Successfully"], 200);
+
     }
 
     /**
@@ -94,21 +108,17 @@ class UserListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        if($request->password)
-        {
-        $user->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
-        ]);
-        }else{
-            $user->update([
-                'name' => $request->name,
-                'email' => $request->email
 
-            ]);
-        }
+        $user = User::find($id);
+            if( $request->name)
+            $user->name      = $request->name;
+            if( $request->email)
+            $user->email     = $request->email;
+            if( $request->role)
+            $user->role = $request->role;
+            if( $request->password)
+            $user->password  = bcrypt($request->password);
+            $user->save();
         return response()->json(['user' => $user,'message' => 'User Updated Successfully'], 200);
     }
 
