@@ -56,9 +56,40 @@ Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], func
     Route::post('status-consultant', 'ConsultantController@statusChange');
 });
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::post('status-consultant', 'ConsultantController@statusChange');
+});
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::post('getTotalInterviewShecdules', 'SubmissionsController@getTotalInterviewShecdules');
+});
+
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
     Route::post('saveDocument', 'ConsultantController@saveDocument');
 });
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
     Route::resource('getHotlistConsultants', 'HotListController');
 });
 
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::resource('jobs', 'JobsController');
+});
+
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::resource('submissions', 'SubmissionsController');
+});
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::get('getConsultantsList', 'SubmissionsController@getConsultans');
+});
+
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::resource('contacts', 'ContactsController');
+});
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::post('contactsDetails', 'ContactsController@getDetails');
+});
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::resource('vendorlist', 'VendorListController');
+});
+
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::resource('contactslist', 'ContactsListController');
+});

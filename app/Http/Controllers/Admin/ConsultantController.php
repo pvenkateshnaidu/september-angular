@@ -35,7 +35,29 @@ class ConsultantController extends Controller
                 ->where('reports.wStatus', '!=', 'R')
                 ->orderBy('created_at', 'DESC')
                 ->get();
+
+        }else if(Auth::user()->role == "BenchSales")
+        {
+            $timesheet = \App\Reports::with('user_details','vendor_add')
+            ->withCount([
+                'vendor_cout as interviews' ,
+                'vendor_cout as sclients' => function ($query) {
+                    $query->where('submissions.vendorStatus','=', 'Submitted to Client');
+                }])
+                            ->orderBy('reports.created_at', 'desc')
+                            ->where('reports.wStatus','=', 'A')
+                            ->where('reports.adminStatus', '=', 'A')
+                            ->get();
+
+        }else if(Auth::user()->role == "Recruiters")
+        {
+            $timesheet = Reports::with('user_details')
+            ->where('reports.wStatus', '=', 'A')
+            ->where('reports.adminStatus', '=', 'A')
+            ->orderBy('created_at', 'DESC')
+            ->get();
         }
+
         return response()->json(['timesheet' => $timesheet], 200);
     }
     public function saveDocument(Request $request)

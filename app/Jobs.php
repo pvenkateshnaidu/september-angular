@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Journal
+ * Class Jobs
  *
  * @property int $journalId
  * @property string $journalName
@@ -23,38 +23,26 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Reports extends Model
+class Jobs extends Model
 {
-	protected $table = 'reports';
-	protected $primaryKey = 'reportId';
+	protected $table = 'jobs';
+	protected $primaryKey = 'jobId';
 
 	protected $fillable = [
 
-		'consultatName',
-		'consultatMobileNumber',
-		'technology',
-		'otherTechnologies',
-		'rate',
-		'experience',
-		'visaType',
-		'city',
-		'state',
-		'willingLocation',	'userStatus',
-		'comments',
-		'reportStatus','userId'
+		'jobTitle',
+		'jobDescription',
+		'jobTechnology',
+		'created_at ',
+		'jobExperience',
+		'jobLocation',
+		'jobVisaType',
+		'userId'
 	];
 
 		public function user_details()
 	{
 		return $this->belongsTo(User::class, 'userId');
 	}
-		public function vendor_add()
-	{
-		return $this->hasMany(Submissions::class, 'reportId');
-    }
-	public function vendor_cout()
-	{
-		return $this->hasMany(Submissions::class ,'reportId');
-    }
 
 }
