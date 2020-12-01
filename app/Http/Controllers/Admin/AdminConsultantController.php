@@ -41,10 +41,10 @@ class AdminConsultantController extends Controller
             $timesheet = \App\Reports::with('user_details','vendor_add')
             ->withCount([
                 'vendor_cout as sclients'=> function ($query) {
-                    $query->where('submissions.vendorStatus','=', 'Submitted to Client');
+                    $query->where('vendors.vendorStatus','=', 'Submitted to Client');
                 } ,
                 'vendor_cout as interviews' => function ($query) {
-                    $query->where('submissions.vendorStatus','=', 'Interview scheduled');
+                    $query->where('vendors.vendorStatus','=', 'Interview scheduled');
                 }])
                             ->orderBy('reports.created_at', 'desc')
                             ->where('reports.wStatus','=', 'A')
@@ -70,10 +70,10 @@ class AdminConsultantController extends Controller
             $timesheet = \App\Reports::with('user_details','vendor_add')
             ->withCount([
                 'vendor_cout as sclients'=> function ($query) {
-                    $query->where('submissions.vendorStatus','=', 'Submitted to Client');
+                    $query->where('vendors.vendorStatus','=', 'Submitted to Client');
                 } ,
                 'vendor_cout as interviews' => function ($query) {
-                    $query->where('submissions.vendorStatus','=', 'Interview scheduled');
+                    $query->where('vendors.vendorStatus','=', 'Interview scheduled');
                 }])
                             ->orderBy('reports.created_at', 'desc')
                             ->where('reports.wStatus','=', 'A')
@@ -299,10 +299,10 @@ class AdminConsultantController extends Controller
                 $timesheet = \App\Reports::with('user_details','vendor_add')
                 ->withCount([
                     'vendor_cout as sclients'=> function ($query) {
-                        $query->where('submissions.vendorStatus','=', 'Submitted to Client');
+                        $query->where('vendors.vendorStatus','=', 'Submitted to Client');
                     } ,
                     'vendor_cout as interviews' => function ($query) {
-                        $query->where('submissions.vendorStatus','=', 'Interview scheduled');
+                        $query->where('vendors.vendorStatus','=', 'Interview scheduled');
                     }])
                                 ->orderBy('reports.created_at', 'desc')
                                 ->where('reports.wStatus','=', 'A')
