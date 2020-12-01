@@ -972,7 +972,7 @@ var AdminROUTES = [
     { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
     { path: '/interviews/list', title: 'Interviews', icon: 'nc-single-02', class: '', childMenu: null },
     { path: '/jobs/list', title: 'Jobs', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/recruiters/list', title: 'Submissions', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
 ];
 var headhuntersAdminROUTES = [
     { path: '/headadminconsultants/list', title: 'Consultant List', icon: 'nc-calendar-60', class: '', childMenu: null },
