@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Reports;
+use App\Technologies;
 use Carbon\Carbon;
 use Auth;
 
@@ -36,13 +37,22 @@ class ConsultantController extends Controller
                 ->orderBy('created_at', 'DESC')
                 ->get();
 
-        }else if(Auth::user()->role == "BenchSales")
+        }else if (Auth::user()->role == "HeadHuntersAdmin") {
+            $timesheet = Reports::with('user_details')
+            ->where("userStatus", '=', 'p')
+            ->where('reports.wStatus', '!=', 'R')
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        }else if(Auth::user()->role == "BenchSales" || Auth::user()->role == "Recruiters" )
         {
             $timesheet = \App\Reports::with('user_details','vendor_add')
             ->withCount([
-                'vendor_cout as interviews' ,
-                'vendor_cout as sclients' => function ($query) {
-                    $query->where('submissions.vendorStatus','=', 'Submitted to Client');
+                'vendor_cout as sclients'=> function ($query) {
+                    $query->where('vendors.vendorStatus','=', 'Submitted to Client');
+                } ,
+                'vendor_cout as interviews' => function ($query) {
+                    $query->where('vendors.vendorStatus','=', 'Interview scheduled');
                 }])
                             ->orderBy('reports.created_at', 'desc')
                             ->where('reports.wStatus','=', 'A')
@@ -58,7 +68,81 @@ class ConsultantController extends Controller
             ->get();
         }
 
+        return response()->json(['timesheet' => $timesheet,'path'=>storage_path("app/uploads/resume")], 200);
+    }
+    public function getDocumentsforadmin()
+    {
+        //->where('userId','=',Auth::user()->id)
+        if (Auth::user()->role == "Admin") {
+
+            $timesheet = \App\Reports::with('user_details','vendor_add')
+            ->withCount([
+                'vendor_cout as sclients'=> function ($query) {
+                    $query->where('vendors.vendorStatus','=', 'Submitted to Client');
+                } ,
+                'vendor_cout as interviews' => function ($query) {
+                    $query->where('vendors.vendorStatus','=', 'Interview scheduled');
+                }])
+                            ->orderBy('reports.created_at', 'desc')
+                            ->where('reports.wStatus','=', 'A')
+                            ->where('reports.adminStatus', '=', 'A')
+                            ->get();
+
+
+        }
+
         return response()->json(['timesheet' => $timesheet], 200);
+    }
+    public function getInactiveDocuments()
+    {
+        //->where('userId','=',Auth::user()->id)
+        if (Auth::user()->role == "Admin") {
+
+            $timesheet = \App\Reports::with('user_details','vendor_add')
+            ->withCount([
+                'vendor_cout as sclients'=> function ($query) {
+                    $query->where('vendors.vendorStatus','=', 'Submitted to Client');
+                } ,
+                'vendor_cout as interviews' => function ($query) {
+                    $query->where('vendors.vendorStatus','=', 'Interview scheduled');
+                }])
+                                 ->whereIn('reports.wStatus', ['R','S'])
+                            ->orderBy('reports.created_at', 'desc')
+                            ->where('reports.adminStatus', '=', 'A')
+                            ->get();
+
+
+        }
+
+        return response()->json(['timesheet' => $timesheet], 200);
+    }
+
+    public function removeDocument(Request $request)
+    {
+        if($request->resume=='yes')
+        {
+            $user = \App\Reports::find($request->id);
+            $user->resume = '';
+            $user->save();
+            $user = \App\Reports::with('user_details')->find($request->id);
+            return response()->json(['user' => $user], 200);
+        }
+        if($request->otherDocument=='yes')
+        {
+            $user = \App\Reports::find($request->id);
+            $user->otherDocument = '';
+            $user->save();
+            $user = \App\Reports::with('user_details')->find($request->id);
+            return response()->json(['user' => $user], 200);
+        }
+        if($request->workAuthorization=='yes')
+        {
+            $user = \App\Reports::find($request->id);
+            $user->workAuthorization = '';
+            $user->save();
+            $user = \App\Reports::with('user_details')->find($request->id);
+            return response()->json(['user' => $user], 200);
+        }
     }
     public function saveDocument(Request $request)
     {
@@ -71,7 +155,18 @@ class ConsultantController extends Controller
 
         if ($request->hasFile('resume')) {
 
-            $stringname = preg_replace('/\s+/', '', Auth::user()->name);
+            $filenameWithExt = $request->file('resume')->getClientOriginalName();
+            //Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('resume')->getClientOriginalExtension();
+            // Filename to store
+            $resumepath = $filename . '_' . time() . '.' . $extension;
+            // Upload Image
+            $path = $request->file('resume')->storeAs('uploads/resume', $resumepath);
+
+
+         /*   $stringname = preg_replace('/\s+/', '', Auth::user()->name);
             $id = Auth::user()->id;
             // Get filename with the extension
             $filenameWithExt = $request->file('resume')->getClientOriginalName();
@@ -82,14 +177,14 @@ class ConsultantController extends Controller
             // Filename to store
             $otherDocumentpath = $stringname . '-' . $id . '.' . $extension;
             // Upload Image
-            $path = $request->file('resume')->storeAs('uploads/resume', $otherDocumentpath);
+            $path = $request->file('resume')->storeAs('uploads/resume', $otherDocumentpath); */
 
 
-            return response()->json(['path' => $path], 200);
+            return response()->json(['path' => $resumepath], 200);
         }
 
         if ($request->hasFile('otherDocument')) {
-            $stringname = preg_replace('/\s+/', '', Auth::user()->name);
+          /*  $stringname = preg_replace('/\s+/', '', Auth::user()->name);
             $id = Auth::user()->id;
             // Get filename with the extension
             $filenameWithExt = $request->file('otherDocument')->getClientOriginalName();
@@ -100,12 +195,22 @@ class ConsultantController extends Controller
             // Filename to store
             $otherDocumentpath = $stringname . '-' . $id . '.' . $extension;
             // Upload Image
+            $path = $request->file('otherDocument')->storeAs('uploads/otherDocument', $otherDocumentpath); */
+            $filenameWithExt = $request->file('otherDocument')->getClientOriginalName();
+            //Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('otherDocument')->getClientOriginalExtension();
+            // Filename to store
+            $otherDocumentpath = $filename . '_' . time() . '.' . $extension;
+            // Upload Image
             $path = $request->file('otherDocument')->storeAs('uploads/otherDocument', $otherDocumentpath);
-            return response()->json(['path' => $path], 200);
+
+            return response()->json(['path' => $otherDocumentpath], 200);
         }
 
         if ($request->hasFile('workAuthorization')) {
-            $stringname = preg_replace('/\s+/', '', Auth::user()->name);
+           /* $stringname = preg_replace('/\s+/', '', Auth::user()->name);
             $id = Auth::user()->id;
             // Get filename with the extension
             $filenameWithExt = $request->file('workAuthorization')->getClientOriginalName();
@@ -116,8 +221,18 @@ class ConsultantController extends Controller
             // Filename to store
             $otherDocumentpath = $stringname . '-' . $id . '.' . $extension;
             // Upload Image
-            $path = $request->file('workAuthorization')->storeAs('uploads/workAuthorization', $otherDocumentpath);
-            return response()->json(['path' => $path], 200);
+            $path = $request->file('workAuthorization')->storeAs('uploads/workAuthorization', $otherDocumentpath); */
+            $filenameWithExt = $request->file('workAuthorization')->getClientOriginalName();
+            //Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('workAuthorization')->getClientOriginalExtension();
+            // Filename to store
+            $workpath = $filename . '_' . time() . '.' . $extension;
+            // Upload Image
+            $path = $request->file('workAuthorization')->storeAs('uploads/workauthorization', $workpath);
+
+            return response()->json(['path' => $workpath], 200);
         }
 
         return response()->json(['user' => "Error"], 400);
@@ -187,7 +302,7 @@ class ConsultantController extends Controller
             if ($request->workAuthorization) {
                 $user->workAuthorization = $request->workAuthorization;
             }
-            if (\Auth::user()->role == 'Admin') {
+            if (\Auth::user()->role == 'Admin' || \Auth::user()->role == 'HeadHuntersAdmin') {
                 $user->userStatus = 'p';
             } else {
                 $user->userStatus = 'u';
@@ -195,6 +310,46 @@ class ConsultantController extends Controller
             $user->documentsCollected = $request->documentsCollected;
             $user->userId = \Auth::user()->id;
             $user->save();
+            if($request->technology1)
+            {
+
+                $params  = new \App\Technologies();
+                $params->reportId     = $user->reportId;
+                $params->name     = $request->technology1 ;
+                $params->rating     = $request->rating1;
+                $params->save();
+
+            }
+            if($request->technology2)
+            {
+
+                $params  = new \App\Technologies();
+                $params->reportId     = $user->reportId;
+                $params->name     = $request->technology2 ;
+                $params->rating     = $request->rating2;
+                $params->save();
+
+            }
+            if($request->technology3)
+            {
+
+                $params  = new \App\Technologies();
+                $params->reportId     = $user->reportId;
+                $params->name     = $request->technology3;
+                $params->rating     = $request->rating3;
+                $params->save();
+
+            }
+            if($request->technology4)
+            {
+
+                $params  = new \App\Technologies();
+                $params->reportId     = $user->reportId;
+                $params->name     = $request->technology4;
+                $params->rating     = $request->rating4;
+                $params->save();
+
+            }
 
             return response()->json(['consultant' => $user], 200);
 
@@ -210,7 +365,7 @@ class ConsultantController extends Controller
             \Log::error($validator);
             return array('error' => true, 'msg' => 'Some thing went wrong');
         } else {
-            if (Auth::user()->role == "Admin") {
+            if (Auth::user()->role == "Admin" || Auth::user()->role == "HeadHuntersAdmin" ) {
                 $user = \App\Reports::find($request->index);
                 $user->adminStatus = 'A';
                 $user->save();
@@ -238,16 +393,17 @@ class ConsultantController extends Controller
     public function show($id)
     {
         //
-        $user = \App\Reports::find($id);
+        $user = \App\Reports::with('user_details')->find($id);
 
-        return response()->json(['user' => $user], 200);
+        return response()->json(['user' => $user,'path'=>storage_path("app/uploads/resume")], 200);
     }
     public function edit($id)
     {
 
-        $user = \App\Reports::find($id);
-        return response()->json(['user' => $user], 200);
+        $user = \App\Reports::with('user_details')->find($id);
+        return response()->json(['user' => $user,'path'=>storage_path("app/uploads/resume")], 200);
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -307,6 +463,7 @@ class ConsultantController extends Controller
 
             if (\Auth::user()->role == 'Admin') {
                 $user->save();
+                return response()->json(['user' => $user], 200);
             } elseif ($user->userStatus == 'u') {
                 $user->save();
                 return response()->json(['user' => $user], 200);
@@ -314,5 +471,10 @@ class ConsultantController extends Controller
                 return response()->json(['error' => "Error"], 400);
             }
 
+
+    }
+    public function downloadResume($filename) {
+
+        return response()->download(storage_path("app/uploads/resume/{$filename}"));
     }
 }

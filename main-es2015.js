@@ -84,7 +84,7 @@ module.exports = "\r\n<nav class=\"navbar navbar-expand-lg navbar-absolute fixed
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = " <!-- MENU Start -->\r\n <div class=\"navbar-custom\">\r\n  <div class=\"container-fluid\">\r\n      <!-- Logo-->\r\n      <div class=\"d-none d-lg-block\">\r\n\r\n          <a routerLink=\"/dashboard\" class=\"logo\" style=\"color: #fff\">\r\n              <img  src=\"https://webmobilez.com/wp-content/themes/webmobilez/images/logo_white.svg\"\r\n              height=\"50px\" class=\"svg-content\">\r\n          </a>\r\n\r\n\r\n\r\n      </div>\r\n      <!-- End Logo-->\r\n      <div id=\"navigation\">\r\n        <ul class=\"nav navigation-menu\">\r\n          <!-- <li *ngFor=\"let menuItem of menuItems\" routerLinkActive=\"active\" class=\"{{menuItem.class}}\">\r\n              <a [routerLink]=\"[menuItem.path]\">\r\n                  <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n                  <p>{{menuItem.title}}</p>\r\n              </a>\r\n          </li> -->\r\n\r\n          <li  *ngFor=\"let menuItem of menuItems; let i = index\" routerLinkActive=\"active\" class=\"has-submenu {{menuItem.class}}\">\r\n            <a *ngIf=\"menuItem.childMenu\" data-toggle=\"collapse\" href=\"#dashboardOverview{{i}}\" aria-expanded=\"false\" class=\"collapsed\">\r\n                <i class=\"nc-icon nc-bank\"></i>\r\n                <p>{{menuItem.title}}\r\n                      <b class=\"caret\"></b>\r\n                  </p>\r\n            </a>\r\n            <a *ngIf=\"!menuItem.childMenu\" [routerLink]=\"[menuItem.path]\">\r\n              <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n              <p>{{menuItem.title}}</p>\r\n            </a>\r\n\r\n          <div *ngIf=\"menuItem.childMenu\" class=\"collapse\" id=\"dashboardOverview{{i}}\" aria-expanded=\"false\" style=\"height: 0px;\">\r\n            <ul class=\"nav\">\r\n              <li *ngFor=\"let menu of menuItem.childMenu\" routerLinkActive=\"active\" class=\"{{menu.class}}\">\r\n                <a [routerLink]=\"[menu.path]\">\r\n                    <i class=\"nc-icon {{menu.icon}}\"></i>\r\n                    <p>{{menu.title}}</p>\r\n                </a>\r\n              </li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"nav-item pd-top\">\r\n          <a class=\"nav-link\" (click)=\"logout()\">\r\n            logout\r\n            <!-- <p>\r\n              <span class=\"d-lg-none d-md-block\">Account</span>\r\n            </p> -->\r\n          </a>\r\n        </li>\r\n      </ul>\r\n\r\n      </div> <!-- end #navigation -->\r\n  </div> <!-- end container -->\r\n</div> <!-- end navbar-custom -->\r\n\r\n"
+module.exports = " <!-- MENU Start -->\r\n <div class=\"navbar-custom\">\r\n  <div class=\"container-fluid\">\r\n      <!-- Logo-->\r\n      <div class=\"d-none d-lg-block\">\r\n\r\n          <a routerLink=\"/dashboard\" class=\"logo\" style=\"color: #fff\">\r\n              <img  src=\"https://webmobilez.com/wp-content/themes/webmobilez/images/logo_white.svg\"\r\n              height=\"50px\" class=\"svg-content\">\r\n          </a>\r\n          <span class=\"txt-color\"> {{clock| date:'full':'EST'}}</span>\r\n\r\n\r\n\r\n\r\n      </div>\r\n      <!-- End Logo-->\r\n      <div id=\"navigation\">\r\n        <ul class=\"nav navigation-menu\">\r\n          <!-- <li *ngFor=\"let menuItem of menuItems\" routerLinkActive=\"active\" class=\"{{menuItem.class}}\">\r\n              <a [routerLink]=\"[menuItem.path]\">\r\n                  <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n                  <p>{{menuItem.title}}</p>\r\n              </a>\r\n          </li> -->\r\n\r\n          <li  *ngFor=\"let menuItem of menuItems; let i = index\" routerLinkActive=\"active\" class=\"has-submenu {{menuItem.class}}\">\r\n            <a *ngIf=\"menuItem.childMenu\" data-toggle=\"collapse\" href=\"#dashboardOverview{{i}}\" aria-expanded=\"false\" class=\"collapsed\">\r\n                <i class=\"nc-icon nc-bank\"></i>\r\n                <p>{{menuItem.title}}\r\n                      <b class=\"caret\"></b>\r\n                  </p>\r\n            </a>\r\n            <a *ngIf=\"!menuItem.childMenu\" [routerLink]=\"[menuItem.path]\">\r\n              <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n              <p>{{menuItem.title}}</p>\r\n            </a>\r\n\r\n          <div *ngIf=\"menuItem.childMenu\" class=\"collapse\" id=\"dashboardOverview{{i}}\" aria-expanded=\"false\" style=\"height: 0px;\">\r\n            <ul class=\"nav\">\r\n              <li *ngFor=\"let menu of menuItem.childMenu\" routerLinkActive=\"active\" class=\"{{menu.class}}\">\r\n                <a [routerLink]=\"[menu.path]\">\r\n                    <i class=\"nc-icon {{menu.icon}}\"></i>\r\n                    <p>{{menu.title}}</p>\r\n                </a>\r\n              </li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"nav-item pd-top\">\r\n          <a class=\"nav-link\" (click)=\"logout()\">\r\n            Logout\r\n            <!-- <p>\r\n              <span class=\"d-lg-none d-md-block\">Account</span>\r\n            </p> -->\r\n          </a>\r\n        </li>\r\n      </ul>\r\n\r\n      </div> <!-- end #navigation -->\r\n  </div> <!-- end container -->\r\n</div> <!-- end navbar-custom -->\r\n\r\n"
 
 /***/ }),
 
@@ -93,37 +93,21 @@ module.exports = " <!-- MENU Start -->\r\n <div class=\"navbar-custom\">\r\n  <d
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
   \**********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var map = {
-	"./layouts/admin-layout/admin-layout.module": [
-		"./src/app/layouts/admin-layout/admin-layout.module.ts",
-		"layouts-admin-layout-admin-layout-module"
-	],
-	"./layouts/welcome-layout/welcome-layout.module": [
-		"./src/app/layouts/welcome-layout/welcome-layout.module.ts",
-		"layouts-welcome-layout-welcome-layout-module"
-	]
-};
-function webpackAsyncContext(req) {
-	if(!__webpack_require__.o(map, req)) {
-		return Promise.resolve().then(function() {
-			var e = new Error("Cannot find module '" + req + "'");
-			e.code = 'MODULE_NOT_FOUND';
-			throw e;
-		});
-	}
-
-	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(function() {
-		return __webpack_require__(id);
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncaught exception popping up in devtools
+	return Promise.resolve().then(function() {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
 	});
 }
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
-module.exports = webpackAsyncContext;
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
@@ -320,7 +304,7 @@ const AppRoutes = [
         children: [
             {
                 path: '',
-                loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+                loadChildren: () => __webpack_require__.e(/*! import() | layouts-admin-layout-admin-layout-module */ "layouts-admin-layout-admin-layout-module").then(__webpack_require__.bind(null, /*! ./layouts/admin-layout/admin-layout.module */ "./src/app/layouts/admin-layout/admin-layout.module.ts")).then(m => m.AdminLayoutModule)
             }
         ]
     }, {
@@ -329,7 +313,7 @@ const AppRoutes = [
         children: [
             {
                 path: '',
-                loadChildren: './layouts/welcome-layout/welcome-layout.module#WelcomeLayoutModule'
+                loadChildren: () => __webpack_require__.e(/*! import() | layouts-welcome-layout-welcome-layout-module */ "layouts-welcome-layout-welcome-layout-module").then(__webpack_require__.bind(null, /*! ./layouts/welcome-layout/welcome-layout.module */ "./src/app/layouts/welcome-layout/welcome-layout.module.ts")).then(m => m.WelcomeLayoutModule)
             }
         ]
     },
@@ -842,7 +826,7 @@ let NavbarComponent = class NavbarComponent {
     }
 };
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("navbar-cmp", { static: false }),
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("navbar-cmp", { static: true }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
 ], NavbarComponent.prototype, "button", void 0);
 NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -850,7 +834,7 @@ NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         selector: 'navbar-cmp',
         template: __webpack_require__(/*! raw-loader!./navbar.component.html */ "./node_modules/raw-loader/index.js!./src/app/shared/navbar/navbar.component.html")
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_4__["Location"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], app_auth_common_auth_service__WEBPACK_IMPORTED_MODULE_5__["CommonAuthService"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_4__["Location"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], app_auth_common_auth_service__WEBPACK_IMPORTED_MODULE_5__["CommonAuthService"]])
 ], NavbarComponent);
 
 
@@ -897,14 +881,18 @@ NavbarModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*****************************************************!*\
   !*** ./src/app/shared/sidebar/sidebar.component.ts ***!
   \*****************************************************/
-/*! exports provided: ROUTES, HeadHunterROUTES, AdminROUTES, SidebarComponent */
+/*! exports provided: ROUTES, HeadHunterROUTES, RecruitersROUTES, BenchSalesROUTES, AdminROUTES, headhuntersAdminROUTES, AccountsROUTES, SidebarComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTES", function() { return ROUTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeadHunterROUTES", function() { return HeadHunterROUTES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecruitersROUTES", function() { return RecruitersROUTES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BenchSalesROUTES", function() { return BenchSalesROUTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminROUTES", function() { return AdminROUTES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "headhuntersAdminROUTES", function() { return headhuntersAdminROUTES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountsROUTES", function() { return AccountsROUTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarComponent", function() { return SidebarComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
@@ -930,17 +918,40 @@ const HeadHunterROUTES = [
     { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
     { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
 ];
-const AdminROUTES = [
-    /* {
-         path: '/dashboard', title: 'Dashboard', icon:'nc-bank', class: '',
-         childMenu: null
-     }, */
-    { path: '/users/list', title: 'Users List', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/consultants/list', title: 'Consultant List', icon: 'nc-calendar-60', class: '', childMenu: null },
-    { path: '/consultants/inactivelist', title: 'InActive Consultants', icon: 'nc-calendar-60', class: '', childMenu: null },
-    { path: '/consultantdocuments/list', title: 'Documents', icon: 'nc-calendar-60', class: '', childMenu: null },
+const RecruitersROUTES = [
+    { path: '/recruiters/list', title: 'Consultant Submissions ', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/consultantdocuments/list', title: 'Documents', icon: 'nc-single-02', class: '', childMenu: null },
     { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/profile', title: 'Your Profile', icon: 'nc-icon nc-settings', class: '', childMenu: null },
+    { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
+];
+const BenchSalesROUTES = [
+    { path: '/benchsales/list', title: 'Consultant  Submissions', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/interviews/list', title: 'Schedule Interviews', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/consultantdocuments/list', title: 'Documents', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/contacts/list', title: 'Contact List', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
+];
+const AdminROUTES = [
+    { path: '/users/list', title: 'Users', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/consultants/list', title: 'Consultants', icon: 'nc-calendar-60', class: '', childMenu: null },
+    // { path: '/consultants/inactivelist',        title: 'InActive Consultants', icon:'nc-calendar-60',  class: '' ,childMenu: null},
+    { path: '/adminInDocuments/list', title: 'In Active List', icon: 'nc-calendar-60', class: '', childMenu: null },
+    { path: '/admindocuments/list', title: 'Documents', icon: 'nc-calendar-60', class: '', childMenu: null },
+    { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/interviews/list', title: 'Interviews', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/jobs/list', title: 'Jobs', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/recruiters/list', title: 'Submissions', icon: 'nc-single-02', class: '', childMenu: null },
+];
+const headhuntersAdminROUTES = [
+    { path: '/headadminconsultants/list', title: 'Consultant List', icon: 'nc-calendar-60', class: '', childMenu: null },
+    { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
+];
+const AccountsROUTES = [
+    { path: '/jobs/list', title: 'Jobs', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
 ];
 // [
 //     { path: '/users',         title: 'User List',         icon:'nc-bank',       class: '' },
@@ -951,13 +962,17 @@ const AdminROUTES = [
 //     { path: '/user',          title: 'User Profile',      icon:'nc-single-02',  class: '' },
 //     { path: '/table',         title: 'Table List',        icon:'nc-tile-56',    class: '' },
 //     { path: '/typography',    title: 'Typography',        icon:'nc-caps-small', class: '' }
-// ];
+// ];HeadHuntersAdmin
 let SidebarComponent = class SidebarComponent {
     constructor(router, auth) {
         this.router = router;
         this.auth = auth;
+        this.clock = "";
     }
     ngOnInit() {
+        this.clockHandle = setInterval(() => {
+            this.clock = new Date().toLocaleString();
+        }, 1000);
         this.menuexpectedrole = localStorage.getItem('role');
         console.log(this.menuexpectedrole);
         if (this.menuexpectedrole == 'Admin') {
@@ -965,6 +980,18 @@ let SidebarComponent = class SidebarComponent {
         }
         else if (this.menuexpectedrole == 'HeadHunters') {
             this.menuItems = HeadHunterROUTES.filter(menuItem => menuItem);
+        }
+        else if (this.menuexpectedrole == 'Recruiters') {
+            this.menuItems = RecruitersROUTES.filter(menuItem => menuItem);
+        }
+        else if (this.menuexpectedrole == 'BenchSales') {
+            this.menuItems = BenchSalesROUTES.filter(menuItem => menuItem);
+        }
+        else if (this.menuexpectedrole == 'HeadHuntersAdmin') {
+            this.menuItems = headhuntersAdminROUTES.filter(menuItem => menuItem);
+        }
+        else if (this.menuexpectedrole == 'Accountmanager') {
+            this.menuItems = AccountsROUTES.filter(menuItem => menuItem);
         }
         else {
             this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -987,7 +1014,7 @@ SidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'sidebar-cmp',
         template: __webpack_require__(/*! raw-loader!./sidebar.component.html */ "./node_modules/raw-loader/index.js!./src/app/shared/sidebar/sidebar.component.html"),
-        styles: [".pd-top { padding-top: 17px; }"]
+        styles: [".pd-top { padding-top: 17px; } .txt-color{ color:#fff}"]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], app_auth_common_auth_service__WEBPACK_IMPORTED_MODULE_3__["CommonAuthService"]])
 ], SidebarComponent);

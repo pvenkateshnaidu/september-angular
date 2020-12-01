@@ -47,17 +47,26 @@ Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], func
     Route::get('getAllConsultants', 'ConsultantController@index');
 });
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::get('getAllConsultantsAdmin', 'ConsultantController@getDocumentsforadmin');
+});
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::get('getAllInConsultantsAdmin', 'ConsultantController@getInactiveDocuments');
+});
+
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
     Route::get('getAllDocuments', 'AdminDocumentsController@index');
 });
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
     Route::resource('store-consultant', 'ConsultantController');
 });
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
-    Route::post('status-consultant', 'ConsultantController@statusChange');
+    Route::resource('admin-store-consultant', 'AdminConsultantController');
 });
+
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
     Route::post('status-consultant', 'ConsultantController@statusChange');
 });
+
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
     Route::post('getTotalInterviewShecdules', 'SubmissionsController@getTotalInterviewShecdules');
 });
@@ -92,4 +101,15 @@ Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], func
 
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
     Route::resource('contactslist', 'ContactsListController');
+});
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::get('interviewsubmissions', 'SubmissionsController@interviewsubmissions');
+});
+
+
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::post('removeDocument', 'ConsultantController@removeDocument');
+});
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::resource('clients', 'ClientController');
 });

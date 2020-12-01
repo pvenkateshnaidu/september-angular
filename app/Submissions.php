@@ -25,17 +25,23 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Submissions extends Model
 {
-	protected $table = 'submissions';
+	protected $table = 'vendors';
 	protected $primaryKey = 'vendorId';
 
 	protected $fillable = [
+'vendorName',
+'vendorMobileNumber',
+'vendorCompanyName',
+'vendorEmail',
+'endClientName',
 
         'actualRate',
         'submissionRate',
         'clientId',
         'vid',
 		'vendorStatus',
-		'userId'
+        'userId',
+        'timezone','scheduleDate'
 	];
 
 		public function user_details()

@@ -42,8 +42,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
 /* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var primeng_primeng__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primeng/primeng */ "./node_modules/primeng/primeng.js");
-/* harmony import */ var primeng_primeng__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(primeng_primeng__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var primeng_multiselect__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primeng/multiselect */ "./node_modules/primeng/multiselect.js");
+/* harmony import */ var primeng_multiselect__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(primeng_multiselect__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/toast */ "./node_modules/primeng/toast.js");
 /* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(primeng_toast__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var primeng_slider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/slider */ "./node_modules/primeng/slider.js");
@@ -98,7 +98,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 let DocumentsModule = class DocumentsModule {
 };
 DocumentsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -107,10 +106,10 @@ DocumentsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _user_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserRoutingModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"], primeng_table__WEBPACK_IMPORTED_MODULE_8__["TableModule"], primeng_primeng__WEBPACK_IMPORTED_MODULE_9__["MultiSelectModule"], primeng_primeng__WEBPACK_IMPORTED_MODULE_9__["CalendarModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"], primeng_table__WEBPACK_IMPORTED_MODULE_8__["TableModule"], primeng_multiselect__WEBPACK_IMPORTED_MODULE_9__["MultiSelectModule"],
             primeng_slider__WEBPACK_IMPORTED_MODULE_11__["SliderModule"],
             primeng_dialog__WEBPACK_IMPORTED_MODULE_13__["DialogModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_9__["MultiSelectModule"],
+            primeng_multiselect__WEBPACK_IMPORTED_MODULE_9__["MultiSelectModule"],
             primeng_contextmenu__WEBPACK_IMPORTED_MODULE_12__["ContextMenuModule"],
             primeng_button__WEBPACK_IMPORTED_MODULE_14__["ButtonModule"],
             primeng_toast__WEBPACK_IMPORTED_MODULE_10__["ToastModule"],

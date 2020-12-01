@@ -86,10 +86,21 @@ public function getTotalInterviewShecdules(Request $request)
     public function index()
     {
 
-            $submissions = Submissions::with('user_details','consultant','vendorlist','clients','vendorDetail')->orderBy('created_at', 'DESC')
-                ->get();
+           // $submissions = Submissions::with('user_details','consultant','vendorlist','clients','vendorDetail')->orderBy('created_at', 'DESC')
+           $submissions = Submissions::with('user_details','consultant')->orderBy('created_at', 'DESC')
+           ->get();
 
         return response()->json(['submissions' => $submissions], 200);
+    }
+    public function interviewsubmissions()
+    {
+       // $submissions = Submissions::with('user_details','consultant','vendorlist','clients','vendorDetail')
+       $submissions = Submissions::with('user_details','consultant')
+       ->whereIn('vendorStatus',['Interview scheduled'])
+        ->orderBy('scheduleDate', 'DESC')
+        ->get();
+
+return response()->json(['submissions' => $submissions], 200);
     }
 
 
@@ -106,7 +117,7 @@ public function getTotalInterviewShecdules(Request $request)
             'actualRate' => 'required',
             'vid' => 'required',
             'vendorDetailId' => 'required',
-            'clientId' => Rule::unique('submissions')->where(function ($query) use ($request) {
+            'clientId' => Rule::unique('vendors')->where(function ($query) use ($request) {
                 return $query->where('vendorDetailId', $request->vendorDetailId)
                    ->where('reportId', $request->state)
                    ->where('clientId', $request->clientId);
@@ -118,11 +129,26 @@ public function getTotalInterviewShecdules(Request $request)
             $job->vendorComments = $request->vendorComments;
             $job->submissionRate = $request->submissionRate;
             $job->vid = $request->vid;
+            $vlist = \App\VendorList::find($request->vid);
+            $job->vendorCompanyName = $vlist->vendorCompanyName;
+
             $job->vendorDetailId = $request->vendorDetailId;
+            $vDetail = \App\vendorDetails::find($request->vendorDetailId);
+            $job->vendorName = $vDetail->contactName;
+            $job->vendorMobileNumber = $vDetail->contactMobile;
+            $job->vendorEmail = $vDetail->contactEmail;
+
             $job->clientId = $request->clientId;
+            $vClient = \App\Clients::find($request->clientId);
+            $job->endClientName =  $vClient->clientName;
+
             $job->endClientLocation= $request->endClientLocation;
             $job->reportId= $request->state;
             $job->vendorStatus =$request->vendorStatus;
+            if($request->timezone)
+            $job->timezone =$request->timezone;
+            if($request->scheduleDate)
+            $job->scheduleDate =$request->scheduleDate;
             $job->userId = \Auth::user()->id;
             $job->created_at = date('Y-m-d H:i:s');
             $job->save();
@@ -168,7 +194,8 @@ public function getTotalInterviewShecdules(Request $request)
     }
     public function show($id)
     {
-        $submissions = Submissions::with('user_details','vendorlist','clients','vendorDetail')
+       // $submissions = Submissions::with('user_details','vendorlist','clients','vendorDetail')
+       $submissions = Submissions::with('user_details')
         ->where('reportId','=',$id)
         ->orderBy('created_at', 'DESC')
         ->get();
@@ -177,7 +204,7 @@ public function getTotalInterviewShecdules(Request $request)
     }
     public function edit($id)
     {
-        $submissions = Submissions::with('user_details','consultant','vendorlist','clients')
+        $submissions = Submissions::with('user_details')
         ->where('reportId','=',$id)
         ->orderBy('created_at', 'DESC')
         ->get();
@@ -198,13 +225,14 @@ public function getTotalInterviewShecdules(Request $request)
         ]);
             $submission = \App\Submissions::find($id);
             $submission->vendorStatus = $request->vendorStatus;
-            if($request->vendorStatus)
+            if($request->scheduleDate)
             $submission->scheduleDate = $request->scheduleDate;
             if($request->timezone)
             $submission->timezone = $request->timezone;
             $submission->vendorComments = $request->vendorComments;
             $submission->save();
-            $submissions = Submissions::with('user_details','consultant','vendorlist','clients','vendorDetail')->orderBy('created_at', 'DESC')
+          //  $submissions = Submissions::with('user_details','consultant','vendorlist','clients','vendorDetail')->orderBy('created_at', 'DESC')
+          $submissions = Submissions::with('user_details','consultant')->orderBy('created_at', 'DESC')
             ->get();
 
     return response()->json(['submissions' => $submissions], 200);
