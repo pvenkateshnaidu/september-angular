@@ -1,9 +1,9 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["admin-consultants-user-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["admin-vendorlist-user-module"],{
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-create/user-create.component.html":
-/*!****************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/consultants/user-create/user-create.component.html ***!
-  \****************************************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/vendorlist/user-create/user-create.component.html":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/vendorlist/user-create/user-create.component.html ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -11,10 +11,10 @@ module.exports = "<p-toast position=\"bottom-right\"></p-toast>\n<div class=\"ro
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-edit/user-create.component.html":
-/*!**************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/consultants/user-edit/user-create.component.html ***!
-  \**************************************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/vendorlist/user-edit/user-create.component.html":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/vendorlist/user-edit/user-create.component.html ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -22,10 +22,10 @@ module.exports = "<p-toast position=\"bottom-right\"></p-toast>\n<div class=\"ro
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-index/user-index.component.html":
-/*!**************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/consultants/user-index/user-index.component.html ***!
-  \**************************************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/vendorlist/user-index/user-index.component.html":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/vendorlist/user-index/user-index.component.html ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -33,32 +33,32 @@ module.exports = "\n\n<div class=\"row\">\n    <div class=\"col-md-12\">\n      
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-list/user-list.component.html":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/consultants/user-list/user-list.component.html ***!
-  \************************************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/vendorlist/user-list/user-list.component.html":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/vendorlist/user-list/user-list.component.html ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4 class=\"remove-margin\"> Consultant List  <a routerLink=\"/consultants/create\" class=\"btn btn-primary\">\r\n  Add Consultant\r\n </a></h4>\r\n<p-table #dt [columns]=\"scrollableCols\" [autoLayout]=\"true\"  [value]=\"timeSheets\" [scrollable]=\"true\"\r\n   [filterDelay]=\"0\" [globalFilterFields]=\"['consultatName']\" [resizableColumns]=\"true\" columnResizeMode=\"expand\" [reorderableColumns]=\"true\" [loading]=\"loading\"\r\n  autoLayout=\"true\"  dataKey=\"reportId\" editMode=\"row\" [paginator]=\"true\" [rows]=\"10\" [showCurrentPageReport]=\"true\" [rowsPerPageOptions]=\"[10,25,50]\">\r\n  <ng-template pTemplate=\"colgroup\" let-columns>\r\n    <colgroup>\r\n\r\n      <col *ngFor=\"let col of columns\" style=\"width:200px\">\r\n\r\n      <col style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n    </colgroup>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th>Action</th>\r\n      <th>Docs</th>\r\n      <th *ngFor=\"let col of columns\" [ngStyle]=\"{'width': col.width}\">\r\n        {{col.header}}\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'user_details.name', 'startsWith')\"\r\n          placeholder=\"Created By\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <i class=\"pi pi-download\"></i>\r\n      </th>\r\n\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th> <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultantEmail', 'startsWith')\"\r\n          placeholder=\"Email\" class=\"p-column-filter\"></th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatMobileNumber', 'startsWith')\"\r\n          placeholder=\"Phone\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'experience', 'startsWith')\"\r\n          placeholder=\"exp\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'rate', 'startsWith')\" placeholder=\"Rate\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'technology', 'startsWith')\" placeholder=\"technology\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'visaType', 'startsWith')\"\r\n          placeholder=\"visaType\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'city', 'startsWith')\"\r\n          placeholder=\"city\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'state', 'startsWith')\"\r\n          placeholder=\"state\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'willingLocation', 'startsWith')\"\r\n          placeholder=\"willingLocation\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'documentsCollected', 'startsWith')\"\r\n          placeholder=\"documentsCollected\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'resource', 'startsWith')\"\r\n          placeholder=\"resource\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'ssn', 'startsWith')\"\r\n          placeholder=\"SSN\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'bestContactNumber', 'startsWith')\"\r\n          placeholder=\"bestContactNumber\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'linkedInUrl', 'startsWith')\"\r\n          placeholder=\"linkedInUrl\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'skypeId', 'startsWith')\"\r\n          placeholder=\"skypeId\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'priority', 'startsWith')\"\r\n          placeholder=\"priority\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'reportStatus', 'startsWith')\"\r\n          placeholder=\"Status\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\" let-editing=\"editing\" let-ri=\"rowIndex\">\r\n\r\n    <tr [pEditableRow]=\"rowData\" [ngStyle]=\"{'background-color':getColor(rowData.reportStatus,rowData.adminStatus)}\"  >\r\n      <td style=\"text-align:center\">\r\n\r\n        <button  *ngIf=\"rowData.adminStatus=='D'\" pRipple pButton type=\"button\"  icon=\"pi pi-thumbs-up\" (click)=\"dropDatabase($event,rowData.reportId);\"  class=\"p-button-rounded p-button-text \"></button>\r\n        <!--  <button  *ngIf=\"!editing\" pButton pRipple type=\"button\" pInitEditableRow icon=\"pi pi-pencil\" (click)=\"onRowEditInit(rowData)\" class=\"p-button-rounded p-button-text \"></button>\r\n            <button   *ngIf=\"editing\" pButton pRipple type=\"button\" pSaveEditableRow icon=\"pi pi-check\" (click)=\"onRowEditSave(rowData,ri)\" class=\"p-button-rounded p-button-text p-button-success p-mr-2\"></button>\r\n            <button   *ngIf=\"editing\" pButton pRipple type=\"button\" pCancelEditableRow icon=\"pi pi-times\" (click)=\"onRowEditCancel(rowData, ri)\" class=\"p-button-rounded p-button-text p-button-danger\"></button> -->\r\n            <a (click)=\"editUser(rowData.reportId)\"  class=\"btn btn-warning btn-sm\">Edit</a>\r\n            {{rowData.user_details.name}}\r\n        </td>\r\n      <td>\r\n\r\n        <p>\r\n          <a href=\"https://portal.webmobilez.com/storage/app/uploads/resume/{{rowData.resume}}\" download\r\n          *ngIf=\"rowData.resume\"><img src=\"./assets/img/word.png\"></a>\r\n        <a href=\"https://portal.webmobilez.com/storage/app/uploads/otherDocument/{{rowData.otherDocument}}\"  download *ngIf=\"rowData.otherDocument\"><img\r\n              src=\"./assets/img/idcard.png\"></a>\r\n          <a href=\"https://portal.webmobilez.com/storage/app/uploads/workauthorization/{{rowData.workauthorization}}\"   download *ngIf=\"rowData.workauthorization\"><img\r\n              src=\"./assets/img/suitcase.png\"></a>\r\n        </p>\r\n\r\n{{rowData.created_at | date }}\r\n      </td>\r\n      <td *ngFor=\"let col of columns\" >\r\n            <div *ngIf=\"!col.editable\">\r\n              {{rowData|field:col}}\r\n            </div>\r\n            <p-cellEditor *ngIf=\"col.editable\">\r\n                    <ng-template pTemplate=\"input\" >\r\n                      <div *ngIf=\"rowData|field:col as variable\">\r\n                         <input pInputText type=\"text\"  [(ngModel)]=\"variable\" required>\r\n                                                </div>\r\n                    </ng-template>\r\n                    <ng-template pTemplate=\"output\">\r\n\r\n                        {{rowData|field:col}}\r\n                    </ng-template>\r\n            </p-cellEditor>\r\n      </td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n<p-confirmDialog key=\"confirm-drop-database\" header=\"Confirmation\" acceptLabel=\"Yes\" rejectLabel=\"No\" [(visible)]=\"confirmDropDatabaseDialogVisible\"></p-confirmDialog>\r\n"
+module.exports = "<p-table [columns]=\"selectedColumns\" [value]=\"timeSheets\" [loading]=\"loading\" [paginator]=\"true\" [rows]=\"10\"\r\n  [showCurrentPageReport]=\"true\" currentPageReportTemplate=\"Showing {first} to {last} of {totalRecords} entries\"\r\n  [rowsPerPageOptions]=\"[10,25,50]\">\r\n  <ng-template pTemplate=\"caption\">\r\n    <p-multiSelect [options]=\"scrollableCols\" [(ngModel)]=\"selectedColumns\" optionLabel=\"header\"\r\n      selectedItemsLabel=\"{0} columns selected\" [style]=\"{minWidth: '200px'}\" placeholder=\"Choose Columns\">\r\n    </p-multiSelect>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th></th>\r\n      <th *ngFor=\"let col of columns\">\r\n        {{col.header}}\r\n      </th>\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-product let-columns=\"columns\" let-rowIndex=\"rowIndex\">\r\n    <tr>\r\n      <td class=\"counter\"> {{rowIndex + 1}} </td>\r\n      <td *ngFor=\"let col of columns\">\r\n        {{product[col.field]}}\r\n      </td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n<h5>Filter Row</h5>\r\n<p-table #dt [value]=\"timeSheets\" dataKey=\"reportId\" [rows]=\"10\" [showCurrentPageReport]=\"true\"\r\n  [rowsPerPageOptions]=\"[10,25,50]\" [loading]=\"loading\"  [globalFilterFields]=\"['consultatName']\"  styleClass=\"p-datatable-customers\" [paginator]=\"true\"\r\n  >\r\n\r\n  <ng-template pTemplate=\"header\">\r\n    <tr>\r\n      <th>Consultant Name</th>\r\n      <th>Country</th>\r\n      <th>Agent</th>\r\n      <th>Status</th>\r\n\r\n    </tr>\r\n    <tr>\r\n      <th>\r\n        <p-columnFilter type=\"text\" field=\"consultatName\"></p-columnFilter>\r\n      </th>\r\n      <th>\r\n        <p-columnFilter type=\"email\" field=\"consultantEmail\"></p-columnFilter>\r\n      </th>\r\n      <th>\r\n        <p-columnFilter type=\"number\" field=\"consultatMobileNumber\"></p-columnFilter>\r\n      </th>\r\n      <th>\r\n        <p-columnFilter type=\"number\" field=\"experience\"></p-columnFilter>\r\n      </th>\r\n      <!-- <th>\r\n\t\t\t\t<p-columnFilter field=\"representative\" matchMode=\"in\" [showMenu]=\"false\">\r\n\t\t\t\t\t<ng-template pTemplate=\"filter\" let-value let-filter=\"filterCallback\">\r\n\t\t\t\t\t\t<p-multiSelect [ngModel]=\"value\" [options]=\"representatives\" placeholder=\"Any\"\r\n\t\t\t\t\t\t\t(onChange)=\"filter($event.value)\" optionLabel=\"name\">\r\n\t\t\t\t\t\t\t<ng-template let-option pTemplate=\"item\">\r\n\t\t\t\t\t\t\t\t<div class=\"p-multiselect-representative-option\">\r\n\t\t\t\t\t\t\t\t\t<span class=\"p-ml-1\">{{option.name}}</span>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</ng-template>\r\n\t\t\t\t\t\t</p-multiSelect>\r\n\t\t\t\t\t</ng-template>\r\n\t\t\t\t</p-columnFilter>\r\n\t\t\t</th>\r\n\t\t\t<th>\r\n\t\t\t\t<p-columnFilter field=\"status\" matchMode=\"equals\" [showMenu]=\"false\">\r\n\t\t\t\t\t<ng-template pTemplate=\"filter\" let-value let-filter=\"filterCallback\">\r\n\t\t\t\t\t\t<p-dropdown [ngModel]=\"value\" [options]=\"statuses\" (onChange)=\"filter($event.value)\"\r\n\t\t\t\t\t\t\tplaceholder=\"Any\" [showClear]=\"true\">\r\n\t\t\t\t\t\t\t<ng-template let-option pTemplate=\"item\">\r\n\t\t\t\t\t\t\t\t<span [class]=\"'customer-badge status-' + option.value\">{{option.label}}</span>\r\n\t\t\t\t\t\t\t</ng-template>\r\n\t\t\t\t\t\t</p-dropdown>\r\n\t\t\t\t\t</ng-template>\r\n\t\t\t\t</p-columnFilter>\r\n\t\t\t</th>-->\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-customer>\r\n    <tr>\r\n      <td>\r\n        {{customer.consultatName}}\r\n      </td>\r\n      <td>\r\n        <span class=\"image-text\">{{customer.consultantEmail}}</span>\r\n      </td>\r\n      <td>\r\n        <span class=\"image-text\">{{customer.consultatMobileNumber}}</span>\r\n      </td>\r\n      <td>\r\n        <span [class]=\"'customer-badge status-' + customer.reportStatus\">{{customer.experience}}</span>\r\n      </td>\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"emptymessage\">\r\n    <tr>\r\n      <td colspan=\"5\">No Cosultants found.</td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n"
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-create/user-create.component.scss":
-/*!**************************************************************************!*\
-  !*** ./src/app/admin/consultants/user-create/user-create.component.scss ***!
-  \**************************************************************************/
+/***/ "./src/app/admin/vendorlist/user-create/user-create.component.scss":
+/*!*************************************************************************!*\
+  !*** ./src/app/admin/vendorlist/user-create/user-create.component.scss ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbnN1bHRhbnRzL3VzZXItY3JlYXRlL3VzZXItY3JlYXRlLmNvbXBvbmVudC5zY3NzIn0= */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL3ZlbmRvcmxpc3QvdXNlci1jcmVhdGUvdXNlci1jcmVhdGUuY29tcG9uZW50LnNjc3MifQ== */"
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-create/user-create.component.ts":
-/*!************************************************************************!*\
-  !*** ./src/app/admin/consultants/user-create/user-create.component.ts ***!
-  \************************************************************************/
+/***/ "./src/app/admin/vendorlist/user-create/user-create.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/admin/vendorlist/user-create/user-create.component.ts ***!
+  \***********************************************************************/
 /*! exports provided: Profile, UserCreateComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -69,7 +69,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/consultants/user-rest.service.ts");
+/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/vendorlist/user-rest.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_5__);
@@ -460,9 +460,9 @@ var UserCreateComponent = /** @class */ (function () {
     UserCreateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-user-create',
-            template: __webpack_require__(/*! raw-loader!./user-create.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-create/user-create.component.html"),
+            template: __webpack_require__(/*! raw-loader!./user-create.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/vendorlist/user-create/user-create.component.html"),
             providers: [primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"]],
-            styles: [__webpack_require__(/*! ./user-create.component.scss */ "./src/app/admin/consultants/user-create/user-create.component.scss")]
+            styles: [__webpack_require__(/*! ./user-create.component.scss */ "./src/app/admin/vendorlist/user-create/user-create.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"], _user_rest_service__WEBPACK_IMPORTED_MODULE_3__["UserRestService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], UserCreateComponent);
@@ -473,21 +473,21 @@ var UserCreateComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-edit/user-create.component.scss":
-/*!************************************************************************!*\
-  !*** ./src/app/admin/consultants/user-edit/user-create.component.scss ***!
-  \************************************************************************/
+/***/ "./src/app/admin/vendorlist/user-edit/user-create.component.scss":
+/*!***********************************************************************!*\
+  !*** ./src/app/admin/vendorlist/user-edit/user-create.component.scss ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbnN1bHRhbnRzL3VzZXItZWRpdC91c2VyLWNyZWF0ZS5jb21wb25lbnQuc2NzcyJ9 */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL3ZlbmRvcmxpc3QvdXNlci1lZGl0L3VzZXItY3JlYXRlLmNvbXBvbmVudC5zY3NzIn0= */"
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-edit/user-edit.component.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/admin/consultants/user-edit/user-edit.component.ts ***!
-  \********************************************************************/
+/***/ "./src/app/admin/vendorlist/user-edit/user-edit.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/admin/vendorlist/user-edit/user-edit.component.ts ***!
+  \*******************************************************************/
 /*! exports provided: Profile, UserEditComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -498,7 +498,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/consultants/user-rest.service.ts");
+/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/vendorlist/user-rest.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_5__);
@@ -992,9 +992,9 @@ var UserEditComponent = /** @class */ (function () {
     UserEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-user-create',
-            template: __webpack_require__(/*! raw-loader!./user-create.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-edit/user-create.component.html"),
+            template: __webpack_require__(/*! raw-loader!./user-create.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/vendorlist/user-edit/user-create.component.html"),
             providers: [primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"]],
-            styles: [__webpack_require__(/*! ./user-create.component.scss */ "./src/app/admin/consultants/user-edit/user-create.component.scss")]
+            styles: [__webpack_require__(/*! ./user-create.component.scss */ "./src/app/admin/vendorlist/user-edit/user-create.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"], _user_rest_service__WEBPACK_IMPORTED_MODULE_3__["UserRestService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], UserEditComponent);
@@ -1005,21 +1005,21 @@ var UserEditComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-index/user-index.component.scss":
-/*!************************************************************************!*\
-  !*** ./src/app/admin/consultants/user-index/user-index.component.scss ***!
-  \************************************************************************/
+/***/ "./src/app/admin/vendorlist/user-index/user-index.component.scss":
+/*!***********************************************************************!*\
+  !*** ./src/app/admin/vendorlist/user-index/user-index.component.scss ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbnN1bHRhbnRzL3VzZXItaW5kZXgvdXNlci1pbmRleC5jb21wb25lbnQuc2NzcyJ9 */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL3ZlbmRvcmxpc3QvdXNlci1pbmRleC91c2VyLWluZGV4LmNvbXBvbmVudC5zY3NzIn0= */"
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-index/user-index.component.ts":
-/*!**********************************************************************!*\
-  !*** ./src/app/admin/consultants/user-index/user-index.component.ts ***!
-  \**********************************************************************/
+/***/ "./src/app/admin/vendorlist/user-index/user-index.component.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/admin/vendorlist/user-index/user-index.component.ts ***!
+  \*********************************************************************/
 /*! exports provided: UserIndexComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1045,8 +1045,8 @@ var UserIndexComponent = /** @class */ (function () {
     UserIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-user-index',
-            template: __webpack_require__(/*! raw-loader!./user-index.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-index/user-index.component.html"),
-            styles: [__webpack_require__(/*! ./user-index.component.scss */ "./src/app/admin/consultants/user-index/user-index.component.scss")]
+            template: __webpack_require__(/*! raw-loader!./user-index.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/vendorlist/user-index/user-index.component.html"),
+            styles: [__webpack_require__(/*! ./user-index.component.scss */ "./src/app/admin/vendorlist/user-index/user-index.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], UserIndexComponent);
@@ -1057,21 +1057,21 @@ var UserIndexComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-list/user-list.component.scss":
-/*!**********************************************************************!*\
-  !*** ./src/app/admin/consultants/user-list/user-list.component.scss ***!
-  \**********************************************************************/
+/***/ "./src/app/admin/vendorlist/user-list/user-list.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/admin/vendorlist/user-list/user-list.component.scss ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host ::ng-deep .p-cell-editing {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n}\n\n.disable-td {\n  pointer-events: none;\n}\n\n.ui-button {\n  margin-left: 0.25rem;\n  margin-right: 0.25rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vY29uc3VsdGFudHMvdXNlci1saXN0L0M6XFx4YW1wcFxcaHRkb2NzXFxzZXAtYmFyXFxhbmcvc3JjXFxhcHBcXGFkbWluXFxjb25zdWx0YW50c1xcdXNlci1saXN0XFx1c2VyLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FkbWluL2NvbnN1bHRhbnRzL3VzZXItbGlzdC91c2VyLWxpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx5QkFBQTtFQUNBLDRCQUFBO0FDQ0Y7O0FEQ0E7RUFDRSxvQkFBQTtBQ0VGOztBREFBO0VBQ0Usb0JBQUE7RUFDQSxxQkFBQTtBQ0dGIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vY29uc3VsdGFudHMvdXNlci1saXN0L3VzZXItbGlzdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IDo6bmctZGVlcCAucC1jZWxsLWVkaXRpbmcge1xyXG4gIHBhZGRpbmctdG9wOiAwICFpbXBvcnRhbnQ7XHJcbiAgcGFkZGluZy1ib3R0b206IDAgIWltcG9ydGFudDtcclxufVxyXG4uZGlzYWJsZS10ZHtcclxuICBwb2ludGVyLWV2ZW50czogbm9uZTtcclxufVxyXG4udWktYnV0dG9uIHtcclxuICBtYXJnaW4tbGVmdDogMC4yNXJlbTtcclxuICBtYXJnaW4tcmlnaHQ6IDAuMjVyZW07XHJcbn1cclxuIiwiOmhvc3QgOjpuZy1kZWVwIC5wLWNlbGwtZWRpdGluZyB7XG4gIHBhZGRpbmctdG9wOiAwICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmctYm90dG9tOiAwICFpbXBvcnRhbnQ7XG59XG5cbi5kaXNhYmxlLXRkIHtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG59XG5cbi51aS1idXR0b24ge1xuICBtYXJnaW4tbGVmdDogMC4yNXJlbTtcbiAgbWFyZ2luLXJpZ2h0OiAwLjI1cmVtO1xufSJdfQ== */"
+module.exports = ":host ::ng-deep .p-cell-editing {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n}\n\n.disable-td {\n  pointer-events: none;\n}\n\n.ui-button {\n  margin-left: 0.25rem;\n  margin-right: 0.25rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vdmVuZG9ybGlzdC91c2VyLWxpc3QvQzpcXHhhbXBwXFxodGRvY3NcXHNlcC1iYXJcXGFuZy9zcmNcXGFwcFxcYWRtaW5cXHZlbmRvcmxpc3RcXHVzZXItbGlzdFxcdXNlci1saXN0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hZG1pbi92ZW5kb3JsaXN0L3VzZXItbGlzdC91c2VyLWxpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx5QkFBQTtFQUNBLDRCQUFBO0FDQ0Y7O0FEQ0E7RUFDRSxvQkFBQTtBQ0VGOztBREFBO0VBQ0Usb0JBQUE7RUFDQSxxQkFBQTtBQ0dGIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vdmVuZG9ybGlzdC91c2VyLWxpc3QvdXNlci1saXN0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3QgOjpuZy1kZWVwIC5wLWNlbGwtZWRpdGluZyB7XHJcbiAgcGFkZGluZy10b3A6IDAgIWltcG9ydGFudDtcclxuICBwYWRkaW5nLWJvdHRvbTogMCAhaW1wb3J0YW50O1xyXG59XHJcbi5kaXNhYmxlLXRke1xyXG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xyXG59XHJcbi51aS1idXR0b24ge1xyXG4gIG1hcmdpbi1sZWZ0OiAwLjI1cmVtO1xyXG4gIG1hcmdpbi1yaWdodDogMC4yNXJlbTtcclxufVxyXG4iLCI6aG9zdCA6Om5nLWRlZXAgLnAtY2VsbC1lZGl0aW5nIHtcbiAgcGFkZGluZy10b3A6IDAgIWltcG9ydGFudDtcbiAgcGFkZGluZy1ib3R0b206IDAgIWltcG9ydGFudDtcbn1cblxuLmRpc2FibGUtdGQge1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuLnVpLWJ1dHRvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwLjI1cmVtO1xuICBtYXJnaW4tcmlnaHQ6IDAuMjVyZW07XG59Il19 */"
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-list/user-list.component.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/admin/consultants/user-list/user-list.component.ts ***!
-  \********************************************************************/
+/***/ "./src/app/admin/vendorlist/user-list/user-list.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/admin/vendorlist/user-list/user-list.component.ts ***!
+  \*******************************************************************/
 /*! exports provided: UserListComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1081,7 +1081,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/consultants/user-rest.service.ts");
+/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/vendorlist/user-rest.service.ts");
 /* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
 /* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
@@ -1095,20 +1095,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var colors = {
-    red: {
-        primary: '#ad2121',
-        secondary: '#FAE3E3',
-    },
-    blue: {
-        primary: '#1e90ff',
-        secondary: '#D1E8FF',
-    },
-    yellow: {
-        primary: '#e3bc08',
-        secondary: '#FDF1BA',
-    },
-};
 var UserListComponent = /** @class */ (function () {
     function UserListComponent(confirmation, fb, messageService, route, userRest, router) {
         this.confirmation = confirmation;
@@ -1117,160 +1103,36 @@ var UserListComponent = /** @class */ (function () {
         this.route = route;
         this.userRest = userRest;
         this.router = router;
-        this.timeSheets = [];
         this.confirmDropDatabaseDialogVisible = false;
-        this.statusOptions = [
-            // {label: "Dot net Developer",value: 'Dot net Developer'},
-            { label: "Java Developer", value: 'Java Developer' },
-            { label: "QA Tester/QA Analyst", value: 'QA Tester/QA Analyst' },
-        ];
         this.loading = true;
-        this.clonedProducts = {};
     }
-    ;
     UserListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.userRest.getConsultants().subscribe(function (response) { console.log(_this.timeSheets = response.timesheet); _this.loading = false; }, function (error) { console.log(error); });
-        this.frozenCols = [
-            { field: 'consultatName', header: 'Name' },
-        ];
+        this.userRest.getProductsSmall().then(function (data) {
+            _this.timeSheets = data;
+            console.log("data");
+            _this.loading = false;
+            console.log(data);
+        });
         this.scrollableCols = [
-            //   { field: 'user_details.name', header: 'Created By', width: '20%',editable: false},
-            { field: 'consultatName', header: 'Consultant Name', width: '20%', editable: true },
-            // { field: 'user_details.name', header: 'Created By', width: '20%',editable: false},
-            // { field: 'created_at', header: 'Created At' , width: '20%',editable: false},
+            { field: 'name', header: 'Consultant Name', width: '20%', editable: true },
             { field: 'consultantEmail', header: 'Email', width: '40%', editable: true },
             { field: 'consultatMobileNumber', header: 'Phone number', width: '20%', editable: true },
             { field: 'experience', header: 'Exp', width: '20%', editable: true },
-            { field: 'rate', header: 'Rate', width: '20%', editable: false },
-            { field: 'technology', header: 'Technology', width: '20%', editable: false },
-            { field: 'visaType', header: 'visa Type', width: '20%', editable: false },
-            { field: 'city', header: 'City', width: '20%', editable: false },
-            { field: 'state', header: 'State', width: '20%', editable: false },
-            { field: 'willingLocation', header: 'Relocate', width: '20%', editable: false },
-            { field: 'documentsCollected', header: 'Documents Collected', width: '20%', editable: false },
-            { field: 'resource', header: 'Resource', width: '20%', editable: false },
-            { field: 'ssn', header: 'Last 4 SSN', width: '20%', editable: false },
-            { field: 'bestContactNumber', header: 'Best Contact Number', width: '20%', editable: false },
-            { field: 'linkedInUrl', header: 'LinkedIn', width: '20%', editable: false },
-            { field: 'skypeId', header: 'skypeId', width: '20%', editable: false },
-            { field: 'priority', header: 'priority', width: '20%', editable: false },
-            { field: 'reportStatus', header: 'Status', width: '20%', editable: false }
         ];
-        this.representatives = [
-            { name: "Dot net Developer" },
-            { name: "Java Developer" },
-            { name: "QA Tester/QA Analyst" },
-            { name: "Devops Engineer" }
-        ];
-        this.statuses = [
-            { label: 'Unqualified', value: 'unqualified' },
-            { label: 'Qualified', value: 'qualified' },
-            { label: 'New', value: 'new' },
-            { label: 'Negotiation', value: 'negotiation' },
-            { label: 'Renewal', value: 'renewal' },
-            { label: 'Proposal', value: 'proposal' }
-        ];
+        this._selectedColumns = this.scrollableCols;
     };
-    UserListComponent.prototype.onActivityChange = function (event) {
-        var value = event.target.value;
-        if (value && value.trim().length) {
-            var activity = parseInt(value);
-            if (!isNaN(activity)) {
-                this.table.filter(activity, 'activity', 'gte');
-            }
-        }
-    };
-    UserListComponent.prototype.onRowEditInit = function (product) {
-        console.log(product);
-        this.clonedProducts[product.reportId] = tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, product);
-    };
-    UserListComponent.prototype.onRowEditSave = function (product, index) {
-        //alert(product.timeSheetId)
-        /*this.loading = true;
-        if (product.duration < 16) {
-          let updateUser: FormGroup;
-          updateUser = new FormGroup({
-            'duration': new FormControl(product.duration),
-            'fromDate': new FormControl(product.fromDate),
-            'assignment': new FormControl(product.assignment),
-            'serviceCode': new FormControl(product.serviceCode),
-          });
-          this.userRest.updateTimeSheet(updateUser, product.timeSheetId).subscribe(
-            (response) => {
-              this.loading = false;
-              this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Timesheet is updated' });
-            },
-            (error) => {
-              console.log(error)
-              this.loading = false;
-              this.timeSheets[index] = this.clonedProducts[product.timeSheetId];
-              delete this.timeSheets[product.timeSheetId];
-              this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.message });
-            },
-            () => console.log('completed')
-          );
-      
-        }
-        else {
-          this.loading = false;
-          this.timeSheets[index] = this.clonedProducts[product.timeSheetId];
-          delete this.timeSheets[product.timeSheetId];
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Invalid Duration only 15 hours accepted' });
-        } */
-    };
-    UserListComponent.prototype.onRowEditCancel = function (product, index) {
-        this.timeSheets[index] = this.clonedProducts[product.reportId];
-        delete this.timeSheets[product.reportId];
-    };
-    UserListComponent.prototype.onDateSelect = function (value) {
-        this.table.filter(this.formatDate(value), 'created_at', 'equals');
-    };
-    UserListComponent.prototype.formatDate = function (date) {
-        var month = date.getMonth() + 1;
-        var day = date.getDate();
-        if (month < 10) {
-            month = '0' + month;
-        }
-        if (day < 10) {
-            day = '0' + day;
-        }
-        return date.getFullYear() + '-' + month + '-' + day;
-    };
-    UserListComponent.prototype.onRepresentativeChange = function (event) {
-        if (event.value) {
-            console.log(event.value);
-            this.table.filter(event.value, 'technology', 'in');
-        }
-    };
-    UserListComponent.prototype.dropDatabase = function (event, index) {
-        var _this = this;
-        if (event.defaultPrevented)
-            return;
-        event.preventDefault();
-        this.confirmation.confirm({
-            key: 'confirm-drop-database',
-            message: 'Are you sure to Aprove for Hotlist',
-            accept: function () { _this._dropDatabase(index); },
-        });
-    };
-    UserListComponent.prototype._dropDatabase = function (index) {
-        var _this = this;
-        var formData = new FormData();
-        formData.append("index", index);
-        console.log(formData);
-        this.userRest.statusChangeConsultant(formData).subscribe(function (response) {
-            console.log(response);
-            _this.loading = false;
-            _this.timeSheets = response.timesheet;
-        }, function (error) { console.log(error); });
-    };
-    UserListComponent.prototype.download = function (event, url) {
-        window.open('https://portal.webmobilez.com/public/api/storage/' + url);
-    };
-    UserListComponent.prototype.editUser = function (id) {
-        this.router.navigate(['consultants/edit', id]);
-    };
+    Object.defineProperty(UserListComponent.prototype, "selectedColumns", {
+        get: function () {
+            return this._selectedColumns;
+        },
+        set: function (val) {
+            //restore original order
+            this._selectedColumns = this.scrollableCols.filter(function (col) { return val.includes(col); });
+        },
+        enumerable: true,
+        configurable: true
+    });
     UserListComponent.prototype.getColor = function (status, adminStatus) {
         if (adminStatus == "A") {
             return "#d4edda";
@@ -1284,16 +1146,17 @@ var UserListComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", primeng_table__WEBPACK_IMPORTED_MODULE_4__["Table"])
     ], UserListComponent.prototype, "table", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('modalContent', { static: true }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
-    ], UserListComponent.prototype, "modalContent", void 0);
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [Array])
+    ], UserListComponent.prototype, "selectedColumns", null);
     UserListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-user-list',
             // changeDetection: ChangeDetectionStrategy.OnPush,
             providers: [primeng_api__WEBPACK_IMPORTED_MODULE_6__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_6__["ConfirmationService"]],
-            template: __webpack_require__(/*! raw-loader!./user-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/consultants/user-list/user-list.component.html"),
-            styles: [__webpack_require__(/*! ./user-list.component.scss */ "./src/app/admin/consultants/user-list/user-list.component.scss")]
+            template: __webpack_require__(/*! raw-loader!./user-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/vendorlist/user-list/user-list.component.html"),
+            styles: [__webpack_require__(/*! ./user-list.component.scss */ "./src/app/admin/vendorlist/user-list/user-list.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [primeng_api__WEBPACK_IMPORTED_MODULE_6__["ConfirmationService"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"], primeng_api__WEBPACK_IMPORTED_MODULE_6__["MessageService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _user_rest_service__WEBPACK_IMPORTED_MODULE_3__["UserRestService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
@@ -1305,10 +1168,10 @@ var UserListComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-rest.service.ts":
-/*!********************************************************!*\
-  !*** ./src/app/admin/consultants/user-rest.service.ts ***!
-  \********************************************************/
+/***/ "./src/app/admin/vendorlist/user-rest.service.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/admin/vendorlist/user-rest.service.ts ***!
+  \*******************************************************/
 /*! exports provided: UserRestService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1331,6 +1194,12 @@ var UserRestService = /** @class */ (function () {
     };
     UserRestService.prototype.getConsultants = function () {
         return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/');
+    };
+    UserRestService.prototype.getProductsSmall = function () {
+        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/')
+            .toPromise()
+            .then(function (res) { return res.timesheet; })
+            .then(function (data) { return data; });
     };
     UserRestService.prototype.storeUser = function (form) {
         return this.http.post('https://portal.webmobilez.com/public/api/store-consultant', form.value);
@@ -1363,10 +1232,10 @@ var UserRestService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user-routing.module.ts":
-/*!**********************************************************!*\
-  !*** ./src/app/admin/consultants/user-routing.module.ts ***!
-  \**********************************************************/
+/***/ "./src/app/admin/vendorlist/user-routing.module.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/admin/vendorlist/user-routing.module.ts ***!
+  \*********************************************************/
 /*! exports provided: UserRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1376,10 +1245,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-index/user-index.component */ "./src/app/admin/consultants/user-index/user-index.component.ts");
-/* harmony import */ var _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-list/user-list.component */ "./src/app/admin/consultants/user-list/user-list.component.ts");
-/* harmony import */ var _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-create/user-create.component */ "./src/app/admin/consultants/user-create/user-create.component.ts");
-/* harmony import */ var _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-edit/user-edit.component */ "./src/app/admin/consultants/user-edit/user-edit.component.ts");
+/* harmony import */ var _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-index/user-index.component */ "./src/app/admin/vendorlist/user-index/user-index.component.ts");
+/* harmony import */ var _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-list/user-list.component */ "./src/app/admin/vendorlist/user-list/user-list.component.ts");
+/* harmony import */ var _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-create/user-create.component */ "./src/app/admin/vendorlist/user-create/user-create.component.ts");
+/* harmony import */ var _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-edit/user-edit.component */ "./src/app/admin/vendorlist/user-edit/user-edit.component.ts");
 
 
 
@@ -1424,10 +1293,10 @@ var UserRoutingModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/consultants/user.module.ts":
-/*!**************************************************!*\
-  !*** ./src/app/admin/consultants/user.module.ts ***!
-  \**************************************************/
+/***/ "./src/app/admin/vendorlist/user.module.ts":
+/*!*************************************************!*\
+  !*** ./src/app/admin/vendorlist/user.module.ts ***!
+  \*************************************************/
 /*! exports provided: UserModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1437,12 +1306,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _user_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-routing.module */ "./src/app/admin/consultants/user-routing.module.ts");
-/* harmony import */ var _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-index/user-index.component */ "./src/app/admin/consultants/user-index/user-index.component.ts");
-/* harmony import */ var _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-list/user-list.component */ "./src/app/admin/consultants/user-list/user-list.component.ts");
-/* harmony import */ var _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-create/user-create.component */ "./src/app/admin/consultants/user-create/user-create.component.ts");
-/* harmony import */ var _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-edit/user-edit.component */ "./src/app/admin/consultants/user-edit/user-edit.component.ts");
-/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user-rest.service */ "./src/app/admin/consultants/user-rest.service.ts");
+/* harmony import */ var _user_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-routing.module */ "./src/app/admin/vendorlist/user-routing.module.ts");
+/* harmony import */ var _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-index/user-index.component */ "./src/app/admin/vendorlist/user-index/user-index.component.ts");
+/* harmony import */ var _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-list/user-list.component */ "./src/app/admin/vendorlist/user-list/user-list.component.ts");
+/* harmony import */ var _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-create/user-create.component */ "./src/app/admin/vendorlist/user-create/user-create.component.ts");
+/* harmony import */ var _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-edit/user-edit.component */ "./src/app/admin/vendorlist/user-edit/user-edit.component.ts");
+/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user-rest.service */ "./src/app/admin/vendorlist/user-rest.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
 /* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_10__);
@@ -1473,10 +1342,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__);
 /* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! primeng/inplace */ "./node_modules/primeng/inplace.js");
 /* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(primeng_inplace__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var _field_pipe__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../field.pipe */ "./src/app/field.pipe.ts");
-/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! primeng/confirmdialog */ "./node_modules/primeng/confirmdialog.js");
-/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__);
-
+/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! primeng/confirmdialog */ "./node_modules/primeng/confirmdialog.js");
+/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25__);
 
 
 
@@ -1509,7 +1376,7 @@ var UserModule = /** @class */ (function () {
     }
     UserModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__["UserCreateComponent"], _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__["UserEditComponent"], _field_pipe__WEBPACK_IMPORTED_MODULE_25__["FieldPipe"]],
+            declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__["UserCreateComponent"], _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__["UserEditComponent"]],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
                 _user_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserRoutingModule"],
@@ -1520,7 +1387,20 @@ var UserModule = /** @class */ (function () {
                 primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14__["ContextMenuModule"],
                 primeng_button__WEBPACK_IMPORTED_MODULE_16__["ButtonModule"],
                 primeng_toast__WEBPACK_IMPORTED_MODULE_12__["ToastModule"],
-                primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__["InputTextModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__["ConfirmDialogModule"],
+                primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__["InputTextModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25__["ConfirmDialogModule"],
+                primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__["ProgressBarModule"], primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__["TabMenuModule"], primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__["TooltipModule"], primeng_fileupload__WEBPACK_IMPORTED_MODULE_21__["FileUploadModule"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_22__["NgxDropzoneModule"], primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__["DropdownModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], primeng_inplace__WEBPACK_IMPORTED_MODULE_24__["InplaceModule"]
+            ],
+            exports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _user_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserRoutingModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], primeng_table__WEBPACK_IMPORTED_MODULE_10__["TableModule"], primeng_multiselect__WEBPACK_IMPORTED_MODULE_11__["MultiSelectModule"],
+                primeng_slider__WEBPACK_IMPORTED_MODULE_13__["SliderModule"],
+                primeng_dialog__WEBPACK_IMPORTED_MODULE_15__["DialogModule"],
+                primeng_multiselect__WEBPACK_IMPORTED_MODULE_11__["MultiSelectModule"],
+                primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14__["ContextMenuModule"],
+                primeng_button__WEBPACK_IMPORTED_MODULE_16__["ButtonModule"],
+                primeng_toast__WEBPACK_IMPORTED_MODULE_12__["ToastModule"],
+                primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__["InputTextModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25__["ConfirmDialogModule"],
                 primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__["ProgressBarModule"], primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__["TabMenuModule"], primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__["TooltipModule"], primeng_fileupload__WEBPACK_IMPORTED_MODULE_21__["FileUploadModule"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_22__["NgxDropzoneModule"], primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__["DropdownModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], primeng_inplace__WEBPACK_IMPORTED_MODULE_24__["InplaceModule"]
             ],
             providers: [
@@ -1533,51 +1413,7 @@ var UserModule = /** @class */ (function () {
 
 
 
-/***/ }),
-
-/***/ "./src/app/field.pipe.ts":
-/*!*******************************!*\
-  !*** ./src/app/field.pipe.ts ***!
-  \*******************************/
-/*! exports provided: FieldPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldPipe", function() { return FieldPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var FieldPipe = /** @class */ (function () {
-    /**
-     *
-     */
-    function FieldPipe() {
-    }
-    FieldPipe.prototype.transform = function (value) {
-        var args = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            args[_i - 1] = arguments[_i];
-        }
-        var column = args[0];
-        var result = value;
-        // addressModel.City.Name
-        column.field.split(".").forEach(function (f) { return (result = result[f]); });
-        return result ? result : '-';
-    };
-    FieldPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: "field"
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], FieldPipe);
-    return FieldPipe;
-}());
-
-
-
 /***/ })
 
 }]);
-//# sourceMappingURL=admin-consultants-user-module-es5.js.map
+//# sourceMappingURL=admin-vendorlist-user-module-es5.js.map
