@@ -324,14 +324,14 @@ let UserRestService = class UserRestService {
         this.users = [];
     }
     getConsultants() {
-        return this.http.get('https://portal.webmobilez.com/publicapi/getHotlistConsultants/');
+        return this.http.get('https://portal.webmobilez.com/public/api/getHotlistConsultants/');
     }
     getVendorContacts() {
-        return this.http.get('https://portal.webmobilez.com/publicapi/contacts/');
+        return this.http.get('https://portal.webmobilez.com/public/api/contacts/');
     }
     statusChangeConsultant(index) {
         var body = 'index=' + index;
-        return this.http.post('https://portal.webmobilez.com/publicapi/status-consultant', JSON.stringify({
+        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', JSON.stringify({
             cmd: "sa",
             data: "sd"
         }));

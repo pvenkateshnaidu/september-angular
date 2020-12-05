@@ -287,11 +287,11 @@ let UserRestService = class UserRestService {
         this.users = [];
     }
     getConsultants() {
-        return this.http.get('https://portal.webmobilez.com/publicapi/getHotlistConsultants/');
+        return this.http.get('https://portal.webmobilez.com/public/api/getHotlistConsultants/');
     }
     statusChangeConsultant(index) {
         var body = 'index=' + index;
-        return this.http.post('https://portal.webmobilez.com/publicapi/status-consultant', JSON.stringify({
+        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', JSON.stringify({
             cmd: "sa",
             data: "sd"
         }));

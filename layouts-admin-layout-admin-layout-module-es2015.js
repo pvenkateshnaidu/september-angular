@@ -696,7 +696,7 @@ let UserService = class UserService {
         this.http = http;
     }
     loadUser() {
-        return this.http.get('https://portal.webmobilez.com/publicapi/user-list/create').pipe();
+        return this.http.get('https://portal.webmobilez.com/public/api/user-list/create').pipe();
     }
 };
 UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -803,7 +803,7 @@ let UserComponent = class UserComponent {
     get id() { return this.updateUser.get('id'); }
     updateUserDetails() {
         let id = this.updateUser.get('id').value;
-        this.http.put('https://portal.webmobilez.com/publicapi/user-list/' + id, this.updateUser.value).subscribe((response) => {
+        this.http.put('https://portal.webmobilez.com/public/api/user-list/' + id, this.updateUser.value).subscribe((response) => {
             console.log(response),
                 this.messageService.add({ severity: 'success', summary: 'Your Profile Updated ', detail: 'successfull' });
             this.router.navigate(['profile']);

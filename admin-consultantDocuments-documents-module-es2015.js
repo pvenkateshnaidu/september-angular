@@ -664,20 +664,20 @@ let UserRestService = class UserRestService {
         this.users = [];
     }
     EditDocument(id) {
-        return this.http.get('https://portal.webmobilez.com/publicapi/submissions/' + id);
+        return this.http.get('https://portal.webmobilez.com/public/api/submissions/' + id);
     }
     getTotalInterviewShecdules(index) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/getTotalInterviewShecdules', index);
+        return this.http.post('https://portal.webmobilez.com/public/api/getTotalInterviewShecdules', index);
     }
     getConsultants() {
-        return this.http.get('https://portal.webmobilez.com/publicapi/getAllConsultants/');
+        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/');
     }
     storeUser(form) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/store-consultant', form.value);
+        return this.http.post('https://portal.webmobilez.com/public/api/store-consultant', form.value);
     }
     statusChangeConsultant(index) {
         var body = 'index=' + index;
-        return this.http.post('https://portal.webmobilez.com/publicapi/status-consultant', JSON.stringify({
+        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', JSON.stringify({
             cmd: "sa",
             data: "sd"
         }));

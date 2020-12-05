@@ -439,19 +439,19 @@ var UserRestService = /** @class */ (function () {
         this.users = [];
     }
     UserRestService.prototype.getUsers = function () {
-        return this.http.get('https://portal.webmobilez.com/publicapi/user-list');
+        return this.http.get('https://portal.webmobilez.com/public/api/user-list');
     };
     UserRestService.prototype.editUser = function (id) {
-        return this.http.get('https://portal.webmobilez.com/publicapi/user-list/' + id);
+        return this.http.get('https://portal.webmobilez.com/public/api/user-list/' + id);
     };
     UserRestService.prototype.updateUser = function (form, id) {
-        return this.http.put('https://portal.webmobilez.com/publicapi/user-list/' + id, form.value);
+        return this.http.put('https://portal.webmobilez.com/public/api/user-list/' + id, form.value);
     };
     UserRestService.prototype.storeUser = function (form) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/user-list', form.value);
+        return this.http.post('https://portal.webmobilez.com/public/api/user-list', form.value);
     };
     UserRestService.prototype.deleteUser = function (id) {
-        return this.http.delete('https://portal.webmobilez.com/publicapi/user-list/' + id);
+        return this.http.delete('https://portal.webmobilez.com/public/api/user-list/' + id);
     };
     UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

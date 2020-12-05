@@ -1436,28 +1436,28 @@ var UserRestService = /** @class */ (function () {
         this.users = [];
     }
     UserRestService.prototype.getTimeSheet = function () {
-        return this.http.get('https://portal.webmobilez.com/publicapi/getAllTimesheets');
+        return this.http.get('https://portal.webmobilez.com/public/api/getAllTimesheets');
     };
     UserRestService.prototype.getConsultants = function () {
-        return this.http.get('https://portal.webmobilez.com/publicapi/getAllConsultants/');
+        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/');
     };
     UserRestService.prototype.storeUser = function (form) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/store-consultant', form.value);
+        return this.http.post('https://portal.webmobilez.com/public/api/store-consultant', form.value);
     };
     UserRestService.prototype.statusChangeConsultant = function (index) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/status-consultant', index);
+        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', index);
     };
     UserRestService.prototype.editUser = function (id) {
-        return this.http.get('https://portal.webmobilez.com/publicapi/store-consultant/' + id);
+        return this.http.get('https://portal.webmobilez.com/public/api/store-consultant/' + id);
     };
     UserRestService.prototype.updateUser = function (form, id) {
-        return this.http.put('https://portal.webmobilez.com/publicapi/store-consultant/' + id, form.value);
+        return this.http.put('https://portal.webmobilez.com/public/api/store-consultant/' + id, form.value);
     };
     UserRestService.prototype.storeDocument = function (document) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/saveDocument', document);
+        return this.http.post('https://portal.webmobilez.com/public/api/saveDocument', document);
     };
     UserRestService.prototype.removeFile = function (document) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/removeDocument', document);
+        return this.http.post('https://portal.webmobilez.com/public/api/removeDocument', document);
     };
     UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

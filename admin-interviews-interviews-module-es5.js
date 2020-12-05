@@ -88,34 +88,34 @@ var InterviewRestService = /** @class */ (function () {
         this.users = [];
     }
     InterviewRestService.prototype.getConsultants = function () {
-        return this.http.get('https://portal.webmobilez.com/publicapi/interviewsubmissions/');
+        return this.http.get('https://portal.webmobilez.com/public/api/interviewsubmissions/');
     };
     InterviewRestService.prototype.storeUser = function (form) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/submissions', form.value);
+        return this.http.post('https://portal.webmobilez.com/public/api/submissions', form.value);
     };
     InterviewRestService.prototype.statusChangeConsultant = function (index) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/status-consultant', index);
+        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', index);
     };
     InterviewRestService.prototype.getConsultantsList = function () {
-        return this.http.get('https://portal.webmobilez.com/publicapi/getConsultantsList/');
+        return this.http.get('https://portal.webmobilez.com/public/api/getConsultantsList/');
     };
     InterviewRestService.prototype.editUser = function (id) {
-        return this.http.get('https://portal.webmobilez.com/publicapi/jobs/' + id);
+        return this.http.get('https://portal.webmobilez.com/public/api/jobs/' + id);
     };
     InterviewRestService.prototype.editVenodr = function (id) {
-        return this.http.get('https://portal.webmobilez.com/publicapi/contacts/' + id);
+        return this.http.get('https://portal.webmobilez.com/public/api/contacts/' + id);
     };
     InterviewRestService.prototype.editConsultant = function (id) {
-        return this.http.get('https://portal.webmobilez.com/publicapi/store-consultant/' + id);
+        return this.http.get('https://portal.webmobilez.com/public/api/store-consultant/' + id);
     };
     InterviewRestService.prototype.updateUser = function (form, id) {
-        return this.http.put('https://portal.webmobilez.com/publicapi/jobs/' + id, form.value);
+        return this.http.put('https://portal.webmobilez.com/public/api/jobs/' + id, form.value);
     };
     InterviewRestService.prototype.storeDocument = function (document) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/saveDocument', document);
+        return this.http.post('https://portal.webmobilez.com/public/api/saveDocument', document);
     };
     InterviewRestService.prototype.getContactDetails = function (index) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/contactsDetails', index);
+        return this.http.post('https://portal.webmobilez.com/public/api/contactsDetails', index);
     };
     InterviewRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

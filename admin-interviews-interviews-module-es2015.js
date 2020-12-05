@@ -82,34 +82,34 @@ let InterviewRestService = class InterviewRestService {
         this.users = [];
     }
     getConsultants() {
-        return this.http.get('https://portal.webmobilez.com/publicapi/interviewsubmissions/');
+        return this.http.get('https://portal.webmobilez.com/public/api/interviewsubmissions/');
     }
     storeUser(form) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/submissions', form.value);
+        return this.http.post('https://portal.webmobilez.com/public/api/submissions', form.value);
     }
     statusChangeConsultant(index) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/status-consultant', index);
+        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', index);
     }
     getConsultantsList() {
-        return this.http.get('https://portal.webmobilez.com/publicapi/getConsultantsList/');
+        return this.http.get('https://portal.webmobilez.com/public/api/getConsultantsList/');
     }
     editUser(id) {
-        return this.http.get('https://portal.webmobilez.com/publicapi/jobs/' + id);
+        return this.http.get('https://portal.webmobilez.com/public/api/jobs/' + id);
     }
     editVenodr(id) {
-        return this.http.get('https://portal.webmobilez.com/publicapi/contacts/' + id);
+        return this.http.get('https://portal.webmobilez.com/public/api/contacts/' + id);
     }
     editConsultant(id) {
-        return this.http.get('https://portal.webmobilez.com/publicapi/store-consultant/' + id);
+        return this.http.get('https://portal.webmobilez.com/public/api/store-consultant/' + id);
     }
     updateUser(form, id) {
-        return this.http.put('https://portal.webmobilez.com/publicapi/jobs/' + id, form.value);
+        return this.http.put('https://portal.webmobilez.com/public/api/jobs/' + id, form.value);
     }
     storeDocument(document) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/saveDocument', document);
+        return this.http.post('https://portal.webmobilez.com/public/api/saveDocument', document);
     }
     getContactDetails(index) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/contactsDetails', index);
+        return this.http.post('https://portal.webmobilez.com/public/api/contactsDetails', index);
     }
 };
 InterviewRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

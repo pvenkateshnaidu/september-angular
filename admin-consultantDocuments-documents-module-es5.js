@@ -780,20 +780,20 @@ var UserRestService = /** @class */ (function () {
         this.users = [];
     }
     UserRestService.prototype.EditDocument = function (id) {
-        return this.http.get('https://portal.webmobilez.com/publicapi/submissions/' + id);
+        return this.http.get('https://portal.webmobilez.com/public/api/submissions/' + id);
     };
     UserRestService.prototype.getTotalInterviewShecdules = function (index) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/getTotalInterviewShecdules', index);
+        return this.http.post('https://portal.webmobilez.com/public/api/getTotalInterviewShecdules', index);
     };
     UserRestService.prototype.getConsultants = function () {
-        return this.http.get('https://portal.webmobilez.com/publicapi/getAllConsultants/');
+        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/');
     };
     UserRestService.prototype.storeUser = function (form) {
-        return this.http.post('https://portal.webmobilez.com/publicapi/store-consultant', form.value);
+        return this.http.post('https://portal.webmobilez.com/public/api/store-consultant', form.value);
     };
     UserRestService.prototype.statusChangeConsultant = function (index) {
         var body = 'index=' + index;
-        return this.http.post('https://portal.webmobilez.com/publicapi/status-consultant', JSON.stringify({
+        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', JSON.stringify({
             cmd: "sa",
             data: "sd"
         }));
