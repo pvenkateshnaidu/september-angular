@@ -1,5 +1,23 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["admin-consultantDocuments-documents-module"],{
 
+/***/ "./node_modules/primeng/dynamicdialog.js":
+/*!***********************************************!*\
+  !*** ./node_modules/primeng/dynamicdialog.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* Shorthand */
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./components/dynamicdialog/dynamicdialog */ "./node_modules/primeng/components/dynamicdialog/dynamicdialog.js"));
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/admin/consultantDocuments/user-create/user-create.component.html":
 /*!************************************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/admin/consultantDocuments/user-create/user-create.component.html ***!
@@ -30,6 +48,50 @@ module.exports = "\n\n<div class=\"row\">\n    <div class=\"col-md-12\">\n      
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"remove-margin\">Consultant Documents </h4>\r\n\r\n<p-table #dt [columns]=\"scrollableCols\" [value]=\"timeSheets\" [scrollable]=\"true\" [filterDelay]=\"0\"\r\n  [globalFilterFields]=\"['consultatName']\" [resizableColumns]=\"true\" [loading]=\"loading\"\r\n  [reorderableColumns]=\"true\" autoLayout=\"true\" [loading]=\"loading\" (onRowSelect)=\"onRowSelected($event)\" dataKey=\"reportId\" editMode=\"row\"\r\n  [paginator]=\"true\" [rows]=\"10\" [showCurrentPageReport]=\"true\" [rowsPerPageOptions]=\"[10,25,50]\" [scrollable]=\"true\">\r\n  <ng-template pTemplate=\"colgroup\" let-columns>\r\n    <colgroup>\r\n      <col style=\"width:100px\">\r\n      <col style=\"width:60px\">\r\n      <col *ngFor=\"let col of columns\" style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n    </colgroup>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th>Submissions</th>\r\n      <th>Bench Days</th>\r\n      <th>Docs</th>\r\n      <th>Consultant Name</th>\r\n      <th *ngFor=\"let col of columns\" [ngStyle]=\"{'width': col.width}\">\r\n        {{col.header}}\r\n      </th>\r\n\r\n    </tr>\r\n    <tr>\r\n      <th>\r\n\r\n      </th>\r\n      <th>\r\n\r\n      </th>\r\n      <th>\r\n\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatName', 'contains')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n\r\n      </th>\r\n\r\n      <th> <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultantEmail', 'startsWith')\"\r\n          placeholder=\"Email\" class=\"p-column-filter\"></th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatMobileNumber', 'startsWith')\"\r\n          placeholder=\"Phone\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'experience', 'startsWith')\"\r\n          placeholder=\"exp\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'rate', 'startsWith')\" placeholder=\"Rate\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'technology', 'startsWith')\"\r\n          placeholder=\"Technology\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'visaType', 'startsWith')\"\r\n          placeholder=\"Visa Type\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'city', 'startsWith')\" placeholder=\"City\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'state', 'startsWith')\"\r\n          placeholder=\"State\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'willingLocation', 'startsWith')\"\r\n          placeholder=\"Relocate\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'documentsCollected', 'startsWith')\"\r\n          placeholder=\"Document Collected\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'resource', 'startsWith')\"\r\n          placeholder=\"Resource\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'ssn', 'startsWith')\" placeholder=\"SSN\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'bestContactNumber', 'startsWith')\"\r\n          placeholder=\"Best Contact Number\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'linkedInUrl', 'startsWith')\"\r\n          placeholder=\"LinkedIn\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'skypeId', 'startsWith')\"\r\n          placeholder=\"SkypeId\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'reportStatus', 'startsWith')\"\r\n          placeholder=\"Status\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\" let-editing=\"editing\" let-ri=\"rowIndex\">\r\n    <tr [pEditableRow]=\"rowData\">\r\n\r\n      <td class=\"text-center\">\r\n\r\n        <span *ngIf=\"rowData.priority=='High'\">\r\n          <button pButton pRipple data-toggle=\"tooltip\" title=\"{{rowData.priority}} Priority\" icon=\"pi pi-star\"\r\n            class=\"btn-length p-button-rounded p-button-warning\"\r\n            style=\"color:Green;background:#fff;border: none;\"></button>\r\n        </span>\r\n        <span *ngIf=\"rowData.priority=='Medium'\">\r\n          <button pButton pRipple data-toggle=\"tooltip\" title=\"{{rowData.priority}} Priority\" icon=\"pi pi-star\"\r\n            class=\"btn-length p-button-rounded p-button-warning\"\r\n            style=\"color:#ffc107;background:#fff;border: none;\"></button>\r\n        </span>\r\n        <span *ngIf=\"rowData.priority=='Low'\">\r\n          <button pButton pRipple data-toggle=\"tooltip\" title=\"{{rowData.priority}} Priority\" icon=\"pi pi-star\"\r\n            class=\"btn-length p-button-rounded p-button-warning\"\r\n            style=\"color:red;background:#fff;border: none;\"></button>\r\n        </span>\r\n        <span>\r\n          <a class=\"btn-length\" (click)=\"showModalDialogVendor(rowData.reportId)\" *ngIf=\"rowData.vendor_add.length\">\r\n            <img src=\"./assets/img/eye.png\"></a>\r\n        </span>\r\n\r\n        <a (click)=\"showModalDialog1(rowData.note)\" tabindex=\"0\" data-toggle=\"popover\" data-trigger=\"focus\" title=\"\"\r\n          data-content=\"Srija note\" data-original-title=\"Note\"><img\r\n            src=\"./assets/img/sticky.png\"></a>\r\n        <br>\r\n        <button data-toggle=\"tooltip\" title=\"{{rowData.vendor_add.length}} Submissions\" class=\"btn-length\"\r\n          style=\"color:white;background:#007bff;border:none\">{{rowData.vendor_add.length}}</button>\r\n\r\n        <button data-toggle=\"tooltip\" title=\"{{rowData.sclients}} Submitted to Client\" class=\"btn-length\"\r\n          style=\"color:white;background:purple;border:none\">{{rowData.sclients}}</button>\r\n        <button data-toggle=\"tooltip\" title=\"{{rowData.interviews}} Interview Schedule\"\r\n          style=\"color:white;background:green;border:none\">{{rowData.interviews}}</button>\r\n        <!-- <button pButton pRipple data-toggle=\"tooltip\" title=\"Status Change\" icon=\"pi  pi-tag \"\r\n          (click)=\"showModalDialog(rowData.note,rowData.priority,rowData.wStatus)\"\r\n          class=\"p-button-outlined p-button-secondary\" style=\"color:#007bff;background:#fff;border: none;\"></button><br> -->\r\n\r\n\r\n        <!-- <button pButton pRipple data-toggle=\"tooltip\" title=\"Note\" icon=\"pi pi-bookmark\"\r\n          (click)=\"showModalDialog1(rowData.note)\" class=\"p-button-outlined p-button-secondary\"\r\n          style=\"color:#007bff;background:#fff;border: none;\"></button> -->\r\n\r\n      </td>\r\n      <td style=\"color:#17a2b8;\">\r\n        {{calculateDiff(rowData.created_at)}}\r\n\r\n      </td>\r\n      <td>\r\n        <p>\r\n          <a href=\"https://portal.webmobilez.com/storage/app/uploads/resume/{{rowData.resume}}\" download\r\n          *ngIf=\"rowData.resume\"><img src=\"./assets/img/word.png\"></a>\r\n        <a href=\"https://portal.webmobilez.com/storage/app/uploads/otherDocument/{{rowData.otherDocument}}\"  download *ngIf=\"rowData.otherDocument\"><img\r\n              src=\"./assets/img/idcard.png\"></a>\r\n          <a href=\"https://portal.webmobilez.com/storage/app/uploads/workauthorization/{{rowData.workauthorization}}\"   download *ngIf=\"rowData.workauthorization\"><img\r\n              src=\"./assets/img/suitcase.png\"></a>\r\n        </p>\r\n\r\n\r\n\r\n        {{rowData.created_at | date }}\r\n      </td>\r\n      <td>\r\n        {{rowData.consultatName }}\r\n      </td>\r\n      <td *ngFor=\"let col of columns\">\r\n        <div *ngIf=\"!col.editable\">\r\n          {{rowData|field:col}}\r\n        </div>\r\n\r\n        <p-cellEditor *ngIf=\"col.editable\">\r\n          <ng-template pTemplate=\"input\">\r\n            <div *ngIf=\"rowData|field:col as variable\">\r\n              <input pInputText type=\"text\" [(ngModel)]=\"variable\" required>\r\n            </div>\r\n          </ng-template>\r\n          <ng-template pTemplate=\"output\">\r\n\r\n            {{rowData|field:col}}\r\n          </ng-template>\r\n        </p-cellEditor>\r\n      </td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n<p-confirmDialog key=\"confirm-drop-database\" header=\"Confirmation\" acceptLabel=\"Yes\" rejectLabel=\"No\"\r\n  [(visible)]=\"confirmDropDatabaseDialogVisible\"></p-confirmDialog>\r\n<p-dialog header=\"Status Change\" [(visible)]=\"displayModal\" [modal]=\"true\" [style]=\"{width: '50vw'}\"\r\n  [baseZIndex]=\"10000\" [draggable]=\"false\" [resizable]=\"false\">\r\n\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-lg-6\">\r\n      <div class=\"form-group\">\r\n        <label for=\"priority\">Priority:</label>\r\n        <input type=\"hidden\" name=\"reportidnote\" id=\"reportidnote\" value=\"224\">\r\n        <select class=\"form-control\" name=\"prioritypop\" [(ngModel)]=\"priority\">\r\n          <option value=\"\">--select--</option>\r\n          <option value=\"High\">High</option>\r\n          <option value=\"Medium\">Medium</option>\r\n          <option value=\"Low\">Low</option>\r\n        </select>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-lg-6\">\r\n      <div class=\"form-group\">\r\n        <label for=\"wStatus\">Status of Consultant:</label>\r\n        <select [(ngModel)]=\"wStatus\" class=\"form-control\" name=\"wStatus\" id=\"wStatus\">\r\n          <option value=\"\">--select--</option>\r\n          <option value=\"A\">Active</option>\r\n          <option value=\"R\">Removed From Webmobilez</option>\r\n          <option value=\"S\">selected from WebmobileZ</option>\r\n        </select>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-lg-12\">\r\n    <div class=\"form-group\">\r\n      <label for=\"notepop\">Note:</label>\r\n      <textarea class=\"form-control\" id=\"notepop\" name=\"notepop\">{{note}} </textarea>\r\n\r\n    </div>\r\n  </div>\r\n  <button type=\"button\" class=\"btn btn-primary\" id=\"openpopupsubmit\">Submit</button>\r\n\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n<p-dialog header=\"Note\" [(visible)]=\"displayModal1\" [modal]=\"true\" [style]=\"{width: '50vw'}\" [baseZIndex]=\"10000\"\r\n  [draggable]=\"false\" [resizable]=\"false\">\r\n\r\n  <p>{{note}}</p>\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal1=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal1=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n<p-dialog header=\"View Vendors\" [(visible)]=\"displayModalVendor\" [modal]=\"true\" [style]=\"{width: '50vw'}\"\r\n  [baseZIndex]=\"10000\" [draggable]=\"false\" [resizable]=\"false\">\r\n\r\n  <p>Vendors</p>\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal1=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal1=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n\r\n<p-dialog [style]=\"{width: '75vw'}\" position=\"top\" [(visible)]=\"showDialog\" header=\"View Vendors Details\" [closable]=\"true\"\r\n  [modal]=\"true\" [resizable]=\"true\">\r\n  <div class=\"flexcolumn container\">\r\n    <p-table class=\"flexcolumn\" [value]=\"data\" [scrollable]=\"true\" [responsive]=\"false\">\r\n      <ng-template pTemplate=\"header\">\r\n        <tr>\r\n          <th><span>Created By</span></th>\r\n          <th><span>Vendor Company</span></th>\r\n          <th><span>Contact Name</span></th>\r\n          <th><span>End Client</span></th>\r\n          <th><span>Submission Rate</span></th>\r\n          <th><span>Status</span></th>\r\n        </tr>\r\n      </ng-template>\r\n      <ng-template pTemplate=\"body\" let-record>\r\n        <tr>\r\n          <td><span *ngIf=\"record.user_details\">{{record.user_details.name}}</span></td>\r\n          <td>{{record.vendorCompanyName}}</td>\r\n         <td>{{record.vendorName}}</td>\r\n          <td>{{record.endClientName}}</td>\r\n          <td>{{record.submissionRate}}</td>\r\n          <td>{{record.vendorStatus}}</td>\r\n        </tr>\r\n      </ng-template>\r\n      <ng-template pTemplate=\"summary\">\r\n        {{data.length}} Records\r\n      </ng-template>\r\n    </p-table>\r\n  </div>\r\n  <p-footer>\r\n    <button type=\"button\" pButton (click)=\"showDialog=false\" label=\"Close\"></button>\r\n  </p-footer>\r\n</p-dialog>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/admin/consultantDocuments/docuemnt.pipe.ts":
+/*!************************************************************!*\
+  !*** ./src/app/admin/consultantDocuments/docuemnt.pipe.ts ***!
+  \************************************************************/
+/*! exports provided: DocumentPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentPipe", function() { return DocumentPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var DocumentPipe = /** @class */ (function () {
+    /**
+     *
+     */
+    function DocumentPipe() {
+    }
+    DocumentPipe.prototype.transform = function (value) {
+        var args = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args[_i - 1] = arguments[_i];
+        }
+        var column = args[0];
+        var result = value;
+        // addressModel.City.Name
+        column.field.split(".").forEach(function (f) { return (result = result[f]); });
+        return result ? result : '-';
+    };
+    DocumentPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+            name: "field"
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], DocumentPipe);
+    return DocumentPipe;
+}());
+
+
 
 /***/ }),
 
@@ -81,11 +143,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(primeng_dropdown__WEBPACK_IMPORTED_MODULE_22__);
 /* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! primeng/inplace */ "./node_modules/primeng/inplace.js");
 /* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(primeng_inplace__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var _field1_pipe__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../field1.pipe */ "./src/app/field1.pipe.ts");
-/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! primeng/confirmdialog */ "./node_modules/primeng/confirmdialog.js");
-/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25__);
-/* harmony import */ var primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! primeng/dynamicdialog */ "./node_modules/primeng/dynamicdialog.js");
-/* harmony import */ var primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_26__);
+/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! primeng/confirmdialog */ "./node_modules/primeng/confirmdialog.js");
+/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! primeng/dynamicdialog */ "./node_modules/primeng/dynamicdialog.js");
+/* harmony import */ var primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var _consultantDocuments_docuemnt_pipe__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../consultantDocuments/docuemnt.pipe */ "./src/app/admin/consultantDocuments/docuemnt.pipe.ts");
 
 
 
@@ -119,7 +181,7 @@ var DocumentsModule = /** @class */ (function () {
     }
     DocumentsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__["UserCreateComponent"], _field1_pipe__WEBPACK_IMPORTED_MODULE_24__["FieldPipe1"]],
+            declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__["UserCreateComponent"], _consultantDocuments_docuemnt_pipe__WEBPACK_IMPORTED_MODULE_26__["DocumentPipe"]],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
                 _user_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserRoutingModule"],
@@ -130,7 +192,7 @@ var DocumentsModule = /** @class */ (function () {
                 primeng_contextmenu__WEBPACK_IMPORTED_MODULE_13__["ContextMenuModule"],
                 primeng_button__WEBPACK_IMPORTED_MODULE_15__["ButtonModule"],
                 primeng_toast__WEBPACK_IMPORTED_MODULE_11__["ToastModule"],
-                primeng_inputtext__WEBPACK_IMPORTED_MODULE_17__["InputTextModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25__["ConfirmDialogModule"], primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_26__["DynamicDialogModule"],
+                primeng_inputtext__WEBPACK_IMPORTED_MODULE_17__["InputTextModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_24__["ConfirmDialogModule"], primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_25__["DynamicDialogModule"],
                 primeng_progressbar__WEBPACK_IMPORTED_MODULE_16__["ProgressBarModule"], primeng_tabmenu__WEBPACK_IMPORTED_MODULE_18__["TabMenuModule"], primeng_tooltip__WEBPACK_IMPORTED_MODULE_19__["TooltipModule"], primeng_fileupload__WEBPACK_IMPORTED_MODULE_20__["FileUploadModule"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_21__["NgxDropzoneModule"], primeng_dropdown__WEBPACK_IMPORTED_MODULE_22__["DropdownModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], primeng_inplace__WEBPACK_IMPORTED_MODULE_23__["InplaceModule"]
             ],
             providers: [
@@ -434,7 +496,7 @@ var UserIndexComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host ::ng-deep .p-cell-editing {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n}\n\n.disable-td {\n  pointer-events: none;\n}\n\n.ui-button {\n  margin-left: 0.1rem;\n  margin-right: 0.1rem;\n}\n\n.btn-length {\n  margin-right: 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vY29uc3VsdGFudERvY3VtZW50cy91c2VyLWxpc3QvQzpcXHhhbXBwXFxodGRvY3NcXHNlcC1iYXJcXGFuZ3VsYXIvc3JjXFxhcHBcXGFkbWluXFxjb25zdWx0YW50RG9jdW1lbnRzXFx1c2VyLWxpc3RcXHVzZXItbGlzdC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYWRtaW4vY29uc3VsdGFudERvY3VtZW50cy91c2VyLWxpc3QvdXNlci1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UseUJBQUE7RUFDQSw0QkFBQTtBQ0NGOztBRENBO0VBQ0Usb0JBQUE7QUNFRjs7QURBQTtFQUNFLG1CQUFBO0VBQ0Esb0JBQUE7QUNHRjs7QUREQTtFQUVFLGlCQUFBO0FDR0YiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9jb25zdWx0YW50RG9jdW1lbnRzL3VzZXItbGlzdC91c2VyLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCA6Om5nLWRlZXAgLnAtY2VsbC1lZGl0aW5nIHtcclxuICBwYWRkaW5nLXRvcDogMCAhaW1wb3J0YW50O1xyXG4gIHBhZGRpbmctYm90dG9tOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuLmRpc2FibGUtdGR7XHJcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XHJcbn1cclxuLnVpLWJ1dHRvbiB7XHJcbiAgbWFyZ2luLWxlZnQ6IDAuMTByZW07XHJcbiAgbWFyZ2luLXJpZ2h0OiAwLjEwcmVtO1xyXG59XHJcbi5idG4tbGVuZ3RoXHJcbntcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxufVxyXG4iLCI6aG9zdCA6Om5nLWRlZXAgLnAtY2VsbC1lZGl0aW5nIHtcbiAgcGFkZGluZy10b3A6IDAgIWltcG9ydGFudDtcbiAgcGFkZGluZy1ib3R0b206IDAgIWltcG9ydGFudDtcbn1cblxuLmRpc2FibGUtdGQge1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuLnVpLWJ1dHRvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwLjFyZW07XG4gIG1hcmdpbi1yaWdodDogMC4xcmVtO1xufVxuXG4uYnRuLWxlbmd0aCB7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufSJdfQ== */"
+module.exports = ":host ::ng-deep .p-cell-editing {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n}\n\n.disable-td {\n  pointer-events: none;\n}\n\n.ui-button {\n  margin-left: 0.1rem;\n  margin-right: 0.1rem;\n}\n\n.btn-length {\n  margin-right: 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vY29uc3VsdGFudERvY3VtZW50cy91c2VyLWxpc3QvQzpcXHhhbXBwXFxodGRvY3NcXHdlYnBvcnRhbC9zcmNcXGFwcFxcYWRtaW5cXGNvbnN1bHRhbnREb2N1bWVudHNcXHVzZXItbGlzdFxcdXNlci1saXN0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hZG1pbi9jb25zdWx0YW50RG9jdW1lbnRzL3VzZXItbGlzdC91c2VyLWxpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx5QkFBQTtFQUNBLDRCQUFBO0FDQ0Y7O0FEQ0E7RUFDRSxvQkFBQTtBQ0VGOztBREFBO0VBQ0UsbUJBQUE7RUFDQSxvQkFBQTtBQ0dGOztBRERBO0VBRUUsaUJBQUE7QUNHRiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbnN1bHRhbnREb2N1bWVudHMvdXNlci1saXN0L3VzZXItbGlzdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IDo6bmctZGVlcCAucC1jZWxsLWVkaXRpbmcge1xyXG4gIHBhZGRpbmctdG9wOiAwICFpbXBvcnRhbnQ7XHJcbiAgcGFkZGluZy1ib3R0b206IDAgIWltcG9ydGFudDtcclxufVxyXG4uZGlzYWJsZS10ZHtcclxuICBwb2ludGVyLWV2ZW50czogbm9uZTtcclxufVxyXG4udWktYnV0dG9uIHtcclxuICBtYXJnaW4tbGVmdDogMC4xMHJlbTtcclxuICBtYXJnaW4tcmlnaHQ6IDAuMTByZW07XHJcbn1cclxuLmJ0bi1sZW5ndGhcclxue1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG59XHJcbiIsIjpob3N0IDo6bmctZGVlcCAucC1jZWxsLWVkaXRpbmcge1xuICBwYWRkaW5nLXRvcDogMCAhaW1wb3J0YW50O1xuICBwYWRkaW5nLWJvdHRvbTogMCAhaW1wb3J0YW50O1xufVxuXG4uZGlzYWJsZS10ZCB7XG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xufVxuXG4udWktYnV0dG9uIHtcbiAgbWFyZ2luLWxlZnQ6IDAuMXJlbTtcbiAgbWFyZ2luLXJpZ2h0OiAwLjFyZW07XG59XG5cbi5idG4tbGVuZ3RoIHtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59Il19 */"
 
 /***/ }),
 
@@ -718,20 +780,20 @@ var UserRestService = /** @class */ (function () {
         this.users = [];
     }
     UserRestService.prototype.EditDocument = function (id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/submissions/' + id);
+        return this.http.get('https://portal.webmobilez.com/publicapi/submissions/' + id);
     };
     UserRestService.prototype.getTotalInterviewShecdules = function (index) {
-        return this.http.post('https://portal.webmobilez.com/public/api/getTotalInterviewShecdules', index);
+        return this.http.post('https://portal.webmobilez.com/publicapi/getTotalInterviewShecdules', index);
     };
     UserRestService.prototype.getConsultants = function () {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/');
+        return this.http.get('https://portal.webmobilez.com/publicapi/getAllConsultants/');
     };
     UserRestService.prototype.storeUser = function (form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/store-consultant', form.value);
+        return this.http.post('https://portal.webmobilez.com/publicapi/store-consultant', form.value);
     };
     UserRestService.prototype.statusChangeConsultant = function (index) {
         var body = 'index=' + index;
-        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', JSON.stringify({
+        return this.http.post('https://portal.webmobilez.com/publicapi/status-consultant', JSON.stringify({
             cmd: "sa",
             data: "sd"
         }));
@@ -793,50 +855,6 @@ var UserRoutingModule = /** @class */ (function () {
         })
     ], UserRoutingModule);
     return UserRoutingModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/field1.pipe.ts":
-/*!********************************!*\
-  !*** ./src/app/field1.pipe.ts ***!
-  \********************************/
-/*! exports provided: FieldPipe1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldPipe1", function() { return FieldPipe1; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var FieldPipe1 = /** @class */ (function () {
-    /**
-     *
-     */
-    function FieldPipe1() {
-    }
-    FieldPipe1.prototype.transform = function (value) {
-        var args = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            args[_i - 1] = arguments[_i];
-        }
-        var column = args[0];
-        var result = value;
-        // addressModel.City.Name
-        column.field.split(".").forEach(function (f) { return (result = result[f]); });
-        return result ? result : '-';
-    };
-    FieldPipe1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-            name: "field"
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], FieldPipe1);
-    return FieldPipe1;
 }());
 
 

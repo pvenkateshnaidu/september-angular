@@ -84,7 +84,7 @@ module.exports = "\r\n<nav class=\"navbar navbar-expand-lg navbar-absolute fixed
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = " <!-- MENU Start -->\r\n <div class=\"navbar-custom\">\r\n  <div class=\"container-fluid\">\r\n      <!-- Logo-->\r\n      <div class=\"d-none d-lg-block\">\r\n\r\n          <a routerLink=\"/dashboard\" class=\"logo\" style=\"color: #fff\">\r\n              <img  src=\"https://webmobilez.com/wp-content/themes/webmobilez/images/logo_white.svg\"\r\n              height=\"50px\" class=\"svg-content\">\r\n          </a>\r\n          <span class=\"txt-color\"> {{clock| date:'full':'EST'}}</span>\r\n\r\n\r\n\r\n\r\n      </div>\r\n      <!-- End Logo-->\r\n      <div id=\"navigation\">\r\n        <ul class=\"nav navigation-menu\">\r\n          <!-- <li *ngFor=\"let menuItem of menuItems\" routerLinkActive=\"active\" class=\"{{menuItem.class}}\">\r\n              <a [routerLink]=\"[menuItem.path]\">\r\n                  <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n                  <p>{{menuItem.title}}</p>\r\n              </a>\r\n          </li> -->\r\n\r\n          <li  *ngFor=\"let menuItem of menuItems; let i = index\" routerLinkActive=\"active\" class=\"has-submenu {{menuItem.class}}\">\r\n            <a *ngIf=\"menuItem.childMenu\" data-toggle=\"collapse\" href=\"#dashboardOverview{{i}}\" aria-expanded=\"false\" class=\"collapsed\">\r\n                <i class=\"nc-icon nc-bank\"></i>\r\n                <p>{{menuItem.title}}\r\n                      <b class=\"caret\"></b>\r\n                  </p>\r\n            </a>\r\n            <a *ngIf=\"!menuItem.childMenu\" [routerLink]=\"[menuItem.path]\">\r\n              <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n              <p>{{menuItem.title}}</p>\r\n            </a>\r\n\r\n          <div *ngIf=\"menuItem.childMenu\" class=\"collapse\" id=\"dashboardOverview{{i}}\" aria-expanded=\"false\" style=\"height: 0px;\">\r\n            <ul class=\"nav\">\r\n              <li *ngFor=\"let menu of menuItem.childMenu\" routerLinkActive=\"active\" class=\"{{menu.class}}\">\r\n                <a [routerLink]=\"[menu.path]\">\r\n                    <i class=\"nc-icon {{menu.icon}}\"></i>\r\n                    <p>{{menu.title}}</p>\r\n                </a>\r\n              </li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"nav-item pd-top\">\r\n          <a class=\"nav-link\" (click)=\"logout()\">\r\n            Logout\r\n            <!-- <p>\r\n              <span class=\"d-lg-none d-md-block\">Account</span>\r\n            </p> -->\r\n          </a>\r\n        </li>\r\n      </ul>\r\n\r\n      </div> <!-- end #navigation -->\r\n  </div> <!-- end container -->\r\n</div> <!-- end navbar-custom -->\r\n\r\n"
+module.exports = " <!-- MENU Start -->\r\n <div class=\"navbar-custom\">\r\n  <div class=\"container-fluid\">\r\n      <!-- Logo-->\r\n      <div class=\"d-none d-lg-block\">\r\n\r\n          <a routerLink=\"/dashboard\" class=\"logo\" style=\"color: #fff\">\r\n              <img  src=\"https://webmobilez.com/wp-content/themes/webmobilez/images/logo_white.svg\"\r\n              height=\"50px\" class=\"svg-content\">\r\n          </a>\r\n          <span class=\"txt-color\"> {{clock| date:'fullDate':'EST'}} {{clock| date:'mediumTime':'EST'}}</span>\r\n              </div>\r\n      <!-- End Logo-->\r\n      <div id=\"navigation\">\r\n        <ul class=\"nav navigation-menu\">\r\n          <!-- <li *ngFor=\"let menuItem of menuItems\" routerLinkActive=\"active\" class=\"{{menuItem.class}}\">\r\n              <a [routerLink]=\"[menuItem.path]\">\r\n                  <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n                  <p>{{menuItem.title}}</p>\r\n              </a>\r\n          </li> -->\r\n\r\n          <li  *ngFor=\"let menuItem of menuItems; let i = index\" routerLinkActive=\"active\" class=\"has-submenu {{menuItem.class}}\">\r\n            <a *ngIf=\"menuItem.childMenu\" data-toggle=\"collapse\" href=\"#dashboardOverview{{i}}\" aria-expanded=\"false\" class=\"collapsed\">\r\n                <i class=\"nc-icon nc-bank\"></i>\r\n                <p>{{menuItem.title}}\r\n                      <b class=\"caret\"></b>\r\n                  </p>\r\n            </a>\r\n            <a *ngIf=\"!menuItem.childMenu\" [routerLink]=\"[menuItem.path]\">\r\n              <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n              <p>{{menuItem.title}}</p>\r\n            </a>\r\n\r\n          <div *ngIf=\"menuItem.childMenu\" class=\"collapse\" id=\"dashboardOverview{{i}}\" aria-expanded=\"false\" style=\"height: 0px;\">\r\n            <ul class=\"nav\">\r\n              <li *ngFor=\"let menu of menuItem.childMenu\" routerLinkActive=\"active\" class=\"{{menu.class}}\">\r\n                <a [routerLink]=\"[menu.path]\">\r\n                    <i class=\"nc-icon {{menu.icon}}\"></i>\r\n                    <p>{{menu.title}}</p>\r\n                </a>\r\n              </li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"nav-item pd-top\">\r\n          <a class=\"nav-link\" (click)=\"logout()\">\r\n            Logout\r\n            <!-- <p>\r\n              <span class=\"d-lg-none d-md-block\">Account</span>\r\n            </p> -->\r\n          </a>\r\n        </li>\r\n      </ul>\r\n\r\n      </div> <!-- end #navigation -->\r\n  </div> <!-- end container -->\r\n</div> <!-- end navbar-custom -->\r\n\r\n"
 
 /***/ }),
 
@@ -405,7 +405,7 @@ var CommonAuthService = /** @class */ (function () {
     }
     CommonAuthService.prototype.registerUser = function (form) {
         console.log(form.value);
-        return this.http.post('https://portal.webmobilez.com/public/api/register', form.value);
+        return this.http.post('https://portal.webmobilez.com/publicapi/register', form.value);
     };
     CommonAuthService.prototype.isAuthonticated = function () {
         var _this = this;
@@ -425,11 +425,11 @@ var CommonAuthService = /** @class */ (function () {
         return promise;
     };
     CommonAuthService.prototype.logIn = function (form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/login', form.value);
+        return this.http.post('https://portal.webmobilez.com/publicapi/login', form.value);
         //return result;
     };
     CommonAuthService.prototype.logout = function (token) {
-        return this.http.post('https://portal.webmobilez.com/public/api/logout', { 'token': token });
+        return this.http.post('https://portal.webmobilez.com/publicapi/logout', { 'token': token });
         //return result;
     };
     CommonAuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1164,7 +1164,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\sep-bar\angular\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\webportal\src\main.ts */"./src/main.ts");
 
 
 /***/ })

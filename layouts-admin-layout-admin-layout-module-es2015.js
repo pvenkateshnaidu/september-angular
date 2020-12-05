@@ -595,7 +595,7 @@ AdminLayoutModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         declarations: [
             _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"],
-            _pages_user_user_component__WEBPACK_IMPORTED_MODULE_7__["UserComponent"],
+            _pages_user_user_component__WEBPACK_IMPORTED_MODULE_7__["UserComponent"]
         ],
         providers: [_user_serviuce__WEBPACK_IMPORTED_MODULE_10__["UserService"]],
     })
@@ -628,83 +628,47 @@ const AdminLayoutRoutes = [
     { path: 'profile', canActivate: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]], component: _pages_user_user_component__WEBPACK_IMPORTED_MODULE_1__["UserComponent"] },
     {
         path: 'consultantdocuments', canActivateChild: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]],
-        loadChildren: () => Promise.all(/*! import() | admin-consultantDocuments-documents-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("common"), __webpack_require__.e("admin-consultantDocuments-documents-module")]).then(__webpack_require__.bind(null, /*! ../../admin/consultantDocuments/documents.module */ "./src/app/admin/consultantDocuments/documents.module.ts")).then(m => m.DocumentsModule),
-    },
-    {
-        path: 'admindocuments', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
-        data: {
-            expectedRole: 'Admin'
-        },
-        loadChildren: () => Promise.all(/*! import() | admin-adminDocuments-documents-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("common"), __webpack_require__.e("admin-adminDocuments-documents-module")]).then(__webpack_require__.bind(null, /*! ../../admin/adminDocuments/documents.module */ "./src/app/admin/adminDocuments/documents.module.ts")).then(m => m.DocumentsModule),
-    },
-    {
-        path: 'adminInDocuments', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
-        data: {
-            expectedRole: 'Admin'
-        },
-        loadChildren: () => Promise.all(/*! import() | admin-adminInDocuments-documents-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("common"), __webpack_require__.e("admin-adminInDocuments-documents-module")]).then(__webpack_require__.bind(null, /*! ../../admin/adminInDocuments/documents.module */ "./src/app/admin/adminInDocuments/documents.module.ts")).then(m => m.DocumentsInModule),
+        loadChildren: () => Promise.all(/*! import() | admin-consultantDocuments-documents-module */[__webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~0fcc4d7b"), __webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-consultant-module~admin-contact~538fff92"), __webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~a31cf093"), __webpack_require__.e("admin-consultantDocuments-documents-module")]).then(__webpack_require__.bind(null, /*! ../../admin/consultantDocuments/documents.module */ "./src/app/admin/consultantDocuments/documents.module.ts")).then(m => m.DocumentsModule),
     },
     {
         path: 'hotlist', canActivateChild: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]],
-        loadChildren: () => Promise.all(/*! import() | admin-hotlist-documents-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("admin-hotlist-documents-module")]).then(__webpack_require__.bind(null, /*! ../../admin/hotlist/documents.module */ "./src/app/admin/hotlist/documents.module.ts")).then(m => m.DocumentsModule),
+        loadChildren: () => Promise.all(/*! import() | admin-hotlist-hotlist-module */[__webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~0fcc4d7b"), __webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-consultant-module~admin-contact~538fff92"), __webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~a31cf093"), __webpack_require__.e("admin-hotlist-hotlist-module")]).then(__webpack_require__.bind(null, /*! ../../admin/hotlist/hotlist.module */ "./src/app/admin/hotlist/hotlist.module.ts")).then(m => m.HotListModule),
     },
     {
         path: 'contacts', canActivateChild: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]],
-        loadChildren: () => Promise.all(/*! import() | admin-contacts-documents-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("admin-contacts-documents-module")]).then(__webpack_require__.bind(null, /*! ../../admin/contacts/documents.module */ "./src/app/admin/contacts/documents.module.ts")).then(m => m.DocumentsModule),
+        loadChildren: () => Promise.all(/*! import() | admin-contacts-contacts-module */[__webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~0fcc4d7b"), __webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-consultant-module~admin-contact~538fff92"), __webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~a31cf093"), __webpack_require__.e("admin-contacts-contacts-module")]).then(__webpack_require__.bind(null, /*! ../../admin/contacts/contacts.module */ "./src/app/admin/contacts/contacts.module.ts")).then(m => m.ContactsModule),
     },
     {
         path: 'interviews', canActivateChild: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]],
-        loadChildren: () => Promise.all(/*! import() | admin-interviews-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("admin-interviews-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/interviews/user.module */ "./src/app/admin/interviews/user.module.ts")).then(m => m.UserModule),
+        loadChildren: () => Promise.all(/*! import() | admin-interviews-interviews-module */[__webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~0fcc4d7b"), __webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-consultant-module~admin-contact~538fff92"), __webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~a31cf093"), __webpack_require__.e("admin-interviews-interviews-module")]).then(__webpack_require__.bind(null, /*! ../../admin/interviews/interviews.module */ "./src/app/admin/interviews/interviews.module.ts")).then(m => m.InterviewsModule),
     },
     {
         path: 'consultants', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
         data: {
             expectedRole: 'Admin'
         },
-        loadChildren: () => Promise.all(/*! import() | admin-consultants-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("admin-consultants-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/consultants/user.module */ "./src/app/admin/consultants/user.module.ts")).then(m => m.UserModule),
+        loadChildren: () => Promise.all(/*! import() | admin-consultants-consultant-module */[__webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~0fcc4d7b"), __webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-consultant-module~admin-contact~538fff92"), __webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~a31cf093"), __webpack_require__.e("admin-consultants-consultant-module")]).then(__webpack_require__.bind(null, /*! ../../admin/consultants/consultant.module */ "./src/app/admin/consultants/consultant.module.ts")).then(m => m.ConsultantModule),
     },
     {
-        path: 'headadminconsultants', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
+        path: 'vendorlist', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
         data: {
-            expectedRole: 'HeadHuntersAdmin'
+            expectedRole: 'Admin'
         },
-        loadChildren: () => Promise.all(/*! import() | admin-headAdminconsultants-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("admin-headAdminconsultants-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/headAdminconsultants/user.module */ "./src/app/admin/headAdminconsultants/user.module.ts")).then(m => m.UserModule),
-    },
-    {
-        path: 'jobs', canActivateChild: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]],
-        loadChildren: () => Promise.all(/*! import() | admin-accountmanager-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("admin-accountmanager-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/accountmanager/user.module */ "./src/app/admin/accountmanager/user.module.ts")).then(m => m.UserModule),
-    },
-    {
-        path: 'submissions', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
-        data: {
-            expectedRole: 'Recruiters'
-        },
-        loadChildren: () => Promise.all(/*! import() | admin-submissions-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("admin-submissions-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/submissions/user.module */ "./src/app/admin/submissions/user.module.ts")).then(m => m.UserModule),
+        loadChildren: () => Promise.all(/*! import() | admin-vendorlist-vendorlist-module */[__webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~0fcc4d7b"), __webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-consultant-module~admin-contact~538fff92"), __webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~a31cf093"), __webpack_require__.e("admin-vendorlist-vendorlist-module")]).then(__webpack_require__.bind(null, /*! ../../admin/vendorlist/vendorlist.module */ "./src/app/admin/vendorlist/vendorlist.module.ts")).then(m => m.VendorListModule),
     },
     {
         path: 'benchsales', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
         data: {
             expectedRole: 'BenchSales'
         },
-        loadChildren: () => Promise.all(/*! import() | admin-benchsales-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("default~admin-benchsales-user-module~admin-recruiters-user-module"), __webpack_require__.e("admin-benchsales-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/benchsales/user.module */ "./src/app/admin/benchsales/user.module.ts")).then(m => m.UserModule),
-    },
-    {
-        path: 'recruiters', canActivateChild: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]],
-        loadChildren: () => Promise.all(/*! import() | admin-recruiters-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("default~admin-benchsales-user-module~admin-recruiters-user-module"), __webpack_require__.e("admin-recruiters-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/recruiters/user.module */ "./src/app/admin/recruiters/user.module.ts")).then(m => m.UserModule),
-    },
-    {
-        path: 'huntersconsultants', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
-        data: {
-            expectedRole: 'HeadHunters'
-        },
-        loadChildren: () => Promise.all(/*! import() | admin-huntersconsultants-hunter-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b155df5f"), __webpack_require__.e("admin-huntersconsultants-hunter-module")]).then(__webpack_require__.bind(null, /*! ../../admin/huntersconsultants/hunter.module */ "./src/app/admin/huntersconsultants/hunter.module.ts")).then(m => m.HunterModule),
+        loadChildren: () => Promise.all(/*! import() | admin-benchsales-benchsales-module */[__webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~0fcc4d7b"), __webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~a31cf093"), __webpack_require__.e("admin-benchsales-benchsales-module")]).then(__webpack_require__.bind(null, /*! ../../admin/benchsales/benchsales.module */ "./src/app/admin/benchsales/benchsales.module.ts")).then(m => m.BenchSalesModule),
     },
     {
         path: 'users', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
         data: {
             expectedRole: 'Admin'
         },
-        loadChildren: () => Promise.all(/*! import() | admin-users-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~5da7d2e3"), __webpack_require__.e("admin-users-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/users/user.module */ "./src/app/admin/users/user.module.ts")).then(m => m.UserModule),
+        loadChildren: () => Promise.all(/*! import() | admin-users-user-module */[__webpack_require__.e("default~admin-benchsales-benchsales-module~admin-consultantDocuments-documents-module~admin-consulta~0fcc4d7b"), __webpack_require__.e("default~admin-consultantDocuments-documents-module~admin-consultants-consultant-module~admin-contact~538fff92"), __webpack_require__.e("admin-users-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/users/user.module */ "./src/app/admin/users/user.module.ts")).then(m => m.UserModule),
     },
 ];
 
@@ -732,7 +696,7 @@ let UserService = class UserService {
         this.http = http;
     }
     loadUser() {
-        return this.http.get('https://portal.webmobilez.com/public/api/user-list/create').pipe();
+        return this.http.get('https://portal.webmobilez.com/publicapi/user-list/create').pipe();
     }
 };
 UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -839,7 +803,7 @@ let UserComponent = class UserComponent {
     get id() { return this.updateUser.get('id'); }
     updateUserDetails() {
         let id = this.updateUser.get('id').value;
-        this.http.put('https://portal.webmobilez.com/public/api/user-list/' + id, this.updateUser.value).subscribe((response) => {
+        this.http.put('https://portal.webmobilez.com/publicapi/user-list/' + id, this.updateUser.value).subscribe((response) => {
             console.log(response),
                 this.messageService.add({ severity: 'success', summary: 'Your Profile Updated ', detail: 'successfull' });
             this.router.navigate(['profile']);
