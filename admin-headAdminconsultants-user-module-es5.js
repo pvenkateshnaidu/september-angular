@@ -1394,16 +1394,16 @@ var routes = [
         component: _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_3__["UserIndexComponent"],
         children: [
             { path: 'list', component: _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_4__["UserListComponent"], data: {
-                    expectedRole: 'Admin'
+                    expectedRole: 'HeadHuntersAdmin'
                 } },
             { path: 'inactivelist', component: _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_4__["UserListComponent"], data: {
-                    expectedRole: 'Admin'
+                    expectedRole: 'HeadHuntersAdmin'
                 } },
             { path: 'create', component: _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_5__["UserCreateComponent"], data: {
-                    expectedRole: 'Admin'
+                    expectedRole: 'HeadHuntersAdmin'
                 } },
             { path: 'edit/:id', component: _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_6__["UserEditComponent"], data: {
-                    expectedRole: 'Admin'
+                    expectedRole: 'HeadHuntersAdmin'
                 } },
         ]
     }
