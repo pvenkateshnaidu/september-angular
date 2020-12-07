@@ -1015,7 +1015,7 @@ SidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'sidebar-cmp',
         template: __webpack_require__(/*! raw-loader!./sidebar.component.html */ "./node_modules/raw-loader/index.js!./src/app/shared/sidebar/sidebar.component.html"),
-        styles: [".pd-top { padding-top: 17px; } .txt-color{ color:#fff}"]
+        styles: [".pd-top { padding-top: 17px; } .txt-color{ color:#fff} .logo img{ width:160px; }"]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], app_auth_common_auth_service__WEBPACK_IMPORTED_MODULE_3__["CommonAuthService"]])
 ], SidebarComponent);
