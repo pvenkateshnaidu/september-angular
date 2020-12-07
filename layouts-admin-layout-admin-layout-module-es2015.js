@@ -661,7 +661,7 @@ const AdminLayoutRoutes = [
         data: {
             expectedRole: 'Admin'
         },
-        loadChildren: () => Promise.all(/*! import() | admin-consultants-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b9014f8a"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~3ee70dfa"), __webpack_require__.e("admin-consultants-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/consultants/user.module */ "./src/app/admin/consultants/user.module.ts")).then(m => m.UserModule),
+        loadChildren: () => Promise.all(/*! import() | admin-consultants-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b9014f8a"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~3ee70dfa"), __webpack_require__.e("common"), __webpack_require__.e("admin-consultants-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/consultants/user.module */ "./src/app/admin/consultants/user.module.ts")).then(m => m.UserModule),
     },
     {
         path: 'vendorlist', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
@@ -675,7 +675,7 @@ const AdminLayoutRoutes = [
         data: {
             expectedRole: 'HeadHuntersAdmin'
         },
-        loadChildren: () => Promise.all(/*! import() | admin-headAdminconsultants-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b9014f8a"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~3ee70dfa"), __webpack_require__.e("admin-headAdminconsultants-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/headAdminconsultants/user.module */ "./src/app/admin/headAdminconsultants/user.module.ts")).then(m => m.UserModule),
+        loadChildren: () => Promise.all(/*! import() | admin-headAdminconsultants-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~b9014f8a"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-adminDocuments-documents-module~admin-adminInDocument~3ee70dfa"), __webpack_require__.e("common"), __webpack_require__.e("admin-headAdminconsultants-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/headAdminconsultants/user.module */ "./src/app/admin/headAdminconsultants/user.module.ts")).then(m => m.UserModule),
     },
     {
         path: 'jobs', canActivateChild: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]],

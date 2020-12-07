@@ -1284,44 +1284,6 @@ UserModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 
 
-/***/ }),
-
-/***/ "./src/app/field.pipe.ts":
-/*!*******************************!*\
-  !*** ./src/app/field.pipe.ts ***!
-  \*******************************/
-/*! exports provided: FieldPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldPipe", function() { return FieldPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let FieldPipe = class FieldPipe {
-    /**
-     *
-     */
-    constructor() { }
-    transform(value, ...args) {
-        const column = args[0];
-        let result = value;
-        // addressModel.City.Name
-        column.field.split(".").forEach(f => (result = result[f]));
-        return result ? result : '-';
-    }
-};
-FieldPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-        name: "field"
-    }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-], FieldPipe);
-
-
-
 /***/ })
 
 }]);
