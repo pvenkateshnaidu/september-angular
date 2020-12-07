@@ -1533,6 +1533,50 @@ var UserModule = /** @class */ (function () {
 
 
 
+/***/ }),
+
+/***/ "./src/app/field.pipe.ts":
+/*!*******************************!*\
+  !*** ./src/app/field.pipe.ts ***!
+  \*******************************/
+/*! exports provided: FieldPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldPipe", function() { return FieldPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var FieldPipe = /** @class */ (function () {
+    /**
+     *
+     */
+    function FieldPipe() {
+    }
+    FieldPipe.prototype.transform = function (value) {
+        var args = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args[_i - 1] = arguments[_i];
+        }
+        var column = args[0];
+        var result = value;
+        // addressModel.City.Name
+        column.field.split(".").forEach(function (f) { return (result = result[f]); });
+        return result ? result : '-';
+    };
+    FieldPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+            name: "field"
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], FieldPipe);
+    return FieldPipe;
+}());
+
+
+
 /***/ })
 
 }]);
