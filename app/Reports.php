@@ -40,7 +40,7 @@ class Reports extends Model
 		'city',
 		'state',
 		'willingLocation',	'userStatus',
-		'comments',
+		'comments','workauthorization','resume','otherDocument',
 		'reportStatus','userId'
 	];
 
