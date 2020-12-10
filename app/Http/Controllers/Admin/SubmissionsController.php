@@ -91,12 +91,19 @@ public function getTotalInterviewShecdules(Request $request)
      */
     public function index()
     {
-
+        if (Auth::user()->role == "Admin") {
+            $submissions = Submissions::with('user_details','consultant')
+            //->where("userId", "=", \Auth::user()->id)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+        }else{
+            $submissions = Submissions::with('user_details','consultant')
+            ->where("userId", "=", \Auth::user()->id)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+        }
            // $submissions = Submissions::with('user_details','consultant','vendorlist','clients','vendorDetail')->orderBy('created_at', 'DESC')
-           $submissions = Submissions::with('user_details','consultant')
-           ->where("userId", "=", \Auth::user()->id)
-           ->orderBy('created_at', 'DESC')
-           ->get();
+
 
         return response()->json(['submissions' => $submissions], 200);
     }
