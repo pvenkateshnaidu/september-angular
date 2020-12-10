@@ -247,6 +247,7 @@ class ConsultantController extends Controller
     public function store(Request $request)
     {
 
+
         $this->validate($request, [
             'consultantEmail' => 'required|unique:reports,consultantEmail',
             'ssn' => 'numeric',
@@ -461,7 +462,7 @@ class ConsultantController extends Controller
                 $user->workAuthorization = $request->workAuthorization;
             }
 
-            if (\Auth::user()->role == 'Admin') {
+            if (\Auth::user()->role == 'Admin' || \Auth::user()->role == 'HeadHuntersAdmin') {
                 $user->save();
                 return response()->json(['user' => $user], 200);
             } elseif ($user->userStatus == 'u') {

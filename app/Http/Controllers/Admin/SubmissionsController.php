@@ -61,19 +61,25 @@ class SubmissionsController extends Controller
                             $jobList[] =["label"=>$value->jobTitle,"value"=>$value->jobId];
 
                 }
+                $data =array();
+               /* $data = Submissions::with('user_details','consultant')
+                ->whereDate('created_at', Carbon::today())
+                ->where("userId", "=", \Auth::user()->id)
+                ->orderBy('created_at', 'DESC')->get(); */
 
-
-        return response()->json(['submissions' => $submissionslist,'vendorslist'=>$vendorslist,"clients"=>$clientList,"jobs"=>$jobList], 200);
+        return response()->json(['submissions' => $submissionslist,'vendorslist'=>$vendorslist,"clients"=>$clientList,"jobs"=>$jobList,'data' =>$data  ], 200);
     }
 
 public function getTotalInterviewShecdules(Request $request)
 {
     $interViewSubmissions = Submissions::find( $request->vid)
     ->where('vendorStatus','=','Interview scheduled')
+
     ->get();
     $interViewCount = $interViewSubmissions->count();
     $submitclientSubmissions = Submissions::find( $request->vid)
     ->where('vendorStatus','=','Submitted to Client')
+
     ->get();
     $submitclientCount = $submitclientSubmissions->count();
     return response()->json(['interviews' => $interViewCount,'submitclient'=>$submitclientCount], 200);
@@ -87,7 +93,9 @@ public function getTotalInterviewShecdules(Request $request)
     {
 
            // $submissions = Submissions::with('user_details','consultant','vendorlist','clients','vendorDetail')->orderBy('created_at', 'DESC')
-           $submissions = Submissions::with('user_details','consultant')->orderBy('created_at', 'DESC')
+           $submissions = Submissions::with('user_details','consultant')
+           ->where("userId", "=", \Auth::user()->id)
+           ->orderBy('created_at', 'DESC')
            ->get();
 
         return response()->json(['submissions' => $submissions], 200);
@@ -152,8 +160,11 @@ return response()->json(['submissions' => $submissions], 200);
             $job->userId = \Auth::user()->id;
             $job->created_at = date('Y-m-d H:i:s');
             $job->save();
+            $data = Submissions::with('user_details','consultant')
+            ->where('vendorId','=',$job->vendorId)
+            ->get();
 
-            return response()->json(['job' => $job], 200);
+            return response()->json(['job' => $job,'data'=> $data ], 200);
 
     }
     public function statusChange(Request $request)
