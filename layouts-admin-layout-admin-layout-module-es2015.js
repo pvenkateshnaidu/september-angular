@@ -735,7 +735,7 @@ const AdminLayoutRoutes = [
         data: {
             expectedRole: 'BenchSales'
         },
-        loadChildren: () => Promise.all(/*! import() | admin-benchsales-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-benchsales-user-module~admin-headAdminconsultants-use~650afdf7"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-benchsales-user-module~admin-headAdminconsultants-use~169c0da3"), __webpack_require__.e("default~admin-benchsales-user-module~admin-vendorlist-user-module"), __webpack_require__.e("admin-benchsales-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/benchsales/user.module */ "./src/app/admin/benchsales/user.module.ts")).then(m => m.UserModule),
+        loadChildren: () => Promise.all(/*! import() | admin-benchsales-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-benchsales-user-module~admin-headAdminconsultants-use~650afdf7"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-benchsales-user-module~admin-headAdminconsultants-use~169c0da3"), __webpack_require__.e("default~admin-benchsales-user-module~admin-vendorlist-user-module"), __webpack_require__.e("common"), __webpack_require__.e("admin-benchsales-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/benchsales/user.module */ "./src/app/admin/benchsales/user.module.ts")).then(m => m.UserModule),
     },
     {
         path: 'huntersconsultants', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
@@ -749,7 +749,7 @@ const AdminLayoutRoutes = [
         data: {
             expectedRole: 'HeadHuntersAdmin'
         },
-        loadChildren: () => Promise.all(/*! import() | admin-headAdminconsultants-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-benchsales-user-module~admin-headAdminconsultants-use~650afdf7"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-benchsales-user-module~admin-headAdminconsultants-use~169c0da3"), __webpack_require__.e("admin-headAdminconsultants-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/headAdminconsultants/user.module */ "./src/app/admin/headAdminconsultants/user.module.ts")).then(m => m.UserModule),
+        loadChildren: () => Promise.all(/*! import() | admin-headAdminconsultants-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-benchsales-user-module~admin-headAdminconsultants-use~650afdf7"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-benchsales-user-module~admin-headAdminconsultants-use~169c0da3"), __webpack_require__.e("common"), __webpack_require__.e("admin-headAdminconsultants-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/headAdminconsultants/user.module */ "./src/app/admin/headAdminconsultants/user.module.ts")).then(m => m.UserModule),
     },
 ];
 
@@ -777,7 +777,7 @@ let UserService = class UserService {
         this.http = http;
     }
     loadUser() {
-        return this.http.get('https://portal.webmobilez.com/public/api/user-list/create').pipe();
+        return this.http.get('http://localhost:8000/api/user-list/create').pipe();
     }
 };
 UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -884,7 +884,7 @@ let UserComponent = class UserComponent {
     get id() { return this.updateUser.get('id'); }
     updateUserDetails() {
         let id = this.updateUser.get('id').value;
-        this.http.put('https://portal.webmobilez.com/public/api/user-list/' + id, this.updateUser.value).subscribe((response) => {
+        this.http.put('http://localhost:8000/api/user-list/' + id, this.updateUser.value).subscribe((response) => {
             console.log(response),
                 this.messageService.add({ severity: 'success', summary: 'Your Profile Updated ', detail: 'successfull' });
             this.router.navigate(['profile']);

@@ -1223,34 +1223,34 @@ var UserRestService = /** @class */ (function () {
         this.users = [];
     }
     UserRestService.prototype.getTimeSheet = function () {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllTimesheets');
+        return this.http.get('http://localhost:8000/api/getAllTimesheets');
     };
     UserRestService.prototype.getConsultants = function () {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/');
+        return this.http.get('http://localhost:8000/api/getAllConsultants/');
     };
     UserRestService.prototype.getProductsSmall = function () {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/')
+        return this.http.get('http://localhost:8000/api/getAllConsultants/')
             .toPromise()
             .then(function (res) { return res.timesheet; })
             .then(function (data) { return data; });
     };
     UserRestService.prototype.storeUser = function (form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/store-consultant', form.value);
+        return this.http.post('http://localhost:8000/api/store-consultant', form.value);
     };
     UserRestService.prototype.statusChangeConsultant = function (index) {
-        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', index);
+        return this.http.post('http://localhost:8000/api/status-consultant', index);
     };
     UserRestService.prototype.editUser = function (id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/store-consultant/' + id);
+        return this.http.get('http://localhost:8000/api/store-consultant/' + id);
     };
     UserRestService.prototype.updateUser = function (form, id) {
-        return this.http.put('https://portal.webmobilez.com/public/api/store-consultant/' + id, form.value);
+        return this.http.put('http://localhost:8000/api/store-consultant/' + id, form.value);
     };
     UserRestService.prototype.storeDocument = function (document) {
-        return this.http.post('https://portal.webmobilez.com/public/api/saveDocument', document);
+        return this.http.post('http://localhost:8000/api/saveDocument', document);
     };
     UserRestService.prototype.removeFile = function (document) {
-        return this.http.post('https://portal.webmobilez.com/public/api/removeDocument', document);
+        return this.http.post('http://localhost:8000/api/removeDocument', document);
     };
     UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

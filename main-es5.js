@@ -416,7 +416,7 @@ var CommonAuthService = /** @class */ (function () {
     }
     CommonAuthService.prototype.registerUser = function (form) {
         console.log(form.value);
-        return this.http.post('https://portal.webmobilez.com/public/api/register', form.value);
+        return this.http.post('http://localhost:8000/api/register', form.value);
     };
     CommonAuthService.prototype.isAuthonticated = function () {
         var _this = this;
@@ -436,11 +436,11 @@ var CommonAuthService = /** @class */ (function () {
         return promise;
     };
     CommonAuthService.prototype.logIn = function (form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/login', form.value);
+        return this.http.post('http://localhost:8000/api/login', form.value);
         //return result;
     };
     CommonAuthService.prototype.logout = function (token) {
-        return this.http.post('https://portal.webmobilez.com/public/api/logout', { 'token': token });
+        return this.http.post('http://localhost:8000/api/logout', { 'token': token });
         //return result;
     };
     CommonAuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1445,6 +1445,11 @@ var SidebarComponent = /** @class */ (function () {
                     { label: 'Consultants List', routerLink: "/headadminconsultants/list" },
                     { label: 'Add Consultant', routerLink: "/headadminconsultants/create" },
                 ]
+            },
+            {
+                icon: 'pi pi-fw pi-file-o',
+                label: 'HotList',
+                routerLink: "/headadminconsultants/hotlist",
             },
             {
                 icon: 'pi pi-fw pi-dollar',

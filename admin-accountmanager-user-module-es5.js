@@ -3332,7 +3332,7 @@ var UserListComponent = /** @class */ (function () {
         }, function (error) { console.log(error); });
     };
     UserListComponent.prototype.download = function (event, url) {
-        window.open('https://portal.webmobilez.com/public/storage/' + url);
+        window.open('http://localhost:8000/storage/' + url);
     };
     UserListComponent.prototype.editUser = function (id) {
         this.router.navigate(['jobs/edit', id]);
@@ -3396,25 +3396,25 @@ var UserRestService = /** @class */ (function () {
         this.users = [];
     }
     UserRestService.prototype.getTimeSheet = function () {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllTimesheets');
+        return this.http.get('http://localhost:8000/api/getAllTimesheets');
     };
     UserRestService.prototype.getConsultants = function () {
-        return this.http.get('https://portal.webmobilez.com/public/api/jobs/');
+        return this.http.get('http://localhost:8000/api/jobs/');
     };
     UserRestService.prototype.storeUser = function (form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/jobs', form.value);
+        return this.http.post('http://localhost:8000/api/jobs', form.value);
     };
     UserRestService.prototype.statusChangeConsultant = function (index) {
-        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', index);
+        return this.http.post('http://localhost:8000/api/status-consultant', index);
     };
     UserRestService.prototype.editUser = function (id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/jobs/' + id);
+        return this.http.get('http://localhost:8000/api/jobs/' + id);
     };
     UserRestService.prototype.updateUser = function (form, id) {
-        return this.http.put('https://portal.webmobilez.com/public/api/jobs/' + id, form.value);
+        return this.http.put('http://localhost:8000/api/jobs/' + id, form.value);
     };
     UserRestService.prototype.storeDocument = function (document) {
-        return this.http.post('https://portal.webmobilez.com/public/api/saveDocument', document);
+        return this.http.post('http://localhost:8000/api/saveDocument', document);
     };
     UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

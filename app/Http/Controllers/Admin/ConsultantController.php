@@ -249,10 +249,21 @@ class ConsultantController extends Controller
 
 
         $this->validate($request, [
+            'consultatName' => 'required',
+            'consultantLastName' => 'required',
             'consultantEmail' => 'required|unique:reports,consultantEmail',
             'ssn' => 'numeric',
             'consultatMobileNumber' => 'required|min:10',
-            'reportStatus' => 'required'
+            'reportStatus' => 'required',
+            'rate' => 'required',
+            'experience' => 'required',
+            'visaType' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'willingLocation'=>'required',
+            'documentsCollected' => 'required',
+            'reportStatus' =>'required',
+            'technology' => 'required'
         ]);
 
 
@@ -368,7 +379,7 @@ class ConsultantController extends Controller
         } else {
             if (Auth::user()->role == "Admin" || Auth::user()->role == "HeadHuntersAdmin" ) {
                 $user = \App\Reports::find($request->index);
-                $user->adminStatus = 'A';
+                $user->adminStatus = $request->value;
                 $user->save();
                 $timesheet = Reports::with('user_details')
                     ->where("userStatus", '=', 'p')
