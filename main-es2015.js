@@ -307,7 +307,7 @@ __webpack_require__.r(__webpack_exports__);
 const AppRoutes = [
     {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: '/home/login',
         pathMatch: 'full',
     }, {
         path: '',
