@@ -18,7 +18,7 @@ module.exports = "<router-outlet></router-outlet>\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header-bg\">\r\n  <header id=\"topnav\">\r\n    <div class=\"topbar-main\">\r\n        <div class=\"container-fluid\">\r\n\r\n            <!-- Logo-->\r\n            <div class=\"d-block d-lg-none mr-5\">\r\n\r\n                <a href=\"http://webmobilez.com/consultants/css/Group%201.png\" class=\"logo\">\r\n                  Webmobilez\r\n                </a>\r\n\r\n            </div>\r\n\r\n\r\n        </div> <!-- end container -->\r\n    </div>\r\n    <!-- end topbar-main -->\r\n\r\n\r\n    <sidebar-cmp></sidebar-cmp>\r\n</header>\r\n</div>\r\n<div class=\"wrapper\">\r\n  <div class=\"container-fluid\">  <router-outlet></router-outlet></div>\r\n\r\n</div>\r\n\r\n"
+module.exports = "<sidebar-cmp></sidebar-cmp>\r\n<div class=\"wrapper\">\r\n  <div class=\"container-fluid\">  <router-outlet></router-outlet></div>\r\n\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -40,7 +40,7 @@ module.exports = "<app-navbar></app-navbar>\r\n<div class=\"container\">\r\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\r\n    <a class=\"navbar-brand\" routerLink=\"/dashboard\">Webmobilez</a>\r\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarText\" aria-controls=\"navbarText\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n            <span class=\"navbar-toggler-icon\"></span>\r\n        </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarText\">\r\n        <ul class=\"navbar-nav ml-auto\">\r\n\r\n        <li class=\"nav-item\" routerLinkActive=\"active\">\r\n            <a class=\"nav-link\" routerLink=\"/home/login\">Login</a>\r\n        </li>\r\n\r\n        </ul>\r\n    </div>\r\n</nav>\r\n"
+module.exports = "<!-- <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\r\n    <a class=\"navbar-brand\" routerLink=\"/dashboard\">Webmobilez</a>\r\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarText\" aria-controls=\"navbarText\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n            <span class=\"navbar-toggler-icon\"></span>\r\n        </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarText\">\r\n        <ul class=\"navbar-nav ml-auto\">\r\n\r\n        <li class=\"nav-item\" routerLinkActive=\"active\">\r\n            <a class=\"nav-link\" routerLink=\"/home/login\">Login</a>\r\n        </li>\r\n\r\n        </ul>\r\n    </div>\r\n</nav>\r\n-->\r\n"
 
 /***/ }),
 
@@ -77,6 +77,17 @@ module.exports = "\r\n<nav class=\"navbar navbar-expand-lg navbar-absolute fixed
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/shared/sidebar/calculator/calculator.component.html":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/shared/sidebar/calculator/calculator.component.html ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<input type=\"text\" [ngModel]=\"formattedTokens\" class=\"form-control-sm form-control text-right\" readonly>\n\n<input type=\"text\" [ngModel]=\"input\" class=\"form-control form-control-lg text-right\" readonly>\n\n<div class=\"row mt-3\">\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"reset()\">AC</button>\n\t</div>\n\t<div class=\"col-3\">\n    <button class=\"btn btn-primary btn-block\" (click)=\"execOperator('(')\">(</button>\n  </div>\n\t<div class=\"col-3\">\n    <button class=\"btn btn-primary btn-block\" (click)=\"execOperator(')')\">)</button>\n  </div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-primary btn-block\" (click)=\"execOperator('/')\">/</button>\n\t</div>\n</div>\n<div class=\"row mt-3\">\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('1')\">1</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('2')\">2</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('3')\">3</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-primary btn-block\" (click)=\"execOperator('*')\">x</button>\n\t</div>\n</div>\n<div class=\"row mt-3\">\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('4')\">4</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('5')\">5</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('6')\">6</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-primary btn-block\" (click)=\"execOperator('+')\">+</button>\n\t</div>\n</div>\n<div class=\"row mt-3\">\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('7')\">7</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('8')\">8</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('9')\">9</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-primary btn-block\" (click)=\"execOperator('-')\">-</button>\n\t</div>\n</div>\n<div class=\"row mt-3\">\n\t<div class=\"col-6\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('0')\">0</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('.')\">,</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button autofocus class=\"btn btn-primary btn-block\" (click)=\"evaluate()\">=</button>\n\t</div>\n</div>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/shared/sidebar/sidebar.component.html":
 /*!*********************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/shared/sidebar/sidebar.component.html ***!
@@ -84,7 +95,7 @@ module.exports = "\r\n<nav class=\"navbar navbar-expand-lg navbar-absolute fixed
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = " <!-- MENU Start -->\r\n <div class=\"navbar-custom\">\r\n  <div class=\"container-fluid\">\r\n      <!-- Logo-->\r\n      <div class=\"d-none d-lg-block\">\r\n\r\n          <a routerLink=\"/dashboard\" class=\"logo\" style=\"color: #fff\">\r\n              <img  src=\"https://webmobilez.com/wp-content/themes/webmobilez/images/logo_white.svg\"\r\n              height=\"50px\" class=\"svg-content\">\r\n          </a>\r\n\r\n\r\n\r\n\r\n\r\n      </div>\r\n      <!-- End Logo-->\r\n      <div id=\"navigation\">\r\n        <ul class=\"nav navigation-menu\">\r\n          <!-- <li *ngFor=\"let menuItem of menuItems\" routerLinkActive=\"active\" class=\"{{menuItem.class}}\">\r\n              <a [routerLink]=\"[menuItem.path]\">\r\n                  <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n                  <p>{{menuItem.title}}</p>\r\n              </a>\r\n          </li> -->\r\n\r\n          <li  *ngFor=\"let menuItem of menuItems; let i = index\" routerLinkActive=\"active\" class=\"has-submenu {{menuItem.class}}\">\r\n            <a *ngIf=\"menuItem.childMenu\" data-toggle=\"collapse\" href=\"#dashboardOverview{{i}}\" aria-expanded=\"false\" class=\"collapsed\">\r\n                <i class=\"nc-icon nc-bank\"></i>\r\n                <p>{{menuItem.title}}\r\n                      <b class=\"caret\"></b>\r\n                  </p>\r\n            </a>\r\n            <a *ngIf=\"!menuItem.childMenu\" [routerLink]=\"[menuItem.path]\">\r\n              <i class=\"nc-icon {{menuItem.icon}}\"></i>\r\n              <p>{{menuItem.title}}</p>\r\n            </a>\r\n\r\n          <div *ngIf=\"menuItem.childMenu\" class=\"collapse\" id=\"dashboardOverview{{i}}\" aria-expanded=\"false\" style=\"height: 0px;\">\r\n            <ul class=\"nav\">\r\n              <li *ngFor=\"let menu of menuItem.childMenu\" routerLinkActive=\"active\" class=\"{{menu.class}}\">\r\n                <a [routerLink]=\"[menu.path]\">\r\n                    <i class=\"nc-icon {{menu.icon}}\"></i>\r\n                    <p>{{menu.title}}</p>\r\n                </a>\r\n              </li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"nav-item pd-top\">\r\n          <a class=\"nav-link\" (click)=\"logout()\">\r\n            Logout\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item pd-top\">\r\n        <span class=\"txt-color text-center\"> {{clock| date:'mediumTime':'EST'}}</span><br>\r\n        <span class=\"txt-color\">{{clock| date:'fullDate':'EST'}}</span>\r\n      </li>\r\n      </ul>\r\n\r\n      </div> <!-- end #navigation -->\r\n  </div> <!-- end container -->\r\n</div> <!-- end navbar-custom -->\r\n\r\n"
+module.exports = " <!-- MENU Start -->\r\n\r\n <div class=\"navbar-custom\" >\r\n    <a routerLink=\"/dashboard\" class=\"logo\" style=\"color: #fff; padding-left:80px;padding-right:80px ;\">\r\n      <img  src=\"../../assets/img/group.png\"\r\n       class=\"svg-content\">\r\n  </a>\r\n\r\n  <p-menubar [model]=\"items\" >\r\n\r\n    <span class=\"txt-color txt-center\" style=\"text-align: center;\">&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; {{clock| date:'mediumTime':'EST'}}</span><br>\r\n    <span class=\"txt-color\">{{clock| date:'fullDate':'EST'}}</span>\r\n\r\n  </p-menubar>\r\n\r\n\r\n\r\n</div> <!-- end navbar-custom -->\r\n<p-dialog header=\"percentage Off\" [(visible)]=\"calculatorModal\" [modal]=\"true\" [style]=\"{width: '50vw'}\"\r\n  [baseZIndex]=\"10000\" [draggable]=\"false\" [resizable]=\"false\">\r\n\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"card\">\r\n          <div class=\"card-body\">\r\n\r\n            <form id=\"userForm\" method=\"post\" name=\"percent_off\">\r\n              <div class=\"row\">\r\n                <div class=\"col-md-6\">\r\n                  <div class=\"input-group mb-3\">\r\n                    <div class=\"input-group-prepend\">\r\n                      <span class=\"input-group-text\">$</span>\r\n                    </div>\r\n                    <input type=\"number\" name=\"list\" value=\"52\" class=\"form-control\"\r\n                      aria-label=\"Amount (to the nearest dollar)\" [(ngModel)]=\"num1\" >\r\n                  </div>\r\n\r\n                </div>\r\n              </div>\r\n              <div class=\"row\">\r\n                <div class=\"col-md-6\">\r\n                  <label class=\"control-label required\" for=\"percent_off_p\">Percent Off</label>\r\n                  <div class=\"input-group mb-3\">\r\n\r\n                    <div class=\"input-group-prepend\">\r\n                      <span class=\"input-group-text\" id=\"basic-addon1\">%</span>\r\n                    </div>\r\n                    <select class=\"form-control\" name=\"disc\" [(ngModel)]=\"num2\">\r\n                      <option value=\"10\">10</option>\r\n                      <option value=\"15\">15</option>\r\n                      <option value=\"20\">20</option>\r\n                      <option value=\"25\">25</option>\r\n                      <option value=\"30\">30</option>\r\n                    </select>\r\n                  </div>\r\n\r\n                </div>\r\n              </div>\r\n              <div class=\"row\">\r\n                <div class=\"col-md-4\">\r\n                  <div class=\"form-group\">\r\n                    <br>\r\n                    <button type=\"submit\" id=\"percent_off_save\" name=\"percent_off[save]\"\r\n                      class=\"button btn-lg btn btn-primary btn-block btn\">Calculate Percent Off</button>\r\n                  </div>\r\n\r\n                </div>\r\n              </div>\r\n            </form>\r\n            <div class=\"row\">\r\n              <div class=\"col-md-4\">\r\n                <div class=\"form-group\">\r\n                  <div id=\"result\" style=\"height: auto !important;\">\r\n                    <label class=\"control-label required\" for=\"percent_off_p\">Result :</label> {{ ConvertToInt(num1)  -( ConvertToInt(num1)*ConvertToInt(num2)/100)  }}\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n<p-dialog header=\"Calculator\" [(visible)]=\"calculatorModal1\" [modal]=\"true\" [style]=\"{width: '50vw'}\"\r\n  [baseZIndex]=\"10000\" [draggable]=\"false\" [resizable]=\"false\">\r\n\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-8\">\r\n        <div class=\"card\">\r\n          <div class=\"card-body\">\r\n<ng-calculator></ng-calculator>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n"
 
 /***/ }),
 
@@ -296,7 +307,7 @@ __webpack_require__.r(__webpack_exports__);
 const AppRoutes = [
     {
         path: '',
-        redirectTo: '/home/login',
+        redirectTo: 'dashboard',
         pathMatch: 'full',
     }, {
         path: '',
@@ -877,6 +888,271 @@ NavbarModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/shared/sidebar/calculator/calculator.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/shared/sidebar/calculator/calculator.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: CalculatorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalculatorComponent", function() { return CalculatorComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _rpn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./rpn */ "./src/app/shared/sidebar/calculator/rpn.ts");
+/* harmony import */ var _yard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./yard */ "./src/app/shared/sidebar/calculator/yard.ts");
+/* harmony import */ var _format__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./format */ "./src/app/shared/sidebar/calculator/format.ts");
+/* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./model */ "./src/app/shared/sidebar/calculator/model.ts");
+
+
+
+
+
+
+let CalculatorComponent = class CalculatorComponent {
+    constructor() {
+        this.tokens = [];
+        this.showResult = false;
+    }
+    insertChar(character) {
+        const lastToken = this.lastToken;
+        const doubleMin = lastToken === '-' && Object(_model__WEBPACK_IMPORTED_MODULE_5__["isOperator"])(this.beforeLastToken);
+        if (lastToken === undefined || (Object(_model__WEBPACK_IMPORTED_MODULE_5__["isOperator"])(lastToken) && !doubleMin)) {
+            if (character === '.') {
+                character = '0' + character;
+            }
+            this.tokens.push(character);
+        }
+        else if (this.showResult) {
+            this.tokens = [character];
+        }
+        else {
+            this.tokens[this.tokens.length - 1] = lastToken + character;
+        }
+        this.showResult = false;
+    }
+    get lastToken() {
+        return this.tokens[this.tokens.length - 1];
+    }
+    get beforeLastToken() {
+        return this.tokens[this.tokens.length - 2];
+    }
+    get input() {
+        if (this.showResult) {
+            try {
+                //return format(math.eval(this.tokens.join(' ')).toString());
+                return Object(_format__WEBPACK_IMPORTED_MODULE_4__["format"])(Object(_rpn__WEBPACK_IMPORTED_MODULE_2__["rpn"])(Object(_yard__WEBPACK_IMPORTED_MODULE_3__["yard"])(this.tokens)).toString());
+            }
+            catch (e) {
+                return 'Je hebt iets verkeerd gedaan.';
+            }
+        }
+        return Object(_format__WEBPACK_IMPORTED_MODULE_4__["format"])(this.tokens
+            .slice()
+            .reverse()
+            .find(t => !Object(_model__WEBPACK_IMPORTED_MODULE_5__["isOperator"])(t)) || '0');
+    }
+    get formattedTokens() {
+        return this.tokens.map(_format__WEBPACK_IMPORTED_MODULE_4__["format"]).join(' ').replace(/\*/g, 'x') || '0';
+    }
+    reset() {
+        this.tokens = [];
+        this.showResult = false;
+    }
+    evaluate() {
+        // repeat last action
+        if (this.showResult && this.tokens.length >= 2) {
+            this.tokens = this.tokens.concat(this.tokens.slice(-2));
+        }
+        this.showResult = true;
+    }
+    execOperator(operator) {
+        // ANS support
+        if (this.showResult) {
+            this.tokens = [Object(_rpn__WEBPACK_IMPORTED_MODULE_2__["rpn"])(Object(_yard__WEBPACK_IMPORTED_MODULE_3__["yard"])(this.tokens)).toString()];
+        }
+        if (!this.lastToken && operator !== '(') {
+            this.tokens.push('0');
+        }
+        this.tokens.push(operator);
+        this.showResult = false;
+    }
+    // KEYBOARD SUPPORT
+    onKeyDown(event) {
+        const key = event.key.toLowerCase();
+        // event.preventDefault();
+        if (key === 'c' || key === 'backspace') {
+            this.reset();
+        }
+        else if (key === ',' || key === '.') {
+            this.insertChar('.');
+        }
+        else if (!isNaN(parseInt(key))) {
+            this.insertChar(key);
+        }
+        else if (key === 'enter') {
+            this.evaluate();
+        }
+        else if (Object(_model__WEBPACK_IMPORTED_MODULE_5__["isOperator"])(key)) {
+            this.execOperator(key);
+        }
+    }
+};
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:keydown', ['$event']),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [KeyboardEvent]),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", void 0)
+], CalculatorComponent.prototype, "onKeyDown", null);
+CalculatorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'ng-calculator',
+        template: __webpack_require__(/*! raw-loader!./calculator.component.html */ "./node_modules/raw-loader/index.js!./src/app/shared/sidebar/calculator/calculator.component.html")
+    })
+], CalculatorComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sidebar/calculator/format.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/shared/sidebar/calculator/format.ts ***!
+  \*****************************************************/
+/*! exports provided: format */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "format", function() { return format; });
+/* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./model */ "./src/app/shared/sidebar/calculator/model.ts");
+
+function format(input) {
+    if (Object(_model__WEBPACK_IMPORTED_MODULE_0__["isOperator"])(input)) {
+        return input;
+    }
+    else {
+        return input.replace('.', ',');
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sidebar/calculator/model.ts":
+/*!****************************************************!*\
+  !*** ./src/app/shared/sidebar/calculator/model.ts ***!
+  \****************************************************/
+/*! exports provided: isOperator */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isOperator", function() { return isOperator; });
+function isOperator(token) {
+    return token === '-' || token === '+' || token === '*' || token === '/' || token === '(' || token === ')';
+}
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sidebar/calculator/rpn.ts":
+/*!**************************************************!*\
+  !*** ./src/app/shared/sidebar/calculator/rpn.ts ***!
+  \**************************************************/
+/*! exports provided: rpn */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rpn", function() { return rpn; });
+/* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./model */ "./src/app/shared/sidebar/calculator/model.ts");
+/* harmony import */ var big_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! big.js */ "./node_modules/big.js/big.js");
+/* harmony import */ var big_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(big_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function rpn(tokens) {
+    const stack = [];
+    tokens.forEach(token => {
+        if (!Object(_model__WEBPACK_IMPORTED_MODULE_0__["isOperator"])(token)) {
+            stack.push(big_js__WEBPACK_IMPORTED_MODULE_1___default()(token));
+        }
+        else if (stack.length < 2) {
+            throw new Error('Syntax error.');
+        }
+        else {
+            const val2 = stack.pop();
+            const val1 = stack.pop();
+            switch (token) {
+                case '+':
+                    stack.push(val1.add(val2));
+                    break;
+                case '*':
+                    stack.push(val1.mul(val2));
+                    break;
+                case '/':
+                    if (val2.eq(0)) {
+                        throw new Error('Division by zero.');
+                    }
+                    stack.push(val1.div(val2));
+                    break;
+                case '-':
+                    stack.push(val1.minus(val2));
+                    break;
+            }
+        }
+    });
+    return stack.pop().round(10);
+}
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sidebar/calculator/yard.ts":
+/*!***************************************************!*\
+  !*** ./src/app/shared/sidebar/calculator/yard.ts ***!
+  \***************************************************/
+/*! exports provided: yard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "yard", function() { return yard; });
+/* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./model */ "./src/app/shared/sidebar/calculator/model.ts");
+
+function yard(infix) {
+    const ops = { '+': 1, '-': 1, '*': 2, '/': 2 };
+    const peek = arr => arr[arr.length - 1];
+    const stack = [];
+    return infix.reduce((output, token) => {
+        if (!Object(_model__WEBPACK_IMPORTED_MODULE_0__["isOperator"])(token)) {
+            output.push(token);
+        }
+        else {
+            if (token in ops) {
+                while (peek(stack) && ops[token] <= ops[peek(stack)]) {
+                    output.push(stack.pop());
+                }
+                stack.push(token);
+            }
+            if (token === '(') {
+                stack.push(token);
+            }
+            if (token === ')') {
+                while (stack.length > 0 && peek(stack) !== '(') {
+                    output.push(stack.pop());
+                }
+                stack.pop();
+            }
+        }
+        return output;
+    }, []).concat(stack.reverse());
+}
+
+
+/***/ }),
+
 /***/ "./src/app/shared/sidebar/sidebar.component.ts":
 /*!*****************************************************!*\
   !*** ./src/app/shared/sidebar/sidebar.component.ts ***!
@@ -915,7 +1191,7 @@ const HeadHunterROUTES = [
         childMenu: null
     },
     { path: '/huntersconsultants/list', title: 'Consultants', icon: 'nc-calendar-60', class: '', childMenu: null },
-    { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/huntersconsultants/hotlist', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
     { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
 ];
 const RecruitersROUTES = [
@@ -926,27 +1202,27 @@ const RecruitersROUTES = [
 ];
 const BenchSalesROUTES = [
     { path: '/benchsales/list', title: 'Submissions', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/interviews/list', title: 'Schedule Interviews', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/consultantdocuments/list', title: 'Documents', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/contacts/list', title: 'Contacts', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/benchsales/interviews', title: 'Schedule Interviews', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/benchsales/documentlist', title: 'Documents', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/benchsales/contacts', title: 'Contacts', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/benchsales/hotlist', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
     { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
 ];
 const AdminROUTES = [
-    { path: '/users/list', title: 'Users', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/consultants/list', title: 'Consultants', icon: 'nc-calendar-60', class: '', childMenu: null },
+    { path: '/superadmin/userlist', title: 'Users', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/superadmin/consultantlist', title: 'Consultants', icon: 'nc-calendar-60', class: '', childMenu: null },
     // { path: '/consultants/inactivelist',        title: 'InActive Consultants', icon:'nc-calendar-60',  class: '' ,childMenu: null},
-    { path: '/admindocuments/list', title: 'Documents', icon: 'nc-calendar-60', class: '', childMenu: null },
-    { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/interviews/list', title: 'Interviews', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/superadmin/documents', title: 'Documents', icon: 'nc-calendar-60', class: '', childMenu: null },
+    { path: '/superadmin/hotlist', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/superadmin/interviews', title: 'Interviews', icon: 'nc-single-02', class: '', childMenu: null },
     { path: '/jobs/list', title: 'Jobs', icon: 'nc-single-02', class: '', childMenu: null },
     // { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/recruiters/list', title: 'Submissions', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/adminInDocuments/list', title: 'In Act List', icon: 'nc-calendar-60', class: '', childMenu: null },
+    { path: '/superadmin/sumissionlist', title: 'Submissions', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/superadmin/documentsinactive', title: 'In Act List', icon: 'nc-calendar-60', class: '', childMenu: null },
 ];
 const headhuntersAdminROUTES = [
     { path: '/headadminconsultants/list', title: 'Consultant List', icon: 'nc-calendar-60', class: '', childMenu: null },
-    { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/headadminconsultants/hotlist', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
     { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
 ];
 const AccountsROUTES = [
@@ -968,34 +1244,221 @@ let SidebarComponent = class SidebarComponent {
     constructor(router, auth) {
         this.router = router;
         this.auth = auth;
+        this.num1 = 52;
+        this.num2 = 20;
         this.clock = "";
     }
+    showCalculator() {
+        this.calculatorModal = true;
+    }
+    showCalculator1() {
+        this.calculatorModal1 = true;
+    }
+    ConvertToInt(val) {
+        return parseFloat(val);
+    }
     ngOnInit() {
+        this.items = [
+            {
+                icon: 'pi pi-fw pi-power-off',
+                label: 'My Account',
+                items: [
+                    { label: 'Profile', routerLink: "/profile" },
+                    { label: 'logout', command: (event) => {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            this.logout();
+                        } },
+                ]
+            },
+        ];
+        this.adminMenu = [
+            {
+                label: 'Submissions',
+                // routerLink: "/benchsales/list",
+                items: [
+                    { label: 'Add Submissions', routerLink: "/superadmin/sumissioncreate" },
+                    { label: 'Schedule Interviews', routerLink: "/superadmin/interviews" },
+                    { label: 'All Submissions', routerLink: "/superadmin/sumissionlist" },
+                ]
+            },
+            {
+                icon: 'pi pi-fw pi-user',
+                label: 'Consultants',
+                routerLink: "/superadmin/consultantlist",
+            },
+            {
+                icon: 'pi pi-fw pi-key',
+                label: 'Jobs',
+                routerLink: "/jobs/list",
+            },
+            {
+                icon: 'pi pi-fw pi-file-o',
+                label: 'Documents',
+                items: [
+                    { label: 'Document List', routerLink: "/superadmin/documents" },
+                    { label: 'In Active Docs', routerLink: "/superadmin/documentsinactive" },
+                    { label: 'Hot List', routerLink: "/superadmin/hotlist" },
+                ]
+            },
+            {
+                icon: 'pi pi-fw pi-users',
+                label: 'Users',
+                routerLink: "/superadmin/userlist",
+            },
+            {
+                icon: 'pi pi-fw pi-dollar',
+                label: 'Calculations',
+                items: [
+                    { label: 'Percentage Off', command: (event) => {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            this.calculatorModal = true;
+                        },
+                    },
+                    { label: 'Calculator', command: (event) => {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            this.calculatorModal1 = true;
+                        },
+                    },
+                ]
+            },
+            {
+                icon: 'pi pi-fw pi-power-off',
+                label: 'My Account',
+                items: [
+                    { label: 'Profile', routerLink: "/profile" },
+                    { label: 'logout', command: (event) => {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            this.logout();
+                        } },
+                ]
+            },
+        ];
+        this.benchsaleMenu = [
+            {
+                label: 'Submissions',
+                // routerLink: "/benchsales/list",
+                items: [
+                    { label: 'Add Submissions', routerLink: "/benchsales/create" },
+                    { label: 'Schedule Interviews', routerLink: "/benchsales/interviews" },
+                    { label: 'All Submissions', routerLink: "/benchsales/list" },
+                    { label: 'All Contacts', routerLink: "/benchsales/contacts" },
+                ]
+            },
+            {
+                icon: 'pi pi-fw pi-file-o',
+                label: 'Documents',
+                routerLink: "/benchsales/documentlist",
+            },
+            {
+                icon: 'pi pi-fw pi-dollar',
+                label: 'Calculations',
+                items: [
+                    { label: 'Percentage Off', command: (event) => {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            this.calculatorModal = true;
+                        },
+                    },
+                    { label: 'Calculator', command: (event) => {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            this.calculatorModal1 = true;
+                        },
+                    },
+                ]
+            },
+            {
+                icon: 'pi pi-fw pi-cloud',
+                label: 'Hotlist',
+                routerLink: "/benchsales/hotlist",
+            },
+            {
+                icon: 'pi pi-fw pi-power-off',
+                label: 'My Account',
+                items: [
+                    { label: 'Profile', routerLink: "/profile" },
+                    { label: 'logout', command: (event) => {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            this.logout();
+                        } },
+                ]
+            },
+        ];
+        this.headHunterAdminMenu = [
+            {
+                label: 'Consultants',
+                items: [
+                    { label: 'Consultants List', routerLink: "/headadminconsultants/list" },
+                    { label: 'Add Consultant', routerLink: "/headadminconsultants/create" },
+                ]
+            },
+            {
+                icon: 'pi pi-fw pi-dollar',
+                label: 'Calculations',
+                items: [
+                    { label: 'Percentage Off', command: (event) => {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            this.calculatorModal = true;
+                        },
+                    },
+                    { label: 'Calculator', command: (event) => {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            this.calculatorModal1 = true;
+                        },
+                    },
+                ]
+            },
+            {
+                icon: 'pi pi-fw pi-power-off',
+                label: 'My Account',
+                items: [
+                    { label: 'Profile', routerLink: "/profile" },
+                    { label: 'logout', command: (event) => {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            this.logout();
+                        } },
+                ]
+            },
+        ];
         this.clockHandle = setInterval(() => {
             this.clock = new Date().toLocaleString();
         }, 1000);
         this.menuexpectedrole = localStorage.getItem('role');
         console.log(this.menuexpectedrole);
         if (this.menuexpectedrole == 'Admin') {
-            this.menuItems = AdminROUTES.filter(menuItem => menuItem);
+            // this.menuItems = AdminROUTES.filter(menuItem => menuItem);
+            this.items = this.adminMenu;
         }
         else if (this.menuexpectedrole == 'HeadHunters') {
-            this.menuItems = HeadHunterROUTES.filter(menuItem => menuItem);
+            this.items = this.headHunderMenu;
+            // this.menuItems = HeadHunterROUTES.filter(menuItem => menuItem);
         }
         else if (this.menuexpectedrole == 'Recruiters') {
-            this.menuItems = RecruitersROUTES.filter(menuItem => menuItem);
+            this.items = this.benchsaleMenu;
+            //  this.menuItems = RecruitersROUTES.filter(menuItem => menuItem);
         }
         else if (this.menuexpectedrole == 'BenchSales') {
-            this.menuItems = BenchSalesROUTES.filter(menuItem => menuItem);
+            this.items = this.benchsaleMenu;
+            //   this.menuItems = BenchSalesROUTES.filter(menuItem => menuItem);
         }
         else if (this.menuexpectedrole == 'HeadHuntersAdmin') {
-            this.menuItems = headhuntersAdminROUTES.filter(menuItem => menuItem);
+            this.items = this.headHunterAdminMenu;
+            //  this.menuItems = headhuntersAdminROUTES.filter(menuItem => menuItem);
         }
         else if (this.menuexpectedrole == 'Accountmanager') {
-            this.menuItems = AccountsROUTES.filter(menuItem => menuItem);
+            this.items = this.jobMenu;
+            // this.menuItems = AccountsROUTES.filter(menuItem => menuItem);
         }
         else {
-            this.menuItems = ROUTES.filter(menuItem => menuItem);
+            //  this.menuItems = ROUTES.filter(menuItem => menuItem);
         }
     }
     logout() {
@@ -1015,7 +1478,7 @@ SidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'sidebar-cmp',
         template: __webpack_require__(/*! raw-loader!./sidebar.component.html */ "./node_modules/raw-loader/index.js!./src/app/shared/sidebar/sidebar.component.html"),
-        styles: [".pd-top { padding-top: 17px; } .txt-color{ color:#fff} .logo img{ width:160px; }"]
+        styles: [".pd-top { padding-top: 17px; } .txt-color{ color:#d94c27} .logo img{ width:160px; } .ui-menubar-root-list{ padding-top:9px !important; } .ui-menubar\t {  mouseover: #ff0000; background-color: #A80000;}.ui-state-hover {cursor:hand;}"]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], app_auth_common_auth_service__WEBPACK_IMPORTED_MODULE_3__["CommonAuthService"]])
 ], SidebarComponent);
@@ -1039,6 +1502,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _sidebar_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sidebar.component */ "./src/app/shared/sidebar/sidebar.component.ts");
+/* harmony import */ var primeng_menubar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/menubar */ "./node_modules/primeng/menubar.js");
+/* harmony import */ var primeng_menubar__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_menubar__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/dialog */ "./node_modules/primeng/dialog.js");
+/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(primeng_dialog__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/button */ "./node_modules/primeng/button.js");
+/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(primeng_button__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _calculator_calculator_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./calculator/calculator.component */ "./src/app/shared/sidebar/calculator/calculator.component.ts");
+
+
+
+
+
+//import {MegaMenuModule} from 'primeng/megamenu';
 
 
 
@@ -1048,8 +1525,8 @@ let SidebarModule = class SidebarModule {
 };
 SidebarModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]],
-        declarations: [_sidebar_component__WEBPACK_IMPORTED_MODULE_4__["SidebarComponent"]],
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], primeng_menubar__WEBPACK_IMPORTED_MODULE_5__["MenubarModule"], primeng_dialog__WEBPACK_IMPORTED_MODULE_6__["DialogModule"], primeng_button__WEBPACK_IMPORTED_MODULE_7__["ButtonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"]],
+        declarations: [_sidebar_component__WEBPACK_IMPORTED_MODULE_4__["SidebarComponent"], _calculator_calculator_component__WEBPACK_IMPORTED_MODULE_9__["CalculatorComponent"]],
         exports: [_sidebar_component__WEBPACK_IMPORTED_MODULE_4__["SidebarComponent"]]
     })
 ], SidebarModule);

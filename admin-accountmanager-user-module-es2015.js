@@ -2706,7 +2706,7 @@ let UserListComponent = class UserListComponent {
         }, (error) => { console.log(error); });
     }
     download(event, url) {
-        window.open('http://localhost:8000/storage/' + url);
+        window.open('https://portal.webmobilez.com/public/storage/' + url);
     }
     editUser(id) {
         this.router.navigate(['jobs/edit', id]);
@@ -2912,7 +2912,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__);
 /* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! primeng/inplace */ "./node_modules/primeng/inplace.js");
 /* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(primeng_inplace__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var _field4_pipe__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../field4.pipe */ "./src/app/field4.pipe.ts");
+/* harmony import */ var _field2_pipe__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../field2.pipe */ "./src/app/field2.pipe.ts");
 /* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! primeng/confirmdialog */ "./node_modules/primeng/confirmdialog.js");
 /* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__);
 /* harmony import */ var _kolkov_angular_editor__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @kolkov/angular-editor */ "./node_modules/@kolkov/angular-editor/fesm2015/kolkov-angular-editor.js");
@@ -2949,7 +2949,7 @@ let UserModule = class UserModule {
 };
 UserModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__["UserCreateComponent"], _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__["UserEditComponent"], _field4_pipe__WEBPACK_IMPORTED_MODULE_25__["FieldPipe"]],
+        declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__["UserCreateComponent"], _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__["UserEditComponent"], _field2_pipe__WEBPACK_IMPORTED_MODULE_25__["FieldPipe2"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _kolkov_angular_editor__WEBPACK_IMPORTED_MODULE_27__["AngularEditorModule"],
             _user_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserRoutingModule"],
@@ -2973,21 +2973,21 @@ UserModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/field4.pipe.ts":
+/***/ "./src/app/field2.pipe.ts":
 /*!********************************!*\
-  !*** ./src/app/field4.pipe.ts ***!
+  !*** ./src/app/field2.pipe.ts ***!
   \********************************/
-/*! exports provided: FieldPipe */
+/*! exports provided: FieldPipe2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldPipe", function() { return FieldPipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldPipe2", function() { return FieldPipe2; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 
 
-let FieldPipe = class FieldPipe {
+let FieldPipe2 = class FieldPipe2 {
     /**
      *
      */
@@ -3000,12 +3000,12 @@ let FieldPipe = class FieldPipe {
         return result ? result : '-';
     }
 };
-FieldPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+FieldPipe2 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
         name: "field"
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-], FieldPipe);
+], FieldPipe2);
 
 
 

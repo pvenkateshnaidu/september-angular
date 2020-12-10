@@ -40,7 +40,7 @@ module.exports = "\n\n<div class=\"row\">\n    <div class=\"col-md-12\">\n      
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p-table [columns]=\"selectedColumns\" [value]=\"timeSheets\" [loading]=\"loading\" [paginator]=\"true\" [rows]=\"10\"\r\n  [showCurrentPageReport]=\"true\" currentPageReportTemplate=\"Showing {first} to {last} of {totalRecords} entries\"\r\n  [rowsPerPageOptions]=\"[10,25,50]\">\r\n  <ng-template pTemplate=\"caption\">\r\n    <p-multiSelect [options]=\"scrollableCols\" [(ngModel)]=\"selectedColumns\" optionLabel=\"header\"\r\n      selectedItemsLabel=\"{0} columns selected\" [style]=\"{minWidth: '200px'}\" placeholder=\"Choose Columns\">\r\n    </p-multiSelect>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th></th>\r\n      <th *ngFor=\"let col of columns\">\r\n        {{col.header}}\r\n      </th>\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-product let-columns=\"columns\" let-rowIndex=\"rowIndex\">\r\n    <tr>\r\n      <td class=\"counter\"> {{rowIndex + 1}} </td>\r\n      <td *ngFor=\"let col of columns\">\r\n        {{product[col.field]}}\r\n      </td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n<h5>Filter Row</h5>\r\n<p-table #dt [value]=\"timeSheets\" dataKey=\"reportId\" [rows]=\"10\" [showCurrentPageReport]=\"true\"\r\n  [rowsPerPageOptions]=\"[10,25,50]\" [loading]=\"loading\"  [globalFilterFields]=\"['consultatName']\"  styleClass=\"p-datatable-customers\" [paginator]=\"true\"\r\n  >\r\n\r\n  <ng-template pTemplate=\"header\">\r\n    <tr>\r\n      <th>Consultant Name</th>\r\n      <th>Country</th>\r\n      <th>Agent</th>\r\n      <th>Status</th>\r\n\r\n    </tr>\r\n    <tr>\r\n      <th>\r\n        <p-columnFilter type=\"text\" field=\"consultatName\"></p-columnFilter>\r\n      </th>\r\n      <th>\r\n        <p-columnFilter type=\"email\" field=\"consultantEmail\"></p-columnFilter>\r\n      </th>\r\n      <th>\r\n        <p-columnFilter type=\"number\" field=\"consultatMobileNumber\"></p-columnFilter>\r\n      </th>\r\n      <th>\r\n        <p-columnFilter type=\"number\" field=\"experience\"></p-columnFilter>\r\n      </th>\r\n      <!-- <th>\r\n\t\t\t\t<p-columnFilter field=\"representative\" matchMode=\"in\" [showMenu]=\"false\">\r\n\t\t\t\t\t<ng-template pTemplate=\"filter\" let-value let-filter=\"filterCallback\">\r\n\t\t\t\t\t\t<p-multiSelect [ngModel]=\"value\" [options]=\"representatives\" placeholder=\"Any\"\r\n\t\t\t\t\t\t\t(onChange)=\"filter($event.value)\" optionLabel=\"name\">\r\n\t\t\t\t\t\t\t<ng-template let-option pTemplate=\"item\">\r\n\t\t\t\t\t\t\t\t<div class=\"p-multiselect-representative-option\">\r\n\t\t\t\t\t\t\t\t\t<span class=\"p-ml-1\">{{option.name}}</span>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</ng-template>\r\n\t\t\t\t\t\t</p-multiSelect>\r\n\t\t\t\t\t</ng-template>\r\n\t\t\t\t</p-columnFilter>\r\n\t\t\t</th>\r\n\t\t\t<th>\r\n\t\t\t\t<p-columnFilter field=\"status\" matchMode=\"equals\" [showMenu]=\"false\">\r\n\t\t\t\t\t<ng-template pTemplate=\"filter\" let-value let-filter=\"filterCallback\">\r\n\t\t\t\t\t\t<p-dropdown [ngModel]=\"value\" [options]=\"statuses\" (onChange)=\"filter($event.value)\"\r\n\t\t\t\t\t\t\tplaceholder=\"Any\" [showClear]=\"true\">\r\n\t\t\t\t\t\t\t<ng-template let-option pTemplate=\"item\">\r\n\t\t\t\t\t\t\t\t<span [class]=\"'customer-badge status-' + option.value\">{{option.label}}</span>\r\n\t\t\t\t\t\t\t</ng-template>\r\n\t\t\t\t\t\t</p-dropdown>\r\n\t\t\t\t\t</ng-template>\r\n\t\t\t\t</p-columnFilter>\r\n\t\t\t</th>-->\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-customer>\r\n    <tr>\r\n      <td>\r\n        {{customer.consultatName}}\r\n      </td>\r\n      <td>\r\n        <span class=\"image-text\">{{customer.consultantEmail}}</span>\r\n      </td>\r\n      <td>\r\n        <span class=\"image-text\">{{customer.consultatMobileNumber}}</span>\r\n      </td>\r\n      <td>\r\n        <span [class]=\"'customer-badge status-' + customer.reportStatus\">{{customer.experience}}</span>\r\n      </td>\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"emptymessage\">\r\n    <tr>\r\n      <td colspan=\"5\">No Cosultants found.</td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n"
+module.exports = "\r\n  <form [formGroup]=\"registerForm\" >\r\n  <p-multiSelect [options]=\"cities\" [(ngModel)]=\"selectedCities\" formControlName=\"state\" optionLabel=\"name\" [panelStyle]=\"{minWidth:'15em'}\"></p-multiSelect>\r\n  <p-button label=\"Click\" (onClick)=\"handleClick($event)\"></p-button>\r\n</form>\r\n\r\n\r\n<p-table #myTable [columns]=\"selectedColumns\"  [virtualScroll]=\"true\" [value]=\"timeSheets\" [loading]=\"loading\" [paginator]=\"true\"\r\n[rows]=\"10\"  [showCurrentPageReport]=\"true\"  [rowsPerPageOptions]=\"[10,25,50]\">\r\n  <ng-template pTemplate=\"caption\">\r\n    <p-multiSelect [options]=\"scrollableCols\" [(ngModel)]=\"selectedColumns\" optionLabel=\"header\"\r\n      selectedItemsLabel=\"{0} columns selected\" [style]=\"{minWidth: '200px'}\" placeholder=\"Choose Columns\">\r\n    </p-multiSelect>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th></th>\r\n      <th *ngFor=\"let col of columns\">\r\n        {{col.header}}\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <th>\r\n      </th>\r\n      <th>\r\n\r\n        <input pInputText type=\"date\" (input)=\"myTable.filter($event.target.value, 'created_at', 'startsWith')\"\r\n        placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"myTable.filter($event.target.value, 'consultatName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-product let-columns=\"columns\" let-rowIndex=\"rowIndex\">\r\n    <tr>\r\n      <td class=\"counter\"> {{rowIndex + 1}} </td>\r\n      <td > {{product.created_at | date}} </td>\r\n      <td *ngFor=\"let col of columns\">\r\n        {{product[col.field]}}\r\n      </td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n"
 
 /***/ }),
 
@@ -857,6 +857,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let UserListComponent = class UserListComponent {
     constructor(confirmation, fb, messageService, route, userRest, router) {
         this.confirmation = confirmation;
@@ -868,7 +869,20 @@ let UserListComponent = class UserListComponent {
         this.confirmDropDatabaseDialogVisible = false;
         this.loading = true;
     }
+    handleClick() {
+        console.log(this.registerForm.value.state);
+    }
     ngOnInit() {
+        this.registerForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormGroup"]({
+            'state': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]),
+        });
+        this.cities = [
+            { name: 'New York', code: 'NY' },
+            { name: 'Rome', code: 'RM' },
+            { name: 'London', code: 'LDN' },
+            { name: 'Istanbul', code: 'IST' },
+            { name: 'Paris', code: 'PRS' }
+        ];
         this.userRest.getProductsSmall().then(data => {
             this.timeSheets = data;
             console.log("data");
@@ -876,12 +890,16 @@ let UserListComponent = class UserListComponent {
             console.log(data);
         });
         this.scrollableCols = [
-            { field: 'name', header: 'Consultant Name', width: '20%', editable: true },
+            //    { field: 'created_at', header: 'Date', width: '20%', editable: true },
+            { field: 'consultatName', header: 'Consultant Name', width: '20%', editable: true },
             { field: 'consultantEmail', header: 'Email', width: '40%', editable: true },
             { field: 'consultatMobileNumber', header: 'Phone number', width: '20%', editable: true },
             { field: 'experience', header: 'Exp', width: '20%', editable: true },
         ];
         this._selectedColumns = this.scrollableCols;
+    }
+    onDateSelect(value) {
+        this._table.filter(this.formatDate(value), 'date', 'equals');
     }
     get selectedColumns() {
         return this._selectedColumns;
@@ -889,6 +907,17 @@ let UserListComponent = class UserListComponent {
     set selectedColumns(val) {
         //restore original order
         this._selectedColumns = this.scrollableCols.filter(col => val.includes(col));
+    }
+    formatDate(date) {
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        if (month < 10) {
+            month = '0' + month;
+        }
+        if (day < 10) {
+            day = '0' + day;
+        }
+        return date.getFullYear() + '-' + month + '-' + day;
     }
     getColor(status, adminStatus) {
         if (adminStatus == "A") {
@@ -903,6 +932,10 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('dt', { static: true }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", primeng_table__WEBPACK_IMPORTED_MODULE_4__["Table"])
 ], UserListComponent.prototype, "table", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('myTable', { static: true }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", primeng_table__WEBPACK_IMPORTED_MODULE_4__["Table"])
+], UserListComponent.prototype, "_table", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array),
@@ -1096,6 +1129,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(primeng_inplace__WEBPACK_IMPORTED_MODULE_24__);
 /* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! primeng/confirmdialog */ "./node_modules/primeng/confirmdialog.js");
 /* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! primeng/calendar */ "./node_modules/primeng/calendar.js");
+/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(primeng_calendar__WEBPACK_IMPORTED_MODULE_26__);
+
 
 
 
@@ -1138,7 +1174,7 @@ UserModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14__["ContextMenuModule"],
             primeng_button__WEBPACK_IMPORTED_MODULE_16__["ButtonModule"],
             primeng_toast__WEBPACK_IMPORTED_MODULE_12__["ToastModule"],
-            primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__["InputTextModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25__["ConfirmDialogModule"],
+            primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__["InputTextModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_25__["ConfirmDialogModule"], primeng_calendar__WEBPACK_IMPORTED_MODULE_26__["CalendarModule"],
             primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__["ProgressBarModule"], primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__["TabMenuModule"], primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__["TooltipModule"], primeng_fileupload__WEBPACK_IMPORTED_MODULE_21__["FileUploadModule"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_22__["NgxDropzoneModule"], primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__["DropdownModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], primeng_inplace__WEBPACK_IMPORTED_MODULE_24__["InplaceModule"]
         ],
         exports: [
