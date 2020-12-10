@@ -407,7 +407,7 @@ let CommonAuthService = class CommonAuthService {
     }
     registerUser(form) {
         console.log(form.value);
-        return this.http.post('http://localhost:8000/api/register', form.value);
+        return this.http.post('https://portal.webmobilez.com/public/api/register', form.value);
     }
     isAuthonticated() {
         const promise = new Promise((resolve, reject) => {
@@ -426,11 +426,11 @@ let CommonAuthService = class CommonAuthService {
         return promise;
     }
     logIn(form) {
-        return this.http.post('http://localhost:8000/api/login', form.value);
+        return this.http.post('https://portal.webmobilez.com/public/api/login', form.value);
         //return result;
     }
     logout(token) {
-        return this.http.post('http://localhost:8000/api/logout', { 'token': token });
+        return this.http.post('https://portal.webmobilez.com/public/api/logout', { 'token': token });
         //return result;
     }
 };

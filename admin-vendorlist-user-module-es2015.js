@@ -979,34 +979,34 @@ let UserRestService = class UserRestService {
         this.users = [];
     }
     getTimeSheet() {
-        return this.http.get('http://localhost:8000/api/getAllTimesheets');
+        return this.http.get('https://portal.webmobilez.com/public/api/getAllTimesheets');
     }
     getConsultants() {
-        return this.http.get('http://localhost:8000/api/getAllConsultants/');
+        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/');
     }
     getProductsSmall() {
-        return this.http.get('http://localhost:8000/api/getAllConsultants/')
+        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/')
             .toPromise()
             .then(res => res.timesheet)
             .then(data => { return data; });
     }
     storeUser(form) {
-        return this.http.post('http://localhost:8000/api/store-consultant', form.value);
+        return this.http.post('https://portal.webmobilez.com/public/api/store-consultant', form.value);
     }
     statusChangeConsultant(index) {
-        return this.http.post('http://localhost:8000/api/status-consultant', index);
+        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', index);
     }
     editUser(id) {
-        return this.http.get('http://localhost:8000/api/store-consultant/' + id);
+        return this.http.get('https://portal.webmobilez.com/public/api/store-consultant/' + id);
     }
     updateUser(form, id) {
-        return this.http.put('http://localhost:8000/api/store-consultant/' + id, form.value);
+        return this.http.put('https://portal.webmobilez.com/public/api/store-consultant/' + id, form.value);
     }
     storeDocument(document) {
-        return this.http.post('http://localhost:8000/api/saveDocument', document);
+        return this.http.post('https://portal.webmobilez.com/public/api/saveDocument', document);
     }
     removeFile(document) {
-        return this.http.post('http://localhost:8000/api/removeDocument', document);
+        return this.http.post('https://portal.webmobilez.com/public/api/removeDocument', document);
     }
 };
 UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

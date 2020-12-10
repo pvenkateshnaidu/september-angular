@@ -169,11 +169,11 @@ var UserRestService = /** @class */ (function () {
         this.users = [];
     }
     UserRestService.prototype.getConsultants = function () {
-        return this.http.get('http://localhost:8000/api/getHotlistConsultants/');
+        return this.http.get('https://portal.webmobilez.com/public/api/getHotlistConsultants/');
     };
     UserRestService.prototype.statusChangeConsultant = function (index) {
         var body = 'index=' + index;
-        return this.http.post('http://localhost:8000/api/status-consultant', JSON.stringify({
+        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', JSON.stringify({
             cmd: "sa",
             data: "sd"
         }));
@@ -1473,7 +1473,7 @@ var UserListComponent = /** @class */ (function () {
         }, function (error) { console.log(error); });
     };
     UserListComponent.prototype.download = function (event, url) {
-        window.open('http://localhost:8000/storage/' + url);
+        window.open('https://portal.webmobilez.com/public/storage/' + url);
     };
     UserListComponent.prototype.editUser = function (id) {
         this.router.navigate(['huntersconsultants/edit', id]);
@@ -1534,25 +1534,25 @@ var UserRestService = /** @class */ (function () {
         this.users = [];
     }
     UserRestService.prototype.getTimeSheet = function () {
-        return this.http.get('http://localhost:8000/api/getAllTimesheets');
+        return this.http.get('https://portal.webmobilez.com/public/api/getAllTimesheets');
     };
     UserRestService.prototype.getConsultants = function () {
-        return this.http.get('http://localhost:8000/api/getAllConsultants/');
+        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/');
     };
     UserRestService.prototype.storeUser = function (form) {
-        return this.http.post('http://localhost:8000/api/store-consultant', form.value);
+        return this.http.post('https://portal.webmobilez.com/public/api/store-consultant', form.value);
     };
     UserRestService.prototype.statusChangeConsultant = function (index) {
-        return this.http.post('http://localhost:8000/api/status-consultant', index);
+        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', index);
     };
     UserRestService.prototype.editUser = function (id) {
-        return this.http.get('http://localhost:8000/api/store-consultant/' + id);
+        return this.http.get('https://portal.webmobilez.com/public/api/store-consultant/' + id);
     };
     UserRestService.prototype.updateUser = function (form, id) {
-        return this.http.put('http://localhost:8000/api/store-consultant/' + id, form.value);
+        return this.http.put('https://portal.webmobilez.com/public/api/store-consultant/' + id, form.value);
     };
     UserRestService.prototype.storeDocument = function (document) {
-        return this.http.post('http://localhost:8000/api/saveDocument', document);
+        return this.http.post('https://portal.webmobilez.com/public/api/saveDocument', document);
     };
     UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
