@@ -89,13 +89,32 @@ public function getTotalInterviewShecdules(Request $request)
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+            // filters
+            $where = [];
+
+            if ($request->vendorStatus)
+            {
+                $where['vendorStatus'] = $request->vendorStatus;
+            }
+
+
         if (Auth::user()->role == "Admin") {
             $submissions = Submissions::with('user_details','consultant')
+            ->where($where)
+            ->when($request->get('vendorCompanyName'), function($query) use ($request) {
+                     $query->where('vendorCompanyName', 'like','%'.$request->get('vendorCompanyName').'%');
+                })
+            ->when($request->get('vendorName'), function($query) use ($request) {
+                    $query->where('vendorName', 'like','%'.$request->get('vendorName').'%');
+               })
+            ->when($request->get('vendorEmail'), function($query) use ($request) {
+                $query->where('vendorEmail', 'like','%'.$request->get('vendorEmail').'%');
+           })
             //->where("userId", "=", \Auth::user()->id)
             ->orderBy('created_at', 'DESC')
-            ->get();
+            ->paginate(20);
         }else{
             $submissions = Submissions::with('user_details','consultant')
             ->where("userId", "=", \Auth::user()->id)

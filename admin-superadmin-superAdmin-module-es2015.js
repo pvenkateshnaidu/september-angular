@@ -36,7 +36,7 @@ module.exports = "<p-toast position=\"bottom-right\"></p-toast>\n<div class=\"ro
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p-toast position=\"bottom-right\"></p-toast>\r\n<h4 class=\"remove-margin\"> Consultant Submissions  <a routerLink=\"/superadmin/sumissioncreate\" class=\"btn btn-primary\">\r\n  Add Submission\r\n </a></h4>\r\n\r\n<p-table #dt [columns]=\"scrollableCols\" [autoLayout]=\"true\"  [value]=\"timeSheets\" [scrollable]=\"true\"\r\n   [filterDelay]=\"0\" [globalFilterFields]=\"['consultatName']\" [resizableColumns]=\"true\" columnResizeMode=\"expand\" [reorderableColumns]=\"true\"\r\n  autoLayout=\"true\"  dataKey=\"reportId\"  [paginator]=\"true\" [rows]=\"10\" [showCurrentPageReport]=\"true\"\r\n   [rowsPerPageOptions]=\"[10,25,50]\" [loading]=\"loading\">\r\n  <ng-template pTemplate=\"colgroup\" let-columns>\r\n    <colgroup>\r\n      <col style=\"width:70px\">\r\n      <col *ngFor=\"let col of columns\" style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n    </colgroup>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th>Action</th>\r\n      <th *ngFor=\"let col of columns\" [ngStyle]=\"{'width': col.width}\">\r\n        {{col.header}}\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <th></th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'user_details.name', 'startsWith')\"\r\n          placeholder=\"Created By\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultant.consultatName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'vendorStatus', 'startsWith')\"\r\n          placeholder=\"Status\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultant.technology', 'startsWith')\"\r\n          placeholder=\"Technology\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'vendorCompanyName', 'startsWith')\"\r\n          placeholder=\"Company Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'vendorName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'vendorEmail', 'startsWith')\"\r\n          placeholder=\"Vendor Email\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'vendorMobileNumber', 'startsWith')\"\r\n          placeholder=\"Vendor Mobile\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'endClientName', 'startsWith')\"\r\n          placeholder=\"End Clinet\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'actualRate', 'startsWith')\"\r\n          placeholder=\"actualRate\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'submissionRate', 'startsWith')\"\r\n          placeholder=\"submissionRate\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\" let-editing=\"editing\" let-ri=\"rowIndex\">\r\n\r\n    <tr [pEditableRow]=\"rowData\" [ngStyle]=\"{'background-color':getColor(rowData.reportStatus,rowData.adminStatus)}\"  >\r\n      <td style=\"text-align:center\">\r\n\r\n       <a (click)=\"showModalDialog(rowData)\"  class=\"btn btn-warning btn-sm\">Edit</a>\r\n       <a (click)=\"showModalDialog1(rowData.vendorComments)\" tabindex=\"0\" data-toggle=\"popover\" data-trigger=\"focus\" title=\"\"\r\n       data-original-title=\"Note\"><img\r\n         src=\"./assets/img/sticky.png\"></a>\r\n        </td>\r\n\r\n      <td *ngFor=\"let col of columns\" >\r\n\r\n              {{rowData|field:col}}\r\n\r\n\r\n      </td>\r\n\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n<p-confirmDialog key=\"confirm-drop-database\" header=\"Confirmation\" acceptLabel=\"Yes\" rejectLabel=\"No\" [(visible)]=\"confirmDropDatabaseDialogVisible\"></p-confirmDialog>\r\n\r\n  <p-dialog header=\"Status Change\" [(visible)]=\"displayModal\" [modal]=\"true\"\r\n  [style]=\"{width: '50vw'}\" [baseZIndex]=\"10000\"  [draggable]=\"false\" [resizable]=\"false\">\r\n<h5> {{heading1}}</h5>\r\n<form [formGroup]=\"registerVendor\" (ngSubmit)=\"registerUser(submissionId)\">\r\n    <div class=\"row\">\r\n    <div class=\"col-lg-12\">\r\n        <div class=\"form-group\">\r\n            <label for=\"popstatus\">Status:</label>\r\n\r\n            <select class=\"form-control\"  #seleectevalue formControlName=\"vendorStatus\">\r\n                 <option value=\"\">--select--</option>\r\n                                        <option value=\"Placed\">Placed</option>\r\n                                        <option value=\"Interview scheduled\">Interview scheduled</option>\r\n                                        <option value=\"Submitted to Client\">Submitted to Client</option>\r\n                                        <option value=\"Submitted to Vendor\">Submitted to Vendor</option>\r\n                                        <option value=\"Disqualified\">Disqualified</option>\r\n                                        <option value=\"Client rejected\">Client rejected</option>\r\n                                        <option value=\"Vendor Rejected\">Vendor Rejected</option>\r\n                                        <option value=\"Vendor screening call\">Vendor screening call</option>\r\n                                        <option value=\"Waiting for Evaluation\">Waiting for Evaluation</option>\r\n                                        </select>\r\n        </div>\r\n    </div>\r\n    <div class=\"col-lg-8\" *ngIf=\"seleectevalue.value == 'Interview scheduled'\">\r\n        <div class=\"form-group schedulepopdiv\" >\r\n            <label for=\"schedulepop\">Schedule Date:</label>\r\n            <input type=\"date\" class=\"form-control\" formControlName=\"scheduleDate\"  value=\"2020-11-21 10:43:17\"><br>\r\n\r\n        </div>\r\n    </div>\r\n    <div class=\"col-lg-4\" *ngIf=\"seleectevalue.value == 'Interview scheduled'\">\r\n        <div class=\"form-group schedulepopdiv\">\r\n            <label for=\"timezone\">Time Zone:</label>\r\n            <select class=\"form-control\" formControlName=\"timezone\">\r\n              <option value=\"\">Choose Time Zone</option>\r\n                <option value=\"EST\" >EST</option>\r\n                <option value=\"PST\">PST</option>\r\n                <option value=\"CST\">CST</option>\r\n                <option value=\"MST\">MST</option>\r\n            </select>\r\n        </div>\r\n    </div>\r\n    <div class=\"col-lg-12\">\r\n        <div class=\"form-group\">\r\n            <label for=\"notepop\">Comment:</label>\r\n            <textarea class=\"form-control\"  formControlName=\"vendorComments\"></textarea>\r\n\r\n        </div>\r\n    </div>\r\n    </div>\r\n\r\n    <button type=\"submit\" class=\"btn btn-primary btn-round\">Update</button>\r\n</form>\r\n\r\n\r\n           <ng-template pTemplate=\"footer\">\r\n               <p-button icon=\"pi pi-check\" (click)=\"displayModal=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n               <p-button icon=\"pi pi-times\" (click)=\"displayModal=false\" label=\"No\"></p-button>\r\n           </ng-template>\r\n   </p-dialog>\r\n\r\n   <p-dialog header=\"Note\" [(visible)]=\"displayModal1\" [modal]=\"true\" [style]=\"{width: '50vw'}\" [baseZIndex]=\"10000\"\r\n   [draggable]=\"false\" [resizable]=\"false\">\r\n\r\n   <p>{{comment}}</p>\r\n   <ng-template pTemplate=\"footer\">\r\n     <p-button icon=\"pi pi-check\" (click)=\"displayModal1=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n     <p-button icon=\"pi pi-times\" (click)=\"displayModal1=false\" label=\"No\"></p-button>\r\n   </ng-template>\r\n </p-dialog>\r\n"
+module.exports = "<p-toast position=\"bottom-right\"></p-toast>\r\n<h4 class=\"remove-margin\"> Consultant Submissions <a routerLink=\"/superadmin/sumissioncreate\" class=\"btn btn-primary\">\r\n    Add Submission\r\n  </a></h4>\r\n\r\n<p-table #dt [columns]=\"scrollableCols\" scrollHeight=\"500px\" [scrollable]=\"true\" [filterDelay]=\"0\"\r\n [autoLayout]=\"true\" [value]=\"timeSheets\"\r\n  [scrollable]=\"true\" [globalFilterFields]=\"['consultatName']\" [resizableColumns]=\"true\" columnResizeMode=\"expand\"\r\n  [reorderableColumns]=\"true\" [lazy]=\"true\" (onLazyLoad)=\"loadCarsLazy($event)\" [paginator]=\"true\" [rows]=\"20\"\r\n  [totalRecords]=\"totalRecords\" [loading]=\"loading\" currentPageReportTemplate=\"Total {{totalRecords}} entries\"\r\n  [showCurrentPageReport]=\"true\">\r\n  <ng-template pTemplate=\"colgroup\" let-columns>\r\n    <colgroup>\r\n      <col style=\"width:70px\">\r\n      <col *ngFor=\"let col of columns\" style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n    </colgroup>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th>Action</th>\r\n      <th *ngFor=\"let col of columns\" [ngStyle]=\"{'width': col.width}\">\r\n        {{col.header}}\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <th></th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'user_details.name', 'startsWith')\"\r\n          placeholder=\"Created By\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultant.consultatName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'vendorStatus', 'startsWith')\"\r\n          placeholder=\"Status\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultant.technology', 'startsWith')\"\r\n          placeholder=\"Technology\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'vendorCompanyName', 'startsWith')\"\r\n          placeholder=\"Company Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'vendorName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'vendorEmail', 'startsWith')\"\r\n          placeholder=\"Vendor Email\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'vendorMobileNumber', 'startsWith')\"\r\n          placeholder=\"Vendor Mobile\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'endClientName', 'startsWith')\"\r\n          placeholder=\"End Clinet\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'actualRate', 'startsWith')\"\r\n          placeholder=\"actualRate\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'submissionRate', 'startsWith')\"\r\n          placeholder=\"submissionRate\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\" let-editing=\"editing\" let-ri=\"rowIndex\">\r\n\r\n    <tr [pEditableRow]=\"rowData\" [ngStyle]=\"{'background-color':getColor(rowData.reportStatus,rowData.adminStatus)}\">\r\n      <td style=\"text-align:center\">\r\n\r\n        <a (click)=\"showModalDialog(rowData)\" class=\"btn btn-warning btn-sm\">Edit</a>\r\n        <a (click)=\"showModalDialog1(rowData.vendorComments)\" tabindex=\"0\" data-toggle=\"popover\" data-trigger=\"focus\"\r\n          title=\"\" data-original-title=\"Note\"><img src=\"./assets/img/sticky.png\"></a>\r\n      </td>\r\n\r\n      <td *ngFor=\"let col of columns\">\r\n\r\n        {{rowData|field:col}}\r\n\r\n\r\n      </td>\r\n\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n<p-confirmDialog key=\"confirm-drop-database\" header=\"Confirmation\" acceptLabel=\"Yes\" rejectLabel=\"No\"\r\n  [(visible)]=\"confirmDropDatabaseDialogVisible\"></p-confirmDialog>\r\n\r\n<p-dialog header=\"Status Change\" [(visible)]=\"displayModal\" [modal]=\"true\" [style]=\"{width: '50vw'}\"\r\n  [baseZIndex]=\"10000\" [draggable]=\"false\" [resizable]=\"false\">\r\n  <h5> {{heading1}}</h5>\r\n  <form [formGroup]=\"registerVendor\" (ngSubmit)=\"registerUser(submissionId)\">\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-12\">\r\n        <div class=\"form-group\">\r\n          <label for=\"popstatus\">Status:</label>\r\n\r\n          <select class=\"form-control\" #seleectevalue formControlName=\"vendorStatus\">\r\n            <option value=\"\">--select--</option>\r\n            <option value=\"Placed\">Placed</option>\r\n            <option value=\"Interview scheduled\">Interview scheduled</option>\r\n            <option value=\"Submitted to Client\">Submitted to Client</option>\r\n            <option value=\"Submitted to Vendor\">Submitted to Vendor</option>\r\n            <option value=\"Disqualified\">Disqualified</option>\r\n            <option value=\"Client rejected\">Client rejected</option>\r\n            <option value=\"Vendor Rejected\">Vendor Rejected</option>\r\n            <option value=\"Vendor screening call\">Vendor screening call</option>\r\n            <option value=\"Waiting for Evaluation\">Waiting for Evaluation</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-lg-8\" *ngIf=\"seleectevalue.value == 'Interview scheduled'\">\r\n        <div class=\"form-group schedulepopdiv\">\r\n          <label for=\"schedulepop\">Schedule Date:</label>\r\n          <input type=\"date\" class=\"form-control\" formControlName=\"scheduleDate\" value=\"2020-11-21 10:43:17\"><br>\r\n\r\n        </div>\r\n      </div>\r\n      <div class=\"col-lg-4\" *ngIf=\"seleectevalue.value == 'Interview scheduled'\">\r\n        <div class=\"form-group schedulepopdiv\">\r\n          <label for=\"timezone\">Time Zone:</label>\r\n          <select class=\"form-control\" formControlName=\"timezone\">\r\n            <option value=\"\">Choose Time Zone</option>\r\n            <option value=\"EST\">EST</option>\r\n            <option value=\"PST\">PST</option>\r\n            <option value=\"CST\">CST</option>\r\n            <option value=\"MST\">MST</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-lg-12\">\r\n        <div class=\"form-group\">\r\n          <label for=\"notepop\">Comment:</label>\r\n          <textarea class=\"form-control\" formControlName=\"vendorComments\"></textarea>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <button type=\"submit\" class=\"btn btn-primary btn-round\">Update</button>\r\n  </form>\r\n\r\n\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n\r\n<p-dialog header=\"Note\" [(visible)]=\"displayModal1\" [modal]=\"true\" [style]=\"{width: '50vw'}\" [baseZIndex]=\"10000\"\r\n  [draggable]=\"false\" [resizable]=\"false\">\r\n\r\n  <p>{{comment}}</p>\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal1=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal1=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n"
 
 /***/ }),
 
@@ -561,6 +561,24 @@ let BenchListComponent = class BenchListComponent {
         this.clonedProducts = {};
     }
     ;
+    loadCarsLazy(event) {
+        this.loading = true;
+        console.log(event);
+        //in a real application, make a remote request to load data using state metadata from event
+        //event.first = First row offset
+        //event.rows = Number of rows per page
+        //event.sortField = Field name to sort with
+        //event.sortOrder = Sort order as number, 1 for asc and -1 for dec
+        //filters: FilterMetadata object having field as key and filter value, filter matchMode as value
+        //imitate db connection over a network
+        setTimeout(() => {
+            this.userRest.getConsultants((event)).subscribe((response) => {
+                console.log(this.timeSheets = response.submissions.data);
+                this.totalRecords = response.submissions.total;
+                this.loading = false;
+            }, (error) => { console.log(error); });
+        }, 1000);
+    }
     ngOnInit() {
         this.registerVendor = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormGroup"]({
             'vendorStatus': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](''),
@@ -568,11 +586,6 @@ let BenchListComponent = class BenchListComponent {
             'scheduleDate': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](''),
             'timezone': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](''),
         });
-        this.userRest.getConsultants().subscribe((response) => {
-            console.log(this.timeSheets = response.submissions);
-            this.totalRecords = this.timeSheets.length;
-            this.loading = false;
-        }, (error) => { console.log(error); });
         this.frozenCols = [
             { field: 'consultatName', header: 'Name' },
         ];
@@ -725,6 +738,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../environments/environment */ "./src/environments/environment.ts");
+
+
 
 
 
@@ -733,47 +749,75 @@ let UserRestService = class UserRestService {
         this.http = http;
         this.users = [];
     }
-    getConsultants() {
-        return this.http.get('https://portal.webmobilez.com/public/api/submissions/');
+    getConsultants(page) {
+        const pagenumber = page.first / 20;
+        let str;
+        let actorList = page.filters;
+        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
+        console.log(Object.keys(actorList).length);
+        params = params.append('page', pagenumber);
+        if (Object.keys(actorList).length) {
+            if (actorList['user_details.name'])
+                params = params.append('name', actorList['user_details.name']['value']);
+            if (actorList['consultant.consultatName'])
+                params = params.append('consultatName', actorList['consultant.consultatName']['value']);
+            if (actorList['vendorStatus'])
+                params = params.append('vendorStatus', actorList['vendorStatus']['value']);
+            if (actorList['vendorCompanyName'])
+                params = params.append('vendorCompanyName', actorList['vendorCompanyName']['value']);
+            if (actorList['vendorName'])
+                params = params.append('vendorName', actorList['vendorName']['value']);
+            if (actorList['vendorEmail'])
+                params = params.append('vendorEmail', actorList['vendorEmail']['value']);
+            /* for (let id in actorList) {
+      
+                params = params.append(id, actorList[id]['value']);
+              } */
+        }
+        const opts = { params: params };
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/submissions`, opts);
+        // const pagenumber:any =page.first/20;
+        //this.http.get(`${environment.api}/submissions`,  params);
+        //  return this.http.get(`${environment.api}/submissions?page=`+pagenumber+'filters'+);
     }
     storeUser(form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/submissions', form.value);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/submissions`, form.value);
     }
     storeClient(form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/clients', form.value);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/clients`, form.value);
     }
     updateSubmission(form, id) {
-        return this.http.put('https://portal.webmobilez.com/public/api/submissions/' + id, form.value);
+        return this.http.put(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/submissions/` + id, form.value);
     }
     storeVendor(form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/vendorlist', form.value);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/vendorlist`, form.value);
     }
     storeContact(form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/contactslist', form.value);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/contactslist`, form.value);
     }
     statusChangeConsultant(index) {
-        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', index);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/status-consultant`, index);
     }
     getConsultantsList() {
-        return this.http.get('https://portal.webmobilez.com/public/api/getConsultantsList/');
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/getConsultantsList/`);
     }
     editUser(id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/jobs/' + id);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/jobs/` + id);
     }
     editVenodr(id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/contacts/' + id);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/contacts/` + id);
     }
     editConsultant(id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/store-consultant/' + id);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/store-consultant/` + id);
     }
     updateUser(form, id) {
-        return this.http.put('https://portal.webmobilez.com/public/api/jobs/' + id, form.value);
+        return this.http.put(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/jobs/` + id, form.value);
     }
     storeDocument(document) {
-        return this.http.post('https://portal.webmobilez.com/public/api/saveDocument', document);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/saveDocument`, document);
     }
     getContactDetails(index) {
-        return this.http.post('https://portal.webmobilez.com/public/api/contactsDetails', index);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/contactsDetails`, index);
     }
 };
 UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1814,28 +1858,28 @@ let UserRestService = class UserRestService {
         this.users = [];
     }
     getTimeSheet() {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllTimesheets');
+        return this.http.get('${environment.api}/getAllTimesheets');
     }
     getConsultants() {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/');
+        return this.http.get('${environment.api}/getAllConsultants/');
     }
     storeUser(form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/store-consultant', form.value);
+        return this.http.post('${environment.api}/store-consultant', form.value);
     }
     statusChangeConsultant(index) {
-        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', index);
+        return this.http.post('${environment.api}/status-consultant', index);
     }
     editUser(id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/store-consultant/' + id);
+        return this.http.get('${environment.api}/store-consultant/' + id);
     }
     updateUser(form, id) {
-        return this.http.put('https://portal.webmobilez.com/public/api/store-consultant/' + id, form.value);
+        return this.http.put('${environment.api}/store-consultant/' + id, form.value);
     }
     storeDocument(document) {
-        return this.http.post('https://portal.webmobilez.com/public/api/saveDocument', document);
+        return this.http.post('${environment.api}/saveDocument', document);
     }
     removeFile(document) {
-        return this.http.post('https://portal.webmobilez.com/public/api/removeDocument', document);
+        return this.http.post('${environment.api}/removeDocument', document);
     }
 };
 UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2480,6 +2524,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -2489,14 +2535,7 @@ let UserRestService = class UserRestService {
         this.users = [];
     }
     getConsultants() {
-        return this.http.get('https://portal.webmobilez.com/public/api/getHotlistConsultants/');
-    }
-    statusChangeConsultant(index) {
-        var body = 'index=' + index;
-        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', JSON.stringify({
-            cmd: "sa",
-            data: "sd"
-        }));
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/getHotlistConsultants/`);
     }
 };
 UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2747,6 +2786,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -2756,34 +2797,34 @@ let UserRestService = class UserRestService {
         this.users = [];
     }
     getConsultants() {
-        return this.http.get('https://portal.webmobilez.com/public/api/interviewsubmissions/');
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/interviewsubmissions/`);
     }
     storeUser(form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/submissions', form.value);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/submissions`, form.value);
     }
     statusChangeConsultant(index) {
-        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', index);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/status-consultant`, index);
     }
     getConsultantsList() {
-        return this.http.get('https://portal.webmobilez.com/public/api/getConsultantsList/');
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/getConsultantsList/`);
     }
     editUser(id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/jobs/' + id);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/jobs/` + id);
     }
     editVenodr(id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/contacts/' + id);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/contacts/` + id);
     }
     editConsultant(id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/store-consultant/' + id);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/store-consultant/` + id);
     }
     updateUser(form, id) {
-        return this.http.put('https://portal.webmobilez.com/public/api/jobs/' + id, form.value);
+        return this.http.put(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/jobs/` + id, form.value);
     }
     storeDocument(document) {
-        return this.http.post('https://portal.webmobilez.com/public/api/saveDocument', document);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/saveDocument`, document);
     }
     getContactDetails(index) {
-        return this.http.post('https://portal.webmobilez.com/public/api/contactsDetails', index);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/contactsDetails`, index);
     }
 };
 UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -3110,46 +3151,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/superadmin/user-rest.service.ts");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_4__);
-
-
 
 
 
 let UserIndexComponent = class UserIndexComponent {
-    constructor(route, userRest, router) {
+    constructor(route, router) {
         this.route = route;
-        this.userRest = userRest;
         this.router = router;
-        this.userList = [];
-        this.timeSheets = [];
-        this.loading = true;
     }
     ngOnInit() {
-        this.userRest.getUsers().subscribe((response) => { console.log(this.userList = response.user); this.loading = false; }, (error) => { console.log(error); });
-    }
-    deleteUser(id) {
-        if (confirm("Are you sure to delete ")) {
-            this.userRest.deleteUser(id).subscribe((response) => console.log(response), (error) => console.log(error));
-        }
-    }
-    editUser(id) {
-        this.router.navigate(['users/edit', id]);
     }
 };
-tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('dt', { static: true }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", primeng_table__WEBPACK_IMPORTED_MODULE_4__["Table"])
-], UserIndexComponent.prototype, "table", void 0);
 UserIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-user-index',
         template: __webpack_require__(/*! raw-loader!./user-index.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/superadmin/user-index/user-index.component.html"),
         styles: [__webpack_require__(/*! ./user-index.component.scss */ "./src/app/admin/superadmin/user-index/user-index.component.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _user_rest_service__WEBPACK_IMPORTED_MODULE_3__["UserRestService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
 ], UserIndexComponent);
 
 
@@ -3266,6 +3285,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -3276,32 +3297,32 @@ let UserRestService = class UserRestService {
     }
     /* get User Services */
     getUsers() {
-        return this.http.get('https://portal.webmobilez.com/public/api/user-list');
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/user-list`);
     }
     editUser(id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/user-list/' + id);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/user-list/` + id);
     }
     updateUser(form, id) {
-        return this.http.put('https://portal.webmobilez.com/public/api/user-list/' + id, form.value);
+        return this.http.put(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/user-list/` + id, form.value);
     }
     storeUser(form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/user-list', form.value);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/user-list`, form.value);
     }
     deleteUser(id) {
-        return this.http.delete('https://portal.webmobilez.com/public/api/user-list/' + id);
+        return this.http.delete(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/user-list/` + id);
     }
     /* Documents */
     getTotalInterviewShecdules(index) {
-        return this.http.post('https://portal.webmobilez.com/public/api/getTotalInterviewShecdules', index);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/getTotalInterviewShecdules`, index);
     }
     EditDocument(id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/submissions/' + id);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/submissions/` + id);
     }
     getConsultants() {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultantsAdmin/');
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/getAllConsultantsAdmin/`);
     }
     updateConsultantStatus(form, id) {
-        return this.http.put('https://portal.webmobilez.com/public/api/admin-store-consultant/' + id, form.value);
+        return this.http.put(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/admin-store-consultant/` + id, form.value);
     }
 };
 UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

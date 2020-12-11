@@ -406,6 +406,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -416,7 +418,7 @@ var CommonAuthService = /** @class */ (function () {
     }
     CommonAuthService.prototype.registerUser = function (form) {
         console.log(form.value);
-        return this.http.post('https://portal.webmobilez.com/public/api/register', form.value);
+        return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/register", form.value);
     };
     CommonAuthService.prototype.isAuthonticated = function () {
         var _this = this;
@@ -436,11 +438,11 @@ var CommonAuthService = /** @class */ (function () {
         return promise;
     };
     CommonAuthService.prototype.logIn = function (form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/login', form.value);
+        return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/login", form.value);
         //return result;
     };
     CommonAuthService.prototype.logout = function (token) {
-        return this.http.post('https://portal.webmobilez.com/public/api/logout', { 'token': token });
+        return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/logout", { 'token': token });
         //return result;
     };
     CommonAuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1609,7 +1611,9 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
-    production: false
+    production: false,
+    // api: 'http://localhost:8000/api'
+    api: 'https://portal.webmobilez.com/public/api'
 };
 
 

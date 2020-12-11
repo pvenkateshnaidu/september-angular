@@ -782,7 +782,7 @@ var UserService = /** @class */ (function () {
         this.http = http;
     }
     UserService.prototype.loadUser = function () {
-        return this.http.get('https://portal.webmobilez.com/public/api/user-list/create').pipe();
+        return this.http.get('${environment.api}/user-list/create').pipe();
     };
     UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
@@ -915,7 +915,7 @@ var UserComponent = /** @class */ (function () {
     UserComponent.prototype.updateUserDetails = function () {
         var _this = this;
         var id = this.updateUser.get('id').value;
-        this.http.put('https://portal.webmobilez.com/public/api/user-list/' + id, this.updateUser.value).subscribe(function (response) {
+        this.http.put('${environment.api}/user-list/' + id, this.updateUser.value).subscribe(function (response) {
             console.log(response),
                 _this.messageService.add({ severity: 'success', summary: 'Your Profile Updated ', detail: 'successfull' });
             _this.router.navigate(['profile']);

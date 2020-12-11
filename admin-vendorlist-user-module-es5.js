@@ -40,7 +40,7 @@ module.exports = "\n\n<div class=\"row\">\n    <div class=\"col-md-12\">\n      
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  <form [formGroup]=\"registerForm\" >\r\n  <p-multiSelect [options]=\"cities\" [(ngModel)]=\"selectedCities\" formControlName=\"state\" optionLabel=\"name\" [panelStyle]=\"{minWidth:'15em'}\"></p-multiSelect>\r\n  <p-button label=\"Click\" (onClick)=\"handleClick($event)\"></p-button>\r\n</form>\r\n\r\n\r\n<p-table #myTable [columns]=\"selectedColumns\"  [virtualScroll]=\"true\" [value]=\"timeSheets\" [loading]=\"loading\" [paginator]=\"true\"\r\n[rows]=\"10\"  [showCurrentPageReport]=\"true\"  [rowsPerPageOptions]=\"[10,25,50]\">\r\n  <ng-template pTemplate=\"caption\">\r\n    <p-multiSelect [options]=\"scrollableCols\" [(ngModel)]=\"selectedColumns\" optionLabel=\"header\"\r\n      selectedItemsLabel=\"{0} columns selected\" [style]=\"{minWidth: '200px'}\" placeholder=\"Choose Columns\">\r\n    </p-multiSelect>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th></th>\r\n      <th *ngFor=\"let col of columns\">\r\n        {{col.header}}\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <th>\r\n      </th>\r\n      <th>\r\n\r\n        <input pInputText type=\"date\" (input)=\"myTable.filter($event.target.value, 'created_at', 'startsWith')\"\r\n        placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"myTable.filter($event.target.value, 'consultatName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-product let-columns=\"columns\" let-rowIndex=\"rowIndex\">\r\n    <tr>\r\n      <td class=\"counter\"> {{rowIndex + 1}} </td>\r\n      <td > {{product.created_at | date}} </td>\r\n      <td *ngFor=\"let col of columns\">\r\n        {{product[col.field]}}\r\n      </td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n"
+module.exports = "\r\n\r\n\r\n<p-table #myTable [columns]=\"selectedColumns\"  [virtualScroll]=\"true\" [value]=\"timeSheets\" [lazy]=\"true\" (onLazyLoad)=\"loadCarsLazy($event)\" [paginator]=\"true\"\r\n[rows]=\"20\" [totalRecords]=\"totalRecords\" [loading]=\"loading\" currentPageReportTemplate=\"Total {{totalRecords}} entries\" [showCurrentPageReport]=\"true\">\r\n  <ng-template pTemplate=\"caption\">\r\n    <p-multiSelect [options]=\"scrollableCols\" [(ngModel)]=\"selectedColumns\" optionLabel=\"header\"\r\n      selectedItemsLabel=\"{0} columns selected\" [style]=\"{minWidth: '200px'}\" placeholder=\"Choose Columns\">\r\n    </p-multiSelect>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th></th>\r\n      <th *ngFor=\"let col of columns\">\r\n        {{col.header}}\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <th>\r\n      </th>\r\n      <th>\r\n\r\n        <input pInputText type=\"date\" (input)=\"myTable.filter($event.target.value, 'created_at', 'startsWith')\"\r\n        placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"myTable.filter($event.target.value, 'consultatName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-product let-columns=\"columns\" let-rowIndex=\"rowIndex\">\r\n    <tr>\r\n      <td class=\"counter\"> {{rowIndex + 1}} </td>\r\n      <td > {{product.created_at | date}} </td>\r\n      <td *ngFor=\"let col of columns\">\r\n        {{product[col.field]}}\r\n      </td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n"
 
 /***/ }),
 
@@ -1095,7 +1095,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var UserListComponent = /** @class */ (function () {
     function UserListComponent(confirmation, fb, messageService, route, userRest, router) {
         this.confirmation = confirmation;
@@ -1107,14 +1106,7 @@ var UserListComponent = /** @class */ (function () {
         this.confirmDropDatabaseDialogVisible = false;
         this.loading = true;
     }
-    UserListComponent.prototype.handleClick = function () {
-        console.log(this.registerForm.value.state);
-    };
     UserListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.registerForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormGroup"]({
-            'state': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]),
-        });
         this.cities = [
             { name: 'New York', code: 'NY' },
             { name: 'Rome', code: 'RM' },
@@ -1122,12 +1114,6 @@ var UserListComponent = /** @class */ (function () {
             { name: 'Istanbul', code: 'IST' },
             { name: 'Paris', code: 'PRS' }
         ];
-        this.userRest.getProductsSmall().then(function (data) {
-            _this.timeSheets = data;
-            console.log("data");
-            _this.loading = false;
-            console.log(data);
-        });
         this.scrollableCols = [
             //    { field: 'created_at', header: 'Date', width: '20%', editable: true },
             { field: 'consultatName', header: 'Consultant Name', width: '20%', editable: true },
@@ -1151,6 +1137,25 @@ var UserListComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    UserListComponent.prototype.loadCarsLazy = function (event) {
+        var _this = this;
+        this.loading = true;
+        console.log(event);
+        //in a real application, make a remote request to load data using state metadata from event
+        //event.first = First row offset
+        //event.rows = Number of rows per page
+        //event.sortField = Field name to sort with
+        //event.sortOrder = Sort order as number, 1 for asc and -1 for dec
+        //filters: FilterMetadata object having field as key and filter value, filter matchMode as value
+        //imitate db connection over a network
+        setTimeout(function () {
+            _this.userRest.getProductsSmallpagination(event.first / 20).subscribe(function (response) {
+                console.log(_this.timeSheets = response.timesheet.data);
+                _this.totalRecords = response.timesheet.total;
+                _this.loading = false;
+            }, function (error) { console.log(error); });
+        }, 1000);
+    };
     UserListComponent.prototype.formatDate = function (date) {
         var month = date.getMonth() + 1;
         var day = date.getDate();
@@ -1214,6 +1219,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -1223,34 +1230,34 @@ var UserRestService = /** @class */ (function () {
         this.users = [];
     }
     UserRestService.prototype.getTimeSheet = function () {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllTimesheets');
+        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/getAllTimesheets");
     };
     UserRestService.prototype.getConsultants = function () {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/');
+        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/getAllConsultants/");
     };
     UserRestService.prototype.getProductsSmall = function () {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/')
-            .toPromise()
-            .then(function (res) { return res.timesheet; })
-            .then(function (data) { return data; });
+        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/vendorlist/");
+    };
+    UserRestService.prototype.getProductsSmallpagination = function (page) {
+        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/vendorlist/?page=" + page);
     };
     UserRestService.prototype.storeUser = function (form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/store-consultant', form.value);
+        return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/store-consultant", form.value);
     };
     UserRestService.prototype.statusChangeConsultant = function (index) {
-        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', index);
+        return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/status-consultant", index);
     };
     UserRestService.prototype.editUser = function (id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/store-consultant/' + id);
+        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/store-consultant/" + id);
     };
     UserRestService.prototype.updateUser = function (form, id) {
-        return this.http.put('https://portal.webmobilez.com/public/api/store-consultant/' + id, form.value);
+        return this.http.put(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/store-consultant/" + id, form.value);
     };
     UserRestService.prototype.storeDocument = function (document) {
-        return this.http.post('https://portal.webmobilez.com/public/api/saveDocument', document);
+        return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/saveDocument", document);
     };
     UserRestService.prototype.removeFile = function (document) {
-        return this.http.post('https://portal.webmobilez.com/public/api/removeDocument', document);
+        return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/removeDocument", document);
     };
     UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

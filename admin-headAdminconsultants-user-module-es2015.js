@@ -158,6 +158,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -167,11 +169,11 @@ let UserRestService = class UserRestService {
         this.users = [];
     }
     getConsultants() {
-        return this.http.get('https://portal.webmobilez.com/public/api/getHotlistConsultants/');
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/getHotlistConsultants/`);
     }
     statusChangeConsultant(index) {
         var body = 'index=' + index;
-        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', JSON.stringify({
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/status-consultant`, JSON.stringify({
             cmd: "sa",
             data: "sd"
         }));
@@ -1237,7 +1239,7 @@ let UserListComponent = class UserListComponent {
         }, (error) => { console.log(error); });
     }
     download(event, url) {
-        window.open('https://portal.webmobilez.com/public/api/storage/' + url);
+        window.open('${environment.api}/storage/' + url);
     }
     editUser(id) {
         this.router.navigate(['headadminconsultants/edit', id]);
@@ -1288,6 +1290,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -1297,28 +1301,28 @@ let UserRestService = class UserRestService {
         this.users = [];
     }
     getTimeSheet() {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllTimesheets');
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/getAllTimesheets`);
     }
     getConsultants() {
-        return this.http.get('https://portal.webmobilez.com/public/api/getAllConsultants/');
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/getAllConsultants/`);
     }
     storeUser(form) {
-        return this.http.post('https://portal.webmobilez.com/public/api/store-consultant', form.value);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/store-consultant`, form.value);
     }
     statusChangeConsultant(index) {
-        return this.http.post('https://portal.webmobilez.com/public/api/status-consultant', index);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/status-consultant`, index);
     }
     editUser(id) {
-        return this.http.get('https://portal.webmobilez.com/public/api/store-consultant/' + id);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/store-consultant/` + id);
     }
     updateUser(form, id) {
-        return this.http.put('https://portal.webmobilez.com/public/api/store-consultant/' + id, form.value);
+        return this.http.put(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/store-consultant/` + id, form.value);
     }
     storeDocument(document) {
-        return this.http.post('https://portal.webmobilez.com/public/api/saveDocument', document);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/saveDocument`, document);
     }
     removeFile(document) {
-        return this.http.post('https://portal.webmobilez.com/public/api/removeDocument', document);
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/removeDocument`, document);
     }
 };
 UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

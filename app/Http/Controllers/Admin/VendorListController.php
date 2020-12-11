@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Submissions;
 use App\VendorList;
+use App\Reports;
 use App\Clients;
 use Carbon\Carbon;
 use Auth;
@@ -26,10 +27,11 @@ class VendorListController extends Controller
     public function index()
     {
 
-            $submissions = Submissions::with('user_details','consultant','vendorlist','clients')->orderBy('created_at', 'DESC')
-                ->get();
+           // $submissions = Reports::with('user_details','consultant','vendorlist','clients')->orderBy('created_at', 'DESC')
+             $submissions = Reports::with('user_details')->orderBy('created_at', 'DESC')
+                ->paginate(20);
 
-        return response()->json(['submissions' => $submissions], 200);
+        return response()->json(['submissions' => $submissions,'timesheet'=>$submissions], 200);
     }
 
 
