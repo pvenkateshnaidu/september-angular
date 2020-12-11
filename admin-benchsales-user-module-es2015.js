@@ -326,20 +326,20 @@ let DocumentBenchListComponent = class DocumentBenchListComponent {
             { field: 'consultantEmail', header: 'Email', width: '40%', editable: true },
             { field: 'consultatMobileNumber', header: 'Phone number', width: '20%', editable: true },
             { field: 'experience', header: 'Exp', width: '20%', editable: true },
-            { field: 'reportStatus', header: 'Status', width: '20%', editable: false },
+            { field: 'rate', header: 'Rate', width: '20%', editable: false },
+            { field: 'technology', header: 'Technology', width: '20%', editable: false },
+            { field: 'visaType', header: 'visa Type', width: '20%', editable: false },
+            { field: 'city', header: 'City', width: '20%', editable: false },
             { field: 'state', header: 'State', width: '20%', editable: false },
             { field: 'willingLocation', header: 'Relocate', width: '20%', editable: false },
             { field: 'documentsCollected', header: 'Documents Collected', width: '20%', editable: false },
             { field: 'resource', header: 'Resource', width: '20%', editable: false },
             { field: 'ssn', header: 'Last 4 SSN', width: '20%', editable: false },
-            //  { field: 'bestContactNumber', header: 'Best Contact Number', width: '20%', editable: false },
+            { field: 'bestContactNumber', header: 'Best Contact Number', width: '20%', editable: false },
             { field: 'linkedInUrl', header: 'LinkedIn', width: '20%', editable: false },
             { field: 'skypeId', header: 'skypeId', width: '20%', editable: false },
-            { field: 'rate', header: 'Rate', width: '20%', editable: false },
-            { field: 'technology', header: 'Technology', width: '20%', editable: false },
-            { field: 'visaType', header: 'visa Type', width: '20%', editable: false },
-            { field: 'city', header: 'City', width: '20%', editable: false }
             //  { field: 'priority', header: 'priority', width: '20%' ,editable: false},
+            { field: 'reportStatus', header: 'Status', width: '20%', editable: false }
         ];
         this.statuses = [
             { label: 'Unqualified', value: 'unqualified' },
