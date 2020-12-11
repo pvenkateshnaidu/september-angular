@@ -84,7 +84,7 @@ module.exports = "\n\n<div class=\"row\">\n    <div class=\"col-md-12\">\n      
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p-toast position=\"bottom-right\"></p-toast>\r\n<h4 class=\"remove-margin\"> Consultant Submissions <a routerLink=\"/benchsales/create\" class=\"btn btn-primary\">\r\n    Add Submission\r\n  </a></h4>\r\n\r\n<p-table #dt [columns]=\"scrollableCols\" scrollHeight=\"500px\" [autoLayout]=\"true\" [value]=\"timeSheets\" [scrollable]=\"true\" [filterDelay]=\"0\"\r\n  [globalFilterFields]=\"['consultatName']\" [resizableColumns]=\"true\" columnResizeMode=\"expand\"\r\n  [reorderableColumns]=\"true\" autoLayout=\"true\" dataKey=\"reportId\" [paginator]=\"true\" [rows]=\"10\"\r\n  [showCurrentPageReport]=\"true\" [rowsPerPageOptions]=\"[10,25,50]\" [loading]=\"loading\">\r\n  <ng-template pTemplate=\"colgroup\" let-columns>\r\n    <colgroup>\r\n      <col style=\"width:90px\">\r\n\r\n      <col *ngFor=\"let col of columns\" style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n    </colgroup>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th>Action</th>\r\n      <th></th>\r\n      <th *ngFor=\"let col of columns\" [ngStyle]=\"{'width': col.width}\">\r\n        {{col.header}}\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <th> <button (click)=\"clearFilters(dt)\">Clear Fields</button></th>\r\n      <th> <input pInputText type=\"date\" [value]=\"dt.filters['created_at'] ? dt.filters['created_at'].value : ''\" (input)=\"dt.filter($event.target.value, 'created_at', 'startsWith')\"\r\n        placeholder=\"Created At\" class=\"p-column-filter\"></th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['consultant.consultatName'] ? dt.filters['consultant.consultatName'].value : ''\" (input)=\"dt.filter($event.target.value, 'consultant.consultatName', 'startsWith')\"\r\n          placeholder=\"First Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['consultant.consultantLastName'] ? dt.filters['consultant.consultantLastName'].value : ''\" (input)=\"dt.filter($event.target.value, 'consultant.consultantLastName', 'startsWith')\"\r\n          placeholder=\"Last Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['vendorStatus'] ? dt.filters['vendorStatus'].value : ''\" (input)=\"dt.filter($event.target.value, 'vendorStatus', 'startsWith')\"\r\n          placeholder=\"Status\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['consultant.technology'] ? dt.filters['consultant.technology'].value : ''\" (input)=\"dt.filter($event.target.value, 'consultant.technology', 'startsWith')\"\r\n          placeholder=\"Technology\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['vendorCompanyName'] ? dt.filters['vendorCompanyName'].value : ''\" (input)=\"dt.filter($event.target.value, 'vendorCompanyName', 'startsWith')\"\r\n          placeholder=\"Company Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['vendorName'] ? dt.filters['vendorName'].value : ''\" (input)=\"dt.filter($event.target.value, 'vendorName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['vendorEmail'] ? dt.filters['vendorEmail'].value : ''\" (input)=\"dt.filter($event.target.value, 'vendorEmail', 'startsWith')\"\r\n          placeholder=\"Vendor Email\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['vendorMobileNumber'] ? dt.filters['vendorMobileNumber'].value : ''\" (input)=\"dt.filter($event.target.value, 'vendorMobileNumber', 'startsWith')\"\r\n          placeholder=\"Vendor Mobile\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['endClientName'] ? dt.filters['endClientName'].value : ''\"  (input)=\"dt.filter($event.target.value, 'endClientName', 'startsWith')\"\r\n          placeholder=\"End Clinet\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['actualRate'] ? dt.filters['actualRate'].value : ''\" (input)=\"dt.filter($event.target.value, 'actualRate', 'startsWith')\"\r\n          placeholder=\"actualRate\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['submissionRate'] ? dt.filters['submissionRate'].value : ''\" (input)=\"dt.filter($event.target.value, 'submissionRate', 'startsWith')\"\r\n          placeholder=\"submissionRate\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\" let-editing=\"editing\" let-ri=\"rowIndex\">\r\n\r\n    <tr [pEditableRow]=\"rowData\" [ngStyle]=\"{'background-color':getColor(rowData.reportStatus,rowData.adminStatus)}\">\r\n      <td style=\"text-align:center\">\r\n\r\n        <a (click)=\"showModalDialog(rowData)\" class=\"btn btn-warning btn-sm\">Edit</a>\r\n        <a (click)=\"showModalDialog1(rowData.vendorComments)\" tabindex=\"0\" data-toggle=\"popover\" data-trigger=\"focus\"\r\n          title=\"\" data-original-title=\"Note\"><img src=\"./assets/img/sticky.png\"></a>\r\n      </td>\r\n      <td>\r\n      {{rowData.created_at|date}}\r\n      </td>\r\n      <td *ngFor=\"let col of columns\">\r\n        {{rowData|field:col}}\r\n      </td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n<p-confirmDialog key=\"confirm-drop-database\" header=\"Confirmation\" acceptLabel=\"Yes\" rejectLabel=\"No\"\r\n  [(visible)]=\"confirmDropDatabaseDialogVisible\"></p-confirmDialog>\r\n\r\n<p-dialog header=\"Status Change\" [(visible)]=\"displayModal\" [modal]=\"true\" [style]=\"{width: '50vw'}\"\r\n  [baseZIndex]=\"10000\" [draggable]=\"false\" [resizable]=\"false\">\r\n  <h5> {{heading1}}</h5>\r\n  <form [formGroup]=\"registerVendor\" (ngSubmit)=\"registerUser(submissionId)\">\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-12\">\r\n        <div class=\"form-group\">\r\n          <label for=\"popstatus\">Status:</label>\r\n\r\n          <select class=\"form-control\" #seleectevalue formControlName=\"vendorStatus\">\r\n            <option value=\"\">--select--</option>\r\n            <option value=\"Placed\">Placed</option>\r\n            <option value=\"Interview scheduled\">Interview scheduled</option>\r\n            <option value=\"Submitted to Client\">Submitted to Client</option>\r\n            <option value=\"Submitted to Vendor\">Submitted to Vendor</option>\r\n            <option value=\"Disqualified\">Disqualified</option>\r\n            <option value=\"Client rejected\">Client rejected</option>\r\n            <option value=\"Vendor Rejected\">Vendor Rejected</option>\r\n            <option value=\"Vendor screening call\">Vendor screening call</option>\r\n            <option value=\"Waiting for Evaluation\">Waiting for Evaluation</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-lg-8\" *ngIf=\"seleectevalue.value == 'Interview scheduled'\">\r\n        <div class=\"form-group schedulepopdiv\">\r\n          <label for=\"schedulepop\">Schedule Date:</label>\r\n          <input type=\"date\" class=\"form-control\" formControlName=\"scheduleDate\" value=\"2020-11-21 10:43:17\"><br>\r\n\r\n        </div>\r\n      </div>\r\n      <div class=\"col-lg-4\" *ngIf=\"seleectevalue.value == 'Interview scheduled'\">\r\n        <div class=\"form-group schedulepopdiv\">\r\n          <label for=\"timezone\">Time Zone:</label>\r\n          <select class=\"form-control\" formControlName=\"timezone\">\r\n            <option value=\"\">Choose Time Zone</option>\r\n            <option value=\"EST\">EST</option>\r\n            <option value=\"PST\">PST</option>\r\n            <option value=\"CST\">CST</option>\r\n            <option value=\"MST\">MST</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-lg-12\">\r\n        <div class=\"form-group\">\r\n          <label for=\"notepop\">Comment:</label>\r\n          <textarea class=\"form-control\" formControlName=\"vendorComments\"></textarea>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <button type=\"submit\" class=\"btn btn-primary btn-round\">Update</button>\r\n  </form>\r\n\r\n\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n\r\n<p-dialog header=\"Note\" [(visible)]=\"displayModal1\" [modal]=\"true\" [style]=\"{width: '50vw'}\" [baseZIndex]=\"10000\"\r\n  [draggable]=\"false\" [resizable]=\"false\">\r\n\r\n  <p>{{comment}}</p>\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal1=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal1=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n"
+module.exports = "<p-toast position=\"bottom-right\"></p-toast>\r\n\r\n<p-table #dt [columns]=\"scrollableCols\" scrollHeight=\"500px\"  [autoLayout]=\"true\" [value]=\"timeSheets\"\r\n  [scrollable]=\"true\" [filterDelay]=\"0\" [globalFilterFields]=\"['consultatName']\" [resizableColumns]=\"true\"\r\n  columnResizeMode=\"expand\" [reorderableColumns]=\"true\" [lazy]=\"true\" (onLazyLoad)=\"loadCarsLazy($event)\"\r\n  [paginator]=\"true\" [rows]=\"20\" [totalRecords]=\"totalRecords\" [loading]=\"loading\"\r\n  currentPageReportTemplate=\"Total {{totalRecords}} entries\" [showCurrentPageReport]=\"true\"\r\n  [style]=\"{'text-align': 'center', 'font-size': '14px'}\"  [loading]=\"loading\">\r\n  <ng-template pTemplate=\"caption\" let-title>\r\n    <span class=\"text-right\" *ngIf=\"totalRecords\">Total {{totalRecords}} Consultant Submissions </span>\r\n    <a routerLink=\"/benchsales/create\" class=\"btn btn-primary\">\r\n      Add Submission\r\n    </a>\r\n</ng-template>\r\n  <ng-template pTemplate=\"colgroup\" let-columns>\r\n    <colgroup>\r\n      <col style=\"width:90px\">\r\n      <col *ngFor=\"let col of columns\" style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n    </colgroup>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th>Action</th>\r\n      <th></th>\r\n      <th>Consultant</th>\r\n\r\n      <th *ngFor=\"let col of columns\" [ngStyle]=\"{'width': col.width}\">\r\n        {{col.header}}\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <th> <button (click)=\"clearFilters(dt)\">Clear Fields</button></th>\r\n      <th> <input pInputText type=\"date\" [value]=\"dt.filters['created_at'] ? dt.filters['created_at'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'created_at', 'startsWith')\" placeholder=\"Created At\"\r\n          class=\"p-column-filter\"></th>\r\n      <th>\r\n        <!-- <input pInputText type=\"text\"\r\n          [value]=\"dt.filters['consultant.consultatName'] ? dt.filters['consultant.consultatName'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'consultant.consultatName', 'startsWith')\" placeholder=\"First Name\"\r\n          class=\"p-column-filter\"> -->\r\n        <p-dropdown  appendTo=\"body\" [options]=\"cities\"  [(ngModel)]=\"selectedCity\" [filter]=\"true\" filterBy=\"label,value\"\r\n          [autoWidth]=\"false\" [style]=\"pDropdownStyle\"\r\n          (onChange)=\"dt.filter($event.value, 'reportId', 'startsWith')\" placeholder=\"Choose Consultant\"\r\n          class=\"p-column-filter\"></p-dropdown>\r\n      </th>\r\n\r\n      <th>\r\n        <p-multiSelect appendTo=\"body\"  [options]=\"statusesVendor\"  [(ngModel)]=\"selectedStatus\" [filter]=\"true\" filterBy=\"label,value\"\r\n          [style]=\"pDropdownStyle\"\r\n          (onChange)=\"dt.filter($event.value, 'vendorStatus', 'startsWith')\" placeholder=\"Choose Status\"\r\n          class=\"p-column-filter\"></p-multiSelect>\r\n\r\n\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\"\r\n          [value]=\"dt.filters['consultant.technology'] ? dt.filters['consultant.technology'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'consultant.technology', 'startsWith')\" placeholder=\"Technology\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\"\r\n          [value]=\"dt.filters['vendorCompanyName'] ? dt.filters['vendorCompanyName'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'vendorCompanyName', 'startsWith')\" placeholder=\"Company Name\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['vendorName'] ? dt.filters['vendorName'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'vendorName', 'startsWith')\" placeholder=\"Name\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['vendorEmail'] ? dt.filters['vendorEmail'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'vendorEmail', 'startsWith')\" placeholder=\"Vendor Email\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\"\r\n          [value]=\"dt.filters['vendorMobileNumber'] ? dt.filters['vendorMobileNumber'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'vendorMobileNumber', 'startsWith')\" placeholder=\"Vendor Mobile\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['endClientName'] ? dt.filters['endClientName'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'endClientName', 'startsWith')\" placeholder=\"End Clinet\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['actualRate'] ? dt.filters['actualRate'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'actualRate', 'startsWith')\" placeholder=\"actualRate\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['submissionRate'] ? dt.filters['submissionRate'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'submissionRate', 'startsWith')\" placeholder=\"submissionRate\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\" let-editing=\"editing\" let-ri=\"rowIndex\">\r\n\r\n    <tr [pEditableRow]=\"rowData\" [ngStyle]=\"{'background-color':getColor(rowData.reportStatus,rowData.adminStatus)}\">\r\n      <td style=\"text-align:center\">\r\n\r\n        <a (click)=\"showModalDialog(rowData)\" class=\"btn btn-warning btn-sm\">Edit</a>\r\n        <a (click)=\"showModalDialog1(rowData.vendorComments)\" tabindex=\"0\" data-toggle=\"popover\" data-trigger=\"focus\"\r\n          title=\"\" data-original-title=\"Note\"><img src=\"./assets/img/sticky.png\"></a>\r\n      </td>\r\n      <td>\r\n        {{rowData.created_at|date}}\r\n      </td>\r\n      <td>\r\n        {{rowData.consultant.consultatName}} {{rowData.consultant.consultantLastName}}\r\n      </td>\r\n      <td *ngFor=\"let col of columns\">\r\n        {{rowData|field:col}}\r\n      </td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n<p-confirmDialog key=\"confirm-drop-database\" header=\"Confirmation\" acceptLabel=\"Yes\" rejectLabel=\"No\"\r\n  [(visible)]=\"confirmDropDatabaseDialogVisible\"></p-confirmDialog>\r\n\r\n<p-dialog header=\"Status Change\" [(visible)]=\"displayModal\" [modal]=\"true\" [style]=\"{width: '50vw'}\"\r\n  [baseZIndex]=\"10000\" [draggable]=\"false\" [resizable]=\"false\">\r\n  <h5> {{heading1}}</h5>\r\n  <form [formGroup]=\"registerVendor\" (ngSubmit)=\"registerUser(submissionId)\">\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-12\">\r\n        <div class=\"form-group\">\r\n          <label for=\"popstatus\">Status:</label>\r\n\r\n          <select class=\"form-control\" #seleectevalue formControlName=\"vendorStatus\">\r\n            <option value=\"\">--select--</option>\r\n            <option value=\"Placed\">Placed</option>\r\n            <option value=\"Interview scheduled\">Interview scheduled</option>\r\n            <option value=\"Submitted to Client\">Submitted to Client</option>\r\n            <option value=\"Submitted to Vendor\">Submitted to Vendor</option>\r\n            <option value=\"Disqualified\">Disqualified</option>\r\n            <option value=\"Client rejected\">Client rejected</option>\r\n            <option value=\"Vendor Rejected\">Vendor Rejected</option>\r\n            <option value=\"Vendor screening call\">Vendor screening call</option>\r\n            <option value=\"Waiting for Evaluation\">Waiting for Evaluation</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-lg-8\" *ngIf=\"seleectevalue.value == 'Interview scheduled'\">\r\n        <div class=\"form-group schedulepopdiv\">\r\n          <label for=\"schedulepop\">Schedule Date:</label>\r\n          <input type=\"date\" class=\"form-control\" formControlName=\"scheduleDate\" value=\"2020-11-21 10:43:17\"><br>\r\n\r\n        </div>\r\n      </div>\r\n      <div class=\"col-lg-4\" *ngIf=\"seleectevalue.value == 'Interview scheduled'\">\r\n        <div class=\"form-group schedulepopdiv\">\r\n          <label for=\"timezone\">Time Zone:</label>\r\n          <select class=\"form-control\" formControlName=\"timezone\">\r\n            <option value=\"\">Choose Time Zone</option>\r\n            <option value=\"EST\">EST</option>\r\n            <option value=\"PST\">PST</option>\r\n            <option value=\"CST\">CST</option>\r\n            <option value=\"MST\">MST</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-lg-12\">\r\n        <div class=\"form-group\">\r\n          <label for=\"notepop\">Comment:</label>\r\n          <textarea class=\"form-control\" formControlName=\"vendorComments\"></textarea>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <button type=\"submit\" class=\"btn btn-primary btn-round\">Update</button>\r\n  </form>\r\n\r\n\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n\r\n<p-dialog header=\"Note\" [(visible)]=\"displayModal1\" [modal]=\"true\" [style]=\"{width: '50vw'}\" [baseZIndex]=\"10000\"\r\n  [draggable]=\"false\" [resizable]=\"false\">\r\n\r\n  <p>{{comment}}</p>\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal1=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal1=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n"
 
 /***/ }),
 
@@ -332,20 +332,20 @@ var DocumentBenchListComponent = /** @class */ (function () {
             { field: 'consultantEmail', header: 'Email', width: '40%', editable: true },
             { field: 'consultatMobileNumber', header: 'Phone number', width: '20%', editable: true },
             { field: 'experience', header: 'Exp', width: '20%', editable: true },
-            { field: 'rate', header: 'Rate', width: '20%', editable: false },
-            { field: 'technology', header: 'Technology', width: '20%', editable: false },
-            { field: 'visaType', header: 'visa Type', width: '20%', editable: false },
-            { field: 'city', header: 'City', width: '20%', editable: false },
+            { field: 'reportStatus', header: 'Status', width: '20%', editable: false },
             { field: 'state', header: 'State', width: '20%', editable: false },
             { field: 'willingLocation', header: 'Relocate', width: '20%', editable: false },
             { field: 'documentsCollected', header: 'Documents Collected', width: '20%', editable: false },
             { field: 'resource', header: 'Resource', width: '20%', editable: false },
             { field: 'ssn', header: 'Last 4 SSN', width: '20%', editable: false },
-            { field: 'bestContactNumber', header: 'Best Contact Number', width: '20%', editable: false },
+            //  { field: 'bestContactNumber', header: 'Best Contact Number', width: '20%', editable: false },
             { field: 'linkedInUrl', header: 'LinkedIn', width: '20%', editable: false },
             { field: 'skypeId', header: 'skypeId', width: '20%', editable: false },
+            { field: 'rate', header: 'Rate', width: '20%', editable: false },
+            { field: 'technology', header: 'Technology', width: '20%', editable: false },
+            { field: 'visaType', header: 'visa Type', width: '20%', editable: false },
+            { field: 'city', header: 'City', width: '20%', editable: false }
             //  { field: 'priority', header: 'priority', width: '20%' ,editable: false},
-            { field: 'reportStatus', header: 'Status', width: '20%', editable: false }
         ];
         this.statuses = [
             { label: 'Unqualified', value: 'unqualified' },
@@ -1858,27 +1858,55 @@ var UserListComponent = /** @class */ (function () {
     ;
     UserListComponent.prototype.clearFilters = function (dt) {
         dt.reset(); // reset the table
+        this.selectedCity = '';
+        this.selectedStatus = '';
+    };
+    UserListComponent.prototype.loadCarsLazy = function (event) {
+        var _this = this;
+        this.loading = true;
+        console.log(event);
+        //in a real application, make a remote request to load data using state metadata from event
+        //event.first = First row offset
+        //event.rows = Number of rows per page
+        //event.sortField = Field name to sort with
+        //event.sortOrder = Sort order as number, 1 for asc and -1 for dec
+        //filters: FilterMetadata object having field as key and filter value, filter matchMode as value
+        //imitate db connection over a network
+        setTimeout(function () {
+            _this.userRest.getConsultants((event)).subscribe(function (response) {
+                console.log(_this.timeSheets = response.submissions.data);
+                _this.totalRecords = response.submissions.total;
+                _this.loading = false;
+            }, function (error) { console.log(error); });
+        }, 1000);
     };
     UserListComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.cities = [];
+        this.statusesVendor = [{ label: 'Select Status', value: null },
+            { label: 'Interview scheduled', value: 'Interview scheduled' },
+            { label: 'Submitted to Client', value: 'Submitted to Client' },
+            { label: 'Submitted to Vendor', value: 'Submitted to Vendor' },
+            { label: 'Disqualified', value: 'Disqualified' },
+            { label: 'Client rejected', value: 'Client rejected' },
+            { label: 'Vendor Rejected', value: 'Vendor Rejected' },
+            { label: 'Vendor screening call', value: 'Vendor screening call' },
+            { label: 'Waiting for Evaluation', value: 'Waiting for Evaluation' }
+        ];
+        this.userRest.getConsultantsOnly().subscribe(function (response) {
+            _this.cities = response.submissions;
+        }, function (error) { console.log(error); });
         this.registerVendor = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormGroup"]({
             'vendorStatus': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](''),
             'vendorComments': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](''),
             'scheduleDate': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](''),
             'timezone': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](''),
         });
-        this.userRest.getConsultants().subscribe(function (response) {
-            console.log(_this.timeSheets = response.submissions);
-            _this.totalRecords = _this.timeSheets.length;
-            _this.loading = false;
-        }, function (error) { console.log(error); });
-        this.frozenCols = [
-            { field: 'consultatName', header: 'Name' },
-        ];
+        this.frozenCols = [];
         this.scrollableCols = [
             // { field: 'user_details.name', header: 'Created By', width: '20%', editable: false },
-            { field: 'consultant.consultatName', header: 'First Name', width: '20%', editable: false },
-            { field: 'consultant.consultantLastName', header: 'Last Name', width: '20%', editable: false },
+            //  { field: 'consultant.consultatName', header: 'First Name', width: '20%', editable: false },
+            //    { field: 'consultant.consultantLastName', header: 'Last Name', width: '20%', editable: false },
             { field: 'vendorStatus', header: 'Status', width: '40%', editable: true },
             { field: 'consultant.technology', header: 'Technology', width: '20%', editable: false },
             { field: 'vendorCompanyName', header: 'Company Name', width: '20%', editable: false },
@@ -1972,12 +2000,6 @@ var UserListComponent = /** @class */ (function () {
             _this.timeSheets = response.timesheet;
         }, function (error) { console.log(error); });
     };
-    UserListComponent.prototype.download = function (event, url) {
-        window.open('https://portal.webmobilez.com/public/storage/' + url);
-    };
-    UserListComponent.prototype.editUser = function (id) {
-        this.router.navigate(['jobs/edit', id]);
-    };
     UserListComponent.prototype.getColor = function (status, adminStatus) {
         if (adminStatus == "A") {
             return "#d4edda";
@@ -2027,7 +2049,7 @@ var UserListComponent = /** @class */ (function () {
             _this.displayModal = false;
             console.log(response),
                 _this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Submision Updated' });
-            _this.timeSheets = response.submissions;
+            _this.timeSheets = response.submissions.data;
         }, function (error) {
             _this.serverErrors = error.error.errors;
         });
@@ -2076,13 +2098,44 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var UserRestService = /** @class */ (function () {
     function UserRestService(http) {
         this.http = http;
         this.users = [];
     }
-    UserRestService.prototype.getConsultants = function () {
-        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/submissions/");
+    UserRestService.prototype.getConsultants = function (page) {
+        var pagenumber = page.first / 20;
+        var str;
+        var actorList = page.filters;
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
+        console.log(Object.keys(actorList).length);
+        params = params.append('page', pagenumber);
+        if (Object.keys(actorList).length) {
+            /* if(actorList['user_details.name'])
+             params = params.append('name', actorList['user_details.name']['value']);
+   
+             if(actorList['vendorStatus'])
+             params = params.append('vendorStatus', actorList['vendorStatus']['value']);
+             if(actorList['vendorCompanyName'])
+             params = params.append('vendorCompanyName', actorList['vendorCompanyName']['value']);
+             if(actorList['vendorName'])
+             params = params.append('vendorName', actorList['vendorName']['value']);
+             if(actorList['vendorEmail'])
+             params = params.append('vendorEmail', actorList['vendorEmail']['value']);
+             if(actorList['created_at'])
+             params = params.append('created_at', actorList['created_at']['value']); */
+            if (actorList['consultant.consultatName'])
+                params = params.append('consultatName', actorList['consultant.consultatName']['value']);
+            for (var id in actorList) {
+                params = params.append(id, actorList[id]['value']);
+            }
+        }
+        var opts = { params: params };
+        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/submissions", opts);
+        // const pagenumber:any =page.first/20;
+        //this.http.get(`${environment.api}/submissions`,  params);
+        //  return this.http.get(`${environment.api}/submissions?page=`+pagenumber+'filters'+);
     };
     UserRestService.prototype.storeUser = function (form) {
         return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/submissions", form.value);
@@ -2104,6 +2157,9 @@ var UserRestService = /** @class */ (function () {
     };
     UserRestService.prototype.getConsultantsList = function () {
         return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/getConsultantsList/");
+    };
+    UserRestService.prototype.getConsultantsOnly = function () {
+        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/getConsultantsOnly/");
     };
     UserRestService.prototype.editUser = function (id) {
         return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/jobs/" + id);

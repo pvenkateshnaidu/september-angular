@@ -18,7 +18,7 @@ module.exports = "<router-outlet></router-outlet>\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<sidebar-cmp></sidebar-cmp>\r\n<div class=\"wrapper\">\r\n  <div class=\"container-fluid\">  <router-outlet></router-outlet></div>\r\n\r\n</div>\r\n\r\n"
+module.exports = "<sidebar-cmp></sidebar-cmp>\r\n\r\n  <div style=\"margin-left: 20px;margin-right: 20px;\">  <router-outlet></router-outlet></div>\r\n\r\n"
 
 /***/ }),
 
