@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use Mail;
+use \Swift_Mailer;
+use \Swift_SmtpTransport;
 class UserListController extends Controller
 {
     public function __construct()
