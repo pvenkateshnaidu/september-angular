@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use Mail;
+use Illuminate\Support\Facades\View;
 class UserListController extends Controller
 {
     public function __construct()
@@ -25,13 +26,37 @@ class UserListController extends Controller
         $data = array('name'=>"Our Code World");
         // Path or name to the blade template to be rendered
         $template_path = 'email_template';
+        $smtpAddress = 'smtp-mail.outlook.com';
+        $port = 587;
+        $encryption = 'tls';
+        $yourEmail = 'webmobilez@outlook.com';
+        $yourPassword = 'Tech$5367';
 
-        Mail::send($template_path, $data, function($message) {
-            // Set the receiver and subject of the mail.
-            $message->to('pvenkateshnaidu@gmail.com', 'Receiver Name')->subject('Laravel HTML Mail');
-            // Set the sender
-            $message->from('webmobilez@outlook.com','Our Code World');
-        });
+        // Prepare transport
+        $transport = \Swift_SmtpTransport::newInstance($smtpAddress, $port, $encryption)
+                ->setUsername($yourEmail)
+                ->setPassword($yourPassword);
+        $mailer = \Swift_Mailer::newInstance($transport);
+
+        // Prepare content
+        $view = View::make('email_template', [
+            'message' => '<h1>Hello World !</h1>'
+        ]);
+
+        $html = $view->render();
+
+        // Send email
+        $message = \Swift_Message::newInstance('Test')
+             ->setFrom(['webmobilez@outlook.com' => 'Our Code World'])
+             ->setTo(["pvenkateshnaidu@gmail.com" => "pvenkateshnaidu@gmail.com"])
+             // If you want plain text instead, remove the second paramter of setBody
+             ->setBody($html, 'text/html');
+
+        if($mailer->send($message)){
+            return "Check your inbox";
+        }
+
+       // return "Something went wrong :(";
 
         $user = User::get();
         return response()->json(['user' => $user], 200);
