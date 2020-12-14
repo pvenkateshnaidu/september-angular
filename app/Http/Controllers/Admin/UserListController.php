@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use Mail;
 class UserListController extends Controller
 {
     public function __construct()
@@ -21,6 +22,17 @@ class UserListController extends Controller
     public function index()
     {
         //
+        $data = array('name'=>"Our Code World");
+        // Path or name to the blade template to be rendered
+        $template_path = 'email_template';
+
+        Mail::send($template_path, $data, function($message) {
+            // Set the receiver and subject of the mail.
+            $message->to('pvenkateshnaidu@gmail.com', 'Receiver Name')->subject('Laravel HTML Mail');
+            // Set the sender
+            $message->from('webmobilez@outlook.com','Our Code World');
+        });
+
         $user = User::get();
         return response()->json(['user' => $user], 200);
     }
