@@ -30,7 +30,7 @@ class UserListController extends Controller
             // Set the receiver and subject of the mail.
             $message->to('pvenkateshnaidu@gmail.com', 'Receiver Name')->subject('Laravel HTML Mail');
             // Set the sender
-            $message->from('webmobilez@outlook.com','Our Code World');
+            $message->from('info@webmobilez.com','Our Code World');
         });
 
       //  return "Basic email sent, check your inbox.";
