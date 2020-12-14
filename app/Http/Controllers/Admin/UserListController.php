@@ -22,7 +22,7 @@ class UserListController extends Controller
     public function index()
     {
         //
-        $data = array('name'=>"Our Code World");
+        $data = array('name'=>"Web Mobilez test Mail");
         // Path or name to the blade template to be rendered
         $template_path = 'email_template';
 
@@ -30,7 +30,7 @@ class UserListController extends Controller
             // Set the receiver and subject of the mail.
             $message->to('pvenkateshnaidu@gmail.com', 'podili venkatesh')->subject('HTML Mail');
             // Set the sender
-            $message->from('info@webmobilez.com','Our Code World');
+            $message->from('AndrewMichael@webmobilez.com','Web Mobilez test Mail');
         });
 
       //  return "Basic email sent, check your inbox.";
