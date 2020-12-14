@@ -23,43 +23,8 @@ class UserListController extends Controller
      */
     public function index()
     {
-        //
-        $data = array('name'=>"Web Mobilez test Mail");
-        // Path or name to the blade template to be rendered
-        $template_path = 'email_template';
-        $backup = Mail::getSwiftMailer();
 
-        // Setup your gmail mailer
-        $transport = Swift_SmtpTransport::newInstance('smtp-mail.outlook.com', 465, 'tsl');
-        $transport->setUsername('AndrewMichael@webmobilez.com');
-        $transport->setPassword('Tech$5367');
-        // Any other mailer configuration stuff needed...
 
-        $gmail = new Swift_Mailer($transport);
-
-        // Set the mailer as gmail
-        Mail::setSwiftMailer($gmail);
-
-        Mail::send($template_path, $data, function($message) {
-            // Set the receiver and subject of the mail.
-            $message->to('pvenkateshnaidu@gmail.com', 'podili venkatesh')->subject('HTML Mail');
-            // Set the sender
-            $message->from('AndrewMichael@webmobilez.com','Web Mobilez test Mail');
-        })
-        // Send your message
-     //   Mail::send();
-
-        // Restore your original mailer
-        Mail::setSwiftMailer($backup);
-
-     /*   Mail::send($template_path, $data, function($message) {
-            // Set the receiver and subject of the mail.
-            $message->to('pvenkateshnaidu@gmail.com', 'podili venkatesh')->subject('HTML Mail');
-            // Set the sender
-            $message->from('info@webmobilez.com','Web Mobilez test Mail');
-        }); */
-
-      //  return "Basic email sent, check your inbox.";
         $user = User::get();
         return response()->json(['user' => $user], 200);
     }
