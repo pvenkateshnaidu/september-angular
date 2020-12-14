@@ -28,9 +28,9 @@ class UserListController extends Controller
 
         Mail::send($template_path, $data, function($message) {
             // Set the receiver and subject of the mail.
-            $message->to('jobs@webmobilez.com', 'podili venkatesh')->subject('HTML Mail');
+            $message->to('pvenkateshnaidu@gmail.com', 'podili venkatesh')->subject('HTML Mail');
             // Set the sender
-            $message->from('info@webmobilez.com','Our Code World');
+            $message->from('jobs@webmobilez.com','Our Code World');
         });
 
       //  return "Basic email sent, check your inbox.";
