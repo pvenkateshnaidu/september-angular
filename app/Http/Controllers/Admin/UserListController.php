@@ -35,10 +35,10 @@ class UserListController extends Controller
         $yourPassword = 'Tech$5367';
 
         // Prepare transport
-        $transport = Swift_SmtpTransport::newInstance($smtpAddress, $port, $encryption)
+        $transport = (new \Swift_SmtpTransport($smtpAddress, $port, $encryption))
             ->setUsername($yourEmail)
             ->setPassword($yourPassword);
-        $mailer = Swift_Mailer::newInstance($transport);
+        $mailer = (new \Swift_Mailer($transport));
 
         // Prepare content
         $view = View::make('email_template', [
@@ -46,7 +46,7 @@ class UserListController extends Controller
         ]);
 
         $html = $view->render();
-        $mail = Swift_Message::newInstance();
+        $mail = (new \Swift_Message());
         $mail->setFrom('info@webmobilez.com')
              ->setTo('pvenkateshnaidu@gmail.com')
              ->setSubject('Email subject')
