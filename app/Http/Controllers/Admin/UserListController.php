@@ -31,7 +31,7 @@ class UserListController extends Controller
         $smtpAddress = 'smtp-mail.outlook.com';
         $port = 587;
         $encryption = 'tls';
-        $yourEmail = 'info@webmobilez.com';
+        $yourEmail = 'AndrewMichael@webmobilez.com';
         $yourPassword = 'Tech$5367';
 
         // Prepare transport
@@ -47,7 +47,7 @@ class UserListController extends Controller
 
         $html = $view->render();
         $mail = (new \Swift_Message());
-        $mail->setFrom('info@webmobilez.com')
+        $mail->setFrom('AndrewMichael@webmobilez.com')
              ->setTo('pvenkateshnaidu@gmail.com')
              ->setSubject('Email subject')
              ->setBody('email body, can be swift template')
