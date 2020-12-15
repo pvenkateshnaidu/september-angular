@@ -27,7 +27,7 @@ class UserListController extends Controller
     public function index()
     {
 
-        // Configuration
+        /*
         $smtpAddress = 'smtp-mail.outlook.com';
         $port = 587;
         $encryption = 'tls';
@@ -35,30 +35,28 @@ class UserListController extends Controller
         $yourEmail = 'info@webmobilez.com';
         $yourPassword = 'Tech$5367';
 
-        // Prepare transport
         $transport = (new \Swift_SmtpTransport($smtpAddress, $port, $encryption))
             ->setUsername($yourEmail)
             ->setPassword($yourPassword);
         $mailer = (new \Swift_Mailer($transport));
 
-        // Prepare content
         $view = View::make('email_template', [
             'message' => '<h1>Hello Webmobilez!</h1>'
         ]);
 
         $html = $view->render();
         $mail = (new \Swift_Message());
-        $mail->setFrom('AndrewMichael@webmobilez.com')
+        $mail->setFrom('info@webmobilez.com')
              ->setTo('pvenkateshnaidu@gmail.com')
              ->setSubject('Email subject')
              ->setBody($html)
              ->setContentType('text/html');
 
 
-        if ($mailer->send($mail)) {
+        if ($mailer->send($mail)) { */
             $user = User::get();
             return response()->json(['user' => $user], 200);
-        }
+     //   }
 
     }
 
