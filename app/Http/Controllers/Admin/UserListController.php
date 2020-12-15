@@ -31,8 +31,9 @@ class UserListController extends Controller
         $smtpAddress = 'smtp-mail.outlook.com';
         $port = 587;
         $encryption = 'tls';
+
         $yourEmail = 'AndrewMichael@webmobilez.com';
-        $yourPassword = 'Tech$5367';
+        $yourPassword = 'Tech$';
 
         // Prepare transport
         $transport = (new \Swift_SmtpTransport($smtpAddress, $port, $encryption))
