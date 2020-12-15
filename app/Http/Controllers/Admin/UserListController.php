@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use Mail;
-use \Swift_Mailer;
-use \Swift_SmtpTransport;
+use Swift_Mailer;
+use Swift_SmtpTransport;
 use Illuminate\Support\Facades\View;
-
+use Swift_Transport;
+use Swift_Message;
 class UserListController extends Controller
 {
     public function __construct()
@@ -34,10 +35,10 @@ class UserListController extends Controller
         $yourPassword = 'Tech$5367';
 
         // Prepare transport
-        $transport = \Swift_SmtpTransport::newInstance($smtpAddress, $port, $encryption)
+        $transport = Swift_SmtpTransport::newInstance($smtpAddress, $port, $encryption)
             ->setUsername($yourEmail)
             ->setPassword($yourPassword);
-        $mailer = \Swift_Mailer::newInstance($transport);
+        $mailer = Swift_Mailer::newInstance($transport);
 
         // Prepare content
         $view = View::make('email_template', [
@@ -45,16 +46,16 @@ class UserListController extends Controller
         ]);
 
         $html = $view->render();
+        $mail = Swift_Message::newInstance();
+        $mail->setFrom('info@webmobilez.com')
+             ->setTo('pvenkateshnaidu@gmail.com')
+             ->setSubject('Email subject')
+             ->setBody('email body, can be swift template')
+             ->setContentType('text/html');
 
-        // Send email
-        $message = \Swift_Message::newInstance('Test')
-            ->setFrom(['info@webmobilez.com' => 'Our Code World'])
-            ->setTo(["pvenkateshnaidu@gmail.com" => "Venkatesh"])
-            // If you want plain text instead, remove the second paramter of setBody
-            ->setBody($html, 'text/html');
 
+        if ($mailer->send($mail)) {
             $user = User::get();
-        if ($mailer->send($message)) {
             return response()->json(['user' => $user], 200);
         }
 
