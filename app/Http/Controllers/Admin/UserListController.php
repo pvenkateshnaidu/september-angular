@@ -42,7 +42,7 @@ class UserListController extends Controller
 
         // Prepare content
         $view = View::make('email_template', [
-            'message' => '<h1>Hello World !</h1>'
+            'message' => '<h1>Hello Webmobilez!</h1>'
         ]);
 
         $html = $view->render();
@@ -50,7 +50,7 @@ class UserListController extends Controller
         $mail->setFrom('AndrewMichael@webmobilez.com')
              ->setTo('pvenkateshnaidu@gmail.com')
              ->setSubject('Email subject')
-             ->setBody('email body, can be swift template')
+             ->setBody($html)
              ->setContentType('text/html');
 
 
