@@ -91,7 +91,7 @@ class JobsController extends Controller
                 $user = \App\Reports::find($request->index);
                 $user->userStatus = 'p';
                 $user->save();
-                $timesheet = Reports::with('user_details')
+                $timesheet = \App\Reports::with('user_details')
                     ->where("userId", "=", \Auth::user()->id)
                     ->where('reports.wStatus', '!=', 'R')
                     ->orderBy('created_at', 'DESC')

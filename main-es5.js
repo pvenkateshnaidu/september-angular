@@ -150,6 +150,11 @@ __webpack_require__.r(__webpack_exports__);
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
     }
+    AppComponent.prototype.ngOnInit = function () {
+        if (location.protocol === 'http:') {
+            window.location.href = location.href.replace('http', 'https');
+        }
+    };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
