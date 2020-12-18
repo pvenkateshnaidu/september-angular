@@ -78,11 +78,11 @@ class JobsController extends Controller
             \Log::error($validator);
             return array('error' => true, 'msg' => 'Some thing went wrong');
         } else {
-            if (Auth::user()->role == "Admin") {
+            if (\Auth::user()->role == "Admin") {
                 $user = \App\Reports::find($request->index);
                 $user->adminStatus = 'A';
                 $user->save();
-                $timesheet = Reports::with('user_details')
+                $timesheet = \App\Reports::with('user_details')
                     ->where("userStatus", '=', 'p')
                     ->where('reports.wStatus', '!=', 'R')
                     ->orderBy('created_at', 'DESC')

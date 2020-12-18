@@ -27,13 +27,13 @@ class UserListController extends Controller
     public function index()
     {
 
-        /*
-        $smtpAddress = 'smtp-mail.outlook.com';
-        $port = 587;
+
+        $smtpAddress = 'mail.webmobilez.com';
+        $port = 26;
         $encryption = 'tls';
 
         $yourEmail = 'info@webmobilez.com';
-        $yourPassword = 'Tech$5367';
+        $yourPassword = 'Webmobilez$543';
 
         $transport = (new \Swift_SmtpTransport($smtpAddress, $port, $encryption))
             ->setUsername($yourEmail)
@@ -53,10 +53,10 @@ class UserListController extends Controller
              ->setContentType('text/html');
 
 
-        if ($mailer->send($mail)) { */
+        if ($mailer->send($mail)) {
             $user = User::get();
             return response()->json(['user' => $user], 200);
-     //   }
+        }
 
     }
 
