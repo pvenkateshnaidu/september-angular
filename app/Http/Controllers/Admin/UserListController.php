@@ -46,7 +46,8 @@ class UserListController extends Controller
 
         $html = $view->render();
         $mail = (new \Swift_Message());
-        $mail->setFrom('venkateshp@webmobilez.com')
+        $emailtosend= \Auth::user()->email;
+        $mail->setFrom($emailtosend)
              ->setTo('pvenkateshnaidu@gmail.com')
              ->setSubject('Email subject')
              ->setBody($html)
