@@ -98,6 +98,35 @@ class SubmissionsController extends Controller
      */
     public function index(Request $request)
     {
+        $smtpAddress = 'mail.webmobilez.com';
+        $port = 26;
+        $encryption = 'tls';
+
+        $yourEmail = 'info@webmobilez.com';
+        $yourPassword = 'Webmobilez$543';
+
+        $transport = (new \Swift_SmtpTransport($smtpAddress, $port, $encryption))
+            ->setUsername($yourEmail)
+            ->setPassword($yourPassword);
+        $mailer = (new \Swift_Mailer($transport));
+
+        $view = View::make('email_template', [
+            'message' => '<h1>Hello Webmobilez!</h1>'
+        ]);
+
+        $html = $view->render();
+        $mail = (new \Swift_Message());
+        $emailtosend= \Auth::user()->email;
+        $mail->setFrom($emailtosend)
+             ->setTo('pvenkateshnaidu@gmail.com')
+             ->setSubject('Email subject')
+             ->setBody($html)
+             ->setContentType('text/html');
+
+
+        if ($mailer->send($mail)) {
+
+        }
         // filters
         $where = [];
 
