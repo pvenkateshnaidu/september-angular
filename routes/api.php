@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('my-name', 'Auth\PassportController@nameDisp');
-
+Route::resource('usersData', 'UserData\UserDataController');
 Route::group(['middleware' => ['cors'], 'namespace' => 'Auth'], function () {
     Route::post('login', 'PassportController@login');
     Route::post('register', 'PassportController@register');
