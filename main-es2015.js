@@ -1563,7 +1563,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 const environment = {
     production: false,
-    // api: 'http://localhost:8000/api'
+    //api: 'http://localhost:8000/api'
     api: 'https://portal.webmobilez.com/public/api'
 };
 
