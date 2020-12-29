@@ -1489,6 +1489,88 @@ var SidebarComponent = /** @class */ (function () {
                 ]
             },
         ];
+        this.headHunderMenu = [
+            {
+                label: 'Consultants',
+                items: [
+                    { label: 'Consultants List', routerLink: "/huntersconsultants/list" },
+                    { label: 'Add Consultant', routerLink: "/huntersconsultants/create" },
+                ]
+            },
+            {
+                icon: 'pi pi-fw pi-file-o',
+                label: 'HotList',
+                routerLink: "/huntersconsultants/hotlist",
+            },
+            {
+                icon: 'pi pi-fw pi-dollar',
+                label: 'Calculations',
+                items: [
+                    { label: 'Percentage Off', command: function (event) {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            _this.calculatorModal = true;
+                        },
+                    },
+                    { label: 'Calculator', command: function (event) {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            _this.calculatorModal1 = true;
+                        },
+                    },
+                ]
+            },
+            {
+                icon: 'pi pi-fw pi-power-off',
+                label: 'My Account',
+                items: [
+                    { label: 'Profile', routerLink: "/profile" },
+                    { label: 'logout', command: function (event) {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            _this.logout();
+                        } },
+                ]
+            },
+        ];
+        this.jobMenu = [
+            {
+                label: 'Jobs',
+                items: [
+                    { label: 'Jobs', routerLink: "/jobs/list" },
+                ]
+            },
+            {
+                icon: 'pi pi-fw pi-dollar',
+                label: 'Calculations',
+                items: [
+                    { label: 'Percentage Off', command: function (event) {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            _this.calculatorModal = true;
+                        },
+                    },
+                    { label: 'Calculator', command: function (event) {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            _this.calculatorModal1 = true;
+                        },
+                    },
+                ]
+            },
+            {
+                icon: 'pi pi-fw pi-power-off',
+                label: 'My Account',
+                items: [
+                    { label: 'Profile', routerLink: "/profile" },
+                    { label: 'logout', command: function (event) {
+                            //event.originalEvent: Browser event
+                            //event.item: menuitem metadata
+                            _this.logout();
+                        } },
+                ]
+            },
+        ];
         this.clockHandle = setInterval(function () {
             _this.clock = new Date().toLocaleString();
         }, 1000);
