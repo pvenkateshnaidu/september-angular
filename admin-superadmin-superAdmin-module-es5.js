@@ -102,7 +102,7 @@ module.exports = "<h4 class=\"remove-margin\">Consultant Documents </h4>\r\n\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p-toast position=\"bottom-right\"></p-toast>\n\n\n\n<div class=\"row\">\n  <div class=\"col-md-12\">\n    <h4 class=\"remove-margin\">Send Email </h4>\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <!-- <h5 class=\"card-title\">Edit Profile</h5> -->\n\n      </div>\n      <div class=\"card-body\">\n        <form [formGroup]=\"registerForm\" (ngSubmit)=\"registerUser()\" enctype=\"multipart/form-data\">\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>CC Email</label>\n                <input type=\"email\" formControlName=\"cc\" class=\"form-control\" />\n\n              </div>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>Subject</label>\n            <input type=\"text\" formControlName=\"subject\" class=\"form-control\" />\n\n              </div>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>Message</label>\n                <angular-editor formControlName=\"message\" [config]=\"config\"></angular-editor>\n\n              </div>\n            </div>\n          </div>\n\n\n          <div class=\"row\">\n            <div class=\"update ml-auto mr-auto\">\n              <button type=\"submit\" class=\"btn btn-primary btn-round\" [disabled]=\"!registerForm.valid\">Send Email</button>\n            </div>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<p-toast position=\"bottom-right\"></p-toast>\n\n\n\n<div class=\"row\">\n  <div class=\"col-md-12\">\n    <h4 class=\"remove-margin\">Send Email </h4>\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <!-- <h5 class=\"card-title\">Edit Profile</h5> -->\n\n      </div>\n      <div class=\"card-body\">\n        <form [formGroup]=\"registerForm\" (ngSubmit)=\"registerUser()\" enctype=\"multipart/form-data\">\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>CC Email</label>\n                <input type=\"email\" formControlName=\"cc\" class=\"form-control\" />\n\n              </div>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>Subject</label>\n            <input type=\"text\" formControlName=\"subject\" class=\"form-control\" />\n\n              </div>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>Message</label>\n                <angular-editor formControlName=\"message\" [config]=\"editorConfig\"></angular-editor>\n\n              </div>\n            </div>\n          </div>\n\n\n          <div class=\"row\">\n            <div class=\"update ml-auto mr-auto\">\n              <button type=\"submit\" class=\"btn btn-primary btn-round\" [disabled]=\"!registerForm.valid\">Send Email</button>\n            </div>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2812,32 +2812,49 @@ var EmailCreateComponent = /** @class */ (function () {
         this.messageService = messageService;
         this.userRest = userRest;
         this.router = router;
-        this.config = {
+        this.editorConfig = {
             editable: true,
             spellcheck: true,
-            height: '15rem',
-            minHeight: '5rem',
+            height: 'auto',
+            minHeight: '350px',
+            maxHeight: 'auto',
+            width: 'auto',
+            minWidth: '0',
+            translate: 'yes',
+            enableToolbar: true,
+            showToolbar: true,
             placeholder: 'Enter text here...',
-            translate: 'no',
-            defaultParagraphSeparator: 'p',
-            defaultFontName: 'Arial',
-            toolbarHiddenButtons: [
-                ['bold']
+            defaultParagraphSeparator: '',
+            defaultFontName: '',
+            defaultFontSize: '',
+            fonts: [
+                { class: 'arial', name: 'Arial' },
+                { class: 'times-new-roman', name: 'Times New Roman' },
+                { class: 'calibri', name: 'Calibri' },
+                { class: 'comic-sans-ms', name: 'Comic Sans MS' }
             ],
             customClasses: [
                 {
-                    name: "quote",
-                    class: "quote",
+                    name: 'quote',
+                    class: 'quote',
                 },
                 {
                     name: 'redText',
                     class: 'redText'
                 },
                 {
-                    name: "titleText",
-                    class: "titleText",
-                    tag: "h1",
+                    name: 'titleText',
+                    class: 'titleText',
+                    tag: 'h1',
                 },
+            ],
+            uploadUrl: 'v1/image',
+            uploadWithCredentials: false,
+            sanitize: false,
+            toolbarPosition: 'top',
+            toolbarHiddenButtons: [
+                ['bold', 'italic'],
+                ['fontSize']
             ]
         };
         this.serverErrors = [];
