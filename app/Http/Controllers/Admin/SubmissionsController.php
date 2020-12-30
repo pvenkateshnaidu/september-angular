@@ -40,8 +40,10 @@ class SubmissionsController extends Controller
         $html = $view->render();
         $mail = (new \Swift_Message());
         $emailtosend= \Auth::user()->email;
+        $ccemails = $request->cc;
+        $ccemails = implode(",",$ccemails);
         $mail->setFrom($emailtosend)
-             ->setTo($request->cc)
+             ->setTo($ccemails)
              ->setSubject($request->subject)
              ->setBody($html)
              ->setContentType('text/html');

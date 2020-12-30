@@ -1,5 +1,307 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["admin-superadmin-superAdmin-module"],{
 
+/***/ "./node_modules/primeng/chips.js":
+/*!***************************************!*\
+  !*** ./node_modules/primeng/chips.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* Shorthand */
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./components/chips/chips */ "./node_modules/primeng/components/chips/chips.js"));
+
+/***/ }),
+
+/***/ "./node_modules/primeng/components/chips/chips.js":
+/*!********************************************************!*\
+  !*** ./node_modules/primeng/components/chips/chips.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+var common_1 = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+var shared_1 = __webpack_require__(/*! ../common/shared */ "./node_modules/primeng/components/common/shared.js");
+var inputtext_1 = __webpack_require__(/*! ../inputtext/inputtext */ "./node_modules/primeng/components/inputtext/inputtext.js");
+var forms_1 = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+exports.CHIPS_VALUE_ACCESSOR = {
+    provide: forms_1.NG_VALUE_ACCESSOR,
+    useExisting: core_1.forwardRef(function () { return Chips; }),
+    multi: true
+};
+var Chips = /** @class */ (function () {
+    function Chips(el) {
+        this.el = el;
+        this.allowDuplicate = true;
+        this.onAdd = new core_1.EventEmitter();
+        this.onRemove = new core_1.EventEmitter();
+        this.onFocus = new core_1.EventEmitter();
+        this.onBlur = new core_1.EventEmitter();
+        this.onChipClick = new core_1.EventEmitter();
+        this.onModelChange = function () { };
+        this.onModelTouched = function () { };
+    }
+    Chips.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        this.templates.forEach(function (item) {
+            switch (item.getType()) {
+                case 'item':
+                    _this.itemTemplate = item.template;
+                    break;
+                default:
+                    _this.itemTemplate = item.template;
+                    break;
+            }
+        });
+    };
+    Chips.prototype.onClick = function (event) {
+        this.inputViewChild.nativeElement.focus();
+    };
+    Chips.prototype.onItemClick = function (event, item) {
+        this.onChipClick.emit({
+            originalEvent: event,
+            value: item
+        });
+    };
+    Chips.prototype.writeValue = function (value) {
+        this.value = value;
+        this.updateMaxedOut();
+    };
+    Chips.prototype.registerOnChange = function (fn) {
+        this.onModelChange = fn;
+    };
+    Chips.prototype.registerOnTouched = function (fn) {
+        this.onModelTouched = fn;
+    };
+    Chips.prototype.setDisabledState = function (val) {
+        this.disabled = val;
+    };
+    Chips.prototype.resolveFieldData = function (data, field) {
+        if (data && field) {
+            if (field.indexOf('.') == -1) {
+                return data[field];
+            }
+            else {
+                var fields = field.split('.');
+                var value = data;
+                for (var i = 0, len = fields.length; i < len; ++i) {
+                    value = value[fields[i]];
+                }
+                return value;
+            }
+        }
+        else {
+            return null;
+        }
+    };
+    Chips.prototype.onInputFocus = function (event) {
+        this.focus = true;
+        this.onFocus.emit(event);
+    };
+    Chips.prototype.onInputBlur = function (event) {
+        this.focus = false;
+        if (this.addOnBlur && this.inputViewChild.nativeElement.value) {
+            this.addItem(event, this.inputViewChild.nativeElement.value);
+            this.inputViewChild.nativeElement.value = '';
+        }
+        this.onModelTouched();
+        this.onBlur.emit(event);
+    };
+    Chips.prototype.removeItem = function (event, index) {
+        if (this.disabled) {
+            return;
+        }
+        var removedItem = this.value[index];
+        this.value = this.value.filter(function (val, i) { return i != index; });
+        this.onModelChange(this.value);
+        this.onRemove.emit({
+            originalEvent: event,
+            value: removedItem
+        });
+        this.updateMaxedOut();
+    };
+    Chips.prototype.addItem = function (event, item) {
+        this.value = this.value || [];
+        if (item && item.trim().length) {
+            if (this.allowDuplicate || this.value.indexOf(item) === -1) {
+                this.value = this.value.concat([item]);
+                this.onModelChange(this.value);
+                this.onAdd.emit({
+                    originalEvent: event,
+                    value: item
+                });
+            }
+        }
+        this.updateMaxedOut();
+    };
+    Chips.prototype.onKeydown = function (event) {
+        switch (event.which) {
+            //backspace
+            case 8:
+                if (this.inputViewChild.nativeElement.value.length === 0 && this.value && this.value.length > 0) {
+                    this.value = this.value.slice();
+                    var removedItem = this.value.pop();
+                    this.onModelChange(this.value);
+                    this.onRemove.emit({
+                        originalEvent: event,
+                        value: removedItem
+                    });
+                }
+                break;
+            //enter
+            case 13:
+                this.addItem(event, this.inputViewChild.nativeElement.value);
+                this.inputViewChild.nativeElement.value = '';
+                event.preventDefault();
+                break;
+            case 9:
+                if (this.addOnTab && this.inputViewChild.nativeElement.value !== '') {
+                    this.addItem(event, this.inputViewChild.nativeElement.value);
+                    this.inputViewChild.nativeElement.value = '';
+                    event.preventDefault();
+                }
+                break;
+            default:
+                if (this.max && this.value && this.max === this.value.length) {
+                    event.preventDefault();
+                }
+                break;
+        }
+    };
+    Chips.prototype.updateMaxedOut = function () {
+        if (this.inputViewChild && this.inputViewChild.nativeElement) {
+            if (this.max && this.value && this.max === this.value.length)
+                this.inputViewChild.nativeElement.disabled = true;
+            else
+                this.inputViewChild.nativeElement.disabled = this.disabled || false;
+        }
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Chips.prototype, "style", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Chips.prototype, "styleClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Chips.prototype, "disabled", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Chips.prototype, "field", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Chips.prototype, "placeholder", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], Chips.prototype, "max", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], Chips.prototype, "tabindex", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Chips.prototype, "inputId", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Chips.prototype, "allowDuplicate", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Chips.prototype, "inputStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Chips.prototype, "inputStyleClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Chips.prototype, "addOnTab", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Chips.prototype, "addOnBlur", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Chips.prototype, "onAdd", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Chips.prototype, "onRemove", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Chips.prototype, "onFocus", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Chips.prototype, "onBlur", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Chips.prototype, "onChipClick", void 0);
+    __decorate([
+        core_1.ViewChild('inputtext', { static: false }),
+        __metadata("design:type", core_1.ElementRef)
+    ], Chips.prototype, "inputViewChild", void 0);
+    __decorate([
+        core_1.ContentChildren(shared_1.PrimeTemplate),
+        __metadata("design:type", core_1.QueryList)
+    ], Chips.prototype, "templates", void 0);
+    Chips = __decorate([
+        core_1.Component({
+            selector: 'p-chips',
+            template: "\n        <div [ngClass]=\"'ui-chips ui-widget'\" [ngStyle]=\"style\" [class]=\"styleClass\" (click)=\"onClick($event)\">\n            <ul [ngClass]=\"{'ui-inputtext ui-state-default ui-corner-all':true,'ui-state-focus':focus,'ui-state-disabled':disabled}\">\n                <li #token *ngFor=\"let item of value; let i = index;\" class=\"ui-chips-token ui-state-highlight ui-corner-all\" (click)=\"onItemClick($event, item)\">\n                    <span *ngIf=\"!disabled\" class=\"ui-chips-token-icon pi pi-fw pi-times\" (click)=\"removeItem($event,i)\"></span>\n                    <span *ngIf=\"!itemTemplate\" class=\"ui-chips-token-label\">{{field ? resolveFieldData(item,field) : item}}</span>\n                    <ng-container *ngTemplateOutlet=\"itemTemplate; context: {$implicit: item}\"></ng-container>\n                </li>\n                <li class=\"ui-chips-input-token\">\n                    <input #inputtext type=\"text\" [attr.id]=\"inputId\" [attr.placeholder]=\"(value && value.length ? null : placeholder)\" [attr.tabindex]=\"tabindex\" (keydown)=\"onKeydown($event)\" \n                        (focus)=\"onInputFocus($event)\" (blur)=\"onInputBlur($event)\" [disabled]=\"disabled\" [ngStyle]=\"inputStyle\" [class]=\"inputStyleClass\">\n                </li>\n            </ul>\n        </div>\n    ",
+            providers: [exports.CHIPS_VALUE_ACCESSOR]
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], Chips);
+    return Chips;
+}());
+exports.Chips = Chips;
+var ChipsModule = /** @class */ (function () {
+    function ChipsModule() {
+    }
+    ChipsModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, inputtext_1.InputTextModule, shared_1.SharedModule],
+            exports: [Chips, inputtext_1.InputTextModule, shared_1.SharedModule],
+            declarations: [Chips]
+        })
+    ], ChipsModule);
+    return ChipsModule;
+}());
+exports.ChipsModule = ChipsModule;
+//# sourceMappingURL=chips.js.map
+
+/***/ }),
+
 /***/ "./node_modules/primeng/dynamicdialog.js":
 /*!***********************************************!*\
   !*** ./node_modules/primeng/dynamicdialog.js ***!
@@ -102,7 +404,7 @@ module.exports = "<h4 class=\"remove-margin\">Consultant Documents </h4>\r\n\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p-toast position=\"bottom-right\"></p-toast>\n\n\n\n<div class=\"row\">\n  <div class=\"col-md-12\">\n    <h4 class=\"remove-margin\">Send Email </h4>\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <!-- <h5 class=\"card-title\">Edit Profile</h5> -->\n\n      </div>\n      <div class=\"card-body\">\n        <form [formGroup]=\"registerForm\" (ngSubmit)=\"registerUser()\" enctype=\"multipart/form-data\">\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>CC Email</label>\n                <input type=\"email\" formControlName=\"cc\" class=\"form-control\" />\n\n              </div>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>Subject</label>\n            <input type=\"text\" formControlName=\"subject\" class=\"form-control\" />\n\n              </div>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>Message</label>\n                <angular-editor formControlName=\"message\" [config]=\"editorConfig\"></angular-editor>\n\n              </div>\n            </div>\n          </div>\n\n\n          <div class=\"row\">\n            <div class=\"update ml-auto mr-auto\">\n              <button type=\"submit\" class=\"btn btn-primary btn-round\" [disabled]=\"!registerForm.valid\">Send Email</button>\n            </div>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<p-toast position=\"bottom-right\"></p-toast>\n\n\n\n<div class=\"row\">\n  <div class=\"col-md-12\">\n    <h4 class=\"remove-margin\">Send Email </h4>\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <!-- <h5 class=\"card-title\">Edit Profile</h5> -->\n\n      </div>\n      <div class=\"card-body\">\n        <form [formGroup]=\"registerForm\" (ngSubmit)=\"registerUser()\" enctype=\"multipart/form-data\">\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>CC Email</label>\n\n                <p-chips [addOnTab]=\"true\"\n                [addOnBlur]=\"true\"\n                (keydown)=\"onKeyDown($event)\"\n                [(ngModel)]=\"values\" formControlName=\"cc\" ></p-chips>\n              </div>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>Subject</label>\n            <input type=\"text\" formControlName=\"subject\" class=\"form-control\" />\n\n              </div>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>Message</label>\n                <angular-editor formControlName=\"message\" [config]=\"editorConfig\"></angular-editor>\n\n              </div>\n            </div>\n          </div>\n\n\n          <div class=\"row\">\n            <div class=\"update ml-auto mr-auto\">\n              <button type=\"submit\" class=\"btn btn-primary btn-round\" [disabled]=\"!registerForm.valid\">Send Email</button>\n            </div>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2490,12 +2792,20 @@ let EmailCreateComponent = class EmailCreateComponent {
         this.registerForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
             'message': new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(10)]),
             'subject': new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(5)]),
-            'cc': new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].email]),
+            'cc': new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]),
         });
     }
     get cc() { return this.registerForm.get('cc'); }
     get message() { return this.registerForm.get('message'); }
     get subject() { return this.registerForm.get('subject'); }
+    onKeyDown(event) {
+        if (event.key === ",") {
+            event.preventDefault();
+            const element = event.target;
+            element.blur();
+            element.focus();
+        }
+    }
     registerUser() {
         console.log(this.registerForm);
         this.userRest.emailsent(this.registerForm).subscribe(response => {
@@ -3096,6 +3406,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _field_pipe__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../../field.pipe */ "./src/app/field.pipe.ts");
 /* harmony import */ var _email_email_create_email_create_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./email/email-create/email-create.component */ "./src/app/admin/superadmin/email/email-create/email-create.component.ts");
 /* harmony import */ var _kolkov_angular_editor__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @kolkov/angular-editor */ "./node_modules/@kolkov/angular-editor/fesm2015/kolkov-angular-editor.js");
+/* harmony import */ var primeng_chips__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! primeng/chips */ "./node_modules/primeng/chips.js");
+/* harmony import */ var primeng_chips__WEBPACK_IMPORTED_MODULE_38___default = /*#__PURE__*/__webpack_require__.n(primeng_chips__WEBPACK_IMPORTED_MODULE_38__);
+
 
 
 
@@ -3153,7 +3466,7 @@ SuperAdminModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             primeng_button__WEBPACK_IMPORTED_MODULE_16__["ButtonModule"],
             primeng_toast__WEBPACK_IMPORTED_MODULE_12__["ToastModule"],
             primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__["InputTextModule"],
-            primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__["ProgressBarModule"], primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__["TabMenuModule"], primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__["TooltipModule"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_21__["NgxDropzoneModule"], primeng_dropdown__WEBPACK_IMPORTED_MODULE_22__["DropdownModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], primeng_inplace__WEBPACK_IMPORTED_MODULE_23__["InplaceModule"]
+            primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__["ProgressBarModule"], primeng_chips__WEBPACK_IMPORTED_MODULE_38__["ChipsModule"], primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__["TabMenuModule"], primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__["TooltipModule"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_21__["NgxDropzoneModule"], primeng_dropdown__WEBPACK_IMPORTED_MODULE_22__["DropdownModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], primeng_inplace__WEBPACK_IMPORTED_MODULE_23__["InplaceModule"]
         ],
         providers: [
             _user_rest_service__WEBPACK_IMPORTED_MODULE_8__["UserRestService"]
