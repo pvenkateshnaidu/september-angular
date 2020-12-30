@@ -95,6 +95,17 @@ module.exports = "<h4 class=\"remove-margin\">Consultant Documents </h4>\r\n\r\n
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/superadmin/email/email-create/consultant-create.component.html":
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/superadmin/email/email-create/consultant-create.component.html ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p-toast position=\"bottom-right\"></p-toast>\n\n\n\n<div class=\"row\">\n  <div class=\"col-md-12\">\n    <h4 class=\"remove-margin\">Send Email </h4>\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <!-- <h5 class=\"card-title\">Edit Profile</h5> -->\n\n      </div>\n      <div class=\"card-body\">\n        <form [formGroup]=\"registerForm\" (ngSubmit)=\"registerUser()\" enctype=\"multipart/form-data\">\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>CC Email</label>\n                <input type=\"email\" formControlName=\"cc\" class=\"form-control\" />\n\n              </div>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>Subject</label>\n            <input type=\"text\" formControlName=\"subject\" class=\"form-control\" />\n\n              </div>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-md-12\">\n              <div class=\"form-group\">\n                <label>Message</label>\n                <angular-editor formControlName=\"message\" [config]=\"config\"></angular-editor>\n\n              </div>\n            </div>\n          </div>\n\n\n          <div class=\"row\">\n            <div class=\"update ml-auto mr-auto\">\n              <button type=\"submit\" class=\"btn btn-primary btn-round\" [disabled]=\"!registerForm.valid\">Send Email</button>\n            </div>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/admin/superadmin/hotlist/user-list/user-list.component.html":
 /*!*******************************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/admin/superadmin/hotlist/user-list/user-list.component.html ***!
@@ -2761,6 +2772,189 @@ var DocumentsListComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/admin/superadmin/email/email-create/consultant-create.component.scss":
+/*!**************************************************************************************!*\
+  !*** ./src/app/admin/superadmin/email/email-create/consultant-create.component.scss ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL3N1cGVyYWRtaW4vZW1haWwvZW1haWwtY3JlYXRlL2NvbnN1bHRhbnQtY3JlYXRlLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/admin/superadmin/email/email-create/email-create.component.ts":
+/*!*******************************************************************************!*\
+  !*** ./src/app/admin/superadmin/email/email-create/email-create.component.ts ***!
+  \*******************************************************************************/
+/*! exports provided: EmailCreateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EmailCreateComponent", function() { return EmailCreateComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _email_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../email-rest.service */ "./src/app/admin/superadmin/email/email-rest.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+
+
+var EmailCreateComponent = /** @class */ (function () {
+    function EmailCreateComponent(route, messageService, userRest, router) {
+        this.route = route;
+        this.messageService = messageService;
+        this.userRest = userRest;
+        this.router = router;
+        this.config = {
+            editable: true,
+            spellcheck: true,
+            height: '15rem',
+            minHeight: '5rem',
+            placeholder: 'Enter text here...',
+            translate: 'no',
+            defaultParagraphSeparator: 'p',
+            defaultFontName: 'Arial',
+            toolbarHiddenButtons: [
+                ['bold']
+            ],
+            customClasses: [
+                {
+                    name: "quote",
+                    class: "quote",
+                },
+                {
+                    name: 'redText',
+                    class: 'redText'
+                },
+                {
+                    name: "titleText",
+                    class: "titleText",
+                    tag: "h1",
+                },
+            ]
+        };
+        this.serverErrors = [];
+    }
+    EmailCreateComponent.prototype.ngOnInit = function () {
+        this.registerForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
+            'message': new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(10)]),
+            'subject': new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(5)]),
+            'cc': new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].email]),
+        });
+    };
+    Object.defineProperty(EmailCreateComponent.prototype, "cc", {
+        get: function () { return this.registerForm.get('cc'); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(EmailCreateComponent.prototype, "message", {
+        get: function () { return this.registerForm.get('message'); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(EmailCreateComponent.prototype, "subject", {
+        get: function () { return this.registerForm.get('subject'); },
+        enumerable: true,
+        configurable: true
+    });
+    EmailCreateComponent.prototype.registerUser = function () {
+        var _this = this;
+        console.log(this.registerForm);
+        this.userRest.emailsent(this.registerForm).subscribe(function (response) {
+            console.log(response),
+                _this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Email Sent' });
+            _this.router.navigate(['superadmin/email']);
+            _this.registerForm.reset();
+        }, function (error) {
+            _this.serverErrors = error.error.errors;
+        });
+    };
+    EmailCreateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-user-create',
+            template: __webpack_require__(/*! raw-loader!./consultant-create.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/superadmin/email/email-create/consultant-create.component.html"),
+            providers: [primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"]],
+            styles: [__webpack_require__(/*! ./consultant-create.component.scss */ "./src/app/admin/superadmin/email/email-create/consultant-create.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"], _email_rest_service__WEBPACK_IMPORTED_MODULE_3__["EmailRestService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], EmailCreateComponent);
+    return EmailCreateComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/superadmin/email/email-rest.service.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/admin/superadmin/email/email-rest.service.ts ***!
+  \**************************************************************/
+/*! exports provided: EmailRestService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EmailRestService", function() { return EmailRestService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../environments/environment */ "./src/environments/environment.ts");
+
+
+
+
+var EmailRestService = /** @class */ (function () {
+    function EmailRestService(http) {
+        this.http = http;
+        this.users = [];
+    }
+    EmailRestService.prototype.emailsent = function (form) {
+        return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/emailsent", form.value);
+    };
+    EmailRestService.prototype.getTimeSheet = function () {
+        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/getAllTimesheets");
+    };
+    EmailRestService.prototype.getConsultants = function () {
+        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/getAllConsultants/");
+    };
+    EmailRestService.prototype.storeUser = function (form) {
+        return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/store-consultant", form.value);
+    };
+    EmailRestService.prototype.statusChangeConsultant = function (index) {
+        return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/status-consultant", index);
+    };
+    EmailRestService.prototype.editUser = function (id) {
+        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/store-consultant/" + id);
+    };
+    EmailRestService.prototype.updateUser = function (form, id) {
+        return this.http.put(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/store-consultant/" + id, form.value);
+    };
+    EmailRestService.prototype.storeDocument = function (document) {
+        return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/saveDocument", document);
+    };
+    EmailRestService.prototype.removeFile = function (document) {
+        return this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/removeDocument", document);
+    };
+    EmailRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], EmailRestService);
+    return EmailRestService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/admin/superadmin/hotlist/user-list/user-list.component.scss":
 /*!*****************************************************************************!*\
   !*** ./src/app/admin/superadmin/hotlist/user-list/user-list.component.scss ***!
@@ -3279,6 +3473,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _interviews_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./interviews/user-list/user-list.component */ "./src/app/admin/superadmin/interviews/user-list/user-list.component.ts");
 /* harmony import */ var _hotlist_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./hotlist/user-list/user-list.component */ "./src/app/admin/superadmin/hotlist/user-list/user-list.component.ts");
 /* harmony import */ var _field_pipe__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../../field.pipe */ "./src/app/field.pipe.ts");
+/* harmony import */ var _email_email_create_email_create_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./email/email-create/email-create.component */ "./src/app/admin/superadmin/email/email-create/email-create.component.ts");
+/* harmony import */ var _kolkov_angular_editor__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @kolkov/angular-editor */ "./node_modules/@kolkov/angular-editor/fesm5/kolkov-angular-editor.js");
+
+
 
 
 
@@ -3322,11 +3520,11 @@ var SuperAdminModule = /** @class */ (function () {
     SuperAdminModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _field_pipe__WEBPACK_IMPORTED_MODULE_35__["FieldPipe"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_7__["UserCreateComponent"], _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_6__["UserEditComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _documents_list_documents_list_component__WEBPACK_IMPORTED_MODULE_26__["DocumentsListComponent"], _consultants_consultant_list_consultant_list_component__WEBPACK_IMPORTED_MODULE_28__["ConsultantListComponent"], _consultants_consultant_create_consultant_create_component__WEBPACK_IMPORTED_MODULE_29__["ConsultantCreateComponent"], _consultants_consultant_edit_consultant_edit_component__WEBPACK_IMPORTED_MODULE_30__["ConsultantEditComponent"],
-                _benchsales_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_31__["BenchListComponent"], _benchsales_user_create_user_create_component__WEBPACK_IMPORTED_MODULE_32__["BenchCreateComponent"], _hotlist_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_34__["HotListComponent"], _interviews_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_33__["InterviewComponent"], _documents_inactive_documents_list_component__WEBPACK_IMPORTED_MODULE_27__["DocumentsInactiveComponent"]
+                _benchsales_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_31__["BenchListComponent"], _benchsales_user_create_user_create_component__WEBPACK_IMPORTED_MODULE_32__["BenchCreateComponent"], _email_email_create_email_create_component__WEBPACK_IMPORTED_MODULE_36__["EmailCreateComponent"], _hotlist_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_34__["HotListComponent"], _interviews_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_33__["InterviewComponent"], _documents_inactive_documents_list_component__WEBPACK_IMPORTED_MODULE_27__["DocumentsInactiveComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-                _user_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserRoutingModule"],
+                _user_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserRoutingModule"], _kolkov_angular_editor__WEBPACK_IMPORTED_MODULE_37__["AngularEditorModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], primeng_table__WEBPACK_IMPORTED_MODULE_10__["TableModule"], primeng_multiselect__WEBPACK_IMPORTED_MODULE_11__["MultiSelectModule"], primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_25__["DynamicDialogModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_24__["ConfirmDialogModule"],
                 primeng_slider__WEBPACK_IMPORTED_MODULE_13__["SliderModule"],
                 primeng_dialog__WEBPACK_IMPORTED_MODULE_15__["DialogModule"],
@@ -3790,6 +3988,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _interviews_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./interviews/user-list/user-list.component */ "./src/app/admin/superadmin/interviews/user-list/user-list.component.ts");
 /* harmony import */ var _hotlist_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./hotlist/user-list/user-list.component */ "./src/app/admin/superadmin/hotlist/user-list/user-list.component.ts");
 /* harmony import */ var _documents_inactive_documents_list_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./documents-inactive/documents-list.component */ "./src/app/admin/superadmin/documents-inactive/documents-list.component.ts");
+/* harmony import */ var _email_email_create_email_create_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./email/email-create/email-create.component */ "./src/app/admin/superadmin/email/email-create/email-create.component.ts");
+
 
 
 
@@ -3846,6 +4046,9 @@ var routes = [
                     expectedRole: 'Admin'
                 } },
             { path: 'documentsinactive', component: _documents_inactive_documents_list_component__WEBPACK_IMPORTED_MODULE_15__["DocumentsInactiveComponent"], data: {
+                    expectedRole: 'Admin'
+                } },
+            { path: 'email', component: _email_email_create_email_create_component__WEBPACK_IMPORTED_MODULE_16__["EmailCreateComponent"], data: {
                     expectedRole: 'Admin'
                 } },
         ]

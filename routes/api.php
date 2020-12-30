@@ -116,4 +116,8 @@ Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], func
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
     Route::resource('clients', 'ClientController');
 });
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::post('emailsent', 'SubmissionsController@emailsent');
+});
+
 

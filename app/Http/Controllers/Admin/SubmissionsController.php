@@ -18,6 +18,40 @@ class SubmissionsController extends Controller
         $this->middleware('auth:api');
     }
 
+    public function emailsent(Request $request)
+    {
+
+        $smtpAddress = 'mail.webmobilez.com';
+        $port = 26;
+        $encryption = 'tls';
+
+        $yourEmail = 'info@webmobilez.com';
+        $yourPassword = 'Webmobilez$543';
+
+        $transport = (new \Swift_SmtpTransport($smtpAddress, $port, $encryption))
+            ->setUsername($yourEmail)
+            ->setPassword($yourPassword);
+        $mailer = (new \Swift_Mailer($transport));
+
+        $view = View::make('email_template', [
+            'message' => $request->message
+        ]);
+
+        $html = $view->render();
+        $mail = (new \Swift_Message());
+        $emailtosend= \Auth::user()->email;
+        $mail->setFrom($emailtosend)
+             ->setTo($request->cc)
+             ->setSubject($request->subject)
+             ->setBody($html)
+             ->setContentType('text/html');
+
+
+        if ($mailer->send($mail)) {
+            return response()->json(['sent' =>"sent"], 200);
+        }
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -232,7 +266,7 @@ class SubmissionsController extends Controller
                 $user = \App\Reports::find($request->index);
                 $user->adminStatus = 'A';
                 $user->save();
-                $timesheet = Reports::with('user_details')
+                $timesheet =  \App\Reports::with('user_details')
                     ->where("userStatus", '=', 'p')
                     ->where('reports.wStatus', '!=', 'R')
                     ->orderBy('created_at', 'DESC')
@@ -241,7 +275,7 @@ class SubmissionsController extends Controller
                 $user = \App\Reports::find($request->index);
                 $user->userStatus = 'p';
                 $user->save();
-                $timesheet = Reports::with('user_details')
+                $timesheet =  \App\Reports::with('user_details')
                     ->where("userId", "=", \Auth::user()->id)
                     ->where('reports.wStatus', '!=', 'R')
                     ->orderBy('created_at', 'DESC')
