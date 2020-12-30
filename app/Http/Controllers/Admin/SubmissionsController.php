@@ -10,7 +10,7 @@ use App\Clients;
 use Carbon\Carbon;
 use Auth;
 use Illuminate\Validation\Rule;
-
+use Illuminate\Support\Facades\View;
 class SubmissionsController extends Controller
 {
     public function __construct()
