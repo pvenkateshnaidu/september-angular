@@ -22,7 +22,7 @@ class HotListController extends Controller
      */
     public function index()
     {
-        $journals = \App\Reports::select("*", \DB::raw("CONCAT(reports.technology,'',reports.otherTechnologies) AS technology"))->where('reports.wStatus', '=', 'A')
+        $journals = \App\Reports::where('reports.wStatus', '=', 'A')
               ->where('reports.adminStatus', '=', 'A')
             ->orderBy('reports.created_at', 'desc')
             ->get();
