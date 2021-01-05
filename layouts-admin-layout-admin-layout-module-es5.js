@@ -479,6 +479,28 @@ exports.DynamicDialogContent = DynamicDialogContent;
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/calculatorDash/calculatordash.component.html":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/calculatorDash/calculatordash.component.html ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<input type=\"text\" [ngModel]=\"formattedTokens\" class=\"form-control-sm form-control text-right\" readonly>\n\n<input type=\"text\" [ngModel]=\"input\" class=\"form-control form-control-lg text-right\" readonly>\n\n<div class=\"row mt-3\">\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"reset()\">AC</button>\n\t</div>\n\t<div class=\"col-3\">\n    <button class=\"btn btn-primary btn-block\" (click)=\"execOperator('(')\">(</button>\n  </div>\n\t<div class=\"col-3\">\n    <button class=\"btn btn-primary btn-block\" (click)=\"execOperator(')')\">)</button>\n  </div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-primary btn-block\" (click)=\"execOperator('/')\">/</button>\n\t</div>\n</div>\n<div class=\"row mt-3\">\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('1')\">1</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('2')\">2</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('3')\">3</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-primary btn-block\" (click)=\"execOperator('*')\">x</button>\n\t</div>\n</div>\n<div class=\"row mt-3\">\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('4')\">4</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('5')\">5</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('6')\">6</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-primary btn-block\" (click)=\"execOperator('+')\">+</button>\n\t</div>\n</div>\n<div class=\"row mt-3\">\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('7')\">7</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('8')\">8</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('9')\">9</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-primary btn-block\" (click)=\"execOperator('-')\">-</button>\n\t</div>\n</div>\n<div class=\"row mt-3\">\n\t<div class=\"col-6\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('0')\">0</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button class=\"btn btn-secondary btn-block\" (click)=\"insertChar('.')\">,</button>\n\t</div>\n\t<div class=\"col-3\">\n\t\t<button autofocus class=\"btn btn-primary btn-block\" (click)=\"evaluate()\">=</button>\n\t</div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/calculatorpage/calculatorpage.component.html":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/calculatorpage/calculatorpage.component.html ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h4 class=\"remove-margin\"></h4>\r\n\r\n<div class=\"container\" >\r\n\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n    <div class=\"col\">\r\n      <div class=\"container\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-12\">\r\n            <div class=\"card\">\r\n              <div class=\"card-body\">\r\n\r\n                <form id=\"userForm\" method=\"post\" name=\"percent_off\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-md-6\">\r\n                      <div class=\"input-group mb-3\">\r\n                        <div class=\"input-group-prepend\">\r\n                          <span class=\"input-group-text\">$</span>\r\n                        </div>\r\n                        <input type=\"number\" name=\"list\" value=\"52\" class=\"form-control\"\r\n                          aria-label=\"Amount (to the nearest dollar)\" [(ngModel)]=\"num1\" >\r\n                      </div>\r\n\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"row\">\r\n                    <div class=\"col-md-6\">\r\n                      <label class=\"control-label required\" for=\"percent_off_p\">Percent Off</label>\r\n                      <div class=\"input-group mb-3\">\r\n\r\n                        <div class=\"input-group-prepend\">\r\n                          <span class=\"input-group-text\" id=\"basic-addon1\">%</span>\r\n                        </div>\r\n                        <select class=\"form-control\" name=\"disc\" [(ngModel)]=\"num2\">\r\n                          <option value=\"10\">10</option>\r\n                          <option value=\"15\">15</option>\r\n                          <option value=\"20\">20</option>\r\n                          <option value=\"25\">25</option>\r\n                          <option value=\"30\">30</option>\r\n                        </select>\r\n                      </div>\r\n\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"row\">\r\n                    <div class=\"col-md-4\">\r\n                      <div class=\"form-group\">\r\n                        <br>\r\n                        <button type=\"submit\" id=\"percent_off_save\" name=\"percent_off[save]\"\r\n                          class=\"button btn-lg btn btn-primary btn-block btn\">Calculate Percent Off</button>\r\n                      </div>\r\n\r\n                    </div>\r\n                  </div>\r\n                </form>\r\n                <div class=\"row\">\r\n                  <div class=\"col-md-4\">\r\n                    <div class=\"form-group\">\r\n                      <div id=\"result\" style=\"height: auto !important;\">\r\n                        <label class=\"control-label required\" for=\"percent_off_p\">Result :</label> {{ ConvertToInt(num1)  -( ConvertToInt(num1)*ConvertToInt(num2)/100)  }}\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n\r\n\r\n\r\n  </div>\r\n  <div class=\"col\">\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n          <div class=\"card\">\r\n            <div class=\"card-body\">\r\n  <ng-calculator></ng-calculator>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n</div>\r\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/pages/dashboard/dashboard.component.html":
 /*!************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/pages/dashboard/dashboard.component.html ***!
@@ -486,7 +508,7 @@ exports.DynamicDialogContent = DynamicDialogContent;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4 class=\"remove-margin\"></h4>\r\n\r\n<div class=\"container\" *ngIf=\"menuexpectedrole=='Admin'\">\r\n\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n    <div class=\"col\">\r\n     <a [routerLink]=\"['/superadmin/userlist']\">\r\n      <figure class=\"figure\">\r\n        <img src=\"../../assets/img/conversation.png\" class=\"figure-img img-fluid rounded\" >\r\n        <figcaption class=\"figure-caption text-center\">Users</figcaption>\r\n      </figure>\r\n    </a>\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/interviews']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/schedule.png\" class=\"figure-img img-fluid rounded\">\r\n          <figcaption class=\"figure-caption text-center\">Interview Schedule</figcaption>\r\n        </figure>\r\n      </a>\r\n\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/documents']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/download-btn.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Download Center</figcaption>\r\n        </figure>\r\n      </a>\r\n\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/sumissionlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/work-from-home.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Bench Sales <br>Submissions</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n  </div>\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/consultantlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/consultation.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Head Hunters</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/consultantlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/calculator.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Calculater</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/hotlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/search.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Hot List</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/jobs/list']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/businessman.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Jobs</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"container\" *ngIf=\"menuexpectedrole=='BenchSales'\">\r\n\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/benchsales/interviews']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/schedule.png\" class=\"figure-img img-fluid rounded\">\r\n          <figcaption class=\"figure-caption text-center\">Interview Schedule</figcaption>\r\n        </figure>\r\n      </a>\r\n\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/benchsales/documentlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/download-btn.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Download Center</figcaption>\r\n        </figure>\r\n      </a>\r\n\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/benchsales/list']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/work-from-home.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Submissions</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/benchsales/hotlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/search.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Hot List</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/consultantlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/calculator.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Calculater</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n  </div>\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n\r\n  </div>\r\n</div>\r\n<div class=\"container\" *ngIf=\"menuexpectedrole=='HeadHuntersAdmin'\">\r\n\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/headadminconsultants/list']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/consultation.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Head Hunters</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/headadminconsultants/hotlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/search.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Hot List</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/consultantlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/calculator.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Calculater</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n  </div>\r\n\r\n</div>\r\n<div class=\"container\" *ngIf=\"menuexpectedrole=='HeadHunters'\">\r\n\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/huntersconsultants/list']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/consultation.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Head Hunters</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/huntersconsultants/hotlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/search.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Hot List</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/consultantlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/calculator.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Calculater</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n<div class=\"container\" *ngIf=\"menuexpectedrole=='Accountmanager'\">\r\n\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/jobs/list']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/businessman.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Jobs</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/consultantlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/calculator.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Calculater</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n  </div>\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n\r\n  </div>\r\n</div>\r\n"
+module.exports = "<h4 class=\"remove-margin\"></h4>\r\n\r\n<div class=\"container\" *ngIf=\"menuexpectedrole=='Admin'\">\r\n\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n    <div class=\"col\">\r\n     <a [routerLink]=\"['/superadmin/userlist']\">\r\n      <figure class=\"figure\">\r\n        <img src=\"../../assets/img/conversation.png\" class=\"figure-img img-fluid rounded\" >\r\n        <figcaption class=\"figure-caption text-center\">Users</figcaption>\r\n      </figure>\r\n    </a>\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/interviews']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/schedule.png\" class=\"figure-img img-fluid rounded\">\r\n          <figcaption class=\"figure-caption text-center\">Interview Schedule</figcaption>\r\n        </figure>\r\n      </a>\r\n\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/documents']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/download-btn.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Download Center</figcaption>\r\n        </figure>\r\n      </a>\r\n\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/sumissionlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/work-from-home.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Bench Sales <br>Submissions</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n  </div>\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/consultantlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/consultation.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Head Hunters</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/calculator']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/calculator.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Calculater</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/superadmin/hotlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/search.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Hot List</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/jobs/list']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/businessman.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Jobs</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"container\" *ngIf=\"menuexpectedrole=='BenchSales'\">\r\n\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/benchsales/interviews']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/schedule.png\" class=\"figure-img img-fluid rounded\">\r\n          <figcaption class=\"figure-caption text-center\">Interview Schedule</figcaption>\r\n        </figure>\r\n      </a>\r\n\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/benchsales/documentlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/download-btn.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Download Center</figcaption>\r\n        </figure>\r\n      </a>\r\n\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/benchsales/list']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/work-from-home.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Submissions</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/benchsales/hotlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/search.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Hot List</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/calculator']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/calculator.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Calculater</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n  </div>\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n\r\n  </div>\r\n</div>\r\n<div class=\"container\" *ngIf=\"menuexpectedrole=='HeadHuntersAdmin'\">\r\n\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/headadminconsultants/list']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/consultation.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Head Hunters</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/headadminconsultants/hotlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/search.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Hot List</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/calculator']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/calculator.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Calculater</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n  </div>\r\n\r\n</div>\r\n<div class=\"container\" *ngIf=\"menuexpectedrole=='HeadHunters'\">\r\n\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/huntersconsultants/list']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/consultation.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Head Hunters</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/huntersconsultants/hotlist']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/search.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Hot List</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/calculator']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/calculator.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Calculater</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n<div class=\"container\" *ngIf=\"menuexpectedrole=='Accountmanager'\">\r\n\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/jobs/list']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/businessman.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Jobs</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n    <div class=\"col\">\r\n      <a [routerLink]=\"['/calculator']\">\r\n        <figure class=\"figure\">\r\n          <img src=\"../../assets/img/calculator.png\" class=\"figure-img img-fluid rounded\" >\r\n          <figcaption class=\"figure-caption text-center\">Calculater</figcaption>\r\n        </figure>\r\n      </a>\r\n    </div>\r\n\r\n  </div>\r\n  <div class=\"row row-cols-1 row-cols-sm-4 row-cols-md-4 g-3 p-3\">\r\n\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -568,11 +590,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _admin_layout_routing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./admin-layout.routing */ "./src/app/layouts/admin-layout/admin-layout.routing.ts");
 /* harmony import */ var _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/dashboard/dashboard.component */ "./src/app/pages/dashboard/dashboard.component.ts");
-/* harmony import */ var _pages_user_user_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/user/user.component */ "./src/app/pages/user/user.component.ts");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
-/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primeng/toast */ "./node_modules/primeng/toast.js");
-/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(primeng_toast__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _user_serviuce__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./user.serviuce */ "./src/app/layouts/admin-layout/user.serviuce.ts");
+/* harmony import */ var _pages_calculatorpage_calculatorpage_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/calculatorpage/calculatorpage.component */ "./src/app/pages/calculatorpage/calculatorpage.component.ts");
+/* harmony import */ var _pages_user_user_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../pages/user/user.component */ "./src/app/pages/user/user.component.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/toast */ "./node_modules/primeng/toast.js");
+/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(primeng_toast__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _user_serviuce__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./user.serviuce */ "./src/app/layouts/admin-layout/user.serviuce.ts");
+/* harmony import */ var _pages_calculatorDash_calculatordash_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../pages/calculatorDash/calculatordash.component */ "./src/app/pages/calculatorDash/calculatordash.component.ts");
+
+
 
 
 
@@ -594,13 +620,13 @@ var AdminLayoutModule = /** @class */ (function () {
                 _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(_admin_layout_routing__WEBPACK_IMPORTED_MODULE_5__["AdminLayoutRoutes"]),
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
-                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], primeng_toast__WEBPACK_IMPORTED_MODULE_9__["ToastModule"]
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__["NgbModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], primeng_toast__WEBPACK_IMPORTED_MODULE_10__["ToastModule"]
             ],
             declarations: [
-                _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"],
-                _pages_user_user_component__WEBPACK_IMPORTED_MODULE_7__["UserComponent"],
+                _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"], _pages_calculatorpage_calculatorpage_component__WEBPACK_IMPORTED_MODULE_7__["CalculatorPageComponent"],
+                _pages_user_user_component__WEBPACK_IMPORTED_MODULE_8__["UserComponent"], _pages_calculatorDash_calculatordash_component__WEBPACK_IMPORTED_MODULE_12__["CalculatorDashComponent"]
             ],
-            providers: [_user_serviuce__WEBPACK_IMPORTED_MODULE_10__["UserService"]],
+            providers: [_user_serviuce__WEBPACK_IMPORTED_MODULE_11__["UserService"]],
         })
     ], AdminLayoutModule);
     return AdminLayoutModule;
@@ -624,6 +650,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_user_user_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/user/user.component */ "./src/app/pages/user/user.component.ts");
 /* harmony import */ var app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/auth-guard.service */ "./src/app/auth-guard.service.ts");
 /* harmony import */ var app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/rout-guard.service */ "./src/app/rout-guard.service.ts");
+/* harmony import */ var _pages_calculatorpage_calculatorpage_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/calculatorpage/calculatorpage.component */ "./src/app/pages/calculatorpage/calculatorpage.component.ts");
+
 
 
 
@@ -631,6 +659,7 @@ __webpack_require__.r(__webpack_exports__);
 var AdminLayoutRoutes = [
     { path: 'dashboard', canActivate: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]], component: _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_0__["DashboardComponent"] },
     { path: 'profile', canActivate: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]], component: _pages_user_user_component__WEBPACK_IMPORTED_MODULE_1__["UserComponent"] },
+    { path: 'calculator', canActivate: [app_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]], component: _pages_calculatorpage_calculatorpage_component__WEBPACK_IMPORTED_MODULE_4__["CalculatorPageComponent"] },
     /*{
       path: 'consultantdocuments', canActivateChild: [AuthGuardService],
   
@@ -791,6 +820,333 @@ var UserService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], UserService);
     return UserService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/calculatorDash/calculatordash.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/pages/calculatorDash/calculatordash.component.ts ***!
+  \******************************************************************/
+/*! exports provided: CalculatorDashComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalculatorDashComponent", function() { return CalculatorDashComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _rpn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./rpn */ "./src/app/pages/calculatorDash/rpn.ts");
+/* harmony import */ var _yard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./yard */ "./src/app/pages/calculatorDash/yard.ts");
+/* harmony import */ var _format__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./format */ "./src/app/pages/calculatorDash/format.ts");
+/* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./model */ "./src/app/pages/calculatorDash/model.ts");
+
+
+
+
+
+
+var CalculatorDashComponent = /** @class */ (function () {
+    function CalculatorDashComponent() {
+        this.tokens = [];
+        this.showResult = false;
+    }
+    CalculatorDashComponent.prototype.insertChar = function (character) {
+        var lastToken = this.lastToken;
+        var doubleMin = lastToken === '-' && Object(_model__WEBPACK_IMPORTED_MODULE_5__["isOperator"])(this.beforeLastToken);
+        if (lastToken === undefined || (Object(_model__WEBPACK_IMPORTED_MODULE_5__["isOperator"])(lastToken) && !doubleMin)) {
+            if (character === '.') {
+                character = '0' + character;
+            }
+            this.tokens.push(character);
+        }
+        else if (this.showResult) {
+            this.tokens = [character];
+        }
+        else {
+            this.tokens[this.tokens.length - 1] = lastToken + character;
+        }
+        this.showResult = false;
+    };
+    Object.defineProperty(CalculatorDashComponent.prototype, "lastToken", {
+        get: function () {
+            return this.tokens[this.tokens.length - 1];
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CalculatorDashComponent.prototype, "beforeLastToken", {
+        get: function () {
+            return this.tokens[this.tokens.length - 2];
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CalculatorDashComponent.prototype, "input", {
+        get: function () {
+            if (this.showResult) {
+                try {
+                    //return format(math.eval(this.tokens.join(' ')).toString());
+                    return Object(_format__WEBPACK_IMPORTED_MODULE_4__["format"])(Object(_rpn__WEBPACK_IMPORTED_MODULE_2__["rpn"])(Object(_yard__WEBPACK_IMPORTED_MODULE_3__["yard"])(this.tokens)).toString());
+                }
+                catch (e) {
+                    return 'Je hebt iets verkeerd gedaan.';
+                }
+            }
+            return Object(_format__WEBPACK_IMPORTED_MODULE_4__["format"])(this.tokens
+                .slice()
+                .reverse()
+                .find(function (t) { return !Object(_model__WEBPACK_IMPORTED_MODULE_5__["isOperator"])(t); }) || '0');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CalculatorDashComponent.prototype, "formattedTokens", {
+        get: function () {
+            return this.tokens.map(_format__WEBPACK_IMPORTED_MODULE_4__["format"]).join(' ').replace(/\*/g, 'x') || '0';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    CalculatorDashComponent.prototype.reset = function () {
+        this.tokens = [];
+        this.showResult = false;
+    };
+    CalculatorDashComponent.prototype.evaluate = function () {
+        // repeat last action
+        if (this.showResult && this.tokens.length >= 2) {
+            this.tokens = this.tokens.concat(this.tokens.slice(-2));
+        }
+        this.showResult = true;
+    };
+    CalculatorDashComponent.prototype.execOperator = function (operator) {
+        // ANS support
+        if (this.showResult) {
+            this.tokens = [Object(_rpn__WEBPACK_IMPORTED_MODULE_2__["rpn"])(Object(_yard__WEBPACK_IMPORTED_MODULE_3__["yard"])(this.tokens)).toString()];
+        }
+        if (!this.lastToken && operator !== '(') {
+            this.tokens.push('0');
+        }
+        this.tokens.push(operator);
+        this.showResult = false;
+    };
+    // KEYBOARD SUPPORT
+    CalculatorDashComponent.prototype.onKeyDown = function (event) {
+        var key = event.key.toLowerCase();
+        // event.preventDefault();
+        if (key === 'c' || key === 'backspace') {
+            this.reset();
+        }
+        else if (key === ',' || key === '.') {
+            this.insertChar('.');
+        }
+        else if (!isNaN(parseInt(key))) {
+            this.insertChar(key);
+        }
+        else if (key === 'enter') {
+            this.evaluate();
+        }
+        else if (Object(_model__WEBPACK_IMPORTED_MODULE_5__["isOperator"])(key)) {
+            this.execOperator(key);
+        }
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:keydown', ['$event']),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [KeyboardEvent]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", void 0)
+    ], CalculatorDashComponent.prototype, "onKeyDown", null);
+    CalculatorDashComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'ng-calculator',
+            template: __webpack_require__(/*! raw-loader!./calculatordash.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/calculatorDash/calculatordash.component.html")
+        })
+    ], CalculatorDashComponent);
+    return CalculatorDashComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/calculatorDash/format.ts":
+/*!************************************************!*\
+  !*** ./src/app/pages/calculatorDash/format.ts ***!
+  \************************************************/
+/*! exports provided: format */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "format", function() { return format; });
+/* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./model */ "./src/app/pages/calculatorDash/model.ts");
+
+function format(input) {
+    if (Object(_model__WEBPACK_IMPORTED_MODULE_0__["isOperator"])(input)) {
+        return input;
+    }
+    else {
+        return input.replace('.', ',');
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/pages/calculatorDash/model.ts":
+/*!***********************************************!*\
+  !*** ./src/app/pages/calculatorDash/model.ts ***!
+  \***********************************************/
+/*! exports provided: isOperator */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isOperator", function() { return isOperator; });
+function isOperator(token) {
+    return token === '-' || token === '+' || token === '*' || token === '/' || token === '(' || token === ')';
+}
+
+
+/***/ }),
+
+/***/ "./src/app/pages/calculatorDash/rpn.ts":
+/*!*********************************************!*\
+  !*** ./src/app/pages/calculatorDash/rpn.ts ***!
+  \*********************************************/
+/*! exports provided: rpn */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rpn", function() { return rpn; });
+/* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./model */ "./src/app/pages/calculatorDash/model.ts");
+/* harmony import */ var big_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! big.js */ "./node_modules/big.js/big.js");
+/* harmony import */ var big_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(big_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function rpn(tokens) {
+    var stack = [];
+    tokens.forEach(function (token) {
+        if (!Object(_model__WEBPACK_IMPORTED_MODULE_0__["isOperator"])(token)) {
+            stack.push(big_js__WEBPACK_IMPORTED_MODULE_1___default()(token));
+        }
+        else if (stack.length < 2) {
+            throw new Error('Syntax error.');
+        }
+        else {
+            var val2 = stack.pop();
+            var val1 = stack.pop();
+            switch (token) {
+                case '+':
+                    stack.push(val1.add(val2));
+                    break;
+                case '*':
+                    stack.push(val1.mul(val2));
+                    break;
+                case '/':
+                    if (val2.eq(0)) {
+                        throw new Error('Division by zero.');
+                    }
+                    stack.push(val1.div(val2));
+                    break;
+                case '-':
+                    stack.push(val1.minus(val2));
+                    break;
+            }
+        }
+    });
+    return stack.pop().round(10);
+}
+
+
+/***/ }),
+
+/***/ "./src/app/pages/calculatorDash/yard.ts":
+/*!**********************************************!*\
+  !*** ./src/app/pages/calculatorDash/yard.ts ***!
+  \**********************************************/
+/*! exports provided: yard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "yard", function() { return yard; });
+/* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./model */ "./src/app/pages/calculatorDash/model.ts");
+
+function yard(infix) {
+    var ops = { '+': 1, '-': 1, '*': 2, '/': 2 };
+    var peek = function (arr) { return arr[arr.length - 1]; };
+    var stack = [];
+    return infix.reduce(function (output, token) {
+        if (!Object(_model__WEBPACK_IMPORTED_MODULE_0__["isOperator"])(token)) {
+            output.push(token);
+        }
+        else {
+            if (token in ops) {
+                while (peek(stack) && ops[token] <= ops[peek(stack)]) {
+                    output.push(stack.pop());
+                }
+                stack.push(token);
+            }
+            if (token === '(') {
+                stack.push(token);
+            }
+            if (token === ')') {
+                while (stack.length > 0 && peek(stack) !== '(') {
+                    output.push(stack.pop());
+                }
+                stack.pop();
+            }
+        }
+        return output;
+    }, []).concat(stack.reverse());
+}
+
+
+/***/ }),
+
+/***/ "./src/app/pages/calculatorpage/calculatorpage.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/pages/calculatorpage/calculatorpage.component.ts ***!
+  \******************************************************************/
+/*! exports provided: CalculatorPageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalculatorPageComponent", function() { return CalculatorPageComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var CalculatorPageComponent = /** @class */ (function () {
+    function CalculatorPageComponent() {
+        this.num1 = 52;
+        this.num2 = 20;
+    }
+    CalculatorPageComponent.prototype.ngOnInit = function () {
+        this.menuexpectedrole = localStorage.getItem('role');
+        console.log(this.menuexpectedrole);
+    };
+    CalculatorPageComponent.prototype.showCalculator = function () {
+        this.calculatorModal = true;
+    };
+    CalculatorPageComponent.prototype.showCalculator1 = function () {
+        this.calculatorModal1 = true;
+    };
+    CalculatorPageComponent.prototype.ConvertToInt = function (val) {
+        return parseFloat(val);
+    };
+    CalculatorPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'calculatorpage-cmp',
+            template: __webpack_require__(/*! raw-loader!./calculatorpage.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/calculatorpage/calculatorpage.component.html")
+        })
+    ], CalculatorPageComponent);
+    return CalculatorPageComponent;
 }());
 
 

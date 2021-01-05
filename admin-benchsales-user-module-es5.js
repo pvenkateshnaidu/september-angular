@@ -29,7 +29,7 @@ module.exports = "<h4 class=\"remove-margin\">Consultant Documents </h4>\r\n\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4 class=\"remove-margin\"> Hot List </h4>\r\n<p-table #dt [columns]=\"cols\" scrollHeight=\"500px\"  [scrollable]=\"true\" [value]=\"products\" [loading]=\"loading\" [autoLayout]=\"true\" [resizableColumns]=\"true\" columnResizeMode=\"expand\" selectionMode=\"multiple\" [(selection)]=\"selectedProducts\">\r\n  <ng-template pTemplate=\"caption\">\r\n    <div class=\"p-d-flex\">\r\n      <button type=\"button\" pButton  pRipple icon=\"pi pi-file-o\"  class=\"btn-length\" (click)=\"dt.exportCSV()\" pTooltip=\"CSV\"\r\n      tooltipPosition=\"bottom\"></button>\r\n    <!-- <button type=\"button\" pButton pRipple icon=\"pi pi-file-excel\" (click)=\"exportExcel()\" class=\"p-button-success p-mr-2\"  pTooltip=\"XLS\" tooltipPosition=\"bottom\"></button> -->\r\n    <button (click)=\"exportPdf()\" pButton   class=\"btn-length\" label=\"Export as pdf\"></button>\r\n    <button type=\"button\" pButton pRipple icon=\"pi pi-filter\" (click)=\"dt.exportCSV({selectionOnly:true})\"\r\n      class=\"p-button-info p-ml-auto\" pTooltip=\"Selection Only\" tooltipPosition=\"bottom\"></button>\r\n    </div>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"colgroup\" let-columns>\r\n    <colgroup>\r\n\r\n      <col *ngFor=\"let col of columns\" >\r\n\r\n    </colgroup>\r\n\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n\r\n      <th *ngFor=\"let col of columns\" >\r\n        {{col.header}}\r\n      </th>\r\n      <th>Request Resume</th>\r\n\r\n    </tr>\r\n    <tr>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'technology', 'startsWith')\"\r\n          placeholder=\"Technology\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'experience', 'startsWith')\"\r\n          placeholder=\"Experience\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'state', 'startsWith')\"\r\n          placeholder=\"State\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'willingLocation', 'startsWith')\"\r\n          placeholder=\"Relocate\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'visaType', 'startsWith')\"\r\n          placeholder=\"Visa Type\" class=\"p-column-filter\">\r\n      </th>\r\n      <th></th>\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\">\r\n    <tr [pSelectableRow]=\"rowData\">\r\n      <td *ngFor=\"let col of columns\">\r\n        {{rowData[col.field]}}\r\n      </td>\r\n      <td><a >Request Resume</a></td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n"
+module.exports = "<h4 class=\"remove-margin\"> Hot List </h4>\r\n<p-table #dt [columns]=\"cols\"  [value]=\"products\" [loading]=\"loading\" [autoLayout]=\"true\" [resizableColumns]=\"true\" columnResizeMode=\"expand\" >\r\n  <ng-template pTemplate=\"caption\">\r\n    <div class=\"p-d-flex\">\r\n      <button type=\"button\" pButton  pRipple icon=\"pi pi-file-o\"  class=\"btn-length\" (click)=\"dt.exportCSV()\" pTooltip=\"CSV\"\r\n      tooltipPosition=\"bottom\"></button>\r\n    <!-- <button type=\"button\" pButton pRipple icon=\"pi pi-file-excel\" (click)=\"exportExcel()\" class=\"p-button-success p-mr-2\"  pTooltip=\"XLS\" tooltipPosition=\"bottom\"></button> -->\r\n    <button (click)=\"exportPdf()\" pButton   class=\"btn-length\" label=\"Export as pdf\"></button>\r\n\r\n    </div>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"colgroup\" let-columns>\r\n    <colgroup>\r\n\r\n      <col *ngFor=\"let col of columns\" >\r\n\r\n    </colgroup>\r\n\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n\r\n      <th *ngFor=\"let col of columns\" >\r\n        {{col.header}}\r\n      </th>\r\n      <th>Request Resume</th>\r\n\r\n    </tr>\r\n    <tr>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'consultatName', 'startsWith')\"\r\n          placeholder=\"Name\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input  pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'technology', 'contains')\"\r\n          placeholder=\"Technology\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'experience', 'startsWith')\"\r\n          placeholder=\"Experience\" class=\"p-column-filter\">\r\n      </th>\r\n\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'state', 'startsWith')\"\r\n          placeholder=\"State\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'willingLocation', 'startsWith')\"\r\n          placeholder=\"Relocate\" class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" (input)=\"dt.filter($event.target.value, 'visaType', 'startsWith')\"\r\n          placeholder=\"Visa Type\" class=\"p-column-filter\">\r\n      </th>\r\n      <th></th>\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\">\r\n    <tr [pSelectableRow]=\"rowData\">\r\n\r\n      <td *ngFor=\"let col of columns\">\r\n        {{rowData[col.field] | replace : 'others' : ' '}}\r\n      </td>\r\n      <td><a >Request Resume</a></td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n"
 
 /***/ }),
 
@@ -595,6 +595,16 @@ var HotListBenchComponent = /** @class */ (function () {
     HotListBenchComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.userRest.getConsultants().subscribe(function (response) { console.log(_this.products = response.timesheet); _this.loading = false; }, function (error) { console.log(error); });
+        this.colsex = [
+            { field: 'consultatName', header: 'Name' },
+            { field: 'technology', header: 'Technology' },
+            //   { field: 'consultatMobileNumber', header: 'MobileNumber' },
+            //  { field: 'consultantEmail', header: 'Email' },
+            { field: 'experience', header: 'Experience' },
+            { field: 'state', header: 'state' },
+            { field: 'willingLocation', header: 'Relocate', width: '20%', editable: false },
+            { field: 'visaType', header: 'visa Type', width: '20%', editable: false },
+        ];
         this.cols = [
             { field: 'consultatName', header: 'Name' },
             { field: 'technology', header: 'Technology' },
@@ -605,7 +615,7 @@ var HotListBenchComponent = /** @class */ (function () {
             { field: 'willingLocation', header: 'Relocate', width: '20%', editable: false },
             { field: 'visaType', header: 'visa Type', width: '20%', editable: false },
         ];
-        this.exportColumns = this.cols.map(function (col) { return ({ title: col.header, dataKey: col.field }); });
+        this.exportColumns = this.colsex.map(function (col) { return ({ title: col.header, dataKey: col.field }); });
     };
     /*
       exportExcel() {
@@ -2356,8 +2366,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hotlist_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./hotlist/user-list/user-list.component */ "./src/app/admin/benchsales/hotlist/user-list/user-list.component.ts");
 /* harmony import */ var primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! primeng/virtualscroller */ "./node_modules/primeng/virtualscroller.js");
 /* harmony import */ var primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_31__);
-/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! primeng/calendar */ "./node_modules/primeng/calendar.js");
-/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(primeng_calendar__WEBPACK_IMPORTED_MODULE_32__);
+/* harmony import */ var _replace_pipe_pipe__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../replace-pipe.pipe */ "./src/app/replace-pipe.pipe.ts");
+/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! primeng/calendar */ "./node_modules/primeng/calendar.js");
+/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(primeng_calendar__WEBPACK_IMPORTED_MODULE_33__);
+
 
 
 
@@ -2397,12 +2409,12 @@ var UserModule = /** @class */ (function () {
     }
     UserModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__["UserCreateComponent"], _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__["UserEditComponent"],
+            declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _replace_pipe_pipe__WEBPACK_IMPORTED_MODULE_32__["ReplacePipe"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__["UserCreateComponent"], _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__["UserEditComponent"],
                 _field1_pipe__WEBPACK_IMPORTED_MODULE_25__["FieldPipe1"], _documents_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_27__["DocumentBenchListComponent"], _contacts_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_28__["ContactListComponent"], _hotlist_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_30__["HotListBenchComponent"], _interviews_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_29__["InterviewBenchComponent"]],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
                 _user_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserRoutingModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], primeng_table__WEBPACK_IMPORTED_MODULE_10__["TableModule"], primeng_multiselect__WEBPACK_IMPORTED_MODULE_11__["MultiSelectModule"], primeng_calendar__WEBPACK_IMPORTED_MODULE_32__["CalendarModule"], primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_31__["VirtualScrollerModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], primeng_table__WEBPACK_IMPORTED_MODULE_10__["TableModule"], primeng_multiselect__WEBPACK_IMPORTED_MODULE_11__["MultiSelectModule"], primeng_calendar__WEBPACK_IMPORTED_MODULE_33__["CalendarModule"], primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_31__["VirtualScrollerModule"],
                 primeng_slider__WEBPACK_IMPORTED_MODULE_13__["SliderModule"],
                 primeng_dialog__WEBPACK_IMPORTED_MODULE_15__["DialogModule"],
                 primeng_multiselect__WEBPACK_IMPORTED_MODULE_11__["MultiSelectModule"],
@@ -2462,6 +2474,39 @@ var FieldPipe1 = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], FieldPipe1);
     return FieldPipe1;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/replace-pipe.pipe.ts":
+/*!**************************************!*\
+  !*** ./src/app/replace-pipe.pipe.ts ***!
+  \**************************************/
+/*! exports provided: ReplacePipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReplacePipe", function() { return ReplacePipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var ReplacePipe = /** @class */ (function () {
+    function ReplacePipe() {
+    }
+    ReplacePipe.prototype.transform = function (value, strToReplace, replacementStr) {
+        if (!value || !strToReplace || !replacementStr) {
+            return value;
+        }
+        return value.replace(new RegExp(strToReplace, 'g'), replacementStr);
+    };
+    ReplacePipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({ name: 'replace' })
+    ], ReplacePipe);
+    return ReplacePipe;
 }());
 
 
