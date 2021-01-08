@@ -114,9 +114,9 @@ class ConsultantController extends Controller
                     }
                 ])
             //    ->whereIn('reports.wStatus', ['R', 'S'])
-            ->whereIn('reports.wStatus', ['R'])
+            ->whereIn('reports.wStatus', ['R','S'])
                 ->orderBy('reports.created_at', 'desc')
-                ->where('reports.adminStatus', '=', 'A')
+               // ->where('reports.adminStatus', '=', 'A')
                 ->get();
         }
 
