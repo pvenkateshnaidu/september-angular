@@ -24,7 +24,8 @@ class HotListController extends Controller
     {
    //     $journals = \App\Reports::select("*", \DB::raw("CONCAT(COALESCE(reports.technology,''),'',COALESCE(reports.otherTechnologies,'')) AS technology"))->where('reports.wStatus', '=', 'A')
    $journals = \App\Reports::select("*", \DB::raw("CASE technology
-   WHEN 'others' THEN otherTechnologies ELSE technology END AS technology"))->where('reports.wStatus', '=', 'A')
+   WHEN 'others' THEN otherTechnologies ELSE technology END AS technology"))
+              ->where('reports.wStatus', '=', 'A')
               ->where('reports.adminStatus', '=', 'A')
             ->orderBy('reports.created_at', 'desc')
 

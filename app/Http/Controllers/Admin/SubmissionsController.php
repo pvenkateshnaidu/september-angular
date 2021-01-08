@@ -62,7 +62,7 @@ class SubmissionsController extends Controller
     public function getConsultansOnly()
     {
         $submissions = \App\Reports::orderBy('created_at', 'DESC')
-            ->where('adminStatus', '=', 'A')
+            //->where('adminStatus', '=', 'A')
             ->get();
         $submissionslist = [];
         $submissionslist[] = ["label" => "Choosse Consultant", "value" => ""];
