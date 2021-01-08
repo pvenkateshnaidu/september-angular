@@ -1306,6 +1306,7 @@ let SidebarComponent = class SidebarComponent {
                 items: [
                     { label: 'Document List', routerLink: "/superadmin/documents" },
                     { label: 'In Active Docs', routerLink: "/superadmin/documentsinactive" },
+                    { label: 'Placed Docs', routerLink: "/superadmin/documentsplaced" },
                     { label: 'Hot List', routerLink: "/superadmin/hotlist" },
                 ]
             },
@@ -1646,7 +1647,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 const environment = {
     production: false,
-    // api: 'http://localhost:8001/api'
+    //api: 'http://localhost:8001/api'
     api: 'https://portal.webmobilez.com/public/api'
 };
 

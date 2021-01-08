@@ -123,3 +123,6 @@ Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], func
     Route::post('createEmployeePortal', 'ConsultantController@createEmployeePortal');
 });
 
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::get('getAllConsultantsAdminPlaced', 'ConsultantController@getAllConsultantsAdminPlaced');
+});

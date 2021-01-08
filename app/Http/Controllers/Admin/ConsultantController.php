@@ -82,6 +82,11 @@ class ConsultantController extends Controller
         if (Auth::user()->role == "Admin") {
 
             $timesheet = \App\Reports::with('user_details', 'vendor_add')
+            ->select([
+                '*', \DB::raw("CONCAT(COALESCE(consultatName	, ''),' ',COALESCE(consultantLastName, '')) as consultatName"),
+                \DB::raw("CASE technology
+                WHEN 'others' THEN otherTechnologies ELSE technology END AS technology")
+            ])
                 ->withCount([
                     'vendor_cout as sclients' => function ($query) {
                         $query->where('vendors.vendorStatus', '=', 'Submitted to Client');
@@ -105,6 +110,11 @@ class ConsultantController extends Controller
         if (Auth::user()->role == "Admin") {
 
             $timesheet = \App\Reports::with('user_details', 'vendor_add')
+            ->select([
+                '*', \DB::raw("CONCAT(COALESCE(consultatName	, ''),' ',COALESCE(consultantLastName, '')) as consultatName"),
+                \DB::raw("CASE technology
+                WHEN 'others' THEN otherTechnologies ELSE technology END AS technology")
+            ])
                 ->withCount([
                     'vendor_cout as sclients' => function ($query) {
                         $query->where('vendors.vendorStatus', '=', 'Submitted to Client');
@@ -116,13 +126,42 @@ class ConsultantController extends Controller
             //    ->whereIn('reports.wStatus', ['R', 'S'])
             ->whereIn('reports.wStatus', ['R'])
                 ->orderBy('reports.created_at', 'desc')
-                ->orWhere('reports.adminStatus', '=', 'D')
+                //->orWhere('reports.adminStatus', '=', 'D')
                 ->get();
         }
 
         return response()->json(['timesheet' => $timesheet], 200);
     }
+    public function  getAllConsultantsAdminPlaced()
+    {
+        //->where('userId','=',Auth::user()->id)
 
+        if (Auth::user()->role == "Admin") {
+
+            $timesheet = \App\Reports::with('user_details', 'vendor_add')
+            ->select([
+                '*', \DB::raw("CONCAT(COALESCE(consultatName	, ''),' ',COALESCE(consultantLastName, '')) as consultatName"),
+                \DB::raw("CASE technology
+                WHEN 'others' THEN otherTechnologies ELSE technology END AS technology")
+            ])
+                ->withCount([
+                    'vendor_cout as sclients' => function ($query) {
+                        $query->where('vendors.vendorStatus', '=', 'Submitted to Client');
+                    },
+                    'vendor_cout as interviews' => function ($query) {
+                        $query->where('vendors.vendorStatus', '=', 'Interview scheduled');
+                    }
+                ])
+
+            //    ->whereIn('reports.wStatus', ['R', 'S'])
+            ->whereIn('reports.wStatus', ['S'])
+                ->orderBy('reports.created_at', 'desc')
+                //->orWhere('reports.adminStatus', '=', 'D')
+                ->get();
+        }
+
+        return response()->json(['timesheet' => $timesheet], 200);
+    }
     public function removeDocument(Request $request)
     {
         if ($request->resume == 'yes') {
