@@ -50,7 +50,7 @@ Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], func
     Route::get('getAllConsultantsAdmin', 'ConsultantController@getDocumentsforadmin');
 });
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
-    Route::get('getAllInConsultantsAdmin', 'ConsultantController@getInactiveDocuments');
+    Route::get('getAllConsultantsAdminInactive', 'ConsultantController@getInactiveDocuments');
 });
 
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
@@ -119,5 +119,7 @@ Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], func
 Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
     Route::post('emailsent', 'SubmissionsController@emailsent');
 });
-
+Route::group(['middleware' => ['cors','auth:api'], 'namespace' => 'Admin'], function () {
+    Route::post('createEmployeePortal', 'ConsultantController@createEmployeePortal');
+});
 

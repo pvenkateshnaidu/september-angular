@@ -296,18 +296,20 @@ class AdminConsultantController extends Controller
                 }
                 $user->save();
 
-                $timesheet = \App\Reports::with('user_details','vendor_add')
+                $timesheet = \App\Reports::with('user_details', 'vendor_add')
                 ->withCount([
-                    'vendor_cout as sclients'=> function ($query) {
-                        $query->where('vendors.vendorStatus','=', 'Submitted to Client');
-                    } ,
+                    'vendor_cout as sclients' => function ($query) {
+                        $query->where('vendors.vendorStatus', '=', 'Submitted to Client');
+                    },
                     'vendor_cout as interviews' => function ($query) {
-                        $query->where('vendors.vendorStatus','=', 'Interview scheduled');
-                    }])
-                                ->orderBy('reports.created_at', 'desc')
-                                ->where('reports.wStatus','=', 'A')
-                                ->where('reports.adminStatus', '=', 'A')
-                                ->get();
+                        $query->where('vendors.vendorStatus', '=', 'Interview scheduled');
+                    }
+                ])
+                ->orderBy('reports.created_at', 'desc')
+                ->whereIn('reports.wStatus',  ['A','S'])
+                ->where('reports.adminStatus', '=', 'A')
+                ->get();
+
         return response()->json(['timesheet' => $timesheet], 200);
 
 

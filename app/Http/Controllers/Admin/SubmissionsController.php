@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\View;
+
 class SubmissionsController extends Controller
 {
     public function __construct()
@@ -39,20 +40,19 @@ class SubmissionsController extends Controller
 
         $html = $view->render();
         $mail = (new \Swift_Message());
-        $emailtosend= \Auth::user()->email;
+        $emailtosend = \Auth::user()->email;
         $ccemailsA = $request->cc;
-        $ccemails = implode(",",$ccemailsA);
+        $ccemails = implode(",", $ccemailsA);
         $mail->setFrom($emailtosend)
-             ->setTo($ccemailsA)
-             ->setSubject($request->subject)
-             ->setBody($html)
-             ->setContentType('text/html');
+            ->setTo($ccemailsA)
+            ->setSubject($request->subject)
+            ->setBody($html)
+            ->setContentType('text/html');
 
 
         if ($mailer->send($mail)) {
-            return response()->json(['sent' =>"sent"], 200);
+            return response()->json(['sent' => "sent"], 200);
         }
-
     }
     /**
      * Display a listing of the resource.
@@ -62,21 +62,21 @@ class SubmissionsController extends Controller
     public function getConsultansOnly()
     {
         $submissions = \App\Reports::orderBy('created_at', 'DESC')
-        ->where('adminStatus', '=', 'A')
-        ->get();
-    $submissionslist = [];
-    $submissionslist[] = ["label" => "Choosse Consultant", "value" => ""];
-    foreach ($submissions as $value) {
-        $submissionslist[] = ["label" => $value->consultatName . " " . $value->consultantLastName, "value" => $value->reportId];
-    }
-    return response()->json(['submissions' => $submissionslist], 200);
+            ->where('adminStatus', '=', 'A')
+            ->get();
+        $submissionslist = [];
+        $submissionslist[] = ["label" => "Choosse Consultant", "value" => ""];
+        foreach ($submissions as $value) {
+            $submissionslist[] = ["label" => $value->consultatName . " " . $value->consultantLastName, "value" => $value->reportId];
+        }
+        return response()->json(['submissions' => $submissionslist], 200);
     }
 
     public function getConsultans()
     {
 
         $submissions = \App\Reports::orderBy('created_at', 'DESC')
-        ->where('adminStatus', '=', 'A')
+            ->where('adminStatus', '=', 'A')
             ->get();
         $submissionslist = [];
         $submissionslist[] = ["label" => "Choosse Consultant", "value" => ""];
@@ -139,19 +139,34 @@ class SubmissionsController extends Controller
 
 
         if ($request->get('reportId')) {
-            $where['reportId'] =$request->reportId;
+            $where['reportId'] = $request->reportId;
         }
         if ($request->get('submissionRate')) {
-            $where['submissionRate'] =$request->submissionRate;
+            $where['submissionRate'] = $request->submissionRate;
         }
         if ($request->get('actualRate')) {
-            $where['actualRate'] =$request->actualRate;
+            $where['actualRate'] = $request->actualRate;
         }
-    //    if (Auth::user()->role != "Admin")
-           // $where['userId'] = \Auth::user()->id;
+        /*   if ($request->get('technology')) {
+
+            $where['technology'] =$request->technology;
+        } */
+        //    if (Auth::user()->role != "Admin")
+        // $where['userId'] = \Auth::user()->id;
 
 
-        $submissions = Submissions::with(['user_details', 'consultant'])
+        $submissions = Submissions::with(['user_details', 'consultant' => function ($q) {
+
+            $q->select([
+                '*', \DB::raw("CONCAT(COALESCE(consultatName	, ''),' ',COALESCE(consultantLastName, '')) as consultatName"),
+                \DB::raw("CASE technology
+                WHEN 'others' THEN otherTechnologies ELSE technology END AS technology")
+            ]);
+        }])
+            ->whereHas('consultant', function ($q) use ($request) {
+                if ($request->get('technology'))
+                    $q->where('technology', 'like', '%' . $request->get('technology') . '%');
+            })
             ->where($where)
 
             ->when($request->get('vendorCompanyName'), function ($query) use ($request) {
@@ -173,8 +188,8 @@ class SubmissionsController extends Controller
 
             ->when($request->get('vendorStatus'), function ($query) use ($request) {
 
-                $arrha=explode(',', $request->get('vendorStatus'));
-                $query->whereIn('vendorStatus',$arrha );
+                $arrha = explode(',', $request->get('vendorStatus'));
+                $query->whereIn('vendorStatus', $arrha);
             })
             ->when($request->get('created_at'), function ($query) use ($request) {
                 $query->whereDate('created_at', '=', \Carbon\Carbon::parse($request->get('created_at'))->format('Y-m-d'));
@@ -190,8 +205,15 @@ class SubmissionsController extends Controller
     public function interviewsubmissions()
     {
         // $submissions = Submissions::with('user_details','consultant','vendorlist','clients','vendorDetail')
-        $submissions = Submissions::with('user_details', 'consultant')
-            ->whereIn('vendorStatus', ['Interview scheduled'])
+        $submissions = Submissions::with(['user_details', 'consultant' => function ($q) {
+
+            $q->select([
+                '*',
+                \DB::raw("CONCAT(COALESCE(consultatName	, ''),' ',COALESCE(consultantLastName, '')) as consultatName"), \DB::raw("CASE technology
+                WHEN 'others' THEN otherTechnologies ELSE technology END AS technology")
+            ]);
+        }])
+            ->whereIn('vendorStatus', ['Interview scheduled', 'Placed'])
             ->orderBy('scheduleDate', 'DESC')
             ->get();
 

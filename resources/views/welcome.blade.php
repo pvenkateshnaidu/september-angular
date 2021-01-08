@@ -5,7 +5,7 @@
 </head>
 <body>
 <div class="container">
-    {!!html_entity_decode($message)!!}
+<h2>  Admin </h2>
 </div>
 </body>
 </html>

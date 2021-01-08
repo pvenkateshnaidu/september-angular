@@ -8,12 +8,14 @@ use App\Reports;
 use App\Technologies;
 use Carbon\Carbon;
 use Auth;
+use App\Model\UserEmployee;
+use App\Submissions;
 
 class ConsultantController extends Controller
 {
     public function __construct()
     {
-       $this->middleware('auth:api');
+        $this->middleware('auth:api');
     }
 
     /**
@@ -25,8 +27,11 @@ class ConsultantController extends Controller
     {
         //->where('userId','=',Auth::user()->id)
         if (Auth::user()->role == "Admin") {
-            $timesheet = Reports::with('user_details')
-                ->where("userStatus", '=', 'p')
+            $timesheet = Reports::with('user_details')->select([
+                '*',
+                \DB::raw("CONCAT(COALESCE(consultatName	, ''),' ',COALESCE(consultantLastName, '')) as consultatName"), \DB::raw("CASE technology
+            WHEN 'others' THEN otherTechnologies ELSE technology END AS technology")
+            ])->where("userStatus", '=', 'p')
                 ->where('reports.wStatus', '!=', 'R')
                 ->orderBy('created_at', 'DESC')
                 ->get();
@@ -36,82 +41,83 @@ class ConsultantController extends Controller
                 ->where('reports.wStatus', '!=', 'R')
                 ->orderBy('created_at', 'DESC')
                 ->get();
-
-        }else if (Auth::user()->role == "HeadHuntersAdmin") {
+        } else if (Auth::user()->role == "HeadHuntersAdmin") {
             $timesheet = Reports::with('user_details')
-            ->where("userStatus", '=', 'p')
-            ->where('reports.wStatus', '!=', 'R')
-            ->orderBy('created_at', 'DESC')
-            ->get();
-
-        }else if(Auth::user()->role == "BenchSales" || Auth::user()->role == "Recruiters" )
-        {
-            $timesheet = \App\Reports::with('user_details','vendor_add')
-            ->withCount([
-                'vendor_cout as sclients'=> function ($query) {
-                    $query->where('vendors.vendorStatus','=', 'Submitted to Client');
-                } ,
+            ->select(['*',\DB::raw("CONCAT(COALESCE(consultatName	, ''),' ',COALESCE(consultantLastName, '')) as consultatName")
+            ])
+                ->where("userStatus", '=', 'p')
+                ->where('reports.wStatus', '!=', 'R')
+                ->orderBy('created_at', 'DESC')
+                ->get();
+        } else if (Auth::user()->role == "BenchSales" || Auth::user()->role == "Recruiters") {
+            $timesheet = \App\Reports::with('user_details', 'vendor_add')->select([
+                '*',
+                \DB::raw("CONCAT(COALESCE(consultatName	, ''),' ',COALESCE(consultantLastName, '')) as consultatName"), \DB::raw("CASE technology
+            WHEN 'others' THEN otherTechnologies ELSE technology END AS technology")
+            ])->withCount([
+                'vendor_cout as sclients' => function ($query) {
+                    $query->where('vendors.vendorStatus', '=', 'Submitted to Client');
+                },
                 'vendor_cout as interviews' => function ($query) {
-                    $query->where('vendors.vendorStatus','=', 'Interview scheduled');
-                }])
-                            ->orderBy('reports.created_at', 'desc')
-                            ->where('reports.wStatus','=', 'A')
-                            ->where('reports.adminStatus', '=', 'A')
-                            ->get();
-
-        }else if(Auth::user()->role == "Recruiters")
-        {
+                    $query->where('vendors.vendorStatus', '=', 'Interview scheduled');
+                }
+            ])
+                ->orderBy('reports.created_at', 'desc')
+                ->whereIn('reports.wStatus',  ['A','S'])
+                ->where('reports.adminStatus', '=', 'A')
+                ->get();
+        } else if (Auth::user()->role == "Recruiters") {
             $timesheet = Reports::with('user_details')
-            ->where('reports.wStatus', '=', 'A')
-            ->where('reports.adminStatus', '=', 'A')
-            ->orderBy('created_at', 'DESC')
-            ->get();
+                ->where('reports.wStatus', '=', 'A')
+                ->where('reports.adminStatus', '=', 'A')
+                ->orderBy('created_at', 'DESC')
+                ->get();
         }
 
-        return response()->json(['timesheet' => $timesheet,'path'=>storage_path("app/uploads/resume")], 200);
+        return response()->json(['timesheet' => $timesheet, 'path' => storage_path("app/uploads/resume")], 200);
     }
     public function getDocumentsforadmin()
     {
         //->where('userId','=',Auth::user()->id)
         if (Auth::user()->role == "Admin") {
 
-            $timesheet = \App\Reports::with('user_details','vendor_add')
-            ->withCount([
-                'vendor_cout as sclients'=> function ($query) {
-                    $query->where('vendors.vendorStatus','=', 'Submitted to Client');
-                } ,
-                'vendor_cout as interviews' => function ($query) {
-                    $query->where('vendors.vendorStatus','=', 'Interview scheduled');
-                }])
-                            ->orderBy('reports.created_at', 'desc')
-                            ->where('reports.wStatus','=', 'A')
-                            ->where('reports.adminStatus', '=', 'A')
-                            ->get();
-
-
+            $timesheet = \App\Reports::with('user_details', 'vendor_add')
+                ->withCount([
+                    'vendor_cout as sclients' => function ($query) {
+                        $query->where('vendors.vendorStatus', '=', 'Submitted to Client');
+                    },
+                    'vendor_cout as interviews' => function ($query) {
+                        $query->where('vendors.vendorStatus', '=', 'Interview scheduled');
+                    }
+                ])
+                ->orderBy('reports.created_at', 'desc')
+                ->whereIn('reports.wStatus',  ['A','S'])
+                ->where('reports.adminStatus', '=', 'A')
+                ->get();
         }
 
         return response()->json(['timesheet' => $timesheet], 200);
     }
+
     public function getInactiveDocuments()
     {
         //->where('userId','=',Auth::user()->id)
         if (Auth::user()->role == "Admin") {
 
-            $timesheet = \App\Reports::with('user_details','vendor_add')
-            ->withCount([
-                'vendor_cout as sclients'=> function ($query) {
-                    $query->where('vendors.vendorStatus','=', 'Submitted to Client');
-                } ,
-                'vendor_cout as interviews' => function ($query) {
-                    $query->where('vendors.vendorStatus','=', 'Interview scheduled');
-                }])
-                                 ->whereIn('reports.wStatus', ['R','S'])
-                            ->orderBy('reports.created_at', 'desc')
-                            ->where('reports.adminStatus', '=', 'A')
-                            ->get();
-
-
+            $timesheet = \App\Reports::with('user_details', 'vendor_add')
+                ->withCount([
+                    'vendor_cout as sclients' => function ($query) {
+                        $query->where('vendors.vendorStatus', '=', 'Submitted to Client');
+                    },
+                    'vendor_cout as interviews' => function ($query) {
+                        $query->where('vendors.vendorStatus', '=', 'Interview scheduled');
+                    }
+                ])
+            //    ->whereIn('reports.wStatus', ['R', 'S'])
+            ->whereIn('reports.wStatus', ['R'])
+                ->orderBy('reports.created_at', 'desc')
+                ->where('reports.adminStatus', '=', 'A')
+                ->get();
         }
 
         return response()->json(['timesheet' => $timesheet], 200);
@@ -119,24 +125,21 @@ class ConsultantController extends Controller
 
     public function removeDocument(Request $request)
     {
-        if($request->resume=='yes')
-        {
+        if ($request->resume == 'yes') {
             $user = \App\Reports::find($request->id);
             $user->resume = '';
             $user->save();
             $user = \App\Reports::with('user_details')->find($request->id);
             return response()->json(['user' => $user], 200);
         }
-        if($request->otherDocument=='yes')
-        {
+        if ($request->otherDocument == 'yes') {
             $user = \App\Reports::find($request->id);
             $user->otherDocument = '';
             $user->save();
             $user = \App\Reports::with('user_details')->find($request->id);
             return response()->json(['user' => $user], 200);
         }
-        if($request->workAuthorization=='yes')
-        {
+        if ($request->workAuthorization == 'yes') {
             $user = \App\Reports::find($request->id);
             $user->workAuthorization = '';
             $user->save();
@@ -166,7 +169,7 @@ class ConsultantController extends Controller
             $path = $request->file('resume')->storeAs('uploads/resume', $resumepath);
 
 
-         /*   $stringname = preg_replace('/\s+/', '', Auth::user()->name);
+            /*   $stringname = preg_replace('/\s+/', '', Auth::user()->name);
             $id = Auth::user()->id;
             // Get filename with the extension
             $filenameWithExt = $request->file('resume')->getClientOriginalName();
@@ -184,7 +187,7 @@ class ConsultantController extends Controller
         }
 
         if ($request->hasFile('otherDocument')) {
-          /*  $stringname = preg_replace('/\s+/', '', Auth::user()->name);
+            /*  $stringname = preg_replace('/\s+/', '', Auth::user()->name);
             $id = Auth::user()->id;
             // Get filename with the extension
             $filenameWithExt = $request->file('otherDocument')->getClientOriginalName();
@@ -210,7 +213,7 @@ class ConsultantController extends Controller
         }
 
         if ($request->hasFile('workAuthorization')) {
-           /* $stringname = preg_replace('/\s+/', '', Auth::user()->name);
+            /* $stringname = preg_replace('/\s+/', '', Auth::user()->name);
             $id = Auth::user()->id;
             // Get filename with the extension
             $filenameWithExt = $request->file('workAuthorization')->getClientOriginalName();
@@ -260,111 +263,102 @@ class ConsultantController extends Controller
             'visaType' => 'required',
             'city' => 'required',
             'state' => 'required',
-            'willingLocation'=>'required',
+            'willingLocation' => 'required',
             'documentsCollected' => 'required',
-            'reportStatus' =>'required',
+            'reportStatus' => 'required',
             'technology' => 'required'
         ]);
 
 
-            $resumepath = '';
-            $workpath = '';
-            $otherDocumentpath = '';
+        $resumepath = '';
+        $workpath = '';
+        $otherDocumentpath = '';
 
 
-            // add user
-            $user = new \App\Reports();
-            //   $user->reportDate     = date('Y-m-d H:i:s');
-            $user->consultatName = $request->consultatName;
-            $user->consultantLastName = $request->consultantLastName;
-            $user->consultatMobileNumber = $request->consultatMobileNumber;
-            $user->technology = $request->technology;
-            $user->otherTechnologies = $request->otherTechnologies;
-            $user->consultantEmail = $request->consultantEmail;
-            $user->rate = $request->rate;
-            $user->experience = $request->experience;
-            $user->visaType = $request->visaType;
-            $user->city = $request->city;
-            $user->state = $request->state;
-            $user->willingLocation = $request->willingLocation;
-            $user->resource = $request->resource;
-            if ($request->comments) {
-                $user->comments = $request->comments;
-            }
-            if ($request->note) {
-                $user->note = $request->note;
-            }
-            $user->reportStatus = $request->reportStatus;
-            $user->skypeId = $request->skypeId;
-            $user->linkedInUrl = $request->linkedInUrl;
-            $user->priority = $request->priority;
-            $user->availability = $request->availability;
-            $user->bestContactNumber = $request->bestContactNumber;
-            $user->ssn = $request->ssn;
-            $user->documentsCollected = $request->documentsCollected;
-            $user->userId = \Auth::user()->id;
-            $user->wStatus = 'A';
-            $user->created_at = date('Y-m-d H:i:s');
-            if ($request->resume) {
-                $user->resume = $request->resume;
-            }
-            if ($request->otherDocument) {
-                $user->otherDocument = $request->otherDocument;
-            }
-            if ($request->workAuthorization) {
-                $user->workAuthorization = $request->workAuthorization;
-            }
-            if (\Auth::user()->role == 'Admin' || \Auth::user()->role == 'HeadHuntersAdmin') {
-                $user->userStatus = 'p';
-            } else {
-                $user->userStatus = 'u';
-            }
-            $user->documentsCollected = $request->documentsCollected;
-            $user->userId = \Auth::user()->id;
-            $user->save();
-            if($request->technology1)
-            {
+        // add user
+        $user = new \App\Reports();
+        //   $user->reportDate     = date('Y-m-d H:i:s');
+        $user->consultatName = $request->consultatName;
+        $user->consultantLastName = $request->consultantLastName;
+        $user->consultatMobileNumber = $request->consultatMobileNumber;
+        $user->technology = $request->technology;
+        $user->otherTechnologies = $request->otherTechnologies;
+        $user->consultantEmail = $request->consultantEmail;
+        $user->rate = $request->rate;
+        $user->experience = $request->experience;
+        $user->visaType = $request->visaType;
+        $user->city = $request->city;
+        $user->state = $request->state;
+        $user->willingLocation = $request->willingLocation;
+        $user->resource = $request->resource;
+        if ($request->comments) {
+            $user->comments = $request->comments;
+        }
+        if ($request->note) {
+            $user->note = $request->note;
+        }
+        $user->reportStatus = $request->reportStatus;
+        $user->skypeId = $request->skypeId;
+        $user->linkedInUrl = $request->linkedInUrl;
+        $user->priority = $request->priority;
+        $user->availability = $request->availability;
+        $user->bestContactNumber = $request->bestContactNumber;
+        $user->ssn = $request->ssn;
+        $user->documentsCollected = $request->documentsCollected;
+        $user->userId = \Auth::user()->id;
+        $user->wStatus = 'A';
+        $user->created_at = date('Y-m-d H:i:s');
+        if ($request->resume) {
+            $user->resume = $request->resume;
+        }
+        if ($request->otherDocument) {
+            $user->otherDocument = $request->otherDocument;
+        }
+        if ($request->workAuthorization) {
+            $user->workAuthorization = $request->workAuthorization;
+        }
+        if (\Auth::user()->role == 'Admin' || \Auth::user()->role == 'HeadHuntersAdmin') {
+            $user->userStatus = 'p';
+        } else {
+            $user->userStatus = 'u';
+        }
+        $user->documentsCollected = $request->documentsCollected;
+        $user->userId = \Auth::user()->id;
+        $user->save();
+        if ($request->technology1) {
 
-                $params  = new \App\Technologies();
-                $params->reportId     = $user->reportId;
-                $params->name     = $request->technology1 ;
-                $params->rating     = $request->rating1;
-                $params->save();
+            $params  = new \App\Technologies();
+            $params->reportId     = $user->reportId;
+            $params->name     = $request->technology1;
+            $params->rating     = $request->rating1;
+            $params->save();
+        }
+        if ($request->technology2) {
 
-            }
-            if($request->technology2)
-            {
+            $params  = new \App\Technologies();
+            $params->reportId     = $user->reportId;
+            $params->name     = $request->technology2;
+            $params->rating     = $request->rating2;
+            $params->save();
+        }
+        if ($request->technology3) {
 
-                $params  = new \App\Technologies();
-                $params->reportId     = $user->reportId;
-                $params->name     = $request->technology2 ;
-                $params->rating     = $request->rating2;
-                $params->save();
+            $params  = new \App\Technologies();
+            $params->reportId     = $user->reportId;
+            $params->name     = $request->technology3;
+            $params->rating     = $request->rating3;
+            $params->save();
+        }
+        if ($request->technology4) {
 
-            }
-            if($request->technology3)
-            {
+            $params  = new \App\Technologies();
+            $params->reportId     = $user->reportId;
+            $params->name     = $request->technology4;
+            $params->rating     = $request->rating4;
+            $params->save();
+        }
 
-                $params  = new \App\Technologies();
-                $params->reportId     = $user->reportId;
-                $params->name     = $request->technology3;
-                $params->rating     = $request->rating3;
-                $params->save();
-
-            }
-            if($request->technology4)
-            {
-
-                $params  = new \App\Technologies();
-                $params->reportId     = $user->reportId;
-                $params->name     = $request->technology4;
-                $params->rating     = $request->rating4;
-                $params->save();
-
-            }
-
-            return response()->json(['consultant' => $user], 200);
-
+        return response()->json(['consultant' => $user], 200);
     }
     public function statusChange(Request $request)
     {
@@ -377,7 +371,7 @@ class ConsultantController extends Controller
             \Log::error($validator);
             return array('error' => true, 'msg' => 'Some thing went wrong');
         } else {
-            if (Auth::user()->role == "Admin" || Auth::user()->role == "HeadHuntersAdmin" ) {
+            if (Auth::user()->role == "Admin" || Auth::user()->role == "HeadHuntersAdmin") {
                 $user = \App\Reports::find($request->index);
                 $user->adminStatus = $request->value;
                 $user->save();
@@ -407,13 +401,13 @@ class ConsultantController extends Controller
         //
         $user = \App\Reports::with('user_details')->find($id);
 
-        return response()->json(['user' => $user,'path'=>storage_path("app/uploads/resume")], 200);
+        return response()->json(['user' => $user, 'path' => storage_path("app/uploads/resume")], 200);
     }
     public function edit($id)
     {
 
         $user = \App\Reports::with('user_details')->find($id);
-        return response()->json(['user' => $user,'path'=>storage_path("app/uploads/resume")], 200);
+        return response()->json(['user' => $user, 'path' => storage_path("app/uploads/resume")], 200);
     }
 
     /**
@@ -433,60 +427,104 @@ class ConsultantController extends Controller
         ]);
 
 
-            $resumepath = '';
-            $workpath = '';
-            $otherDocumentpath = '';
-            // add user
-            $user = \App\Reports::find($id);
-            $user->consultatName = $request->consultatName;
-            $user->consultantLastName = $request->consultantLastName;
-            $user->consultatMobileNumber = $request->consultatMobileNumber;
-            $user->technology = $request->technology;
-            $user->otherTechnologies = $request->otherTechnologies;
-            $user->rate = $request->rate;
-            $user->experience = $request->experience;
-            $user->visaType = $request->visaType;
-            $user->city = $request->city;
-            $user->state = $request->state;
-            $user->willingLocation = $request->willingLocation;
-            $user->consultantEmail = $request->consultantEmail;
-            $user->comments = $request->comments;
-            if ($request->note) {
-                $user->note = $request->note;
-            }
-            $user->reportStatus = $request->reportStatus;
-            $user->resource = $request->resource;
-            $user->ssn = $request->ssn;
-            $user->availability = $request->availability;
-            $user->documentsCollected = $request->documentsCollected;
-            $user->skypeId = $request->skypeId;
-            $user->linkedInUrl = $request->linkedInUrl;
-            $user->priority = $request->priority;
-            $user->bestContactNumber = $request->bestContactNumber;
-            if ($request->resume) {
-                $user->resume =  $request->resume;
-            }
-            if ($request->otherDocument) {
-                $user->otherDocument = $request->otherDocument;
-            }
-            if ($request->workAuthorization) {
-                $user->workAuthorization = $request->workAuthorization;
-            }
+        $resumepath = '';
+        $workpath = '';
+        $otherDocumentpath = '';
+        // add user
+        $user = \App\Reports::find($id);
+        $user->consultatName = $request->consultatName;
+        $user->consultantLastName = $request->consultantLastName;
+        $user->consultatMobileNumber = $request->consultatMobileNumber;
+        $user->technology = $request->technology;
+        $user->otherTechnologies = $request->otherTechnologies;
+        $user->rate = $request->rate;
+        $user->experience = $request->experience;
+        $user->visaType = $request->visaType;
+        $user->city = $request->city;
+        $user->state = $request->state;
+        $user->willingLocation = $request->willingLocation;
+        $user->consultantEmail = $request->consultantEmail;
+        $user->comments = $request->comments;
+        if ($request->note) {
+            $user->note = $request->note;
+        }
+        $user->reportStatus = $request->reportStatus;
+        $user->resource = $request->resource;
+        $user->ssn = $request->ssn;
+        $user->availability = $request->availability;
+        $user->documentsCollected = $request->documentsCollected;
+        $user->skypeId = $request->skypeId;
+        $user->linkedInUrl = $request->linkedInUrl;
+        $user->priority = $request->priority;
+        $user->bestContactNumber = $request->bestContactNumber;
+        if ($request->resume) {
+            $user->resume =  $request->resume;
+        }
+        if ($request->otherDocument) {
+            $user->otherDocument = $request->otherDocument;
+        }
+        if ($request->workAuthorization) {
+            $user->workAuthorization = $request->workAuthorization;
+        }
 
-            if (\Auth::user()->role == 'Admin' || \Auth::user()->role == 'HeadHuntersAdmin') {
-                $user->save();
-                return response()->json(['user' => $user], 200);
-            } elseif ($user->userStatus == 'u') {
-                $user->save();
-                return response()->json(['user' => $user], 200);
-            } else {
-                return response()->json(['error' => "Error"], 400);
-            }
-
-
+        if (\Auth::user()->role == 'Admin' || \Auth::user()->role == 'HeadHuntersAdmin') {
+            $user->save();
+            return response()->json(['user' => $user], 200);
+        } elseif ($user->userStatus == 'u') {
+            $user->save();
+            return response()->json(['user' => $user], 200);
+        } else {
+            return response()->json(['error' => "Error"], 400);
+        }
     }
-    public function downloadResume($filename) {
+    public function downloadResume($filename)
+    {
 
         return response()->download(storage_path("app/uploads/resume/{$filename}"));
+    }
+
+    public function createEmployeePortal(Request $request)
+    {
+        if (Auth::user()->role == "Admin" || Auth::user()->role == "HeadHuntersAdmin") {
+
+
+            $user = \App\Reports::find($request->index);
+            $user->employeePortalAccess = 'C';
+            $user->save();
+
+            $userCreate = UserEmployee::create([
+                'name' => $user->consultatName,
+                'lastName' => $user->consultantLastName,
+                //   'companyName' => $request->companyName,
+                'technology' => $user->technology,
+                'role' => 'Consultant',
+                // 'address' => $request->address,
+                //  'address1' => $request->address1,
+                // 'zipcode' => $request->zipcode,
+                'city' => $user->city,
+                'state' => $user->state,
+                'reportId' => $request->index,
+                // 'paymentType' => $request->paymentType,
+                //  'paymentMode' => $request->paymentMode,
+                //  'hoursperWeek' =>$request->hoursperWeek,
+                'email' => $user->consultantEmail,
+                'password' => bcrypt('Tech$5367')
+            ]);
+
+
+            $submissions = Submissions::with(['user_details', 'consultant' => function ($q) {
+
+                $q->select([
+                    '*',
+                    \DB::raw("CONCAT(COALESCE(consultatName	, ''),' ',COALESCE(consultantLastName, '')) as consultatName"), \DB::raw("CASE technology
+                    WHEN 'others' THEN otherTechnologies ELSE technology END AS technology")
+                ]);
+            }])
+                ->whereIn('vendorStatus', ['Interview scheduled', 'Placed'])
+                ->orderBy('scheduleDate', 'DESC')
+                ->get();
+
+            return response()->json(['submissions' => $submissions], 200);
+        }
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Model\UserEmployee;
 use Auth;
 use Mail;
 use Swift_Mailer;
@@ -27,8 +28,8 @@ class UserListController extends Controller
     public function index()
     {
 
-
-        $smtpAddress = 'mail.webmobilez.com';
+/*
+       $smtpAddress = 'mail.webmobilez.com';
         $port = 26;
         $encryption = 'tls';
 
@@ -54,10 +55,10 @@ class UserListController extends Controller
              ->setContentType('text/html');
 
 
-        if ($mailer->send($mail)) {
+        if ($mailer->send($mail)) { */
             $user = User::get();
             return response()->json(['user' => $user], 200);
-        }
+       // }
 
     }
 
