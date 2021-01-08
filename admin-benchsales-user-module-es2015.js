@@ -1675,6 +1675,7 @@ let UserListComponent = class UserListComponent {
         this.selectedStatus = '';
     }
     loadCarsLazy(event) {
+        this.lastLazyEvent = event;
         this.loading = true;
         console.log(event);
         //in a real application, make a remote request to load data using state metadata from event
@@ -1838,8 +1839,8 @@ let UserListComponent = class UserListComponent {
         this.userRest.updateSubmission(this.registerVendor, submissionId).subscribe(response => {
             this.displayModal = false;
             console.log(response),
-                this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Submision Updated' });
-            this.timeSheets = response.submissions.data;
+                this.loadCarsLazy(this.lastLazyEvent);
+            this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Submision Updated' });
         }, error => {
             this.serverErrors = error.error.errors;
         });

@@ -1830,6 +1830,7 @@ var UserListComponent = /** @class */ (function () {
     };
     UserListComponent.prototype.loadCarsLazy = function (event) {
         var _this = this;
+        this.lastLazyEvent = event;
         this.loading = true;
         console.log(event);
         //in a real application, make a remote request to load data using state metadata from event
@@ -2013,8 +2014,8 @@ var UserListComponent = /** @class */ (function () {
         this.userRest.updateSubmission(this.registerVendor, submissionId).subscribe(function (response) {
             _this.displayModal = false;
             console.log(response),
-                _this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Submision Updated' });
-            _this.timeSheets = response.submissions.data;
+                _this.loadCarsLazy(_this.lastLazyEvent);
+            _this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Submision Updated' });
         }, function (error) {
             _this.serverErrors = error.error.errors;
         });
