@@ -44,6 +44,17 @@ module.exports = "<h4 class=\"remove-margin\"> Schedule Interviews </h4>\r\n\r\n
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/benchsales/mybenchsales/mybenchsales-list.component.html":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/benchsales/mybenchsales/mybenchsales-list.component.html ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p-toast position=\"bottom-right\"></p-toast>\r\n\r\n<p-table #dt [columns]=\"scrollableCols\" scrollHeight=\"500px\"  [autoLayout]=\"true\" [value]=\"timeSheets\"\r\n  [scrollable]=\"true\" [filterDelay]=\"0\" [globalFilterFields]=\"['consultatName']\" [resizableColumns]=\"true\"\r\n  columnResizeMode=\"expand\" [reorderableColumns]=\"true\" [lazy]=\"true\" (onLazyLoad)=\"loadCarsLazy($event)\"\r\n  [paginator]=\"true\" [rows]=\"20\" [totalRecords]=\"totalRecords\" [loading]=\"loading\"\r\n  currentPageReportTemplate=\"Total {{totalRecords}} Records\" [showCurrentPageReport]=\"true\"\r\n  [style]=\"{'text-align': 'center', 'font-size': '14px'}\"  [loading]=\"loading\">\r\n  <ng-template pTemplate=\"caption\" let-title>\r\n    <span class=\"text-right\" *ngIf=\"totalRecords\">Total {{totalRecords}} Records </span>\r\n    <a routerLink=\"/benchsales/create\" class=\"btn btn-primary\">\r\n      Add Submission\r\n    </a>\r\n</ng-template>\r\n  <ng-template pTemplate=\"colgroup\" let-columns>\r\n    <colgroup>\r\n      <col style=\"width:90px\">\r\n      <col *ngFor=\"let col of columns\" style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n      <col style=\"width:200px\">\r\n    </colgroup>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"header\" let-columns>\r\n    <tr>\r\n      <th>Action</th>\r\n      <th></th>\r\n      <th>Consultant</th>\r\n\r\n      <th *ngFor=\"let col of columns\" [ngStyle]=\"{'width': col.width}\">\r\n        {{col.header}}\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <th> <button (click)=\"clearFilters(dt)\">Clear Fields</button></th>\r\n      <th> <input pInputText type=\"date\" [value]=\"dt.filters['created_at'] ? dt.filters['created_at'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'created_at', 'startsWith')\" placeholder=\"Created At\"\r\n          class=\"p-column-filter\"></th>\r\n      <th>\r\n        <!-- <input pInputText type=\"text\"\r\n          [value]=\"dt.filters['consultant.consultatName'] ? dt.filters['consultant.consultatName'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'consultant.consultatName', 'startsWith')\" placeholder=\"First Name\"\r\n          class=\"p-column-filter\"> -->\r\n        <p-dropdown  appendTo=\"body\" [options]=\"cities\"  [(ngModel)]=\"selectedCity\" [filter]=\"true\" filterBy=\"label,value\"\r\n          [autoWidth]=\"false\" [style]=\"pDropdownStyle\"\r\n          (onChange)=\"dt.filter($event.value, 'reportId', 'startsWith')\" placeholder=\"Choose Consultant\"\r\n          class=\"p-column-filter\"></p-dropdown>\r\n      </th>\r\n\r\n      <th>\r\n        <p-multiSelect appendTo=\"body\"  [options]=\"statusesVendor\"  [(ngModel)]=\"selectedStatus\" [filter]=\"true\" filterBy=\"label,value\"\r\n          [style]=\"pDropdownStyle\"\r\n          (onChange)=\"dt.filter($event.value, 'vendorStatus', 'startsWith')\" placeholder=\"Choose Status\"\r\n          class=\"p-column-filter\"></p-multiSelect>\r\n\r\n\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\"\r\n          [value]=\"dt.filters['technology'] ? dt.filters['technology'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'technology', 'startsWith')\" placeholder=\"Technology\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\"\r\n          [value]=\"dt.filters['vendorCompanyName'] ? dt.filters['vendorCompanyName'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'vendorCompanyName', 'startsWith')\" placeholder=\"Company Name\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['vendorName'] ? dt.filters['vendorName'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'vendorName', 'startsWith')\" placeholder=\"Name\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['vendorEmail'] ? dt.filters['vendorEmail'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'vendorEmail', 'startsWith')\" placeholder=\"Vendor Email\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\"\r\n          [value]=\"dt.filters['vendorMobileNumber'] ? dt.filters['vendorMobileNumber'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'vendorMobileNumber', 'startsWith')\" placeholder=\"Vendor Mobile\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['endClientName'] ? dt.filters['endClientName'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'endClientName', 'startsWith')\" placeholder=\"End Clinet\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['actualRate'] ? dt.filters['actualRate'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'actualRate', 'startsWith')\" placeholder=\"actualRate\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n      <th>\r\n        <input pInputText type=\"text\" [value]=\"dt.filters['submissionRate'] ? dt.filters['submissionRate'].value : ''\"\r\n          (input)=\"dt.filter($event.target.value, 'submissionRate', 'startsWith')\" placeholder=\"submissionRate\"\r\n          class=\"p-column-filter\">\r\n      </th>\r\n\r\n    </tr>\r\n  </ng-template>\r\n  <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\" let-editing=\"editing\" let-ri=\"rowIndex\">\r\n\r\n    <tr [pEditableRow]=\"rowData\" [ngStyle]=\"{'background-color':getColor(rowData.vendorStatus)}\">\r\n      <td style=\"text-align:center\">\r\n\r\n        <a (click)=\"showModalDialog(rowData)\" class=\"btn btn-warning btn-sm\">Edit</a> &nbsp;\r\n        <a (click)=\"showModalDialog1(rowData.vendorComments)\" tabindex=\"0\" data-toggle=\"popover\" data-trigger=\"focus\"\r\n          title=\"\" data-original-title=\"Note\"><img src=\"./assets/img/sticky.png\"></a>\r\n      </td>\r\n      <td>\r\n        {{rowData.user_details.name}} <br> {{rowData.created_at|date}}\r\n      </td>\r\n      <td>\r\n        {{rowData.consultant.consultatName}}\r\n      </td>\r\n      <td *ngFor=\"let col of columns\">\r\n        {{rowData|field:col}}\r\n      </td>\r\n    </tr>\r\n  </ng-template>\r\n</p-table>\r\n<p-confirmDialog key=\"confirm-drop-database\" header=\"Confirmation\" acceptLabel=\"Yes\" rejectLabel=\"No\"\r\n  [(visible)]=\"confirmDropDatabaseDialogVisible\"></p-confirmDialog>\r\n\r\n<p-dialog header=\"Status Change\" [(visible)]=\"displayModal\" [modal]=\"true\" [style]=\"{width: '50vw'}\"\r\n  [baseZIndex]=\"10000\" [draggable]=\"false\" [resizable]=\"false\">\r\n  <h5> {{heading1}}</h5>\r\n  <form [formGroup]=\"registerVendor\" (ngSubmit)=\"registerUser(submissionId)\">\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-12\">\r\n        <div class=\"form-group\">\r\n          <label for=\"popstatus\">Status:</label>\r\n\r\n          <select class=\"form-control\" #seleectevalue formControlName=\"vendorStatus\">\r\n            <option value=\"\">--select--</option>\r\n            <option value=\"Placed\">Placed</option>\r\n            <option value=\"Interview scheduled\">Interview scheduled</option>\r\n            <option value=\"Submitted to Client\">Submitted to Client</option>\r\n            <option value=\"Submitted to Vendor\">Submitted to Vendor</option>\r\n            <option value=\"Disqualified\">Disqualified</option>\r\n            <option value=\"Client rejected\">Client rejected</option>\r\n            <option value=\"Vendor Rejected\">Vendor Rejected</option>\r\n            <option value=\"Vendor screening call\">Vendor screening call</option>\r\n            <option value=\"Waiting for Evaluation\">Waiting for Evaluation</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-lg-8\" *ngIf=\"seleectevalue.value == 'Interview scheduled'\">\r\n        <div class=\"form-group schedulepopdiv\">\r\n          <label for=\"schedulepop\">Schedule Date:</label>\r\n          <input type=\"date\" class=\"form-control\" formControlName=\"scheduleDate\" value=\"2020-11-21 10:43:17\"><br>\r\n\r\n        </div>\r\n      </div>\r\n      <div class=\"col-lg-4\" *ngIf=\"seleectevalue.value == 'Interview scheduled'\">\r\n        <div class=\"form-group schedulepopdiv\">\r\n          <label for=\"timezone\">Time Zone:</label>\r\n          <select class=\"form-control\" formControlName=\"timezone\">\r\n            <option value=\"\">Choose Time Zone</option>\r\n            <option value=\"EST\">EST</option>\r\n            <option value=\"PST\">PST</option>\r\n            <option value=\"CST\">CST</option>\r\n            <option value=\"MST\">MST</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-lg-12\">\r\n        <div class=\"form-group\">\r\n          <label for=\"notepop\">Comment:</label>\r\n          <textarea class=\"form-control\" formControlName=\"vendorComments\"></textarea>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <button type=\"submit\" class=\"btn btn-primary btn-round\">Update</button>\r\n  </form>\r\n\r\n\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n\r\n<p-dialog header=\"Note\" [(visible)]=\"displayModal1\" [modal]=\"true\" [style]=\"{width: '50vw'}\" [baseZIndex]=\"10000\"\r\n  [draggable]=\"false\" [resizable]=\"false\">\r\n\r\n  <p>{{comment}}</p>\r\n  <ng-template pTemplate=\"footer\">\r\n    <p-button icon=\"pi pi-check\" (click)=\"displayModal1=true\" label=\"Yes\" class=\"p-button-text\"></p-button>\r\n    <p-button icon=\"pi pi-times\" (click)=\"displayModal1=false\" label=\"No\"></p-button>\r\n  </ng-template>\r\n</p-dialog>\r\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/admin/benchsales/user-create/user-create.component.html":
 /*!***************************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/admin/benchsales/user-create/user-create.component.html ***!
@@ -909,6 +920,279 @@ UserRestService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
 ], UserRestService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/benchsales/mybenchsales/mybenchsales-list.component.scss":
+/*!********************************************************************************!*\
+  !*** ./src/app/admin/benchsales/mybenchsales/mybenchsales-list.component.scss ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host ::ng-deep .p-cell-editing {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n}\n\n.disable-td {\n  pointer-events: none;\n}\n\n.ui-button {\n  margin-left: 0.25rem;\n  margin-right: 0.25rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vYmVuY2hzYWxlcy9teWJlbmNoc2FsZXMvQzpcXHhhbXBwXFxodGRvY3NcXHNlcC1iYXJcXGFuZy9zcmNcXGFwcFxcYWRtaW5cXGJlbmNoc2FsZXNcXG15YmVuY2hzYWxlc1xcbXliZW5jaHNhbGVzLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FkbWluL2JlbmNoc2FsZXMvbXliZW5jaHNhbGVzL215YmVuY2hzYWxlcy1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UseUJBQUE7RUFDQSw0QkFBQTtBQ0NGOztBRENBO0VBQ0Usb0JBQUE7QUNFRjs7QURBQTtFQUNFLG9CQUFBO0VBQ0EscUJBQUE7QUNHRiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2JlbmNoc2FsZXMvbXliZW5jaHNhbGVzL215YmVuY2hzYWxlcy1saXN0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3QgOjpuZy1kZWVwIC5wLWNlbGwtZWRpdGluZyB7XHJcbiAgcGFkZGluZy10b3A6IDAgIWltcG9ydGFudDtcclxuICBwYWRkaW5nLWJvdHRvbTogMCAhaW1wb3J0YW50O1xyXG59XHJcbi5kaXNhYmxlLXRke1xyXG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xyXG59XHJcbi51aS1idXR0b24ge1xyXG4gIG1hcmdpbi1sZWZ0OiAwLjI1cmVtO1xyXG4gIG1hcmdpbi1yaWdodDogMC4yNXJlbTtcclxufVxyXG4iLCI6aG9zdCA6Om5nLWRlZXAgLnAtY2VsbC1lZGl0aW5nIHtcbiAgcGFkZGluZy10b3A6IDAgIWltcG9ydGFudDtcbiAgcGFkZGluZy1ib3R0b206IDAgIWltcG9ydGFudDtcbn1cblxuLmRpc2FibGUtdGQge1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuLnVpLWJ1dHRvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwLjI1cmVtO1xuICBtYXJnaW4tcmlnaHQ6IDAuMjVyZW07XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/admin/benchsales/mybenchsales/mybenchsales-list.component.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/admin/benchsales/mybenchsales/mybenchsales-list.component.ts ***!
+  \******************************************************************************/
+/*! exports provided: MyBenchSalesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyBenchSalesComponent", function() { return MyBenchSalesComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-rest.service */ "./src/app/admin/benchsales/user-rest.service.ts");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
+
+
+const colors = {
+    red: {
+        primary: '#ad2121',
+        secondary: '#FAE3E3',
+    },
+    blue: {
+        primary: '#1e90ff',
+        secondary: '#D1E8FF',
+    },
+    yellow: {
+        primary: '#e3bc08',
+        secondary: '#FDF1BA',
+    },
+};
+let MyBenchSalesComponent = class MyBenchSalesComponent {
+    constructor(confirmation, fb, messageService, route, userRest, router) {
+        this.confirmation = confirmation;
+        this.fb = fb;
+        this.messageService = messageService;
+        this.route = route;
+        this.userRest = userRest;
+        this.router = router;
+        this.timeSheets = [];
+        this.confirmDropDatabaseDialogVisible = false;
+        this.statusOptions = [
+            // {label: "Dot net Developer",value: 'Dot net Developer'},
+            { label: "Java Developer", value: 'Java Developer' },
+            { label: "QA Tester/QA Analyst", value: 'QA Tester/QA Analyst' },
+        ];
+        this.loading = true;
+        this.serverErrors = [];
+        this.clonedProducts = {};
+    }
+    ;
+    clearFilters(dt) {
+        dt.reset(); // reset the table
+        this.selectedCity = '';
+        this.selectedStatus = '';
+    }
+    loadCarsLazy(event) {
+        this.lastLazyEvent = event;
+        this.loading = true;
+        console.log(event);
+        //in a real application, make a remote request to load data using state metadata from event
+        //event.first = First row offset
+        //event.rows = Number of rows per page
+        //event.sortField = Field name to sort with
+        //event.sortOrder = Sort order as number, 1 for asc and -1 for dec
+        //filters: FilterMetadata object having field as key and filter value, filter matchMode as value
+        //imitate db connection over a network
+        setTimeout(() => {
+            this.userRest.getMySubmissions((event)).subscribe((response) => {
+                console.log(this.timeSheets = response.submissions.data);
+                this.totalRecords = response.submissions.total;
+                this.loading = false;
+            }, (error) => { console.log(error); });
+        }, 1000);
+    }
+    ngOnInit() {
+        this.cities = [];
+        this.statusesVendor = [{ label: 'Select Status', value: null },
+            { label: 'Interview scheduled', value: 'Interview scheduled' },
+            { label: 'Submitted to Client', value: 'Submitted to Client' },
+            { label: 'Submitted to Vendor', value: 'Submitted to Vendor' },
+            { label: 'Disqualified', value: 'Disqualified' },
+            { label: 'Client rejected', value: 'Client rejected' },
+            { label: 'Vendor Rejected', value: 'Vendor Rejected' },
+            { label: 'Vendor screening call', value: 'Vendor screening call' },
+            { label: 'Waiting for Evaluation', value: 'Waiting for Evaluation' },
+            { label: 'Placed', value: 'Placed' },
+        ];
+        this.userRest.getConsultantsOnly().subscribe((response) => {
+            this.cities = response.submissions;
+        }, (error) => { console.log(error); });
+        this.registerVendor = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormGroup"]({
+            'vendorStatus': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](''),
+            'vendorComments': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](''),
+            'scheduleDate': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](''),
+            'timezone': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](''),
+        });
+        this.frozenCols = [];
+        this.scrollableCols = [
+            // { field: 'user_details.name', header: 'Created By', width: '20%', editable: false },
+            //  { field: 'consultant.consultatName', header: 'First Name', width: '20%', editable: false },
+            //    { field: 'consultant.consultantLastName', header: 'Last Name', width: '20%', editable: false },
+            { field: 'vendorStatus', header: 'Status', width: '40%', editable: true },
+            { field: 'consultant.technology', header: 'Technology', width: '20%', editable: false },
+            { field: 'vendorCompanyName', header: 'Company Name', width: '20%', editable: false },
+            { field: 'vendorName', header: 'Vendor Name', width: '20%', editable: false },
+            { field: 'vendorEmail', header: 'Vendor Email', width: '20%', editable: false },
+            { field: 'vendorMobileNumber', header: 'Vendor Mobile', width: '20%', editable: false },
+            { field: 'endClientName', header: 'End Client Name', width: '20%', editable: false },
+            { field: 'actualRate', header: 'Actual Rate', width: '20%', editable: true },
+            { field: 'submissionRate', header: 'Submissio Rate', width: '20%', editable: true },
+        ];
+        this.representatives = [
+            { name: "Dot net Developer" },
+            { name: "Java Developer" },
+            { name: "QA Tester/QA Analyst" },
+            { name: "Devops Engineer" }
+        ];
+        this.statuses = [
+            { label: 'Unqualified', value: 'unqualified' },
+            { label: 'Qualified', value: 'qualified' },
+            { label: 'New', value: 'new' },
+            { label: 'Negotiation', value: 'negotiation' },
+            { label: 'Renewal', value: 'renewal' },
+            { label: 'Proposal', value: 'proposal' }
+        ];
+    }
+    showModalDialog(data) {
+        console.log(data);
+        this.heading1 = data.consultant.consultatName + " submiting to " + data.vendorCompanyName;
+        this.displayModal = true;
+        this.submissionId = data.vendorId;
+        this.registerVendor.patchValue({
+            vendorComments: data.vendorComments,
+            vendorStatus: data.vendorStatus,
+            timezone: data.timezone,
+            scheduleDate: this.formatDate(data.scheduleDate),
+        });
+    }
+    showModalDialog1(data) {
+        this.displayModal1 = true;
+        this.comment = data;
+    }
+    formatDate(date) {
+        if (date) {
+            const d = new Date(date);
+            let month = '' + (d.getMonth() + 1);
+            let day = '' + d.getDate();
+            const year = d.getFullYear();
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+            return [year, month, day].join('-');
+        }
+        else {
+            const d = new Date();
+            let month = '' + (d.getMonth() + 1);
+            let day = '' + d.getDate();
+            const year = d.getFullYear();
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+            return [year, month, day].join('-');
+        }
+    }
+    onRepresentativeChange(event) {
+        if (event.value) {
+            console.log(event.value);
+            this.table.filter(event.value, 'technology', 'in');
+        }
+    }
+    dropDatabase(event, index) {
+        if (event.defaultPrevented)
+            return;
+        event.preventDefault();
+        this.confirmation.confirm({
+            key: 'confirm-drop-database',
+            message: 'Are you sure to Aprove for Hotlist',
+            accept: () => { this._dropDatabase(index); },
+        });
+    }
+    _dropDatabase(index) {
+        const formData = new FormData();
+        formData.append("index", index);
+        console.log(formData);
+        this.userRest.statusChangeConsultant(formData).subscribe((response) => {
+            console.log(response);
+            this.loading = false;
+            this.timeSheets = response.timesheet;
+        }, (error) => { console.log(error); });
+    }
+    getColor(status) {
+        if (status == "Placed") {
+            return "#d4edda";
+        }
+    }
+    onDateSelect(value) {
+        this.table.filter(value, 'created_at', 'equals');
+    }
+    formatDateNew(date) {
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        if (month < 10) {
+            month = '0' + month;
+        }
+        if (day < 10) {
+            day = '0' + day;
+        }
+        return date.getFullYear() + '-' + month + '-' + day;
+    }
+    get vendorStatus() { return this.registerVendor.get('vendorStatus'); }
+    get vendorComments() { return this.registerVendor.get('vendorComments'); }
+    get scheduleDate() { return this.registerVendor.get('scheduleDate'); }
+    get timezone() { return this.registerVendor.get('timezone'); }
+    registerUser(submissionId) {
+        console.log(this.registerVendor);
+        this.userRest.updateSubmission(this.registerVendor, submissionId).subscribe(response => {
+            this.displayModal = false;
+            console.log(response),
+                this.loadCarsLazy(this.lastLazyEvent);
+            this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Submision Updated' });
+        }, error => {
+            this.serverErrors = error.error.errors;
+        });
+    }
+};
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('dt', { static: true }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", primeng_table__WEBPACK_IMPORTED_MODULE_4__["Table"])
+], MyBenchSalesComponent.prototype, "table", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('modalContent', { static: true }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
+], MyBenchSalesComponent.prototype, "modalContent", void 0);
+MyBenchSalesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-user-list',
+        // changeDetection: ChangeDetectionStrategy.OnPush,
+        providers: [primeng_api__WEBPACK_IMPORTED_MODULE_6__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_6__["ConfirmationService"]],
+        template: __webpack_require__(/*! raw-loader!./mybenchsales-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/benchsales/mybenchsales/mybenchsales-list.component.html"),
+        styles: [__webpack_require__(/*! ./mybenchsales-list.component.scss */ "./src/app/admin/benchsales/mybenchsales/mybenchsales-list.component.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [primeng_api__WEBPACK_IMPORTED_MODULE_6__["ConfirmationService"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"], primeng_api__WEBPACK_IMPORTED_MODULE_6__["MessageService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _user_rest_service__WEBPACK_IMPORTED_MODULE_3__["UserRestService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+], MyBenchSalesComponent);
 
 
 
@@ -1927,6 +2211,39 @@ let UserRestService = class UserRestService {
         //this.http.get(`${environment.api}/submissions`,  params);
         //  return this.http.get(`${environment.api}/submissions?page=`+pagenumber+'filters'+);
     }
+    getMySubmissions(page) {
+        const pagenumber = page.first / 20;
+        let str;
+        let actorList = page.filters;
+        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
+        console.log(Object.keys(actorList).length);
+        params = params.append('page', pagenumber);
+        if (Object.keys(actorList).length) {
+            /* if(actorList['user_details.name'])
+             params = params.append('name', actorList['user_details.name']['value']);
+   
+             if(actorList['vendorStatus'])
+             params = params.append('vendorStatus', actorList['vendorStatus']['value']);
+             if(actorList['vendorCompanyName'])
+             params = params.append('vendorCompanyName', actorList['vendorCompanyName']['value']);
+             if(actorList['vendorName'])
+             params = params.append('vendorName', actorList['vendorName']['value']);
+             if(actorList['vendorEmail'])
+             params = params.append('vendorEmail', actorList['vendorEmail']['value']);
+             if(actorList['created_at'])
+             params = params.append('created_at', actorList['created_at']['value']); */
+            if (actorList['consultant.consultatName'])
+                params = params.append('consultatName', actorList['consultant.consultatName']['value']);
+            for (let id in actorList) {
+                params = params.append(id, actorList[id]['value']);
+            }
+        }
+        const opts = { params: params };
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/getMySubmissions`, opts);
+        // const pagenumber:any =page.first/20;
+        //this.http.get(`${environment.api}/submissions`,  params);
+        //  return this.http.get(`${environment.api}/submissions?page=`+pagenumber+'filters'+);
+    }
     storeUser(form) {
         return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api}/submissions`, form.value);
     }
@@ -2002,6 +2319,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contacts_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! .//contacts/user-list/user-list.component */ "./src/app/admin/benchsales/contacts/user-list/user-list.component.ts");
 /* harmony import */ var _interviews_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./interviews/user-list/user-list.component */ "./src/app/admin/benchsales/interviews/user-list/user-list.component.ts");
 /* harmony import */ var _hotlist_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./hotlist/user-list/user-list.component */ "./src/app/admin/benchsales/hotlist/user-list/user-list.component.ts");
+/* harmony import */ var _mybenchsales_mybenchsales_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./mybenchsales/mybenchsales-list.component */ "./src/app/admin/benchsales/mybenchsales/mybenchsales-list.component.ts");
+
 
 
 
@@ -2020,6 +2339,9 @@ const routes = [
         component: _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_3__["UserIndexComponent"],
         children: [
             { path: 'list', component: _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_4__["UserListComponent"], data: {
+                    expectedRole: 'BenchSales'
+                } },
+            { path: 'mylist', component: _mybenchsales_mybenchsales_list_component__WEBPACK_IMPORTED_MODULE_11__["MyBenchSalesComponent"], data: {
                     expectedRole: 'BenchSales'
                 } },
             { path: 'create', component: _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_5__["UserCreateComponent"], data: {
@@ -2072,51 +2394,53 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-routing.module */ "./src/app/admin/benchsales/user-routing.module.ts");
 /* harmony import */ var _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-index/user-index.component */ "./src/app/admin/benchsales/user-index/user-index.component.ts");
 /* harmony import */ var _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-list/user-list.component */ "./src/app/admin/benchsales/user-list/user-list.component.ts");
-/* harmony import */ var _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-create/user-create.component */ "./src/app/admin/benchsales/user-create/user-create.component.ts");
-/* harmony import */ var _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-edit/user-edit.component */ "./src/app/admin/benchsales/user-edit/user-edit.component.ts");
-/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user-rest.service */ "./src/app/admin/benchsales/user-rest.service.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var primeng_multiselect__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/multiselect */ "./node_modules/primeng/multiselect.js");
-/* harmony import */ var primeng_multiselect__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(primeng_multiselect__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/toast */ "./node_modules/primeng/toast.js");
-/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(primeng_toast__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var primeng_slider__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeng/slider */ "./node_modules/primeng/slider.js");
-/* harmony import */ var primeng_slider__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(primeng_slider__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/contextmenu */ "./node_modules/primeng/contextmenu.js");
-/* harmony import */ var primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! primeng/dialog */ "./node_modules/primeng/dialog.js");
-/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(primeng_dialog__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! primeng/button */ "./node_modules/primeng/button.js");
-/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(primeng_button__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! primeng/progressbar */ "./node_modules/primeng/progressbar.js");
-/* harmony import */ var primeng_progressbar__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! primeng/inputtext */ "./node_modules/primeng/inputtext.js");
-/* harmony import */ var primeng_inputtext__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! primeng/tabmenu */ "./node_modules/primeng/tabmenu.js");
-/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! primeng/tooltip */ "./node_modules/primeng/tooltip.js");
-/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__);
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! primeng/fileupload */ "./node_modules/primeng/fileupload.js");
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(primeng_fileupload__WEBPACK_IMPORTED_MODULE_21__);
-/* harmony import */ var ngx_dropzone__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-dropzone */ "./node_modules/ngx-dropzone/fesm2015/ngx-dropzone.js");
-/* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! primeng/dropdown */ "./node_modules/primeng/dropdown.js");
-/* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! primeng/inplace */ "./node_modules/primeng/inplace.js");
-/* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(primeng_inplace__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var _field1_pipe__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../field1.pipe */ "./src/app/field1.pipe.ts");
-/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! primeng/confirmdialog */ "./node_modules/primeng/confirmdialog.js");
-/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__);
-/* harmony import */ var _documents_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./documents/user-list/user-list.component */ "./src/app/admin/benchsales/documents/user-list/user-list.component.ts");
-/* harmony import */ var _contacts_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./contacts/user-list/user-list.component */ "./src/app/admin/benchsales/contacts/user-list/user-list.component.ts");
-/* harmony import */ var _interviews_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./interviews/user-list/user-list.component */ "./src/app/admin/benchsales/interviews/user-list/user-list.component.ts");
-/* harmony import */ var _hotlist_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./hotlist/user-list/user-list.component */ "./src/app/admin/benchsales/hotlist/user-list/user-list.component.ts");
-/* harmony import */ var primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! primeng/virtualscroller */ "./node_modules/primeng/virtualscroller.js");
-/* harmony import */ var primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_31__);
-/* harmony import */ var _replace_pipe_pipe__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../replace-pipe.pipe */ "./src/app/replace-pipe.pipe.ts");
-/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! primeng/calendar */ "./node_modules/primeng/calendar.js");
-/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(primeng_calendar__WEBPACK_IMPORTED_MODULE_33__);
+/* harmony import */ var _mybenchsales_mybenchsales_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./mybenchsales/mybenchsales-list.component */ "./src/app/admin/benchsales/mybenchsales/mybenchsales-list.component.ts");
+/* harmony import */ var _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-create/user-create.component */ "./src/app/admin/benchsales/user-create/user-create.component.ts");
+/* harmony import */ var _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user-edit/user-edit.component */ "./src/app/admin/benchsales/user-edit/user-edit.component.ts");
+/* harmony import */ var _user_rest_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./user-rest.service */ "./src/app/admin/benchsales/user-rest.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var primeng_multiselect__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/multiselect */ "./node_modules/primeng/multiselect.js");
+/* harmony import */ var primeng_multiselect__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(primeng_multiselect__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeng/toast */ "./node_modules/primeng/toast.js");
+/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(primeng_toast__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var primeng_slider__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/slider */ "./node_modules/primeng/slider.js");
+/* harmony import */ var primeng_slider__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(primeng_slider__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var primeng_contextmenu__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! primeng/contextmenu */ "./node_modules/primeng/contextmenu.js");
+/* harmony import */ var primeng_contextmenu__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(primeng_contextmenu__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! primeng/dialog */ "./node_modules/primeng/dialog.js");
+/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(primeng_dialog__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! primeng/button */ "./node_modules/primeng/button.js");
+/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(primeng_button__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var primeng_progressbar__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! primeng/progressbar */ "./node_modules/primeng/progressbar.js");
+/* harmony import */ var primeng_progressbar__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(primeng_progressbar__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var primeng_inputtext__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! primeng/inputtext */ "./node_modules/primeng/inputtext.js");
+/* harmony import */ var primeng_inputtext__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(primeng_inputtext__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! primeng/tabmenu */ "./node_modules/primeng/tabmenu.js");
+/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(primeng_tabmenu__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! primeng/tooltip */ "./node_modules/primeng/tooltip.js");
+/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(primeng_tooltip__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! primeng/fileupload */ "./node_modules/primeng/fileupload.js");
+/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(primeng_fileupload__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var ngx_dropzone__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ngx-dropzone */ "./node_modules/ngx-dropzone/fesm2015/ngx-dropzone.js");
+/* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! primeng/dropdown */ "./node_modules/primeng/dropdown.js");
+/* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(primeng_dropdown__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! primeng/inplace */ "./node_modules/primeng/inplace.js");
+/* harmony import */ var primeng_inplace__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(primeng_inplace__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var _field1_pipe__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../../field1.pipe */ "./src/app/field1.pipe.ts");
+/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! primeng/confirmdialog */ "./node_modules/primeng/confirmdialog.js");
+/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var _documents_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./documents/user-list/user-list.component */ "./src/app/admin/benchsales/documents/user-list/user-list.component.ts");
+/* harmony import */ var _contacts_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./contacts/user-list/user-list.component */ "./src/app/admin/benchsales/contacts/user-list/user-list.component.ts");
+/* harmony import */ var _interviews_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./interviews/user-list/user-list.component */ "./src/app/admin/benchsales/interviews/user-list/user-list.component.ts");
+/* harmony import */ var _hotlist_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./hotlist/user-list/user-list.component */ "./src/app/admin/benchsales/hotlist/user-list/user-list.component.ts");
+/* harmony import */ var primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! primeng/virtualscroller */ "./node_modules/primeng/virtualscroller.js");
+/* harmony import */ var primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_32__);
+/* harmony import */ var _replace_pipe_pipe__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../../replace-pipe.pipe */ "./src/app/replace-pipe.pipe.ts");
+/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! primeng/calendar */ "./node_modules/primeng/calendar.js");
+/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(primeng_calendar__WEBPACK_IMPORTED_MODULE_34__);
+
 
 
 
@@ -2156,23 +2480,23 @@ let UserModule = class UserModule {
 };
 UserModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _replace_pipe_pipe__WEBPACK_IMPORTED_MODULE_32__["ReplacePipe"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_6__["UserCreateComponent"], _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_7__["UserEditComponent"],
-            _field1_pipe__WEBPACK_IMPORTED_MODULE_25__["FieldPipe1"], _documents_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_27__["DocumentBenchListComponent"], _contacts_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_28__["ContactListComponent"], _hotlist_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_30__["HotListBenchComponent"], _interviews_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_29__["InterviewBenchComponent"]],
+        declarations: [_user_index_user_index_component__WEBPACK_IMPORTED_MODULE_4__["UserIndexComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_5__["UserListComponent"], _replace_pipe_pipe__WEBPACK_IMPORTED_MODULE_33__["ReplacePipe"], _user_create_user_create_component__WEBPACK_IMPORTED_MODULE_7__["UserCreateComponent"], _user_edit_user_edit_component__WEBPACK_IMPORTED_MODULE_8__["UserEditComponent"],
+            _field1_pipe__WEBPACK_IMPORTED_MODULE_26__["FieldPipe1"], _documents_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_28__["DocumentBenchListComponent"], _contacts_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_29__["ContactListComponent"], _hotlist_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_31__["HotListBenchComponent"], _interviews_user_list_user_list_component__WEBPACK_IMPORTED_MODULE_30__["InterviewBenchComponent"], _mybenchsales_mybenchsales_list_component__WEBPACK_IMPORTED_MODULE_6__["MyBenchSalesComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _user_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserRoutingModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], primeng_table__WEBPACK_IMPORTED_MODULE_10__["TableModule"], primeng_multiselect__WEBPACK_IMPORTED_MODULE_11__["MultiSelectModule"], primeng_calendar__WEBPACK_IMPORTED_MODULE_33__["CalendarModule"], primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_31__["VirtualScrollerModule"],
-            primeng_slider__WEBPACK_IMPORTED_MODULE_13__["SliderModule"],
-            primeng_dialog__WEBPACK_IMPORTED_MODULE_15__["DialogModule"],
-            primeng_multiselect__WEBPACK_IMPORTED_MODULE_11__["MultiSelectModule"],
-            primeng_contextmenu__WEBPACK_IMPORTED_MODULE_14__["ContextMenuModule"],
-            primeng_button__WEBPACK_IMPORTED_MODULE_16__["ButtonModule"],
-            primeng_toast__WEBPACK_IMPORTED_MODULE_12__["ToastModule"],
-            primeng_inputtext__WEBPACK_IMPORTED_MODULE_18__["InputTextModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_26__["ConfirmDialogModule"],
-            primeng_progressbar__WEBPACK_IMPORTED_MODULE_17__["ProgressBarModule"], primeng_tabmenu__WEBPACK_IMPORTED_MODULE_19__["TabMenuModule"], primeng_tooltip__WEBPACK_IMPORTED_MODULE_20__["TooltipModule"], primeng_fileupload__WEBPACK_IMPORTED_MODULE_21__["FileUploadModule"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_22__["NgxDropzoneModule"], primeng_dropdown__WEBPACK_IMPORTED_MODULE_23__["DropdownModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], primeng_inplace__WEBPACK_IMPORTED_MODULE_24__["InplaceModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"], primeng_table__WEBPACK_IMPORTED_MODULE_11__["TableModule"], primeng_multiselect__WEBPACK_IMPORTED_MODULE_12__["MultiSelectModule"], primeng_calendar__WEBPACK_IMPORTED_MODULE_34__["CalendarModule"], primeng_virtualscroller__WEBPACK_IMPORTED_MODULE_32__["VirtualScrollerModule"],
+            primeng_slider__WEBPACK_IMPORTED_MODULE_14__["SliderModule"],
+            primeng_dialog__WEBPACK_IMPORTED_MODULE_16__["DialogModule"],
+            primeng_multiselect__WEBPACK_IMPORTED_MODULE_12__["MultiSelectModule"],
+            primeng_contextmenu__WEBPACK_IMPORTED_MODULE_15__["ContextMenuModule"],
+            primeng_button__WEBPACK_IMPORTED_MODULE_17__["ButtonModule"],
+            primeng_toast__WEBPACK_IMPORTED_MODULE_13__["ToastModule"],
+            primeng_inputtext__WEBPACK_IMPORTED_MODULE_19__["InputTextModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_27__["ConfirmDialogModule"],
+            primeng_progressbar__WEBPACK_IMPORTED_MODULE_18__["ProgressBarModule"], primeng_tabmenu__WEBPACK_IMPORTED_MODULE_20__["TabMenuModule"], primeng_tooltip__WEBPACK_IMPORTED_MODULE_21__["TooltipModule"], primeng_fileupload__WEBPACK_IMPORTED_MODULE_22__["FileUploadModule"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_23__["NgxDropzoneModule"], primeng_dropdown__WEBPACK_IMPORTED_MODULE_24__["DropdownModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"], primeng_inplace__WEBPACK_IMPORTED_MODULE_25__["InplaceModule"]
         ],
         providers: [
-            _user_rest_service__WEBPACK_IMPORTED_MODULE_8__["UserRestService"]
+            _user_rest_service__WEBPACK_IMPORTED_MODULE_9__["UserRestService"]
         ]
     })
 ], UserModule);

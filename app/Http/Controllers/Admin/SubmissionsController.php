@@ -127,6 +127,75 @@ class SubmissionsController extends Controller
         $submitclientCount = $submitclientSubmissions->count();
         return response()->json(['interviews' => $interViewCount, 'submitclient' => $submitclientCount], 200);
     }
+    public function  getMySubmissions(Request $request)
+    {
+        $where = [];
+
+
+        if ($request->get('reportId')) {
+            $where['reportId'] = $request->reportId;
+        }
+        if ($request->get('submissionRate')) {
+            $where['submissionRate'] = $request->submissionRate;
+        }
+        if ($request->get('actualRate')) {
+            $where['actualRate'] = $request->actualRate;
+        }
+        /*   if ($request->get('technology')) {
+
+            $where['technology'] =$request->technology;
+        } */
+        //    if (Auth::user()->role != "Admin")
+         $where['userId'] = \Auth::user()->id;
+
+
+        $submissions = Submissions::with(['user_details', 'consultant' => function ($q) {
+
+            $q->select([
+                '*', \DB::raw("CONCAT(COALESCE(consultatName	, ''),' ',COALESCE(consultantLastName, '')) as consultatName"),
+                \DB::raw("CASE technology
+                WHEN 'others' THEN otherTechnologies ELSE technology END AS technology")
+            ]);
+        }])
+            ->whereHas('consultant', function ($q) use ($request) {
+                if ($request->get('technology'))
+                    $q->where('technology', 'like', '%' . $request->get('technology') . '%');
+            })
+            ->where($where)
+
+            ->when($request->get('vendorCompanyName'), function ($query) use ($request) {
+                $query->where('vendorCompanyName', 'like', '%' . $request->get('vendorCompanyName') . '%');
+            })
+            ->when($request->get('vendorName'), function ($query) use ($request) {
+                $query->where('vendorName', 'like', '%' . $request->get('vendorName') . '%');
+            })
+
+            ->when($request->get('vendorEmail'), function ($query) use ($request) {
+                $query->where('vendorEmail', 'like', '%' . $request->get('vendorEmail') . '%');
+            })
+            ->when($request->get('vendorMobileNumber'), function ($query) use ($request) {
+                $query->where('vendorMobileNumber', 'like', '%' . $request->get('vendorMobileNumber') . '%');
+            })
+            ->when($request->get('endClientName'), function ($query) use ($request) {
+                $query->where('endClientName', 'like', '%' . $request->get('endClientName') . '%');
+            })
+
+            ->when($request->get('vendorStatus'), function ($query) use ($request) {
+
+                $arrha = explode(',', $request->get('vendorStatus'));
+                $query->whereIn('vendorStatus', $arrha);
+            })
+            ->when($request->get('created_at'), function ($query) use ($request) {
+                $query->whereDate('created_at', '=', \Carbon\Carbon::parse($request->get('created_at'))->format('Y-m-d'));
+            })
+            ->orderBy('created_at', 'DESC')
+            ->paginate(20);
+
+        // $submissions = Submissions::with('user_details','consultant','vendorlist','clients','vendorDetail')->orderBy('created_at', 'DESC')
+
+
+        return response()->json(['submissions' => $submissions], 200);
+    }
     /**
      * Display a listing of the resource.
      *

@@ -1164,16 +1164,13 @@ function yard(infix) {
 /*!*****************************************************!*\
   !*** ./src/app/shared/sidebar/sidebar.component.ts ***!
   \*****************************************************/
-/*! exports provided: ROUTES, HeadHunterROUTES, RecruitersROUTES, BenchSalesROUTES, AdminROUTES, headhuntersAdminROUTES, AccountsROUTES, SidebarComponent */
+/*! exports provided: ROUTES, RecruitersROUTES, headhuntersAdminROUTES, AccountsROUTES, SidebarComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTES", function() { return ROUTES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeadHunterROUTES", function() { return HeadHunterROUTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecruitersROUTES", function() { return RecruitersROUTES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BenchSalesROUTES", function() { return BenchSalesROUTES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminROUTES", function() { return AdminROUTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "headhuntersAdminROUTES", function() { return headhuntersAdminROUTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountsROUTES", function() { return AccountsROUTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarComponent", function() { return SidebarComponent; });
@@ -1192,40 +1189,11 @@ const ROUTES = [
     },
     { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
 ];
-const HeadHunterROUTES = [
-    {
-        path: '/dashboard', title: 'Dashboard', icon: 'nc-bank', class: '',
-        childMenu: null
-    },
-    { path: '/huntersconsultants/list', title: 'Consultants', icon: 'nc-calendar-60', class: '', childMenu: null },
-    { path: '/huntersconsultants/hotlist', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
-];
 const RecruitersROUTES = [
     { path: '/recruiters/list', title: 'Submissions ', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/consultantdocuments/list', title: 'Documents', icon: 'nc-single-02', class: '', childMenu: null },
+    { path: '/consultantdocuments/list', title: 'Employee Documents', icon: 'nc-single-02', class: '', childMenu: null },
     { path: '/hotlist/list', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
     { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
-];
-const BenchSalesROUTES = [
-    { path: '/benchsales/list', title: 'Submissions', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/benchsales/interviews', title: 'Schedule Interviews', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/benchsales/documentlist', title: 'Documents', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/benchsales/contacts', title: 'Contacts', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/benchsales/hotlist', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
-];
-const AdminROUTES = [
-    { path: '/superadmin/userlist', title: 'Users', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/superadmin/consultantlist', title: 'Consultants', icon: 'nc-calendar-60', class: '', childMenu: null },
-    // { path: '/consultants/inactivelist',        title: 'InActive Consultants', icon:'nc-calendar-60',  class: '' ,childMenu: null},
-    { path: '/superadmin/documents', title: 'Documents', icon: 'nc-calendar-60', class: '', childMenu: null },
-    { path: '/superadmin/hotlist', title: 'Hot List', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/superadmin/interviews', title: 'Interviews', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/jobs/list', title: 'Jobs', icon: 'nc-single-02', class: '', childMenu: null },
-    // { path: '/profile', title: 'Your Profile', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/superadmin/sumissionlist', title: 'Submissions', icon: 'nc-single-02', class: '', childMenu: null },
-    { path: '/superadmin/documentsinactive', title: 'In Act List', icon: 'nc-calendar-60', class: '', childMenu: null },
 ];
 const headhuntersAdminROUTES = [
     { path: '/headadminconsultants/list', title: 'Consultant List', icon: 'nc-calendar-60', class: '', childMenu: null },
@@ -1302,7 +1270,7 @@ let SidebarComponent = class SidebarComponent {
             },
             {
                 icon: 'pi pi-fw pi-file-o',
-                label: 'Documents',
+                label: 'Employee Documents',
                 items: [
                     { label: 'Document List', routerLink: "/superadmin/documents" },
                     { label: 'In Active Docs', routerLink: "/superadmin/documentsinactive" },
@@ -1352,6 +1320,7 @@ let SidebarComponent = class SidebarComponent {
                 // routerLink: "/benchsales/list",
                 items: [
                     { label: 'Add Submissions', routerLink: "/benchsales/create" },
+                    { label: 'My Submissions', routerLink: "/benchsales/mylist" },
                     { label: 'Schedule Interviews', routerLink: "/benchsales/interviews" },
                     { label: 'All Submissions', routerLink: "/benchsales/list" },
                     { label: 'All Contacts', routerLink: "/benchsales/contacts" },
