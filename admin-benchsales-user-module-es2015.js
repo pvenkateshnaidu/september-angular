@@ -2339,7 +2339,7 @@ const routes = [
         component: _user_index_user_index_component__WEBPACK_IMPORTED_MODULE_3__["UserIndexComponent"],
         children: [
             { path: 'list', component: _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_4__["UserListComponent"], data: {
-                    expectedRole: 'BenchSales'
+                    expectedRole: ['BenchSales', 'Admin']
                 } },
             { path: 'mylist', component: _mybenchsales_mybenchsales_list_component__WEBPACK_IMPORTED_MODULE_11__["MyBenchSalesComponent"], data: {
                     expectedRole: 'BenchSales'

@@ -767,7 +767,7 @@ var AdminLayoutRoutes = [
     {
         path: 'benchsales', canActivateChild: [app_rout_guard_service__WEBPACK_IMPORTED_MODULE_3__["RouteGuardService"]],
         data: {
-            expectedRole: 'BenchSales'
+            expectedRole: ['BenchSales', 'Admin']
         },
         loadChildren: function () { return Promise.all(/*! import() | admin-benchsales-user-module */[__webpack_require__.e("default~admin-accountmanager-user-module~admin-benchsales-user-module~admin-headAdminconsultants-use~650afdf7"), __webpack_require__.e("default~admin-accountmanager-user-module~admin-benchsales-user-module~admin-headAdminconsultants-use~169c0da3"), __webpack_require__.e("default~admin-benchsales-user-module~admin-headAdminconsultants-user-module~admin-huntersconsultants~70431177"), __webpack_require__.e("default~admin-benchsales-user-module~admin-vendorlist-user-module"), __webpack_require__.e("common"), __webpack_require__.e("admin-benchsales-user-module")]).then(__webpack_require__.bind(null, /*! ../../admin/benchsales/user.module */ "./src/app/admin/benchsales/user.module.ts")).then(function (m) { return m.UserModule; }); },
     },
@@ -1326,12 +1326,14 @@ var RouteGuardService = /** @class */ (function () {
         var role = localStorage.getItem('role');
         return this.auth.isAuthonticated().then(function (authSuccess) {
             if (authSuccess) {
-                if (role != expectedRole) {
+                if (expectedRole.includes(role)) {
+                    return true;
+                }
+                else {
                     console.log("role" + role);
                     console.log("expected role" + expectedRole);
                     _this.router.navigate(['/dashboard']);
                 }
-                return true;
             }
             else {
                 _this.router.navigate(['/home']);

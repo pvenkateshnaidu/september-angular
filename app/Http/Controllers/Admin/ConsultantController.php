@@ -339,7 +339,13 @@ class ConsultantController extends Controller
         $user->reportStatus = $request->reportStatus;
         $user->skypeId = $request->skypeId;
         $user->linkedInUrl = $request->linkedInUrl;
-        $user->priority = $request->priority;
+        if( $request->priority)
+        {
+            $user->priority = $request->priority;
+        }else{
+            $user->priority = 'Low';
+        }
+
         $user->availability = $request->availability;
         $user->bestContactNumber = $request->bestContactNumber;
         $user->ssn = $request->ssn;
@@ -412,7 +418,12 @@ class ConsultantController extends Controller
         } else {
             if (Auth::user()->role == "Admin" || Auth::user()->role == "HeadHuntersAdmin") {
                 $user = \App\Reports::find($request->index);
-                $user->adminStatus = $request->value;
+                if($request->value)
+                {
+                    $user->adminStatus = $request->value;
+                }else{
+                   $user->adminStatus = 'A';
+                }
                 $user->save();
                 $timesheet = Reports::with('user_details')
                     ->where("userStatus", '=', 'p')
